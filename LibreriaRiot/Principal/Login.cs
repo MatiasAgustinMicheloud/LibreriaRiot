@@ -61,7 +61,27 @@ namespace LibreriaRiot.Principal
             return true;
         }
 
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private void btncerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnminimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void iconEye_Click(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            iconEye.Visible = !string.IsNullOrEmpty(txtPassword.Text);
+        }
+
+        private void btnIniciar_Click_1(object sender, EventArgs e)
         {
             ValidacionDatos();
 
