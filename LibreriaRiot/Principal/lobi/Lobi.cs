@@ -48,29 +48,32 @@ namespace LibreriaRiot.Principal.lobi
         {
             switch (userType)
             {
-                case UserType.Admin:
-                    // Mostrar todos los botones
+                case UserType.Gerente:
+                    // Mostrar solo los botones de gerente
                     iconRespaldo.Visible = true;
                     iconEstadistica.Visible = true;
+                    iconUsuarios.Visible = true;
+                    lbRol.Text = "Gerente";
+                    lbNApe.Text = "Matias Micheloud";
+                    break;
+
+                case UserType.Admin:
+                    // Mostrar solo los botones de administrador
+                    iconProducto.Visible = true;
+                    iconUsuarios.Visible = true;
+                    iconHistorialVentas.Visible = true;
                     lbRol.Text = "administrador";
                     lbNApe.Text = "Lautaro Belucci";
                     break;
 
                 case UserType.Vendedor:
                     // Mostrar solo los botones de vendedor
-                    iconProducto.Visible = true;
-                    iconHistorialVentas.Visible = true;
-                    iconUsuarios.Visible = true;
-                    lbRol.Text = "Vendedor";
-                    lbNApe.Text = "Dylan Fernandez";
-                    break;
-
-                case UserType.Gerente:
-                    // Mostrar solo los botones de vendedor
                     iconCatalogo.Visible = true;
                     iconMisVentas.Visible = true;
-                    lbRol.Text = "Gerente";
-                    lbNApe.Text = "Matias Micheloud";
+                    iconRealizarVenta.Visible = true;
+                    iconCargarCliente.Visible = true;
+                    lbRol.Text = "Vendedor";
+                    lbNApe.Text = "Dylan Fernandez";
                     break;
             }
         }
@@ -96,6 +99,11 @@ namespace LibreriaRiot.Principal.lobi
             {
                 this.Close();
             }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

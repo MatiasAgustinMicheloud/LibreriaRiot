@@ -48,6 +48,7 @@
             pictureBox3 = new PictureBox();
             label2 = new Label();
             panel4 = new Panel();
+            iconRealizarVenta = new FontAwesome.Sharp.IconButton();
             iconExit = new FontAwesome.Sharp.IconButton();
             iconRespaldo = new FontAwesome.Sharp.IconButton();
             iconUsuarios = new FontAwesome.Sharp.IconButton();
@@ -57,6 +58,7 @@
             iconCatalogo = new FontAwesome.Sharp.IconButton();
             iconProducto = new FontAwesome.Sharp.IconButton();
             horaFecha = new System.Windows.Forms.Timer(components);
+            iconCargarCliente = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -282,6 +284,8 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ControlDarkDark;
+            panel4.Controls.Add(iconCargarCliente);
+            panel4.Controls.Add(iconRealizarVenta);
             panel4.Controls.Add(iconExit);
             panel4.Controls.Add(iconRespaldo);
             panel4.Controls.Add(iconUsuarios);
@@ -294,6 +298,28 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(209, 513);
             panel4.TabIndex = 0;
+            // 
+            // iconRealizarVenta
+            // 
+            iconRealizarVenta.BackColor = SystemColors.ControlDarkDark;
+            iconRealizarVenta.Dock = DockStyle.Top;
+            iconRealizarVenta.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
+            iconRealizarVenta.FlatAppearance.BorderSize = 2;
+            iconRealizarVenta.FlatStyle = FlatStyle.Flat;
+            iconRealizarVenta.ForeColor = SystemColors.Window;
+            iconRealizarVenta.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
+            iconRealizarVenta.IconColor = Color.White;
+            iconRealizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconRealizarVenta.IconSize = 40;
+            iconRealizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
+            iconRealizarVenta.Location = new Point(0, 378);
+            iconRealizarVenta.Name = "iconRealizarVenta";
+            iconRealizarVenta.Size = new Size(209, 54);
+            iconRealizarVenta.TabIndex = 11;
+            iconRealizarVenta.Text = "Realizar Venta";
+            iconRealizarVenta.UseVisualStyleBackColor = false;
+            iconRealizarVenta.Visible = false;
+            iconRealizarVenta.Click += iconButton1_Click;
             // 
             // iconExit
             // 
@@ -333,7 +359,7 @@
             iconRespaldo.Name = "iconRespaldo";
             iconRespaldo.Size = new Size(209, 54);
             iconRespaldo.TabIndex = 3;
-            iconRespaldo.Text = "Base De Dato";
+            iconRespaldo.Text = "Base De Datos";
             iconRespaldo.UseVisualStyleBackColor = false;
             iconRespaldo.Visible = false;
             // 
@@ -459,7 +485,7 @@
             iconProducto.Name = "iconProducto";
             iconProducto.Size = new Size(209, 54);
             iconProducto.TabIndex = 2;
-            iconProducto.Text = "Pruducto";
+            iconProducto.Text = "Producto";
             iconProducto.UseVisualStyleBackColor = false;
             iconProducto.Visible = false;
             // 
@@ -467,6 +493,26 @@
             // 
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick_1;
+            // 
+            // iconCargarCliente
+            // 
+            iconCargarCliente.Dock = DockStyle.Top;
+            iconCargarCliente.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
+            iconCargarCliente.FlatAppearance.BorderSize = 2;
+            iconCargarCliente.FlatStyle = FlatStyle.Flat;
+            iconCargarCliente.ForeColor = SystemColors.Window;
+            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            iconCargarCliente.IconColor = Color.White;
+            iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconCargarCliente.IconSize = 40;
+            iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            iconCargarCliente.Location = new Point(0, 432);
+            iconCargarCliente.Name = "iconCargarCliente";
+            iconCargarCliente.Size = new Size(209, 54);
+            iconCargarCliente.TabIndex = 12;
+            iconCargarCliente.Text = "Cargar Cliente";
+            iconCargarCliente.UseVisualStyleBackColor = false;
+            iconCargarCliente.Visible = false;
             // 
             // Lobi
             // 
@@ -479,6 +525,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Name = "Lobi";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Lobi_Load;
             panel1.ResumeLayout(false);
@@ -524,5 +571,7 @@
         private System.Windows.Forms.Timer horaFecha;
         private Label label2;
         private PictureBox pictureBox3;
+        private FontAwesome.Sharp.IconButton iconRealizarVenta;
+        private FontAwesome.Sharp.IconButton iconCargarCliente;
     }
 }

@@ -79,6 +79,9 @@ namespace LibreriaRiot.Principal
                 if (!Regex.IsMatch(txtUsuario.Text, emailPattern))
                 {
                     msgError("El formato del email es inválido.");
+                    txtUsuario.Clear();
+                    txtUsuario.Focus();
+
 
                 }
                 else
@@ -118,18 +121,13 @@ namespace LibreriaRiot.Principal
                         else
                         {
                             msgError("Usuario o contraseña incorrecta");
+                            txtPassword.Clear();
                             txtPassword.Focus();
                         }
-
-
-
                     }
                 }
 
             }
-
-
-
         }
 
         private void msgError(string msg)
