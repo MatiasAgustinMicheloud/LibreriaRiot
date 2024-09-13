@@ -9,12 +9,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Principal\Gerente\" />
-    <Folder Include="Principal\Vendedor\" />
+    <Compile Remove="Principal\Gerente\**" />
+    <Compile Remove="Principal\Vendedor\**" />
+    <EmbeddedResource Remove="Principal\Gerente\**" />
+    <EmbeddedResource Remove="Principal\Vendedor\**" />
+    <None Remove="Principal\Gerente\**" />
+    <None Remove="Principal\Vendedor\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using LibreriaRiot.Principal.Administrador;
+﻿using LibreriaRiot.Principal.lobi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,35 +15,15 @@ namespace LibreriaRiot.Principal
 {
     public partial class Login : Form
     {
+        private UserType currentUserType;
         public Login()
         {
             InitializeComponent();
         }
 
-        private bool ValidacionDatos()
+        /*private bool ValidacionDatos()
         {
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                MessageBox.Show("El campo 'Usuario' es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsuario.Focus(); // Focalizar el campo vacío
-                return false;
-            }
-
-            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
-            if (!Regex.IsMatch(txtUsuario.Text, emailPattern))
-            {
-                MessageBox.Show("El formato del email es inválido.");
-                return false;
-            }
-
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                MessageBox.Show("El campo 'Contraseña' es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
-                return false;
-            }
+           
             else
             {
                 if (txtPassword.Text.Length < 3)
@@ -59,7 +39,7 @@ namespace LibreriaRiot.Principal
                 }
             }
             return true;
-        }
+         }**/
 
         private void btncerrar_Click(object sender, EventArgs e)
         {
@@ -83,14 +63,80 @@ namespace LibreriaRiot.Principal
 
         private void btnIniciar_Click_1(object sender, EventArgs e)
         {
-            ValidacionDatos();
 
-            if (txtUsuario.Text == "admin@gmail.com" && txtPassword.Text == "Admin1")
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
-                MessageBox.Show("Admin");
-                MenuAdmin menuAdmin = new MenuAdmin();
-                menuAdmin.Show();
+
+                msgError("El campo 'Usuario' es obligatorio.");
+                txtUsuario.Focus();
+
             }
+            else
+            {
+
+                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+                if (!Regex.IsMatch(txtUsuario.Text, emailPattern))
+                {
+                    msgError("El formato del email es inválido.");
+
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(txtPassword.Text))
+                    {
+                        msgError("El campo 'Contraseña' es obligatorio.");
+                        txtPassword.Focus();
+
+                    }
+                    else
+                    {
+                        if (txtUsuario.Text == "admin@gmail.com" && txtPassword.Text == "Admin1")
+                        {
+                            currentUserType = UserType.Admin;
+                            Lobi menu = new Lobi(currentUserType);
+                            menu.Show();
+
+                            this.Hide();
+                        }
+                        else if (txtUsuario.Text == "vendedor@gmail.com" && txtPassword.Text == "Vendedor1")
+                        {
+                            currentUserType = UserType.Vendedor;
+                            Lobi menu = new Lobi(currentUserType);
+                            menu.Show();
+
+                            this.Hide();
+                        }
+                        else if (txtUsuario.Text == "gerente@gmail.com" && txtPassword.Text == "Gerente1")
+                        {
+                            currentUserType = UserType.Gerente;
+                            Lobi menu = new Lobi(currentUserType);
+                            menu.Show();
+
+                            this.Hide();
+                        }
+                        else
+                        {
+                            msgError("Usuario o contraseña incorrecta");
+                            txtPassword.Focus();
+                        }
+
+
+
+                    }
+                }
+
+            }
+
+
+
         }
+
+        private void msgError(string msg)
+        {
+            lbErrorMenssage.Text = "        " + msg;
+            lbErrorMenssage.Visible = true;
+        }
+
     }
 }

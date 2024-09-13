@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
+            lbErrorMenssage = new Label();
             iconEye = new FontAwesome.Sharp.IconButton();
             btnminimizar = new PictureBox();
             btncerrar = new PictureBox();
@@ -54,6 +55,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Silver;
+            panel1.Controls.Add(lbErrorMenssage);
             panel1.Controls.Add(iconEye);
             panel1.Controls.Add(btnminimizar);
             panel1.Controls.Add(btncerrar);
@@ -68,6 +70,19 @@
             panel1.Size = new Size(472, 288);
             panel1.TabIndex = 25;
             // 
+            // lbErrorMenssage
+            // 
+            lbErrorMenssage.AutoSize = true;
+            lbErrorMenssage.ForeColor = Color.Brown;
+            lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
+            lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage.Location = new Point(22, 188);
+            lbErrorMenssage.Name = "lbErrorMenssage";
+            lbErrorMenssage.Size = new Size(95, 15);
+            lbErrorMenssage.TabIndex = 0;
+            lbErrorMenssage.Text = "Mensaje de error";
+            lbErrorMenssage.Visible = false;
+            // 
             // iconEye
             // 
             iconEye.BackColor = Color.White;
@@ -78,7 +93,7 @@
             iconEye.IconColor = Color.DarkGray;
             iconEye.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconEye.IconSize = 23;
-            iconEye.Location = new Point(433, 145);
+            iconEye.Location = new Point(432, 148);
             iconEye.Name = "iconEye";
             iconEye.Size = new Size(24, 16);
             iconEye.TabIndex = 15;
@@ -204,6 +219,7 @@
             // 
             // Login
             // 
+            AcceptButton = btnIniciar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(663, 286);
@@ -211,6 +227,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             panel1.ResumeLayout(false);
@@ -240,5 +257,6 @@
         private PictureBox btnminimizar;
         private PictureBox btncerrar;
         private FontAwesome.Sharp.IconButton iconEye;
+        private Label lbErrorMenssage;
     }
 }
