@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    public partial class Form1 : Form
+    public partial class VerProductos : Form
     {
-        public Form1()
+        public VerProductos()
         {
             InitializeComponent();
         }

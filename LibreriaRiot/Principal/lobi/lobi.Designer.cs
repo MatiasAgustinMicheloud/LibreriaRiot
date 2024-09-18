@@ -48,6 +48,7 @@
             pictureBox3 = new PictureBox();
             label2 = new Label();
             panel4 = new Panel();
+            iconCargarCliente = new FontAwesome.Sharp.IconButton();
             iconRealizarVenta = new FontAwesome.Sharp.IconButton();
             iconExit = new FontAwesome.Sharp.IconButton();
             iconRespaldo = new FontAwesome.Sharp.IconButton();
@@ -58,7 +59,6 @@
             iconCatalogo = new FontAwesome.Sharp.IconButton();
             iconProducto = new FontAwesome.Sharp.IconButton();
             horaFecha = new System.Windows.Forms.Timer(components);
-            iconCargarCliente = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -299,6 +299,26 @@
             panel4.Size = new Size(209, 513);
             panel4.TabIndex = 0;
             // 
+            // iconCargarCliente
+            // 
+            iconCargarCliente.Dock = DockStyle.Top;
+            iconCargarCliente.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
+            iconCargarCliente.FlatAppearance.BorderSize = 2;
+            iconCargarCliente.FlatStyle = FlatStyle.Flat;
+            iconCargarCliente.ForeColor = SystemColors.Window;
+            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            iconCargarCliente.IconColor = Color.White;
+            iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconCargarCliente.IconSize = 40;
+            iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            iconCargarCliente.Location = new Point(0, 432);
+            iconCargarCliente.Name = "iconCargarCliente";
+            iconCargarCliente.Size = new Size(209, 54);
+            iconCargarCliente.TabIndex = 12;
+            iconCargarCliente.Text = "Cargar Cliente";
+            iconCargarCliente.UseVisualStyleBackColor = false;
+            iconCargarCliente.Visible = false;
+            // 
             // iconRealizarVenta
             // 
             iconRealizarVenta.BackColor = SystemColors.ControlDarkDark;
@@ -488,31 +508,12 @@
             iconProducto.Text = "Producto";
             iconProducto.UseVisualStyleBackColor = false;
             iconProducto.Visible = false;
+            iconProducto.Click += iconProducto_Click;
             // 
             // horaFecha
             // 
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick_1;
-            // 
-            // iconCargarCliente
-            // 
-            iconCargarCliente.Dock = DockStyle.Top;
-            iconCargarCliente.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconCargarCliente.FlatAppearance.BorderSize = 2;
-            iconCargarCliente.FlatStyle = FlatStyle.Flat;
-            iconCargarCliente.ForeColor = SystemColors.Window;
-            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            iconCargarCliente.IconColor = Color.White;
-            iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconCargarCliente.IconSize = 40;
-            iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            iconCargarCliente.Location = new Point(0, 432);
-            iconCargarCliente.Name = "iconCargarCliente";
-            iconCargarCliente.Size = new Size(209, 54);
-            iconCargarCliente.TabIndex = 12;
-            iconCargarCliente.Text = "Cargar Cliente";
-            iconCargarCliente.UseVisualStyleBackColor = false;
-            iconCargarCliente.Visible = false;
             // 
             // Lobi
             // 

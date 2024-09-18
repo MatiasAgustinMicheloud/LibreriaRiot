@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibreriaRiot.Principal;
+using LibreriaRiot.Principal.lobi.Administrador;
 
 namespace LibreriaRiot.Principal.lobi
 {
@@ -104,6 +105,13 @@ namespace LibreriaRiot.Principal.lobi
         private void iconButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconProducto_Click(object sender, EventArgs e)
+        {
+            Administrador.Form1 agregarProducto = new Administrador.Form1();
+            agregarProducto.Show();
+            this.Hide();
         }
     }
 }
