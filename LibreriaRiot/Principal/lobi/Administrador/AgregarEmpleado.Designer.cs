@@ -1,6 +1,6 @@
 ﻿namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    partial class Form1
+    partial class AgregarEmpleado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            panel1 = new Panel();
-            pictureBox1 = new PictureBox();
-            lblAgregarProducto = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarEmpleado));
             panel2 = new Panel();
+            dtFechaAlta = new DateTimePicker();
             lbErrorMenssage = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             btnVerProductos = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
-            cbCategoria = new ComboBox();
-            pbPortada = new PictureBox();
-            txtStock = new TextBox();
-            txtPrecio = new TextBox();
-            txtDescripcion = new TextBox();
-            txtAutor = new TextBox();
-            txtEditorial = new TextBox();
-            txtTitulo = new TextBox();
+            cbRol = new ComboBox();
+            pbFoto = new PictureBox();
+            txtEmail = new TextBox();
+            txtTelefono = new TextBox();
+            txtDNI = new TextBox();
+            txtApellido = new TextBox();
+            txtNombre = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -53,58 +50,30 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            lblAgregarProducto = new Label();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ControlDarkDark;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(lblAgregarProducto);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(804, 70);
-            panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // lblAgregarProducto
-            // 
-            lblAgregarProducto.AutoSize = true;
-            lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
-            lblAgregarProducto.Location = new Point(301, 18);
-            lblAgregarProducto.Name = "lblAgregarProducto";
-            lblAgregarProducto.Size = new Size(209, 39);
-            lblAgregarProducto.TabIndex = 0;
-            lblAgregarProducto.Text = "Agregar Producto";
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(dtFechaAlta);
             panel2.Controls.Add(lbErrorMenssage);
             panel2.Controls.Add(iconButton1);
             panel2.Controls.Add(btnVerProductos);
             panel2.Controls.Add(btnGuardar);
-            panel2.Controls.Add(cbCategoria);
-            panel2.Controls.Add(pbPortada);
-            panel2.Controls.Add(txtStock);
-            panel2.Controls.Add(txtPrecio);
-            panel2.Controls.Add(txtDescripcion);
-            panel2.Controls.Add(txtAutor);
-            panel2.Controls.Add(txtEditorial);
-            panel2.Controls.Add(txtTitulo);
+            panel2.Controls.Add(cbRol);
+            panel2.Controls.Add(pbFoto);
+            panel2.Controls.Add(txtEmail);
+            panel2.Controls.Add(txtTelefono);
+            panel2.Controls.Add(txtDNI);
+            panel2.Controls.Add(txtApellido);
+            panel2.Controls.Add(txtNombre);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
@@ -113,10 +82,18 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(0, 70);
+            panel2.Location = new Point(-6, 66);
             panel2.Name = "panel2";
             panel2.Size = new Size(812, 388);
-            panel2.TabIndex = 1;
+            panel2.TabIndex = 3;
+            // 
+            // dtFechaAlta
+            // 
+            dtFechaAlta.Format = DateTimePickerFormat.Short;
+            dtFechaAlta.Location = new Point(191, 179);
+            dtFechaAlta.Name = "dtFechaAlta";
+            dtFechaAlta.Size = new Size(114, 23);
+            dtFechaAlta.TabIndex = 22;
             // 
             // lbErrorMenssage
             // 
@@ -164,7 +141,7 @@
             btnVerProductos.Name = "btnVerProductos";
             btnVerProductos.Size = new Size(129, 48);
             btnVerProductos.TabIndex = 19;
-            btnVerProductos.Text = "Ver Productos";
+            btnVerProductos.Text = "Ver Empleados";
             btnVerProductos.TextAlign = ContentAlignment.MiddleRight;
             btnVerProductos.UseVisualStyleBackColor = false;
             btnVerProductos.Click += btnVerProductos_Click;
@@ -187,189 +164,210 @@
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
             // 
-            // cbCategoria
+            // cbRol
             // 
-            cbCategoria.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
-            cbCategoria.FormattingEnabled = true;
-            cbCategoria.Location = new Point(506, 42);
-            cbCategoria.Name = "cbCategoria";
-            cbCategoria.Size = new Size(183, 23);
-            cbCategoria.TabIndex = 16;
+            cbRol.FormattingEnabled = true;
+            cbRol.Location = new Point(506, 46);
+            cbRol.Name = "cbRol";
+            cbRol.Size = new Size(183, 23);
+            cbRol.TabIndex = 16;
             // 
-            // pbPortada
+            // pbFoto
             // 
-            pbPortada.BackColor = Color.White;
-            pbPortada.Location = new Point(506, 178);
-            pbPortada.Name = "pbPortada";
-            pbPortada.Size = new Size(126, 99);
-            pbPortada.TabIndex = 15;
-            pbPortada.TabStop = false;
+            pbFoto.BackColor = Color.White;
+            pbFoto.Location = new Point(506, 179);
+            pbFoto.Name = "pbFoto";
+            pbFoto.Size = new Size(126, 99);
+            pbFoto.TabIndex = 15;
+            pbFoto.TabStop = false;
             // 
-            // txtStock
+            // txtEmail
             // 
-            txtStock.Location = new Point(506, 135);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(183, 23);
-            txtStock.TabIndex = 14;
+            txtEmail.Location = new Point(507, 135);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(183, 23);
+            txtEmail.TabIndex = 14;
             // 
-            // txtPrecio
+            // txtTelefono
             // 
-            txtPrecio.Location = new Point(506, 87);
-            txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(183, 23);
-            txtPrecio.TabIndex = 13;
+            txtTelefono.Location = new Point(506, 91);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(183, 23);
+            txtTelefono.TabIndex = 13;
             // 
-            // txtDescripcion
+            // txtDNI
             // 
-            txtDescripcion.Location = new Point(191, 178);
-            txtDescripcion.Multiline = true;
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(183, 79);
-            txtDescripcion.TabIndex = 12;
+            txtDNI.Location = new Point(191, 135);
+            txtDNI.Name = "txtDNI";
+            txtDNI.Size = new Size(183, 23);
+            txtDNI.TabIndex = 11;
             // 
-            // txtAutor
+            // txtApellido
             // 
-            txtAutor.Location = new Point(191, 135);
-            txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(183, 23);
-            txtAutor.TabIndex = 11;
+            txtApellido.Location = new Point(191, 91);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(183, 23);
+            txtApellido.TabIndex = 10;
             // 
-            // txtEditorial
+            // txtNombre
             // 
-            txtEditorial.Location = new Point(191, 87);
-            txtEditorial.Name = "txtEditorial";
-            txtEditorial.Size = new Size(183, 23);
-            txtEditorial.TabIndex = 10;
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.Location = new Point(191, 42);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(183, 23);
-            txtTitulo.TabIndex = 9;
+            txtNombre.Location = new Point(191, 42);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(183, 23);
+            txtNombre.TabIndex = 9;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(241, 241, 241);
-            label8.Location = new Point(430, 196);
+            label8.Location = new Point(456, 176);
             label8.Name = "label8";
-            label8.Size = new Size(70, 21);
+            label8.Size = new Size(44, 21);
             label8.TabIndex = 7;
-            label8.Text = "Portada";
+            label8.Text = "Foto";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(442, 90);
+            label7.Location = new Point(73, 180);
             label7.Name = "label7";
-            label7.Size = new Size(58, 21);
+            label7.Size = new Size(112, 21);
             label7.TabIndex = 6;
-            label7.Text = "Precio";
+            label7.Text = "Fecha de Alta";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(448, 137);
+            label6.Location = new Point(448, 133);
             label6.Name = "label6";
-            label6.Size = new Size(52, 21);
+            label6.Size = new Size(53, 21);
             label6.TabIndex = 5;
-            label6.Text = "Stock";
+            label6.Text = "Email";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(416, 44);
+            label5.Location = new Point(465, 44);
             label5.Name = "label5";
-            label5.Size = new Size(84, 21);
+            label5.Size = new Size(35, 21);
             label5.TabIndex = 4;
-            label5.Text = "Categoria";
+            label5.Text = "Rol";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(85, 178);
+            label4.Location = new Point(424, 91);
             label4.Name = "label4";
-            label4.Size = new Size(100, 21);
+            label4.Size = new Size(77, 21);
             label4.TabIndex = 3;
-            label4.Text = "Descripcion";
+            label4.Text = "Telefono";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(132, 133);
+            label3.Location = new Point(146, 133);
             label3.Name = "label3";
-            label3.Size = new Size(53, 21);
+            label3.Size = new Size(40, 21);
             label3.TabIndex = 2;
-            label3.Text = "Autor";
+            label3.Text = "DNI";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(110, 90);
+            label2.Location = new Point(111, 89);
             label2.Name = "label2";
             label2.Size = new Size(75, 21);
             label2.TabIndex = 1;
-            label2.Text = "Editorial";
+            label2.Text = "Apellido";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(130, 44);
+            label1.Location = new Point(113, 44);
             label1.Name = "label1";
-            label1.Size = new Size(55, 21);
+            label1.Size = new Size(73, 21);
             label1.TabIndex = 0;
-            label1.Text = "Titulo";
+            label1.Text = "Nombre";
             // 
-            // Form1
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(lblAgregarProducto);
+            panel1.Location = new Point(-6, -4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(804, 70);
+            panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ControlDarkDark;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(70, 70);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // lblAgregarProducto
+            // 
+            lblAgregarProducto.AutoSize = true;
+            lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
+            lblAgregarProducto.Location = new Point(301, 18);
+            lblAgregarProducto.Name = "lblAgregarProducto";
+            lblAgregarProducto.Size = new Size(219, 39);
+            lblAgregarProducto.TabIndex = 0;
+            lblAgregarProducto.Text = "Agregar Empleado";
+            // 
+            // AgregarEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Name = "AgregarEmpleado";
+            Text = "AgregarEmpleado";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPortada).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label lblAgregarProducto;
         private Panel panel2;
-        private Label label1;
-        private PictureBox pbPortada;
-        private TextBox txtStock;
-        private TextBox txtPrecio;
-        private TextBox txtDescripcion;
-        private TextBox txtAutor;
-        private TextBox txtEditorial;
-        private TextBox txtTitulo;
+        private Label lbErrorMenssage;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnVerProductos;
+        private FontAwesome.Sharp.IconButton btnGuardar;
+        private ComboBox cbRol;
+        private PictureBox pbFoto;
+        private TextBox txtEmail;
+        private TextBox txtTelefono;
+        private TextBox txtDNI;
+        private TextBox txtApellido;
+        private TextBox txtNombre;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -377,11 +375,10 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private ComboBox cbCategoria;
-        private FontAwesome.Sharp.IconButton btnGuardar;
+        private Label label1;
+        private Panel panel1;
         private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnVerProductos;
-        private Label lbErrorMenssage;
+        private Label lblAgregarProducto;
+        private DateTimePicker dtFechaAlta;
     }
 }

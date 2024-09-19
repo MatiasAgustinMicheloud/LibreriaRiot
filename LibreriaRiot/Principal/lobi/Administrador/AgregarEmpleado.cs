@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    public partial class VerProductos : Form
+    public partial class AgregarEmpleado : Form
     {
         private UserType currentUserType;
-        public VerProductos()
+
+        public AgregarEmpleado()
         {
             InitializeComponent();
         }
@@ -24,6 +25,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             Lobi menu = new Lobi(currentUserType);
             menu.Show();
 
+            this.Hide();
+        }
+
+        private void btnVerProductos_Click(object sender, EventArgs e)
+        {
+            Administrador.VerEmpleados verEmpleados = new Administrador.VerEmpleados();
+            verEmpleados.Show();
             this.Hide();
         }
     }

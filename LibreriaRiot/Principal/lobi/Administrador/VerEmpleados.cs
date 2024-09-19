@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    public partial class VerProductos : Form
+
+    public partial class VerEmpleados : Form
     {
         private UserType currentUserType;
-        public VerProductos()
+
+        public VerEmpleados()
         {
             InitializeComponent();
         }
