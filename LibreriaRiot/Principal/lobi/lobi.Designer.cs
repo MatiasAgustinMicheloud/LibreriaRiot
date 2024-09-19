@@ -426,6 +426,7 @@
             iconUsuarios.Text = "Empleados";
             iconUsuarios.UseVisualStyleBackColor = false;
             iconUsuarios.Visible = false;
+            iconUsuarios.Click += iconUsuarios_Click;
             // 
             // iconEstadistica
             // 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
@@ -33,5 +34,18 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
             this.Hide();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void msgError(string msg)
+        {
+            lbErrorMenssage.Text = "        " + msg;
+            lbErrorMenssage.Visible = true;
+        }
+
+
     }
 }

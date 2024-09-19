@@ -113,5 +113,14 @@ namespace LibreriaRiot.Principal.lobi
             agregarProducto.Show();
             this.Hide();
         }
+
+        private void iconUsuarios_Click(object sender, EventArgs e)
+        {
+            Administrador.AgregarEmpleado agregarEmpleado = new Administrador.AgregarEmpleado();
+            agregarEmpleado.Show(panel1);
+            this.Hide();
+        }
+
+
     }
 }
