@@ -75,9 +75,10 @@
             panel1.Controls.Add(Lfecha);
             panel1.Controls.Add(Lhora);
             panel1.Controls.Add(pictureBox2);
-            panel1.Location = new Point(208, 88);
+            panel1.Location = new Point(206, 86);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(767, 513);
+            panel1.Size = new Size(766, 514);
             panel1.TabIndex = 0;
             // 
             // Lfecha
@@ -85,7 +86,8 @@
             Lfecha.AutoSize = true;
             Lfecha.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             Lfecha.ForeColor = SystemColors.Window;
-            Lfecha.Location = new Point(223, 385);
+            Lfecha.Location = new Point(224, 386);
+            Lfecha.Margin = new Padding(4, 0, 4, 0);
             Lfecha.Name = "Lfecha";
             Lfecha.Size = new Size(69, 30);
             Lfecha.TabIndex = 9;
@@ -96,7 +98,8 @@
             Lhora.AutoSize = true;
             Lhora.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             Lhora.ForeColor = SystemColors.Window;
-            Lhora.Location = new Point(364, 348);
+            Lhora.Location = new Point(364, 349);
+            Lhora.Margin = new Padding(4, 0, 4, 0);
             Lhora.Name = "Lhora";
             Lhora.Size = new Size(61, 30);
             Lhora.TabIndex = 8;
@@ -105,9 +108,10 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = SystemColors.ControlDarkDark;
-            pictureBox2.Location = new Point(256, 117);
+            pictureBox2.Location = new Point(256, 116);
+            pictureBox2.Margin = new Padding(4, 4, 4, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(305, 207);
+            pictureBox2.Size = new Size(304, 206);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
@@ -122,9 +126,10 @@
             panel2.Controls.Add(lbNApe);
             panel2.Controls.Add(iconCurrentChildForm);
             panel2.Controls.Add(lbRol);
-            panel2.Location = new Point(208, 0);
+            panel2.Location = new Point(206, 0);
+            panel2.Margin = new Padding(4, 4, 4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(767, 89);
+            panel2.Size = new Size(766, 90);
             panel2.TabIndex = 1;
             // 
             // btnlobiMinimizar
@@ -138,9 +143,10 @@
             btnlobiMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiMinimizar.IconSize = 18;
             btnlobiMinimizar.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiMinimizar.Location = new Point(662, 3);
+            btnlobiMinimizar.Location = new Point(662, 4);
+            btnlobiMinimizar.Margin = new Padding(4, 4, 4, 4);
             btnlobiMinimizar.Name = "btnlobiMinimizar";
-            btnlobiMinimizar.Size = new Size(30, 22);
+            btnlobiMinimizar.Size = new Size(32, 22);
             btnlobiMinimizar.TabIndex = 7;
             btnlobiMinimizar.UseVisualStyleBackColor = false;
             btnlobiMinimizar.Click += btnlobiMinimizar_Click;
@@ -156,9 +162,10 @@
             btnlobiMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiMaximizar.IconSize = 18;
             btnlobiMaximizar.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiMaximizar.Location = new Point(698, 3);
+            btnlobiMaximizar.Location = new Point(696, 4);
+            btnlobiMaximizar.Margin = new Padding(4, 4, 4, 4);
             btnlobiMaximizar.Name = "btnlobiMaximizar";
-            btnlobiMaximizar.Size = new Size(30, 22);
+            btnlobiMaximizar.Size = new Size(32, 22);
             btnlobiMaximizar.TabIndex = 6;
             btnlobiMaximizar.UseVisualStyleBackColor = false;
             btnlobiMaximizar.Click += btnlobiMaximizar_Click;
@@ -174,9 +181,10 @@
             btnlobiSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiSalir.IconSize = 18;
             btnlobiSalir.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiSalir.Location = new Point(734, 3);
+            btnlobiSalir.Location = new Point(735, 4);
+            btnlobiSalir.Margin = new Padding(4, 4, 4, 4);
             btnlobiSalir.Name = "btnlobiSalir";
-            btnlobiSalir.Size = new Size(30, 31);
+            btnlobiSalir.Size = new Size(32, 30);
             btnlobiSalir.TabIndex = 5;
             btnlobiSalir.UseVisualStyleBackColor = false;
             btnlobiSalir.Click += btnlobiSalir_Click;
@@ -187,7 +195,8 @@
             lbTitleCurrentForm.BackColor = Color.Transparent;
             lbTitleCurrentForm.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lbTitleCurrentForm.ForeColor = Color.Gainsboro;
-            lbTitleCurrentForm.Location = new Point(54, 41);
+            lbTitleCurrentForm.Location = new Point(52, 41);
+            lbTitleCurrentForm.Margin = new Padding(4, 0, 4, 0);
             lbTitleCurrentForm.Name = "lbTitleCurrentForm";
             lbTitleCurrentForm.Size = new Size(46, 20);
             lbTitleCurrentForm.TabIndex = 3;
@@ -202,9 +211,10 @@
             iconButton8.IconColor = Color.White;
             iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton8.IconSize = 45;
-            iconButton8.Location = new Point(590, 37);
+            iconButton8.Location = new Point(592, 38);
+            iconButton8.Margin = new Padding(4, 4, 4, 4);
             iconButton8.Name = "iconButton8";
-            iconButton8.Size = new Size(41, 40);
+            iconButton8.Size = new Size(42, 41);
             iconButton8.TabIndex = 7;
             iconButton8.UseVisualStyleBackColor = false;
             // 
@@ -212,7 +222,8 @@
             // 
             lbNApe.AutoSize = true;
             lbNApe.ForeColor = SystemColors.Window;
-            lbNApe.Location = new Point(637, 54);
+            lbNApe.Location = new Point(637, 52);
+            lbNApe.Margin = new Padding(4, 0, 4, 0);
             lbNApe.Name = "lbNApe";
             lbNApe.Size = new Size(107, 15);
             lbNApe.TabIndex = 0;
@@ -225,9 +236,10 @@
             iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             iconCurrentChildForm.IconColor = Color.Gainsboro;
             iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconCurrentChildForm.Location = new Point(25, 37);
+            iconCurrentChildForm.Location = new Point(24, 38);
+            iconCurrentChildForm.Margin = new Padding(4, 4, 4, 4);
             iconCurrentChildForm.Name = "iconCurrentChildForm";
-            iconCurrentChildForm.Size = new Size(32, 32);
+            iconCurrentChildForm.Size = new Size(32, 34);
             iconCurrentChildForm.TabIndex = 2;
             iconCurrentChildForm.TabStop = false;
             // 
@@ -235,7 +247,8 @@
             // 
             lbRol.AutoSize = true;
             lbRol.ForeColor = SystemColors.Window;
-            lbRol.Location = new Point(637, 37);
+            lbRol.Location = new Point(637, 38);
+            lbRol.Margin = new Padding(4, 0, 4, 0);
             lbRol.Name = "lbRol";
             lbRol.Size = new Size(24, 15);
             lbRol.TabIndex = 0;
@@ -245,9 +258,10 @@
             // 
             pictureBox1.BackColor = SystemColors.ControlDarkDark;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(11, 12);
+            pictureBox1.Location = new Point(10, 11);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
+            pictureBox1.Size = new Size(70, 71);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -257,17 +271,19 @@
             panel3.Controls.Add(pictureBox3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(1, 0);
+            panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(4, 4, 4, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(212, 89);
+            panel3.Size = new Size(214, 90);
             panel3.TabIndex = 1;
             // 
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox3.Location = new Point(207, -3);
+            pictureBox3.Location = new Point(206, -4);
+            pictureBox3.Margin = new Padding(4, 4, 4, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(10, 92);
+            pictureBox3.Size = new Size(10, 94);
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             // 
@@ -275,7 +291,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Cambria", 24.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(78, 26);
+            label2.Location = new Point(77, 26);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(94, 38);
             label2.TabIndex = 15;
@@ -294,9 +311,10 @@
             panel4.Controls.Add(iconMisVentas);
             panel4.Controls.Add(iconCatalogo);
             panel4.Controls.Add(iconProducto);
-            panel4.Location = new Point(1, 88);
+            panel4.Location = new Point(0, 86);
+            panel4.Margin = new Padding(4, 4, 4, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(209, 513);
+            panel4.Size = new Size(210, 514);
             panel4.TabIndex = 0;
             // 
             // iconCargarCliente
@@ -311,9 +329,10 @@
             iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconCargarCliente.IconSize = 40;
             iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            iconCargarCliente.Location = new Point(0, 432);
+            iconCargarCliente.Location = new Point(0, 416);
+            iconCargarCliente.Margin = new Padding(4, 4, 4, 4);
             iconCargarCliente.Name = "iconCargarCliente";
-            iconCargarCliente.Size = new Size(209, 54);
+            iconCargarCliente.Size = new Size(210, 52);
             iconCargarCliente.TabIndex = 12;
             iconCargarCliente.Text = "Cargar Cliente";
             iconCargarCliente.UseVisualStyleBackColor = false;
@@ -332,9 +351,10 @@
             iconRealizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconRealizarVenta.IconSize = 40;
             iconRealizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            iconRealizarVenta.Location = new Point(0, 378);
+            iconRealizarVenta.Location = new Point(0, 364);
+            iconRealizarVenta.Margin = new Padding(4, 4, 4, 4);
             iconRealizarVenta.Name = "iconRealizarVenta";
-            iconRealizarVenta.Size = new Size(209, 54);
+            iconRealizarVenta.Size = new Size(210, 52);
             iconRealizarVenta.TabIndex = 11;
             iconRealizarVenta.Text = "Realizar Venta";
             iconRealizarVenta.UseVisualStyleBackColor = false;
@@ -354,9 +374,10 @@
             iconExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconExit.IconSize = 40;
             iconExit.ImageAlign = ContentAlignment.MiddleLeft;
-            iconExit.Location = new Point(0, 460);
+            iconExit.Location = new Point(0, 462);
+            iconExit.Margin = new Padding(4, 4, 4, 4);
             iconExit.Name = "iconExit";
-            iconExit.Size = new Size(209, 53);
+            iconExit.Size = new Size(210, 52);
             iconExit.TabIndex = 8;
             iconExit.Text = "Cerrar Sesion";
             iconExit.UseVisualStyleBackColor = false;
@@ -375,9 +396,10 @@
             iconRespaldo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconRespaldo.IconSize = 40;
             iconRespaldo.ImageAlign = ContentAlignment.MiddleLeft;
-            iconRespaldo.Location = new Point(0, 324);
+            iconRespaldo.Location = new Point(0, 312);
+            iconRespaldo.Margin = new Padding(4, 4, 4, 4);
             iconRespaldo.Name = "iconRespaldo";
-            iconRespaldo.Size = new Size(209, 54);
+            iconRespaldo.Size = new Size(210, 52);
             iconRespaldo.TabIndex = 3;
             iconRespaldo.Text = "Base De Datos";
             iconRespaldo.UseVisualStyleBackColor = false;
@@ -396,9 +418,10 @@
             iconUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconUsuarios.IconSize = 40;
             iconUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            iconUsuarios.Location = new Point(0, 270);
+            iconUsuarios.Location = new Point(0, 260);
+            iconUsuarios.Margin = new Padding(4, 4, 4, 4);
             iconUsuarios.Name = "iconUsuarios";
-            iconUsuarios.Size = new Size(209, 54);
+            iconUsuarios.Size = new Size(210, 52);
             iconUsuarios.TabIndex = 10;
             iconUsuarios.Text = "Empleados";
             iconUsuarios.UseVisualStyleBackColor = false;
@@ -417,9 +440,10 @@
             iconEstadistica.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconEstadistica.IconSize = 40;
             iconEstadistica.ImageAlign = ContentAlignment.MiddleLeft;
-            iconEstadistica.Location = new Point(0, 216);
+            iconEstadistica.Location = new Point(0, 208);
+            iconEstadistica.Margin = new Padding(4, 4, 4, 4);
             iconEstadistica.Name = "iconEstadistica";
-            iconEstadistica.Size = new Size(209, 54);
+            iconEstadistica.Size = new Size(210, 52);
             iconEstadistica.TabIndex = 9;
             iconEstadistica.Text = "Estadisticas";
             iconEstadistica.UseVisualStyleBackColor = false;
@@ -438,9 +462,10 @@
             iconHistorialVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconHistorialVentas.IconSize = 40;
             iconHistorialVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            iconHistorialVentas.Location = new Point(0, 162);
+            iconHistorialVentas.Location = new Point(0, 156);
+            iconHistorialVentas.Margin = new Padding(4, 4, 4, 4);
             iconHistorialVentas.Name = "iconHistorialVentas";
-            iconHistorialVentas.Size = new Size(209, 54);
+            iconHistorialVentas.Size = new Size(210, 52);
             iconHistorialVentas.TabIndex = 5;
             iconHistorialVentas.Text = "Historial Ventas";
             iconHistorialVentas.UseVisualStyleBackColor = false;
@@ -459,9 +484,10 @@
             iconMisVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMisVentas.IconSize = 40;
             iconMisVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            iconMisVentas.Location = new Point(0, 108);
+            iconMisVentas.Location = new Point(0, 104);
+            iconMisVentas.Margin = new Padding(4, 4, 4, 4);
             iconMisVentas.Name = "iconMisVentas";
-            iconMisVentas.Size = new Size(209, 54);
+            iconMisVentas.Size = new Size(210, 52);
             iconMisVentas.TabIndex = 4;
             iconMisVentas.Text = "Mis Ventas";
             iconMisVentas.UseVisualStyleBackColor = false;
@@ -480,9 +506,10 @@
             iconCatalogo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconCatalogo.IconSize = 40;
             iconCatalogo.ImageAlign = ContentAlignment.MiddleLeft;
-            iconCatalogo.Location = new Point(0, 54);
+            iconCatalogo.Location = new Point(0, 52);
+            iconCatalogo.Margin = new Padding(4, 4, 4, 4);
             iconCatalogo.Name = "iconCatalogo";
-            iconCatalogo.Size = new Size(209, 54);
+            iconCatalogo.Size = new Size(210, 52);
             iconCatalogo.TabIndex = 3;
             iconCatalogo.Text = "Catalogo";
             iconCatalogo.UseVisualStyleBackColor = false;
@@ -502,8 +529,9 @@
             iconProducto.IconSize = 40;
             iconProducto.ImageAlign = ContentAlignment.MiddleLeft;
             iconProducto.Location = new Point(0, 0);
+            iconProducto.Margin = new Padding(4, 4, 4, 4);
             iconProducto.Name = "iconProducto";
-            iconProducto.Size = new Size(209, 54);
+            iconProducto.Size = new Size(210, 52);
             iconProducto.TabIndex = 2;
             iconProducto.Text = "Producto";
             iconProducto.UseVisualStyleBackColor = false;
@@ -519,13 +547,16 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(976, 601);
+            ClientSize = new Size(976, 600);
             ControlBox = false;
             Controls.Add(panel1);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Lobi";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Lobi_Load;
