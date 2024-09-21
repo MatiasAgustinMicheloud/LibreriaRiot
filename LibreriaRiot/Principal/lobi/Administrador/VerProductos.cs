@@ -13,18 +13,39 @@ namespace LibreriaRiot.Principal.lobi.Administrador
     public partial class VerProductos : Form
     {
         private UserType currentUserType;
-        public VerProductos()
+        private LobiPrincipal instanciaLobi;
+        public VerProductos(LobiPrincipal lobi)
         {
             InitializeComponent();
+            this.instanciaLobi = lobi;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            currentUserType = UserType.Admin;
-            Lobi menu = new Lobi(currentUserType);
-            menu.Show();
+            this.Close();
+            instanciaLobi.OpenChildForm(new Administrador.AgregarProducto(instanciaLobi));
+        }
 
-            this.Hide();
+        private void msgError(string msg)
+        {
+            lbErrorMenssage.Text = "        " + msg;
+            lbErrorMenssage.Visible = true;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string nuevoTitulo = txtTitulo.Text;
+            string nuevaDescripcion = txtDescripcion.Text;
+            string nuevoEstado = checkBoxSi.Checked ? "SI" : "NO";
+            string? nuevoAutor = txtAutor.Text;
+            string? nuevaEditorial = txtEditorial.Text;
+
+            if (string.IsNullOrWhiteSpace(nuevoTitulo) || string.IsNullOrWhiteSpace(nuevaDescripcion) || string.IsNullOrWhiteSpace(nuevoAutor) || string.IsNullOrWhiteSpace(nuevaEditorial) ||
+             (checkBoxSi.Checked == false && checkBoxNo.Checked == false))
+            {
+                MessageBox.Show("Por favor, complete todos los campos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

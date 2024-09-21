@@ -30,52 +30,55 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarEmpleado));
             panel2 = new Panel();
-            dtFechaAlta = new DateTimePicker();
+            lbContraseña = new Label();
+            txtContraseña = new TextBox();
+            lbUsuario = new Label();
+            txtUsuario = new TextBox();
+            dtFechaNac = new DateTimePicker();
             lbErrorMenssage = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            btnVerProductos = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             cbRol = new ComboBox();
-            pbFoto = new PictureBox();
             txtEmail = new TextBox();
             txtTelefono = new TextBox();
             txtDNI = new TextBox();
             txtApellido = new TextBox();
             txtNombre = new TextBox();
-            label8 = new Label();
-            label7 = new Label();
+            lbDeNacimiento = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            btnVerProductos = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
-            panel2.Controls.Add(dtFechaAlta);
+            panel2.Controls.Add(lbContraseña);
+            panel2.Controls.Add(txtContraseña);
+            panel2.Controls.Add(lbUsuario);
+            panel2.Controls.Add(txtUsuario);
+            panel2.Controls.Add(dtFechaNac);
             panel2.Controls.Add(lbErrorMenssage);
-            panel2.Controls.Add(iconButton1);
-            panel2.Controls.Add(btnVerProductos);
             panel2.Controls.Add(btnGuardar);
             panel2.Controls.Add(cbRol);
-            panel2.Controls.Add(pbFoto);
             panel2.Controls.Add(txtEmail);
             panel2.Controls.Add(txtTelefono);
             panel2.Controls.Add(txtDNI);
             panel2.Controls.Add(txtApellido);
             panel2.Controls.Add(txtNombre);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
+            panel2.Controls.Add(lbDeNacimiento);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
@@ -87,67 +90,73 @@
             panel2.Size = new Size(812, 388);
             panel2.TabIndex = 3;
             // 
-            // dtFechaAlta
+            // lbContraseña
             // 
-            dtFechaAlta.Format = DateTimePickerFormat.Short;
-            dtFechaAlta.Location = new Point(191, 179);
-            dtFechaAlta.Name = "dtFechaAlta";
-            dtFechaAlta.Size = new Size(114, 23);
-            dtFechaAlta.TabIndex = 22;
+            lbContraseña.Anchor = AnchorStyles.None;
+            lbContraseña.AutoSize = true;
+            lbContraseña.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbContraseña.ForeColor = Color.FromArgb(241, 241, 241);
+            lbContraseña.Location = new Point(480, 267);
+            lbContraseña.Name = "lbContraseña";
+            lbContraseña.Size = new Size(96, 21);
+            lbContraseña.TabIndex = 26;
+            lbContraseña.Text = "Contraseña";
+            // 
+            // txtContraseña
+            // 
+            txtContraseña.Anchor = AnchorStyles.None;
+            txtContraseña.Location = new Point(480, 291);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(183, 23);
+            txtContraseña.TabIndex = 25;
+            // 
+            // lbUsuario
+            // 
+            lbUsuario.Anchor = AnchorStyles.None;
+            lbUsuario.AutoSize = true;
+            lbUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbUsuario.ForeColor = Color.FromArgb(241, 241, 241);
+            lbUsuario.Location = new Point(168, 267);
+            lbUsuario.Name = "lbUsuario";
+            lbUsuario.Size = new Size(69, 21);
+            lbUsuario.TabIndex = 24;
+            lbUsuario.Text = "Usuario";
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Anchor = AnchorStyles.None;
+            txtUsuario.Location = new Point(168, 291);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(183, 23);
+            txtUsuario.TabIndex = 23;
+            // 
+            // dtFechaNac
+            // 
+            dtFechaNac.Anchor = AnchorStyles.None;
+            dtFechaNac.CustomFormat = "";
+            dtFechaNac.Location = new Point(301, 241);
+            dtFechaNac.Name = "dtFechaNac";
+            dtFechaNac.Size = new Size(226, 23);
+            dtFechaNac.TabIndex = 22;
             // 
             // lbErrorMenssage
             // 
+            lbErrorMenssage.Anchor = AnchorStyles.None;
             lbErrorMenssage.AutoSize = true;
             lbErrorMenssage.ForeColor = Color.Brown;
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(350, 12);
+            lbErrorMenssage.Location = new Point(320, 12);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(95, 15);
             lbErrorMenssage.TabIndex = 21;
             lbErrorMenssage.Text = "Mensaje de error";
+            lbErrorMenssage.TextAlign = ContentAlignment.TopCenter;
             lbErrorMenssage.Visible = false;
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(12, 320);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
-            // btnVerProductos
-            // 
-            btnVerProductos.BackColor = SystemColors.ControlDarkDark;
-            btnVerProductos.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnVerProductos.FlatAppearance.BorderSize = 2;
-            btnVerProductos.FlatStyle = FlatStyle.Flat;
-            btnVerProductos.ForeColor = SystemColors.Window;
-            btnVerProductos.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
-            btnVerProductos.IconColor = Color.White;
-            btnVerProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVerProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVerProductos.Location = new Point(659, 320);
-            btnVerProductos.Name = "btnVerProductos";
-            btnVerProductos.Size = new Size(129, 48);
-            btnVerProductos.TabIndex = 19;
-            btnVerProductos.Text = "Ver Empleados";
-            btnVerProductos.TextAlign = ContentAlignment.MiddleRight;
-            btnVerProductos.UseVisualStyleBackColor = false;
-            btnVerProductos.Click += btnVerProductos_Click;
             // 
             // btnGuardar
             // 
+            btnGuardar.Anchor = AnchorStyles.None;
             btnGuardar.BackColor = SystemColors.ControlDarkDark;
             btnGuardar.FlatAppearance.BorderColor = SystemColors.ControlDark;
             btnGuardar.FlatAppearance.BorderSize = 2;
@@ -156,95 +165,86 @@
             btnGuardar.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
             btnGuardar.IconColor = Color.White;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGuardar.IconSize = 40;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(350, 303);
+            btnGuardar.Location = new Point(355, 331);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(106, 50);
+            btnGuardar.Size = new Size(112, 41);
             btnGuardar.TabIndex = 18;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // cbRol
             // 
+            cbRol.Anchor = AnchorStyles.None;
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(506, 46);
+            cbRol.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
+            cbRol.Location = new Point(480, 64);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(183, 23);
             cbRol.TabIndex = 16;
             // 
-            // pbFoto
-            // 
-            pbFoto.BackColor = Color.White;
-            pbFoto.Location = new Point(506, 179);
-            pbFoto.Name = "pbFoto";
-            pbFoto.Size = new Size(126, 99);
-            pbFoto.TabIndex = 15;
-            pbFoto.TabStop = false;
-            // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(507, 135);
+            txtEmail.Anchor = AnchorStyles.None;
+            txtEmail.Location = new Point(480, 182);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(183, 23);
             txtEmail.TabIndex = 14;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(506, 91);
+            txtTelefono.Anchor = AnchorStyles.None;
+            txtTelefono.Location = new Point(480, 121);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(183, 23);
             txtTelefono.TabIndex = 13;
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(191, 135);
+            txtDNI.Anchor = AnchorStyles.None;
+            txtDNI.Location = new Point(167, 182);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(183, 23);
             txtDNI.TabIndex = 11;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(191, 91);
+            txtApellido.Anchor = AnchorStyles.None;
+            txtApellido.Location = new Point(168, 121);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(183, 23);
             txtApellido.TabIndex = 10;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(191, 42);
+            txtNombre.Anchor = AnchorStyles.None;
+            txtNombre.Location = new Point(167, 64);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(183, 23);
             txtNombre.TabIndex = 9;
             // 
-            // label8
+            // lbDeNacimiento
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.FromArgb(241, 241, 241);
-            label8.Location = new Point(456, 176);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 21);
-            label8.TabIndex = 7;
-            label8.Text = "Foto";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(73, 180);
-            label7.Name = "label7";
-            label7.Size = new Size(112, 21);
-            label7.TabIndex = 6;
-            label7.Text = "Fecha de Alta";
+            lbDeNacimiento.Anchor = AnchorStyles.None;
+            lbDeNacimiento.AutoSize = true;
+            lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
+            lbDeNacimiento.Location = new Point(334, 217);
+            lbDeNacimiento.Name = "lbDeNacimiento";
+            lbDeNacimiento.Size = new Size(168, 21);
+            lbDeNacimiento.TabIndex = 6;
+            lbDeNacimiento.Text = "Fecha de nacimiento";
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(448, 133);
+            label6.Location = new Point(480, 155);
             label6.Name = "label6";
             label6.Size = new Size(53, 21);
             label6.TabIndex = 5;
@@ -252,10 +252,11 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(465, 44);
+            label5.Location = new Point(480, 40);
             label5.Name = "label5";
             label5.Size = new Size(35, 21);
             label5.TabIndex = 4;
@@ -263,10 +264,11 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(424, 91);
+            label4.Location = new Point(480, 97);
             label4.Name = "label4";
             label4.Size = new Size(77, 21);
             label4.TabIndex = 3;
@@ -274,10 +276,11 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(146, 133);
+            label3.Location = new Point(168, 155);
             label3.Name = "label3";
             label3.Size = new Size(40, 21);
             label3.TabIndex = 2;
@@ -285,10 +288,11 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(111, 89);
+            label2.Location = new Point(167, 97);
             label2.Name = "label2";
             label2.Size = new Size(75, 21);
             label2.TabIndex = 1;
@@ -296,61 +300,103 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(113, 44);
+            label1.Location = new Point(167, 40);
             label1.Name = "label1";
             label1.Size = new Size(73, 21);
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
+            // btnVerProductos
+            // 
+            btnVerProductos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnVerProductos.BackColor = Color.FromArgb(64, 0, 64);
+            btnVerProductos.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnVerProductos.FlatAppearance.BorderSize = 2;
+            btnVerProductos.FlatStyle = FlatStyle.Flat;
+            btnVerProductos.ForeColor = SystemColors.Window;
+            btnVerProductos.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            btnVerProductos.IconColor = Color.White;
+            btnVerProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVerProductos.IconSize = 40;
+            btnVerProductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerProductos.Location = new Point(660, 17);
+            btnVerProductos.Name = "btnVerProductos";
+            btnVerProductos.Size = new Size(129, 40);
+            btnVerProductos.TabIndex = 19;
+            btnVerProductos.Text = "Ver Empleados";
+            btnVerProductos.TextAlign = ContentAlignment.MiddleRight;
+            btnVerProductos.UseVisualStyleBackColor = false;
+            btnVerProductos.Click += btnVerProductos_Click;
+            // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlDarkDark;
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
-            panel1.Location = new Point(-6, -4);
+            panel1.Controls.Add(btnVerProductos);
+            panel1.Location = new Point(-6, -1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(804, 70);
+            panel1.Size = new Size(806, 67);
             panel1.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox1.Location = new Point(795, 0);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
-            pictureBox1.TabIndex = 1;
+            pictureBox1.Size = new Size(11, 67);
+            pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox3.Location = new Point(-3, -4);
+            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(17, 71);
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
             // 
             // lblAgregarProducto
             // 
+            lblAgregarProducto.Anchor = AnchorStyles.Top;
             lblAgregarProducto.AutoSize = true;
             lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
-            lblAgregarProducto.Location = new Point(301, 18);
+            lblAgregarProducto.Location = new Point(311, 18);
             lblAgregarProducto.Name = "lblAgregarProducto";
             lblAgregarProducto.Size = new Size(219, 39);
             lblAgregarProducto.TabIndex = 0;
             lblAgregarProducto.Text = "Agregar Empleado";
+            lblAgregarProducto.TextAlign = ContentAlignment.TopCenter;
             // 
             // AgregarEmpleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "AgregarEmpleado";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEmpleado";
+            Load += AgregarEmpleado_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -358,18 +404,15 @@
 
         private Panel panel2;
         private Label lbErrorMenssage;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnVerProductos;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private ComboBox cbRol;
-        private PictureBox pbFoto;
         private TextBox txtEmail;
         private TextBox txtTelefono;
         private TextBox txtDNI;
         private TextBox txtApellido;
         private TextBox txtNombre;
-        private Label label8;
-        private Label label7;
+        private Label lbDeNacimiento;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -377,8 +420,13 @@
         private Label label2;
         private Label label1;
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Label lblAgregarProducto;
-        private DateTimePicker dtFechaAlta;
+        private DateTimePicker dtFechaNac;
+        private Label lbContraseña;
+        private TextBox txtContraseña;
+        private Label lbUsuario;
+        private TextBox txtUsuario;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
     }
 }

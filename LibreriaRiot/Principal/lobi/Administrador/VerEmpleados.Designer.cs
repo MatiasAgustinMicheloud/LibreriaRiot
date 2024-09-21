@@ -29,97 +29,60 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerEmpleados));
-            Portada = new DataGridViewImageColumn();
-            btnLimpiar = new FontAwesome.Sharp.IconButton();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
             lbErrorMenssage = new Label();
             label9 = new Label();
-            btnGuardar = new FontAwesome.Sharp.IconButton();
-            cbCategoria = new ComboBox();
-            pbPortada = new PictureBox();
-            txtStock = new TextBox();
-            Stock = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Autor = new DataGridViewTextBoxColumn();
-            Titulo = new DataGridViewTextBoxColumn();
-            txtPrecio = new TextBox();
-            txtDescripcion = new TextBox();
-            txtAutor = new TextBox();
-            Precio = new DataGridViewTextBoxColumn();
-            txtEditorial = new TextBox();
-            textBox1 = new TextBox();
-            txtTitulo = new TextBox();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
+            txtEmail = new TextBox();
+            txtDNI = new TextBox();
+            txtTelefono = new TextBox();
+            lbEmail = new Label();
             label4 = new Label();
-            dataGridView1 = new DataGridView();
-            Categoria = new DataGridViewTextBoxColumn();
-            Editorial = new DataGridViewTextBoxColumn();
             pictureBox5 = new PictureBox();
             label3 = new Label();
             panel3 = new Panel();
+            label6 = new Label();
+            textBox1 = new TextBox();
+            label11 = new Label();
+            txtBuscadorAutor = new TextBox();
             label10 = new Label();
-            pictureBox1 = new PictureBox();
+            txtBuscadorTitulo = new TextBox();
+            dataGridView1 = new DataGridView();
+            Nombre = new DataGridViewTextBoxColumn();
+            Apellido = new DataGridViewTextBoxColumn();
+            DNI = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Rol = new DataGridViewTextBoxColumn();
+            Usuario = new DataGridViewTextBoxColumn();
+            FechaDeNacimiento = new DataGridViewTextBoxColumn();
             lblAgregarProducto = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             label2 = new Label();
-            label1 = new Label();
+            lbNombre = new Label();
             panel2 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            txtApellido = new TextBox();
+            txtNombre = new TextBox();
+            cbRol = new ComboBox();
+            label5 = new Label();
+            btnLimpiar = new FontAwesome.Sharp.IconButton();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            lbBaja = new Label();
+            checkBoxNo = new CheckBox();
+            checkBoxSi = new CheckBox();
+            label1 = new Label();
+            dtFechaNac = new DateTimePicker();
+            lbDeNacimiento = new Label();
+            txtUsuario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // Portada
-            // 
-            Portada.HeaderText = "Portada";
-            Portada.Name = "Portada";
-            Portada.ReadOnly = true;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = SystemColors.ControlDarkDark;
-            btnLimpiar.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnLimpiar.FlatAppearance.BorderSize = 2;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = SystemColors.Window;
-            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            btnLimpiar.IconColor = Color.White;
-            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(244, 325);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(107, 50);
-            btnLimpiar.TabIndex = 24;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = SystemColors.ControlDarkDark;
-            btnEliminar.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnEliminar.FlatAppearance.BorderSize = 2;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = SystemColors.Window;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            btnEliminar.IconColor = Color.White;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(242, 381);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(107, 50);
-            btnEliminar.TabIndex = 23;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // lbErrorMenssage
             // 
@@ -127,7 +90,7 @@
             lbErrorMenssage.ForeColor = Color.Brown;
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(117, 424);
+            lbErrorMenssage.Location = new Point(174, 393);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(95, 15);
             lbErrorMenssage.TabIndex = 22;
@@ -139,200 +102,59 @@
             label9.AutoSize = true;
             label9.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(241, 241, 241);
-            label9.Location = new Point(74, 16);
+            label9.Location = new Point(76, 0);
             label9.Name = "label9";
-            label9.Size = new Size(123, 39);
+            label9.Size = new Size(238, 39);
             label9.TabIndex = 19;
-            label9.Text = "Modificar";
+            label9.Text = "Modificar Empleado";
             // 
-            // btnGuardar
+            // txtEmail
             // 
-            btnGuardar.BackColor = SystemColors.ControlDarkDark;
-            btnGuardar.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnGuardar.FlatAppearance.BorderSize = 2;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = SystemColors.Window;
-            btnGuardar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
-            btnGuardar.IconColor = Color.White;
-            btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(254, 19);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(97, 38);
-            btnGuardar.TabIndex = 18;
-            btnGuardar.Text = "Editar";
-            btnGuardar.TextAlign = ContentAlignment.MiddleRight;
-            btnGuardar.UseVisualStyleBackColor = false;
+            txtEmail.Location = new Point(122, 206);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(232, 23);
+            txtEmail.TabIndex = 13;
             // 
-            // cbCategoria
+            // txtDNI
             // 
-            cbCategoria.FormattingEnabled = true;
-            cbCategoria.Location = new Point(117, 238);
-            cbCategoria.Name = "cbCategoria";
-            cbCategoria.Size = new Size(127, 23);
-            cbCategoria.TabIndex = 16;
+            txtDNI.Location = new Point(122, 283);
+            txtDNI.Multiline = true;
+            txtDNI.Name = "txtDNI";
+            txtDNI.Size = new Size(232, 22);
+            txtDNI.TabIndex = 12;
             // 
-            // pbPortada
+            // txtTelefono
             // 
-            pbPortada.BackColor = Color.White;
-            pbPortada.Location = new Point(117, 325);
-            pbPortada.Name = "pbPortada";
-            pbPortada.Size = new Size(121, 90);
-            pbPortada.TabIndex = 15;
-            pbPortada.TabStop = false;
+            txtTelefono.Location = new Point(122, 123);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(232, 23);
+            txtTelefono.TabIndex = 11;
             // 
-            // txtStock
+            // lbEmail
             // 
-            txtStock.Location = new Point(117, 296);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(232, 23);
-            txtStock.TabIndex = 14;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            // 
-            // Autor
-            // 
-            Autor.HeaderText = "Autor";
-            Autor.Name = "Autor";
-            // 
-            // Titulo
-            // 
-            Titulo.HeaderText = "Titulo";
-            Titulo.Name = "Titulo";
-            // 
-            // txtPrecio
-            // 
-            txtPrecio.Location = new Point(117, 267);
-            txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(232, 23);
-            txtPrecio.TabIndex = 13;
-            // 
-            // txtDescripcion
-            // 
-            txtDescripcion.Location = new Point(117, 146);
-            txtDescripcion.Multiline = true;
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(232, 86);
-            txtDescripcion.TabIndex = 12;
-            // 
-            // txtAutor
-            // 
-            txtAutor.Location = new Point(117, 118);
-            txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(232, 23);
-            txtAutor.TabIndex = 11;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // txtEditorial
-            // 
-            txtEditorial.Location = new Point(117, 89);
-            txtEditorial.Name = "txtEditorial";
-            txtEditorial.Size = new Size(232, 23);
-            txtEditorial.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(71, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(252, 23);
-            textBox1.TabIndex = 23;
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.Location = new Point(117, 60);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(232, 23);
-            txtTitulo.TabIndex = 9;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.FromArgb(241, 241, 241);
-            label8.Location = new Point(47, 343);
-            label8.Name = "label8";
-            label8.Size = new Size(62, 16);
-            label8.TabIndex = 7;
-            label8.Text = "Portada";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(53, 270);
-            label7.Name = "label7";
-            label7.Size = new Size(52, 16);
-            label7.TabIndex = 6;
-            label7.Text = "Precio";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(59, 298);
-            label6.Name = "label6";
-            label6.Size = new Size(46, 16);
-            label6.TabIndex = 5;
-            label6.Text = "Stock";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(27, 240);
-            label5.Name = "label5";
-            label5.Size = new Size(75, 16);
-            label5.TabIndex = 4;
-            label5.Text = "Categoria";
+            lbEmail.AutoSize = true;
+            lbEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbEmail.ForeColor = Color.FromArgb(241, 241, 241);
+            lbEmail.Location = new Point(69, 213);
+            lbEmail.Name = "lbEmail";
+            lbEmail.Size = new Size(46, 16);
+            lbEmail.TabIndex = 6;
+            lbEmail.Text = "Email";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(12, 143);
+            label4.Location = new Point(83, 285);
             label4.Name = "label4";
-            label4.Size = new Size(90, 16);
+            label4.Size = new Size(33, 16);
             label4.TabIndex = 3;
-            label4.Text = "Descripcion";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Titulo, Autor, Descripcion, Stock, Precio, Portada, Categoria, Editorial });
-            dataGridView1.Location = new Point(9, 45);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(530, 405);
-            dataGridView1.TabIndex = 22;
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "Categoria";
-            Categoria.Name = "Categoria";
-            // 
-            // Editorial
-            // 
-            Editorial.HeaderText = "Editorial";
-            Editorial.Name = "Editorial";
+            label4.Text = "DNI";
             // 
             // pictureBox5
             // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
             pictureBox5.Location = new Point(-6, 0);
             pictureBox5.Name = "pictureBox5";
@@ -345,17 +167,22 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(59, 113);
+            label3.Location = new Point(47, 130);
             label3.Name = "label3";
-            label3.Size = new Size(43, 16);
+            label3.Size = new Size(69, 16);
             label3.TabIndex = 2;
-            label3.Text = "Autor";
+            label3.Text = "Telefono";
             // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.ControlDarkDark;
-            panel3.Controls.Add(label10);
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtBuscadorAutor);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(txtBuscadorTitulo);
             panel3.Controls.Add(dataGridView1);
             panel3.Controls.Add(pictureBox5);
             panel3.Location = new Point(-1, 64);
@@ -363,29 +190,115 @@
             panel3.Size = new Size(552, 466);
             panel3.TabIndex = 24;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.Window;
+            label6.Location = new Point(382, 19);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 16);
+            label6.TabIndex = 32;
+            label6.Text = "DNI:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(425, 16);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(114, 23);
+            textBox1.TabIndex = 31;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Window;
+            label11.Location = new Point(190, 19);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 16);
+            label11.TabIndex = 30;
+            label11.Text = "Apellido:";
+            // 
+            // txtBuscadorAutor
+            // 
+            txtBuscadorAutor.Location = new Point(262, 16);
+            txtBuscadorAutor.Name = "txtBuscadorAutor";
+            txtBuscadorAutor.Size = new Size(114, 23);
+            txtBuscadorAutor.TabIndex = 29;
+            // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = SystemColors.Window;
-            label10.Location = new Point(6, 19);
+            label10.Location = new Point(9, 19);
             label10.Name = "label10";
-            label10.Size = new Size(59, 16);
-            label10.TabIndex = 24;
-            label10.Text = "Buscar:";
+            label10.Size = new Size(66, 16);
+            label10.TabIndex = 28;
+            label10.Text = "Nombre:";
             // 
-            // pictureBox1
+            // txtBuscadorTitulo
             // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            txtBuscadorTitulo.Location = new Point(74, 17);
+            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
+            txtBuscadorTitulo.Size = new Size(114, 23);
+            txtBuscadorTitulo.TabIndex = 27;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Nombre, Apellido, DNI, Telefono, Email, Rol, Usuario, FechaDeNacimiento });
+            dataGridView1.Location = new Point(9, 45);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(530, 405);
+            dataGridView1.TabIndex = 22;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            Apellido.HeaderText = "Apellido";
+            Apellido.Name = "Apellido";
+            // 
+            // DNI
+            // 
+            DNI.HeaderText = "DNI";
+            DNI.Name = "DNI";
+            // 
+            // Telefono
+            // 
+            Telefono.HeaderText = "Telefono";
+            Telefono.Name = "Telefono";
+            // 
+            // Email
+            // 
+            Email.HeaderText = "Email";
+            Email.Name = "Email";
+            // 
+            // Rol
+            // 
+            Rol.HeaderText = "Rol";
+            Rol.Name = "Rol";
+            // 
+            // Usuario
+            // 
+            Usuario.HeaderText = "Usuario";
+            Usuario.Name = "Usuario";
+            // 
+            // FechaDeNacimiento
+            // 
+            FechaDeNacimiento.HeaderText = "Fecha De Nacimiento";
+            FechaDeNacimiento.Name = "FechaDeNacimiento";
             // 
             // lblAgregarProducto
             // 
+            lblAgregarProducto.Anchor = AnchorStyles.None;
             lblAgregarProducto.AutoSize = true;
             lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
@@ -399,12 +312,35 @@
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
             panel1.Controls.Add(iconButton1);
-            panel1.Location = new Point(-4, -5);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(926, 70);
+            panel1.Size = new Size(918, 65);
             panel1.TabIndex = 22;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox1.Location = new Point(909, -1);
+            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(10, 71);
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox3.Location = new Point(-1, -1);
+            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(10, 71);
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
             // 
             // iconButton1
             // 
@@ -417,7 +353,7 @@
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(88, 15);
+            iconButton1.Location = new Point(12, 13);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(43, 48);
             iconButton1.TabIndex = 20;
@@ -429,51 +365,201 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(37, 89);
+            label2.Location = new Point(51, 92);
             label2.Name = "label2";
             label2.Size = new Size(65, 16);
             label2.TabIndex = 1;
-            label2.Text = "Editorial";
+            label2.Text = "Apellido";
+            // 
+            // lbNombre
+            // 
+            lbNombre.AutoSize = true;
+            lbNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbNombre.ForeColor = Color.FromArgb(241, 241, 241);
+            lbNombre.Location = new Point(54, 54);
+            lbNombre.Name = "lbNombre";
+            lbNombre.Size = new Size(62, 16);
+            lbNombre.TabIndex = 0;
+            lbNombre.Text = "Nombre";
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(txtApellido);
+            panel2.Controls.Add(txtNombre);
+            panel2.Controls.Add(cbRol);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(btnLimpiar);
+            panel2.Controls.Add(iconButton2);
+            panel2.Controls.Add(lbBaja);
+            panel2.Controls.Add(checkBoxNo);
+            panel2.Controls.Add(checkBoxSi);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(dtFechaNac);
+            panel2.Controls.Add(lbDeNacimiento);
+            panel2.Controls.Add(txtUsuario);
+            panel2.Controls.Add(lbErrorMenssage);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(txtEmail);
+            panel2.Controls.Add(txtDNI);
+            panel2.Controls.Add(txtTelefono);
+            panel2.Controls.Add(lbEmail);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(lbNombre);
+            panel2.Location = new Point(547, 64);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(372, 467);
+            panel2.TabIndex = 23;
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(122, 85);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(232, 23);
+            txtApellido.TabIndex = 38;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(122, 47);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(232, 23);
+            txtNombre.TabIndex = 37;
+            // 
+            // cbRol
+            // 
+            cbRol.FormattingEnabled = true;
+            cbRol.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
+            cbRol.Location = new Point(122, 244);
+            cbRol.Name = "cbRol";
+            cbRol.Size = new Size(232, 23);
+            cbRol.TabIndex = 36;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(241, 241, 241);
+            label5.Location = new Point(85, 251);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 16);
+            label5.TabIndex = 35;
+            label5.Text = "Rol";
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = SystemColors.ControlDarkDark;
+            btnLimpiar.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnLimpiar.FlatAppearance.BorderSize = 2;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = SystemColors.Window;
+            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnLimpiar.IconColor = Color.White;
+            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiar.IconSize = 35;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.Location = new Point(228, 412);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(87, 38);
+            btnLimpiar.TabIndex = 33;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // iconButton2
+            // 
+            iconButton2.BackColor = SystemColors.ControlDarkDark;
+            iconButton2.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            iconButton2.FlatAppearance.BorderSize = 2;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.ForeColor = SystemColors.Window;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 40;
+            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton2.Location = new Point(122, 412);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(88, 38);
+            iconButton2.TabIndex = 32;
+            iconButton2.Text = "Editar";
+            iconButton2.TextAlign = ContentAlignment.MiddleRight;
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
+            // 
+            // lbBaja
+            // 
+            lbBaja.AutoSize = true;
+            lbBaja.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbBaja.ForeColor = SystemColors.Window;
+            lbBaja.Location = new Point(76, 371);
+            lbBaja.Name = "lbBaja";
+            lbBaja.Size = new Size(39, 16);
+            lbBaja.TabIndex = 31;
+            lbBaja.Text = "Baja";
+            // 
+            // checkBoxNo
+            // 
+            checkBoxNo.AutoSize = true;
+            checkBoxNo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            checkBoxNo.ForeColor = SystemColors.Window;
+            checkBoxNo.Location = new Point(174, 371);
+            checkBoxNo.Name = "checkBoxNo";
+            checkBoxNo.Size = new Size(43, 20);
+            checkBoxNo.TabIndex = 30;
+            checkBoxNo.Text = "no";
+            checkBoxNo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSi
+            // 
+            checkBoxSi.AutoSize = true;
+            checkBoxSi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            checkBoxSi.ForeColor = SystemColors.Window;
+            checkBoxSi.Location = new Point(122, 370);
+            checkBoxSi.Name = "checkBoxSi";
+            checkBoxSi.Size = new Size(38, 20);
+            checkBoxSi.TabIndex = 29;
+            checkBoxSi.Text = "si";
+            checkBoxSi.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(57, 59);
+            label1.Location = new Point(54, 169);
             label1.Name = "label1";
-            label1.Size = new Size(46, 16);
-            label1.TabIndex = 0;
-            label1.Text = "Titulo";
+            label1.Size = new Size(61, 16);
+            label1.TabIndex = 27;
+            label1.Text = "Usuario";
             // 
-            // panel2
+            // dtFechaNac
             // 
-            panel2.BackColor = Color.FromArgb(64, 0, 64);
-            panel2.Controls.Add(btnLimpiar);
-            panel2.Controls.Add(btnEliminar);
-            panel2.Controls.Add(lbErrorMenssage);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(btnGuardar);
-            panel2.Controls.Add(cbCategoria);
-            panel2.Controls.Add(pbPortada);
-            panel2.Controls.Add(txtStock);
-            panel2.Controls.Add(txtPrecio);
-            panel2.Controls.Add(txtDescripcion);
-            panel2.Controls.Add(txtAutor);
-            panel2.Controls.Add(txtEditorial);
-            panel2.Controls.Add(txtTitulo);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(547, 64);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(372, 467);
-            panel2.TabIndex = 23;
+            dtFechaNac.CustomFormat = "";
+            dtFechaNac.Location = new Point(122, 325);
+            dtFechaNac.Name = "dtFechaNac";
+            dtFechaNac.Size = new Size(232, 23);
+            dtFechaNac.TabIndex = 26;
+            // 
+            // lbDeNacimiento
+            // 
+            lbDeNacimiento.AutoSize = true;
+            lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
+            lbDeNacimiento.Location = new Point(8, 327);
+            lbDeNacimiento.Name = "lbDeNacimiento";
+            lbDeNacimiento.Size = new Size(108, 21);
+            lbDeNacimiento.TabIndex = 25;
+            lbDeNacimiento.Text = "Fecha de nac";
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(122, 162);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(232, 23);
+            txtUsuario.TabIndex = 28;
             // 
             // VerEmpleados
             // 
@@ -484,60 +570,73 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "VerEmpleados";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "VerEmpleados";
-            ((System.ComponentModel.ISupportInitialize)pbPortada).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += VerEmpleados_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private DataGridViewImageColumn Portada;
-        private FontAwesome.Sharp.IconButton btnLimpiar;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private Label lbErrorMenssage;
         private Label label9;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private ComboBox cbCategoria;
         private PictureBox pbPortada;
-        private TextBox txtStock;
-        private DataGridViewTextBoxColumn Stock;
-        private DataGridViewTextBoxColumn Descripcion;
-        private DataGridViewTextBoxColumn Autor;
-        private DataGridViewTextBoxColumn Titulo;
-        private TextBox txtPrecio;
-        private TextBox txtDescripcion;
-        private TextBox txtAutor;
-        private DataGridViewTextBoxColumn Precio;
+        private TextBox txtEmail;
+        private TextBox txtDNI;
+        private TextBox txtTelefono;
         private TextBox txtEditorial;
-        private TextBox textBox1;
         private TextBox txtTitulo;
         private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
+        private Label lbEmail;
         private Label label4;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Categoria;
-        private DataGridViewTextBoxColumn Editorial;
         private PictureBox pictureBox5;
         private Label label3;
         private Panel panel3;
-        private Label label10;
-        private PictureBox pictureBox1;
         private Label lblAgregarProducto;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Label label2;
-        private Label label1;
+        private Label lbNombre;
         private Panel panel2;
+        private DateTimePicker dtFechaNac;
+        private Label lbDeNacimiento;
+        private DataGridView dataGridView1;
+        private Label label1;
+        private TextBox txtUsuario;
+        private Label lbBaja;
+        private CheckBox checkBoxNo;
+        private CheckBox checkBoxSi;
+        private FontAwesome.Sharp.IconButton btnLimpiar;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Label label5;
+        private ComboBox cbRol;
+        private TextBox txtApellido;
+        private TextBox txtNombre;
+        private Label label11;
+        private TextBox txtBuscadorAutor;
+        private Label label10;
+        private TextBox txtBuscadorTitulo;
+        private Label label6;
+        private TextBox textBox1;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn DNI;
+        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Rol;
+        private DataGridViewTextBoxColumn Usuario;
+        private DataGridViewTextBoxColumn FechaDeNacimiento;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
     }
 }

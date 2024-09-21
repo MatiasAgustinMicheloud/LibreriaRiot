@@ -30,7 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
             panel2 = new Panel();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
+            lbBaja = new Label();
+            checkBoxNo = new CheckBox();
+            checkBoxSi = new CheckBox();
+            btnLimpiar = new FontAwesome.Sharp.IconButton();
             lbErrorMenssage = new Label();
             label9 = new Label();
             btnGuardar = new FontAwesome.Sharp.IconButton();
@@ -53,10 +56,13 @@
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
             panel3 = new Panel();
+            label11 = new Label();
+            txtBuscadorAutor = new TextBox();
             label10 = new Label();
-            textBox1 = new TextBox();
+            txtBuscadorTitulo = new TextBox();
             dataGridView1 = new DataGridView();
             Titulo = new DataGridViewTextBoxColumn();
             Autor = new DataGridViewTextBoxColumn();
@@ -67,11 +73,11 @@
             Categoria = new DataGridViewTextBoxColumn();
             Editorial = new DataGridViewTextBoxColumn();
             pictureBox5 = new PictureBox();
-            btnLimpiar = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -79,9 +85,12 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(lbBaja);
+            panel2.Controls.Add(checkBoxNo);
+            panel2.Controls.Add(checkBoxSi);
             panel2.Controls.Add(btnLimpiar);
-            panel2.Controls.Add(btnEliminar);
             panel2.Controls.Add(lbErrorMenssage);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(btnGuardar);
@@ -103,27 +112,63 @@
             panel2.Controls.Add(label1);
             panel2.Location = new Point(545, 65);
             panel2.Name = "panel2";
-            panel2.Size = new Size(372, 467);
+            panel2.Size = new Size(373, 517);
             panel2.TabIndex = 3;
             // 
-            // btnEliminar
+            // lbBaja
             // 
-            btnEliminar.BackColor = SystemColors.ControlDarkDark;
-            btnEliminar.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnEliminar.FlatAppearance.BorderSize = 2;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = SystemColors.Window;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            btnEliminar.IconColor = Color.White;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(242, 381);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(107, 50);
-            btnEliminar.TabIndex = 23;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminar.UseVisualStyleBackColor = false;
+            lbBaja.AutoSize = true;
+            lbBaja.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbBaja.ForeColor = SystemColors.Window;
+            lbBaja.Location = new Point(279, 343);
+            lbBaja.Name = "lbBaja";
+            lbBaja.Size = new Size(39, 16);
+            lbBaja.TabIndex = 27;
+            lbBaja.Text = "Baja";
+            // 
+            // checkBoxNo
+            // 
+            checkBoxNo.AutoSize = true;
+            checkBoxNo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            checkBoxNo.ForeColor = SystemColors.Window;
+            checkBoxNo.Location = new Point(306, 369);
+            checkBoxNo.Name = "checkBoxNo";
+            checkBoxNo.Size = new Size(43, 20);
+            checkBoxNo.TabIndex = 26;
+            checkBoxNo.Text = "no";
+            checkBoxNo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSi
+            // 
+            checkBoxSi.AutoSize = true;
+            checkBoxSi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            checkBoxSi.ForeColor = SystemColors.Window;
+            checkBoxSi.Location = new Point(256, 369);
+            checkBoxSi.Name = "checkBoxSi";
+            checkBoxSi.Size = new Size(38, 20);
+            checkBoxSi.TabIndex = 25;
+            checkBoxSi.Text = "si";
+            checkBoxSi.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = SystemColors.ControlDarkDark;
+            btnLimpiar.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnLimpiar.FlatAppearance.BorderSize = 2;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = SystemColors.Window;
+            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnLimpiar.IconColor = Color.White;
+            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiar.IconSize = 35;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.Location = new Point(231, 452);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(87, 38);
+            btnLimpiar.TabIndex = 24;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // lbErrorMenssage
             // 
@@ -143,7 +188,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(241, 241, 241);
-            label9.Location = new Point(53, 16);
+            label9.Location = new Point(106, 13);
             label9.Name = "label9";
             label9.Size = new Size(188, 39);
             label9.TabIndex = 19;
@@ -159,21 +204,24 @@
             btnGuardar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
             btnGuardar.IconColor = Color.White;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGuardar.IconSize = 40;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(254, 19);
+            btnGuardar.Location = new Point(124, 452);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(97, 38);
+            btnGuardar.Size = new Size(88, 38);
             btnGuardar.TabIndex = 18;
             btnGuardar.Text = "Editar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // cbCategoria
             // 
             cbCategoria.FormattingEnabled = true;
+            cbCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbCategoria.Location = new Point(117, 238);
             cbCategoria.Name = "cbCategoria";
-            cbCategoria.Size = new Size(127, 23);
+            cbCategoria.Size = new Size(232, 23);
             cbCategoria.TabIndex = 16;
             // 
             // pbPortada
@@ -327,7 +375,7 @@
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(88, 15);
+            iconButton1.Location = new Point(19, 13);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(43, 48);
             iconButton1.TabIndex = 20;
@@ -338,25 +386,39 @@
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
             panel1.Controls.Add(iconButton1);
-            panel1.Location = new Point(-6, -4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(926, 70);
+            panel1.Size = new Size(918, 70);
             panel1.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox1.Location = new Point(908, 0);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 70);
-            pictureBox1.TabIndex = 1;
+            pictureBox1.Size = new Size(10, 71);
+            pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox3.Location = new Point(0, -1);
+            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(10, 71);
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
             // 
             // lblAgregarProducto
             // 
+            lblAgregarProducto.Anchor = AnchorStyles.None;
             lblAgregarProducto.AutoSize = true;
             lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
@@ -368,15 +430,36 @@
             // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.ControlDarkDark;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtBuscadorAutor);
             panel3.Controls.Add(label10);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtBuscadorTitulo);
             panel3.Controls.Add(dataGridView1);
             panel3.Controls.Add(pictureBox5);
             panel3.Location = new Point(0, 65);
             panel3.Name = "panel3";
-            panel3.Size = new Size(549, 466);
+            panel3.Size = new Size(549, 517);
             panel3.TabIndex = 21;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Window;
+            label11.Location = new Point(200, 19);
+            label11.Name = "label11";
+            label11.Size = new Size(47, 16);
+            label11.TabIndex = 26;
+            label11.Text = "Autor:";
+            // 
+            // txtBuscadorAutor
+            // 
+            txtBuscadorAutor.Location = new Point(253, 16);
+            txtBuscadorAutor.Name = "txtBuscadorAutor";
+            txtBuscadorAutor.Size = new Size(114, 23);
+            txtBuscadorAutor.TabIndex = 25;
             // 
             // label10
             // 
@@ -385,25 +468,27 @@
             label10.ForeColor = SystemColors.Window;
             label10.Location = new Point(6, 19);
             label10.Name = "label10";
-            label10.Size = new Size(59, 16);
+            label10.Size = new Size(50, 16);
             label10.TabIndex = 24;
-            label10.Text = "Buscar:";
+            label10.Text = "Titulo:";
             // 
-            // textBox1
+            // txtBuscadorTitulo
             // 
-            textBox1.Location = new Point(71, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(252, 23);
-            textBox1.TabIndex = 23;
+            txtBuscadorTitulo.Location = new Point(62, 16);
+            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
+            txtBuscadorTitulo.Size = new Size(116, 23);
+            txtBuscadorTitulo.TabIndex = 23;
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Titulo, Autor, Descripcion, Stock, Precio, Portada, Categoria, Editorial });
             dataGridView1.Location = new Point(6, 45);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(533, 405);
+            dataGridView1.Size = new Size(533, 460);
             dataGridView1.TabIndex = 22;
             // 
             // Titulo
@@ -449,6 +534,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
             pictureBox5.Location = new Point(-6, 0);
             pictureBox5.Name = "pictureBox5";
@@ -456,34 +542,16 @@
             pictureBox5.TabIndex = 21;
             pictureBox5.TabStop = false;
             // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = SystemColors.ControlDarkDark;
-            btnLimpiar.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnLimpiar.FlatAppearance.BorderSize = 2;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = SystemColors.Window;
-            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            btnLimpiar.IconColor = Color.White;
-            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(244, 325);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(107, 50);
-            btnLimpiar.TabIndex = 24;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            // 
             // VerProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 526);
+            ClientSize = new Size(918, 582);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "VerProductos";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "VerProductos";
             panel2.ResumeLayout(false);
@@ -492,6 +560,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -521,7 +590,6 @@
         private Label label2;
         private Label label1;
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Label lblAgregarProducto;
         private Label label9;
         private Panel panel3;
@@ -533,12 +601,18 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
         private Label label10;
-        private TextBox textBox1;
+        private TextBox txtBuscadorTitulo;
         private DataGridViewImageColumn Portada;
         private DataGridViewTextBoxColumn Categoria;
         private DataGridViewTextBoxColumn Editorial;
         private Label lbErrorMenssage;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnLimpiar;
+        private Label lbBaja;
+        private CheckBox checkBoxNo;
+        private CheckBox checkBoxSi;
+        private Label label11;
+        private TextBox txtBuscadorAutor;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace LibreriaRiot.Principal.lobi
 {
-    partial class Lobi
+    partial class LobiPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,22 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lobi));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobiPrincipal));
             panel1 = new Panel();
-            Lfecha = new Label();
-            Lhora = new Label();
-            pictureBox2 = new PictureBox();
-            panel2 = new Panel();
-            btnlobiMinimizar = new FontAwesome.Sharp.IconButton();
-            btnlobiMaximizar = new FontAwesome.Sharp.IconButton();
-            btnlobiSalir = new FontAwesome.Sharp.IconButton();
-            lbTitleCurrentForm = new Label();
-            iconButton8 = new FontAwesome.Sharp.IconButton();
-            lbNApe = new Label();
-            iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            lbRol = new Label();
-            pictureBox1 = new PictureBox();
-            panel3 = new Panel();
+            pictureBox5 = new PictureBox();
             pictureBox3 = new PictureBox();
-            label2 = new Label();
+            lbNApe = new Label();
+            lbRol = new Label();
+            btnlobiMinimizar = new FontAwesome.Sharp.IconButton();
             panel4 = new Panel();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            btnlobiMaximizar = new FontAwesome.Sharp.IconButton();
+            lbTitleCurrentForm = new Label();
+            btnlobiSalir = new FontAwesome.Sharp.IconButton();
+            iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            iconButton8 = new FontAwesome.Sharp.IconButton();
+            panelMenu = new Panel();
             iconCargarCliente = new FontAwesome.Sharp.IconButton();
             iconRealizarVenta = new FontAwesome.Sharp.IconButton();
             iconExit = new FontAwesome.Sharp.IconButton();
@@ -58,79 +55,87 @@
             iconMisVentas = new FontAwesome.Sharp.IconButton();
             iconCatalogo = new FontAwesome.Sharp.IconButton();
             iconProducto = new FontAwesome.Sharp.IconButton();
+            panelEscritorio = new Panel();
+            Lfecha = new Label();
+            Lhora = new Label();
+            pictureBox2 = new PictureBox();
             horaFecha = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).BeginInit();
+            panelMenu.SuspendLayout();
+            panelEscritorio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(64, 0, 64);
-            panel1.Controls.Add(Lfecha);
-            panel1.Controls.Add(Lhora);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Location = new Point(206, 86);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(pictureBox5);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(lbNApe);
+            panel1.Controls.Add(lbRol);
+            panel1.Controls.Add(btnlobiMinimizar);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(btnlobiMaximizar);
+            panel1.Controls.Add(lbTitleCurrentForm);
+            panel1.Controls.Add(btnlobiSalir);
+            panel1.Controls.Add(iconCurrentChildForm);
+            panel1.Controls.Add(iconButton8);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(766, 514);
+            panel1.Size = new Size(976, 90);
             panel1.TabIndex = 0;
             // 
-            // Lfecha
+            // pictureBox5
             // 
-            Lfecha.AutoSize = true;
-            Lfecha.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Lfecha.ForeColor = SystemColors.Window;
-            Lfecha.Location = new Point(224, 386);
-            Lfecha.Margin = new Padding(4, 0, 4, 0);
-            Lfecha.Name = "Lfecha";
-            Lfecha.Size = new Size(69, 30);
-            Lfecha.TabIndex = 9;
-            Lfecha.Text = "Fecha";
+            pictureBox5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox5.Location = new Point(0, 80);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(977, 10);
+            pictureBox5.TabIndex = 23;
+            pictureBox5.TabStop = false;
             // 
-            // Lhora
+            // pictureBox3
             // 
-            Lhora.AutoSize = true;
-            Lhora.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Lhora.ForeColor = SystemColors.Window;
-            Lhora.Location = new Point(364, 349);
-            Lhora.Margin = new Padding(4, 0, 4, 0);
-            Lhora.Name = "Lhora";
-            Lhora.Size = new Size(61, 30);
-            Lhora.TabIndex = 8;
-            Lhora.Text = "Hora";
+            pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox3.Location = new Point(210, -4);
+            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(10, 94);
+            pictureBox3.TabIndex = 16;
+            pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // lbNApe
             // 
-            pictureBox2.BackColor = SystemColors.ControlDarkDark;
-            pictureBox2.Location = new Point(256, 116);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(304, 206);
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            lbNApe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbNApe.AutoSize = true;
+            lbNApe.ForeColor = SystemColors.Window;
+            lbNApe.ImageAlign = ContentAlignment.TopRight;
+            lbNApe.Location = new Point(844, 54);
+            lbNApe.Margin = new Padding(4, 0, 4, 0);
+            lbNApe.Name = "lbNApe";
+            lbNApe.Size = new Size(107, 15);
+            lbNApe.TabIndex = 14;
+            lbNApe.Text = "Nombre y Apellido";
             // 
-            // panel2
+            // lbRol
             // 
-            panel2.BackColor = SystemColors.ControlDarkDark;
-            panel2.Controls.Add(btnlobiMinimizar);
-            panel2.Controls.Add(btnlobiMaximizar);
-            panel2.Controls.Add(btnlobiSalir);
-            panel2.Controls.Add(lbTitleCurrentForm);
-            panel2.Controls.Add(iconButton8);
-            panel2.Controls.Add(lbNApe);
-            panel2.Controls.Add(iconCurrentChildForm);
-            panel2.Controls.Add(lbRol);
-            panel2.Location = new Point(206, 0);
-            panel2.Margin = new Padding(4, 4, 4, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(766, 90);
-            panel2.TabIndex = 1;
+            lbRol.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbRol.AutoSize = true;
+            lbRol.ForeColor = SystemColors.Window;
+            lbRol.ImageAlign = ContentAlignment.TopRight;
+            lbRol.Location = new Point(844, 40);
+            lbRol.Margin = new Padding(4, 0, 4, 0);
+            lbRol.Name = "lbRol";
+            lbRol.Size = new Size(24, 15);
+            lbRol.TabIndex = 15;
+            lbRol.Text = "Rol";
             // 
             // btnlobiMinimizar
             // 
@@ -143,13 +148,47 @@
             btnlobiMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiMinimizar.IconSize = 18;
             btnlobiMinimizar.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiMinimizar.Location = new Point(662, 4);
-            btnlobiMinimizar.Margin = new Padding(4, 4, 4, 4);
+            btnlobiMinimizar.Location = new Point(870, 1);
+            btnlobiMinimizar.Margin = new Padding(4);
             btnlobiMinimizar.Name = "btnlobiMinimizar";
             btnlobiMinimizar.Size = new Size(32, 22);
-            btnlobiMinimizar.TabIndex = 7;
+            btnlobiMinimizar.TabIndex = 12;
             btnlobiMinimizar.UseVisualStyleBackColor = false;
             btnlobiMinimizar.Click += btnlobiMinimizar_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(pictureBox1);
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(210, 87);
+            panel4.TabIndex = 0;
+            panel4.Paint += panel4_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Cambria", 24.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(73, 23);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(94, 38);
+            label2.TabIndex = 17;
+            label2.Text = "RIOT";
+            label2.Click += label2_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ControlDarkDark;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(4, 12);
+            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(70, 71);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // btnlobiMaximizar
             // 
@@ -162,13 +201,26 @@
             btnlobiMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiMaximizar.IconSize = 18;
             btnlobiMaximizar.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiMaximizar.Location = new Point(696, 4);
-            btnlobiMaximizar.Margin = new Padding(4, 4, 4, 4);
+            btnlobiMaximizar.Location = new Point(904, 1);
+            btnlobiMaximizar.Margin = new Padding(4);
             btnlobiMaximizar.Name = "btnlobiMaximizar";
             btnlobiMaximizar.Size = new Size(32, 22);
-            btnlobiMaximizar.TabIndex = 6;
+            btnlobiMaximizar.TabIndex = 11;
             btnlobiMaximizar.UseVisualStyleBackColor = false;
             btnlobiMaximizar.Click += btnlobiMaximizar_Click;
+            // 
+            // lbTitleCurrentForm
+            // 
+            lbTitleCurrentForm.AutoSize = true;
+            lbTitleCurrentForm.BackColor = Color.Transparent;
+            lbTitleCurrentForm.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbTitleCurrentForm.ForeColor = Color.Gainsboro;
+            lbTitleCurrentForm.Location = new Point(265, 44);
+            lbTitleCurrentForm.Margin = new Padding(4, 0, 4, 0);
+            lbTitleCurrentForm.Name = "lbTitleCurrentForm";
+            lbTitleCurrentForm.Size = new Size(46, 20);
+            lbTitleCurrentForm.TabIndex = 9;
+            lbTitleCurrentForm.Text = "Inicio";
             // 
             // btnlobiSalir
             // 
@@ -181,53 +233,13 @@
             btnlobiSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlobiSalir.IconSize = 18;
             btnlobiSalir.ImageAlign = ContentAlignment.TopCenter;
-            btnlobiSalir.Location = new Point(735, 4);
-            btnlobiSalir.Margin = new Padding(4, 4, 4, 4);
+            btnlobiSalir.Location = new Point(943, 1);
+            btnlobiSalir.Margin = new Padding(4);
             btnlobiSalir.Name = "btnlobiSalir";
             btnlobiSalir.Size = new Size(32, 30);
-            btnlobiSalir.TabIndex = 5;
+            btnlobiSalir.TabIndex = 10;
             btnlobiSalir.UseVisualStyleBackColor = false;
             btnlobiSalir.Click += btnlobiSalir_Click;
-            // 
-            // lbTitleCurrentForm
-            // 
-            lbTitleCurrentForm.AutoSize = true;
-            lbTitleCurrentForm.BackColor = Color.Transparent;
-            lbTitleCurrentForm.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbTitleCurrentForm.ForeColor = Color.Gainsboro;
-            lbTitleCurrentForm.Location = new Point(52, 41);
-            lbTitleCurrentForm.Margin = new Padding(4, 0, 4, 0);
-            lbTitleCurrentForm.Name = "lbTitleCurrentForm";
-            lbTitleCurrentForm.Size = new Size(46, 20);
-            lbTitleCurrentForm.TabIndex = 3;
-            lbTitleCurrentForm.Text = "Inicio";
-            // 
-            // iconButton8
-            // 
-            iconButton8.BackColor = SystemColors.ControlDarkDark;
-            iconButton8.FlatAppearance.BorderSize = 0;
-            iconButton8.FlatStyle = FlatStyle.Flat;
-            iconButton8.IconChar = FontAwesome.Sharp.IconChar.IdCard;
-            iconButton8.IconColor = Color.White;
-            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton8.IconSize = 45;
-            iconButton8.Location = new Point(592, 38);
-            iconButton8.Margin = new Padding(4, 4, 4, 4);
-            iconButton8.Name = "iconButton8";
-            iconButton8.Size = new Size(42, 41);
-            iconButton8.TabIndex = 7;
-            iconButton8.UseVisualStyleBackColor = false;
-            // 
-            // lbNApe
-            // 
-            lbNApe.AutoSize = true;
-            lbNApe.ForeColor = SystemColors.Window;
-            lbNApe.Location = new Point(637, 52);
-            lbNApe.Margin = new Padding(4, 0, 4, 0);
-            lbNApe.Name = "lbNApe";
-            lbNApe.Size = new Size(107, 15);
-            lbNApe.TabIndex = 0;
-            lbNApe.Text = "Nombre y Apellido";
             // 
             // iconCurrentChildForm
             // 
@@ -236,86 +248,50 @@
             iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             iconCurrentChildForm.IconColor = Color.Gainsboro;
             iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconCurrentChildForm.Location = new Point(24, 38);
-            iconCurrentChildForm.Margin = new Padding(4, 4, 4, 4);
+            iconCurrentChildForm.Location = new Point(235, 35);
+            iconCurrentChildForm.Margin = new Padding(4);
             iconCurrentChildForm.Name = "iconCurrentChildForm";
             iconCurrentChildForm.Size = new Size(32, 34);
-            iconCurrentChildForm.TabIndex = 2;
+            iconCurrentChildForm.TabIndex = 8;
             iconCurrentChildForm.TabStop = false;
             // 
-            // lbRol
+            // iconButton8
             // 
-            lbRol.AutoSize = true;
-            lbRol.ForeColor = SystemColors.Window;
-            lbRol.Location = new Point(637, 38);
-            lbRol.Margin = new Padding(4, 0, 4, 0);
-            lbRol.Name = "lbRol";
-            lbRol.Size = new Size(24, 15);
-            lbRol.TabIndex = 0;
-            lbRol.Text = "Rol";
+            iconButton8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            iconButton8.BackColor = SystemColors.ControlDarkDark;
+            iconButton8.Enabled = false;
+            iconButton8.FlatAppearance.BorderSize = 0;
+            iconButton8.FlatStyle = FlatStyle.Flat;
+            iconButton8.IconChar = FontAwesome.Sharp.IconChar.IdCard;
+            iconButton8.IconColor = Color.White;
+            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton8.IconSize = 45;
+            iconButton8.ImageAlign = ContentAlignment.TopRight;
+            iconButton8.Location = new Point(796, 29);
+            iconButton8.Margin = new Padding(4);
+            iconButton8.Name = "iconButton8";
+            iconButton8.Size = new Size(51, 41);
+            iconButton8.TabIndex = 13;
+            iconButton8.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // panelMenu
             // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 11);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 71);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = SystemColors.ControlDarkDark;
-            panel3.Controls.Add(pictureBox3);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(4, 4, 4, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(214, 90);
-            panel3.TabIndex = 1;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox3.Location = new Point(206, -4);
-            pictureBox3.Margin = new Padding(4, 4, 4, 4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(10, 94);
-            pictureBox3.TabIndex = 10;
-            pictureBox3.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Cambria", 24.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(77, 26);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(94, 38);
-            label2.TabIndex = 15;
-            label2.Text = "RIOT";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ControlDarkDark;
-            panel4.Controls.Add(iconCargarCliente);
-            panel4.Controls.Add(iconRealizarVenta);
-            panel4.Controls.Add(iconExit);
-            panel4.Controls.Add(iconRespaldo);
-            panel4.Controls.Add(iconUsuarios);
-            panel4.Controls.Add(iconEstadistica);
-            panel4.Controls.Add(iconHistorialVentas);
-            panel4.Controls.Add(iconMisVentas);
-            panel4.Controls.Add(iconCatalogo);
-            panel4.Controls.Add(iconProducto);
-            panel4.Location = new Point(0, 86);
-            panel4.Margin = new Padding(4, 4, 4, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(210, 514);
-            panel4.TabIndex = 0;
+            panelMenu.BackColor = SystemColors.ControlDarkDark;
+            panelMenu.Controls.Add(iconCargarCliente);
+            panelMenu.Controls.Add(iconRealizarVenta);
+            panelMenu.Controls.Add(iconExit);
+            panelMenu.Controls.Add(iconRespaldo);
+            panelMenu.Controls.Add(iconUsuarios);
+            panelMenu.Controls.Add(iconEstadistica);
+            panelMenu.Controls.Add(iconHistorialVentas);
+            panelMenu.Controls.Add(iconMisVentas);
+            panelMenu.Controls.Add(iconCatalogo);
+            panelMenu.Controls.Add(iconProducto);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.Location = new Point(0, 90);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(210, 510);
+            panelMenu.TabIndex = 1;
             // 
             // iconCargarCliente
             // 
@@ -330,10 +306,10 @@
             iconCargarCliente.IconSize = 40;
             iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
             iconCargarCliente.Location = new Point(0, 416);
-            iconCargarCliente.Margin = new Padding(4, 4, 4, 4);
+            iconCargarCliente.Margin = new Padding(4);
             iconCargarCliente.Name = "iconCargarCliente";
             iconCargarCliente.Size = new Size(210, 52);
-            iconCargarCliente.TabIndex = 12;
+            iconCargarCliente.TabIndex = 22;
             iconCargarCliente.Text = "Cargar Cliente";
             iconCargarCliente.UseVisualStyleBackColor = false;
             iconCargarCliente.Visible = false;
@@ -352,14 +328,13 @@
             iconRealizarVenta.IconSize = 40;
             iconRealizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
             iconRealizarVenta.Location = new Point(0, 364);
-            iconRealizarVenta.Margin = new Padding(4, 4, 4, 4);
+            iconRealizarVenta.Margin = new Padding(4);
             iconRealizarVenta.Name = "iconRealizarVenta";
             iconRealizarVenta.Size = new Size(210, 52);
-            iconRealizarVenta.TabIndex = 11;
+            iconRealizarVenta.TabIndex = 21;
             iconRealizarVenta.Text = "Realizar Venta";
             iconRealizarVenta.UseVisualStyleBackColor = false;
             iconRealizarVenta.Visible = false;
-            iconRealizarVenta.Click += iconButton1_Click;
             // 
             // iconExit
             // 
@@ -374,11 +349,11 @@
             iconExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconExit.IconSize = 40;
             iconExit.ImageAlign = ContentAlignment.MiddleLeft;
-            iconExit.Location = new Point(0, 462);
-            iconExit.Margin = new Padding(4, 4, 4, 4);
+            iconExit.Location = new Point(0, 458);
+            iconExit.Margin = new Padding(4);
             iconExit.Name = "iconExit";
             iconExit.Size = new Size(210, 52);
-            iconExit.TabIndex = 8;
+            iconExit.TabIndex = 18;
             iconExit.Text = "Cerrar Sesion";
             iconExit.UseVisualStyleBackColor = false;
             iconExit.Click += iconExit_Click;
@@ -397,10 +372,10 @@
             iconRespaldo.IconSize = 40;
             iconRespaldo.ImageAlign = ContentAlignment.MiddleLeft;
             iconRespaldo.Location = new Point(0, 312);
-            iconRespaldo.Margin = new Padding(4, 4, 4, 4);
+            iconRespaldo.Margin = new Padding(4);
             iconRespaldo.Name = "iconRespaldo";
             iconRespaldo.Size = new Size(210, 52);
-            iconRespaldo.TabIndex = 3;
+            iconRespaldo.TabIndex = 14;
             iconRespaldo.Text = "Base De Datos";
             iconRespaldo.UseVisualStyleBackColor = false;
             iconRespaldo.Visible = false;
@@ -419,10 +394,10 @@
             iconUsuarios.IconSize = 40;
             iconUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
             iconUsuarios.Location = new Point(0, 260);
-            iconUsuarios.Margin = new Padding(4, 4, 4, 4);
+            iconUsuarios.Margin = new Padding(4);
             iconUsuarios.Name = "iconUsuarios";
             iconUsuarios.Size = new Size(210, 52);
-            iconUsuarios.TabIndex = 10;
+            iconUsuarios.TabIndex = 20;
             iconUsuarios.Text = "Empleados";
             iconUsuarios.UseVisualStyleBackColor = false;
             iconUsuarios.Visible = false;
@@ -442,10 +417,10 @@
             iconEstadistica.IconSize = 40;
             iconEstadistica.ImageAlign = ContentAlignment.MiddleLeft;
             iconEstadistica.Location = new Point(0, 208);
-            iconEstadistica.Margin = new Padding(4, 4, 4, 4);
+            iconEstadistica.Margin = new Padding(4);
             iconEstadistica.Name = "iconEstadistica";
             iconEstadistica.Size = new Size(210, 52);
-            iconEstadistica.TabIndex = 9;
+            iconEstadistica.TabIndex = 19;
             iconEstadistica.Text = "Estadisticas";
             iconEstadistica.UseVisualStyleBackColor = false;
             iconEstadistica.Visible = false;
@@ -464,10 +439,10 @@
             iconHistorialVentas.IconSize = 40;
             iconHistorialVentas.ImageAlign = ContentAlignment.MiddleLeft;
             iconHistorialVentas.Location = new Point(0, 156);
-            iconHistorialVentas.Margin = new Padding(4, 4, 4, 4);
+            iconHistorialVentas.Margin = new Padding(4);
             iconHistorialVentas.Name = "iconHistorialVentas";
             iconHistorialVentas.Size = new Size(210, 52);
-            iconHistorialVentas.TabIndex = 5;
+            iconHistorialVentas.TabIndex = 17;
             iconHistorialVentas.Text = "Historial Ventas";
             iconHistorialVentas.UseVisualStyleBackColor = false;
             iconHistorialVentas.Visible = false;
@@ -486,10 +461,10 @@
             iconMisVentas.IconSize = 40;
             iconMisVentas.ImageAlign = ContentAlignment.MiddleLeft;
             iconMisVentas.Location = new Point(0, 104);
-            iconMisVentas.Margin = new Padding(4, 4, 4, 4);
+            iconMisVentas.Margin = new Padding(4);
             iconMisVentas.Name = "iconMisVentas";
             iconMisVentas.Size = new Size(210, 52);
-            iconMisVentas.TabIndex = 4;
+            iconMisVentas.TabIndex = 16;
             iconMisVentas.Text = "Mis Ventas";
             iconMisVentas.UseVisualStyleBackColor = false;
             iconMisVentas.Visible = false;
@@ -508,10 +483,10 @@
             iconCatalogo.IconSize = 40;
             iconCatalogo.ImageAlign = ContentAlignment.MiddleLeft;
             iconCatalogo.Location = new Point(0, 52);
-            iconCatalogo.Margin = new Padding(4, 4, 4, 4);
+            iconCatalogo.Margin = new Padding(4);
             iconCatalogo.Name = "iconCatalogo";
             iconCatalogo.Size = new Size(210, 52);
-            iconCatalogo.TabIndex = 3;
+            iconCatalogo.TabIndex = 15;
             iconCatalogo.Text = "Catalogo";
             iconCatalogo.UseVisualStyleBackColor = false;
             iconCatalogo.Visible = false;
@@ -530,81 +505,132 @@
             iconProducto.IconSize = 40;
             iconProducto.ImageAlign = ContentAlignment.MiddleLeft;
             iconProducto.Location = new Point(0, 0);
-            iconProducto.Margin = new Padding(4, 4, 4, 4);
+            iconProducto.Margin = new Padding(4);
             iconProducto.Name = "iconProducto";
             iconProducto.Size = new Size(210, 52);
-            iconProducto.TabIndex = 2;
+            iconProducto.TabIndex = 13;
             iconProducto.Text = "Producto";
             iconProducto.UseVisualStyleBackColor = false;
             iconProducto.Visible = false;
             iconProducto.Click += iconProducto_Click;
             // 
+            // panelEscritorio
+            // 
+            panelEscritorio.BackColor = Color.FromArgb(64, 0, 64);
+            panelEscritorio.Controls.Add(Lfecha);
+            panelEscritorio.Controls.Add(Lhora);
+            panelEscritorio.Controls.Add(pictureBox2);
+            panelEscritorio.Dock = DockStyle.Fill;
+            panelEscritorio.Location = new Point(210, 90);
+            panelEscritorio.Name = "panelEscritorio";
+            panelEscritorio.Size = new Size(766, 510);
+            panelEscritorio.TabIndex = 2;
+            // 
+            // Lfecha
+            // 
+            Lfecha.Anchor = AnchorStyles.None;
+            Lfecha.AutoSize = true;
+            Lfecha.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Lfecha.ForeColor = SystemColors.Window;
+            Lfecha.Location = new Point(215, 375);
+            Lfecha.Margin = new Padding(4, 0, 4, 0);
+            Lfecha.Name = "Lfecha";
+            Lfecha.Size = new Size(69, 30);
+            Lfecha.TabIndex = 12;
+            Lfecha.Text = "Fecha";
+            Lfecha.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Lhora
+            // 
+            Lhora.Anchor = AnchorStyles.None;
+            Lhora.AutoSize = true;
+            Lhora.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Lhora.ForeColor = SystemColors.Window;
+            Lhora.Location = new Point(355, 338);
+            Lhora.Margin = new Padding(4, 0, 4, 0);
+            Lhora.Name = "Lhora";
+            Lhora.Size = new Size(61, 30);
+            Lhora.TabIndex = 11;
+            Lhora.Text = "Hora";
+            Lhora.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.None;
+            pictureBox2.BackColor = SystemColors.ControlDarkDark;
+            pictureBox2.Location = new Point(247, 105);
+            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(304, 206);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
             // horaFecha
             // 
             horaFecha.Enabled = true;
-            horaFecha.Tick += horaFecha_Tick_1;
+            horaFecha.Tick += horaFecha_Tick;
             // 
-            // Lobi
+            // LobiPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(976, 600);
             ControlBox = false;
+            Controls.Add(panelEscritorio);
+            Controls.Add(panelMenu);
             Controls.Add(panel1);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Lobi";
+            DoubleBuffered = true;
+            Name = "LobiPrincipal";
             Opacity = 0.9D;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Lobi_Load;
+            Text = "LobiPrincipal";
+            Load += LobiPrincipal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).EndInit();
+            panelMenu.ResumeLayout(false);
+            panelEscritorio.ResumeLayout(false);
+            panelEscritorio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
-        private PictureBox pictureBox1;
-        private Panel panel3;
+        private Panel panelMenu;
+        private Panel panelEscritorio;
         private Panel panel4;
+        private FontAwesome.Sharp.IconButton btnlobiMinimizar;
+        private FontAwesome.Sharp.IconButton btnlobiMaximizar;
+        public Label lbTitleCurrentForm;
+        private FontAwesome.Sharp.IconButton btnlobiSalir;
+        private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
+        private FontAwesome.Sharp.IconButton iconButton8;
+        private Label lbNApe;
+        private Label lbRol;
+        private Label label2;
+        private PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconCargarCliente;
+        private FontAwesome.Sharp.IconButton iconRealizarVenta;
+        private FontAwesome.Sharp.IconButton iconExit;
+        private FontAwesome.Sharp.IconButton iconRespaldo;
+        private FontAwesome.Sharp.IconButton iconUsuarios;
+        private FontAwesome.Sharp.IconButton iconEstadistica;
         private FontAwesome.Sharp.IconButton iconHistorialVentas;
         private FontAwesome.Sharp.IconButton iconMisVentas;
         private FontAwesome.Sharp.IconButton iconCatalogo;
         private FontAwesome.Sharp.IconButton iconProducto;
-        public Label lbTitleCurrentForm;
-        private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
-        private FontAwesome.Sharp.IconButton iconExit;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton btnlobiMinimizar;
-        private FontAwesome.Sharp.IconButton btnlobiMaximizar;
-        private FontAwesome.Sharp.IconButton btnlobiSalir;
-        private Label lbNApe;
-        private Label lbRol;
-        private FontAwesome.Sharp.IconButton iconEstadistica;
-        private FontAwesome.Sharp.IconButton iconRespaldo;
-        private FontAwesome.Sharp.IconButton iconUsuarios;
         private Label Lfecha;
         private Label Lhora;
         private PictureBox pictureBox2;
         private System.Windows.Forms.Timer horaFecha;
-        private Label label2;
         private PictureBox pictureBox3;
-        private FontAwesome.Sharp.IconButton iconRealizarVenta;
-        private FontAwesome.Sharp.IconButton iconCargarCliente;
+        private PictureBox pictureBox5;
     }
 }

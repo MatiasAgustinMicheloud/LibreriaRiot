@@ -11,33 +11,26 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    public partial class Form1 : Form
+    public partial class AgregarProducto : Form
     {
         private UserType currentUserType;
-        public Form1()
+        private LobiPrincipal instanciaLobi;
+        private string? fileSavePath;
+        private string? fileActualPath;
+        private string? imagenName;
+        public AgregarProducto(LobiPrincipal lobi)
         {
             InitializeComponent();
+            this.instanciaLobi = lobi;
         }
 
         private void btnVerProductos_Click(object sender, EventArgs e)
         {
-            Administrador.VerProductos modificarProducto = new Administrador.VerProductos();
+            /**Administrador.VerProductos modificarProducto = new Administrador.VerProductos();
             modificarProducto.Show();
-            this.Hide();
-        }
+            this.Hide();*/
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            currentUserType = UserType.Admin;
-            Lobi menu = new Lobi(currentUserType);
-            menu.Show();
-
-            this.Hide();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-           
+            instanciaLobi.OpenChildForm(new Administrador.VerProductos(instanciaLobi));
         }
 
         private void msgError(string msg)
@@ -46,6 +39,47 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage.Visible = true;
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string nombreProd = txtTitulo.Text;
+            string nombreEditorial = txtEditorial.Text;
+            string nombreAutor = txtAutor.Text;
+            string precioStr = txtPrecio.Text;
+            string descripcion = txtDescripcion.Text;
+            string stockStr = txtStock.Text;
 
+            if (string.IsNullOrWhiteSpace(nombreProd) || string.IsNullOrWhiteSpace(nombreEditorial) || string.IsNullOrWhiteSpace(nombreAutor) || string.IsNullOrWhiteSpace(precioStr) || string.IsNullOrWhiteSpace(descripcion))
+            {
+                msgError("Debe completar todos los campos");
+            }
+            else if (cbCategoria.SelectedIndex == -1 || cbCategoria.SelectedItem.ToString() == "")
+            {
+                msgError("Por favor, selecciona una Categoria.");
+            }
+            else if (!float.TryParse(precioStr, out float precio) || !int.TryParse(stockStr, out int stock))
+            {
+                msgError("Ingrese valores válidos en los campos numéricos (Precio, Stock)");
+            }
+            else if (string.IsNullOrEmpty(imagenName))
+            {
+                msgError("Ingrese una imagen");
+            }
+
+        }
+
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

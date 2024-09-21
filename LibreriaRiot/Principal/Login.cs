@@ -57,7 +57,8 @@ namespace LibreriaRiot.Principal
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
+        {   
+
             iconEye.Visible = !string.IsNullOrEmpty(txtPassword.Text);
         }
 
@@ -97,7 +98,7 @@ namespace LibreriaRiot.Principal
                         if (txtUsuario.Text == "admin@gmail.com" && txtPassword.Text == "Admin1")
                         {
                             currentUserType = UserType.Admin;
-                            Lobi menu = new Lobi(currentUserType);
+                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
                             menu.Show();
 
                             this.Hide();
@@ -105,7 +106,7 @@ namespace LibreriaRiot.Principal
                         else if (txtUsuario.Text == "vendedor@gmail.com" && txtPassword.Text == "Vendedor1")
                         {
                             currentUserType = UserType.Vendedor;
-                            Lobi menu = new Lobi(currentUserType);
+                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
                             menu.Show();
 
                             this.Hide();
@@ -113,7 +114,7 @@ namespace LibreriaRiot.Principal
                         else if (txtUsuario.Text == "gerente@gmail.com" && txtPassword.Text == "Gerente1")
                         {
                             currentUserType = UserType.Gerente;
-                            Lobi menu = new Lobi(currentUserType);
+                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
                             menu.Show();
 
                             this.Hide();
@@ -135,6 +136,7 @@ namespace LibreriaRiot.Principal
             lbErrorMenssage.Text = "        " + msg;
             lbErrorMenssage.Visible = true;
         }
+
 
     }
 }
