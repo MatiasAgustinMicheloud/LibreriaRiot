@@ -27,7 +27,7 @@ namespace LibreriaRiot.Principal.lobi
             leftBoderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBoderBtn);
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            this.MinimumSize = new Size(1300, 600);
+            this.MinimumSize = new Size(1200, 700);
             this.userType = userType;
             ConfigureUI();
         }
@@ -105,10 +105,19 @@ namespace LibreriaRiot.Principal.lobi
         private void iconExit_Click(object sender, EventArgs e)
         {
             DialogResult salida = MessageBox.Show("Estas seguro que desea salir", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+           
             if (salida == DialogResult.OK)
             {
+                // Cerrar el lobi actual
                 this.Close();
+
+                // Abrir el formulario de login
+                Login loginForm = new Login();
+                loginForm.Show();
             }
+
+
+
         }
 
         private void iconProducto_Click(object sender, EventArgs e)
@@ -218,6 +227,13 @@ namespace LibreriaRiot.Principal.lobi
                 currentChildForm.Close();
                 Reset();
             }
+        }
+
+        private void iconHistorialVentas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Administrador.HistorialVentas(this));
+
         }
     }
 }

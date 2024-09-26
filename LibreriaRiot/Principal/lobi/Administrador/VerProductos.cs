@@ -47,5 +47,41 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 return;
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void VerProductos_Load(object sender, EventArgs e)
+        {
+            desactivarBotones();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = AlmacenDatos.ListaDatos;
+            dataGridView1.Columns["Portada"].Width = 100;
+
+            if (dataGridView1.Columns["Portada"] is DataGridViewImageColumn)
+            {
+                ((DataGridViewImageColumn)dataGridView1.Columns["Portada"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            }
+
+        }
+
+        private void desactivarBotones()
+        {
+
+            txtTitulo.Enabled = false;
+            txtEditorial.Enabled = false;
+            txtPrecio.Enabled = false;
+            txtAutor.Enabled = false;
+            txtStock.Enabled = false;
+            txtDescripcion.Enabled = false;
+            pbPortada.Enabled = false;
+            cbCategoria.Enabled = false;
+            checkBoxSi.Enabled = false;
+            checkBoxNo.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnLimpiar.Enabled = false;
+        }
     }
 }

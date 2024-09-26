@@ -43,16 +43,25 @@
             label7 = new Label();
             label8 = new Label();
             txtTitulo = new TextBox();
-            txtEditorial = new TextBox();
-            txtAutor = new TextBox();
             txtDescripcion = new TextBox();
             txtPrecio = new TextBox();
             txtStock = new TextBox();
             pbPortada = new PictureBox();
             cbCategoria = new ComboBox();
             btnGuardar = new FontAwesome.Sharp.IconButton();
-            lbErrorMenssage = new Label();
+            lbErrorMenssage2 = new Label();
             panel2 = new Panel();
+            cbAutor = new ComboBox();
+            cbEditorial = new ComboBox();
+            lbErrorMenssage8 = new Label();
+            lbErrorMenssage7 = new Label();
+            lbErrorMenssage6 = new Label();
+            lbErrorMenssage5 = new Label();
+            lbErrorMenssage4 = new Label();
+            lbErrorMenssage3 = new Label();
+            lbErrorMenssage1 = new Label();
+            lbPathTittleP = new Label();
+            btAgregarImagen = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -219,7 +228,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(241, 241, 241);
-            label8.Location = new Point(424, 192);
+            label8.Location = new Point(424, 172);
             label8.Name = "label8";
             label8.Size = new Size(70, 21);
             label8.TabIndex = 7;
@@ -232,22 +241,6 @@
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(183, 23);
             txtTitulo.TabIndex = 9;
-            // 
-            // txtEditorial
-            // 
-            txtEditorial.Anchor = AnchorStyles.None;
-            txtEditorial.Location = new Point(185, 83);
-            txtEditorial.Name = "txtEditorial";
-            txtEditorial.Size = new Size(183, 23);
-            txtEditorial.TabIndex = 10;
-            // 
-            // txtAutor
-            // 
-            txtAutor.Anchor = AnchorStyles.None;
-            txtAutor.Location = new Point(185, 131);
-            txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(183, 23);
-            txtAutor.TabIndex = 11;
             // 
             // txtDescripcion
             // 
@@ -281,6 +274,7 @@
             pbPortada.Location = new Point(500, 174);
             pbPortada.Name = "pbPortada";
             pbPortada.Size = new Size(126, 99);
+            pbPortada.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPortada.TabIndex = 15;
             pbPortada.TabStop = false;
             // 
@@ -317,34 +311,43 @@
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // lbErrorMenssage
+            // lbErrorMenssage2
             // 
-            lbErrorMenssage.Anchor = AnchorStyles.None;
-            lbErrorMenssage.AutoSize = true;
-            lbErrorMenssage.ForeColor = Color.Brown;
-            lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
-            lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(355, 8);
-            lbErrorMenssage.Name = "lbErrorMenssage";
-            lbErrorMenssage.Size = new Size(95, 15);
-            lbErrorMenssage.TabIndex = 21;
-            lbErrorMenssage.Text = "Mensaje de error";
-            lbErrorMenssage.TextAlign = ContentAlignment.TopCenter;
-            lbErrorMenssage.Visible = false;
+            lbErrorMenssage2.Anchor = AnchorStyles.None;
+            lbErrorMenssage2.AutoSize = true;
+            lbErrorMenssage2.ForeColor = Color.Brown;
+            lbErrorMenssage2.Image = (Image)resources.GetObject("lbErrorMenssage2.Image");
+            lbErrorMenssage2.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage2.Location = new Point(185, 113);
+            lbErrorMenssage2.Name = "lbErrorMenssage2";
+            lbErrorMenssage2.Size = new Size(95, 15);
+            lbErrorMenssage2.TabIndex = 21;
+            lbErrorMenssage2.Text = "Mensaje de error";
+            lbErrorMenssage2.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage2.Visible = false;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
-            panel2.Controls.Add(lbErrorMenssage);
+            panel2.Controls.Add(cbAutor);
+            panel2.Controls.Add(cbEditorial);
+            panel2.Controls.Add(lbErrorMenssage8);
+            panel2.Controls.Add(lbErrorMenssage7);
+            panel2.Controls.Add(lbErrorMenssage6);
+            panel2.Controls.Add(lbErrorMenssage5);
+            panel2.Controls.Add(lbErrorMenssage4);
+            panel2.Controls.Add(lbErrorMenssage3);
+            panel2.Controls.Add(lbErrorMenssage1);
+            panel2.Controls.Add(lbPathTittleP);
+            panel2.Controls.Add(btAgregarImagen);
+            panel2.Controls.Add(lbErrorMenssage2);
             panel2.Controls.Add(btnGuardar);
             panel2.Controls.Add(cbCategoria);
             panel2.Controls.Add(pbPortada);
             panel2.Controls.Add(txtStock);
             panel2.Controls.Add(txtPrecio);
             panel2.Controls.Add(txtDescripcion);
-            panel2.Controls.Add(txtAutor);
-            panel2.Controls.Add(txtEditorial);
             panel2.Controls.Add(txtTitulo);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
@@ -359,6 +362,162 @@
             panel2.Size = new Size(800, 381);
             panel2.TabIndex = 1;
             // 
+            // cbAutor
+            // 
+            cbAutor.Anchor = AnchorStyles.None;
+            cbAutor.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
+            cbAutor.FormattingEnabled = true;
+            cbAutor.Items.AddRange(new object[] { "Gabriel García Márquez", "Isabel Allende", "Jorge Luis Borges", "Julio Cortázar", "Mario Vargas Llosa" });
+            cbAutor.Location = new Point(185, 131);
+            cbAutor.Name = "cbAutor";
+            cbAutor.Size = new Size(183, 23);
+            cbAutor.TabIndex = 31;
+            // 
+            // cbEditorial
+            // 
+            cbEditorial.Anchor = AnchorStyles.None;
+            cbEditorial.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
+            cbEditorial.FormattingEnabled = true;
+            cbEditorial.Items.AddRange(new object[] { "Penguin Random House", "HarperCollins", "Hachette Book Group", "Macmillan Publishers" });
+            cbEditorial.Location = new Point(185, 87);
+            cbEditorial.Name = "cbEditorial";
+            cbEditorial.Size = new Size(183, 23);
+            cbEditorial.TabIndex = 30;
+            // 
+            // lbErrorMenssage8
+            // 
+            lbErrorMenssage8.Anchor = AnchorStyles.None;
+            lbErrorMenssage8.AutoSize = true;
+            lbErrorMenssage8.ForeColor = Color.Brown;
+            lbErrorMenssage8.Image = (Image)resources.GetObject("lbErrorMenssage8.Image");
+            lbErrorMenssage8.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage8.Location = new Point(500, 276);
+            lbErrorMenssage8.Name = "lbErrorMenssage8";
+            lbErrorMenssage8.Size = new Size(95, 15);
+            lbErrorMenssage8.TabIndex = 29;
+            lbErrorMenssage8.Text = "Mensaje de error";
+            lbErrorMenssage8.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage8.Visible = false;
+            // 
+            // lbErrorMenssage7
+            // 
+            lbErrorMenssage7.Anchor = AnchorStyles.None;
+            lbErrorMenssage7.AutoSize = true;
+            lbErrorMenssage7.ForeColor = Color.Brown;
+            lbErrorMenssage7.Image = (Image)resources.GetObject("lbErrorMenssage7.Image");
+            lbErrorMenssage7.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage7.Location = new Point(500, 156);
+            lbErrorMenssage7.Name = "lbErrorMenssage7";
+            lbErrorMenssage7.Size = new Size(95, 15);
+            lbErrorMenssage7.TabIndex = 28;
+            lbErrorMenssage7.Text = "Mensaje de error";
+            lbErrorMenssage7.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage7.Visible = false;
+            // 
+            // lbErrorMenssage6
+            // 
+            lbErrorMenssage6.Anchor = AnchorStyles.None;
+            lbErrorMenssage6.AutoSize = true;
+            lbErrorMenssage6.ForeColor = Color.Brown;
+            lbErrorMenssage6.Image = (Image)resources.GetObject("lbErrorMenssage6.Image");
+            lbErrorMenssage6.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage6.Location = new Point(500, 113);
+            lbErrorMenssage6.Name = "lbErrorMenssage6";
+            lbErrorMenssage6.Size = new Size(95, 15);
+            lbErrorMenssage6.TabIndex = 27;
+            lbErrorMenssage6.Text = "Mensaje de error";
+            lbErrorMenssage6.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage6.Visible = false;
+            // 
+            // lbErrorMenssage5
+            // 
+            lbErrorMenssage5.Anchor = AnchorStyles.None;
+            lbErrorMenssage5.AutoSize = true;
+            lbErrorMenssage5.ForeColor = Color.Brown;
+            lbErrorMenssage5.Image = (Image)resources.GetObject("lbErrorMenssage5.Image");
+            lbErrorMenssage5.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage5.Location = new Point(500, 64);
+            lbErrorMenssage5.Name = "lbErrorMenssage5";
+            lbErrorMenssage5.Size = new Size(95, 15);
+            lbErrorMenssage5.TabIndex = 26;
+            lbErrorMenssage5.Text = "Mensaje de error";
+            lbErrorMenssage5.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage5.Visible = false;
+            // 
+            // lbErrorMenssage4
+            // 
+            lbErrorMenssage4.Anchor = AnchorStyles.None;
+            lbErrorMenssage4.AutoSize = true;
+            lbErrorMenssage4.ForeColor = Color.Brown;
+            lbErrorMenssage4.Image = (Image)resources.GetObject("lbErrorMenssage4.Image");
+            lbErrorMenssage4.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage4.Location = new Point(185, 256);
+            lbErrorMenssage4.Name = "lbErrorMenssage4";
+            lbErrorMenssage4.Size = new Size(95, 15);
+            lbErrorMenssage4.TabIndex = 25;
+            lbErrorMenssage4.Text = "Mensaje de error";
+            lbErrorMenssage4.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage4.Visible = false;
+            // 
+            // lbErrorMenssage3
+            // 
+            lbErrorMenssage3.Anchor = AnchorStyles.None;
+            lbErrorMenssage3.AutoSize = true;
+            lbErrorMenssage3.ForeColor = Color.Brown;
+            lbErrorMenssage3.Image = (Image)resources.GetObject("lbErrorMenssage3.Image");
+            lbErrorMenssage3.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage3.Location = new Point(185, 156);
+            lbErrorMenssage3.Name = "lbErrorMenssage3";
+            lbErrorMenssage3.Size = new Size(95, 15);
+            lbErrorMenssage3.TabIndex = 24;
+            lbErrorMenssage3.Text = "Mensaje de error";
+            lbErrorMenssage3.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage3.Visible = false;
+            // 
+            // lbErrorMenssage1
+            // 
+            lbErrorMenssage1.Anchor = AnchorStyles.None;
+            lbErrorMenssage1.AutoSize = true;
+            lbErrorMenssage1.ForeColor = Color.Brown;
+            lbErrorMenssage1.Image = (Image)resources.GetObject("lbErrorMenssage1.Image");
+            lbErrorMenssage1.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage1.Location = new Point(185, 65);
+            lbErrorMenssage1.Name = "lbErrorMenssage1";
+            lbErrorMenssage1.Size = new Size(95, 15);
+            lbErrorMenssage1.TabIndex = 23;
+            lbErrorMenssage1.Text = "Mensaje de error";
+            lbErrorMenssage1.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage1.Visible = false;
+            // 
+            // lbPathTittleP
+            // 
+            lbPathTittleP.Anchor = AnchorStyles.None;
+            lbPathTittleP.AutoSize = true;
+            lbPathTittleP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbPathTittleP.ForeColor = Color.FromArgb(241, 241, 241);
+            lbPathTittleP.Location = new Point(663, 181);
+            lbPathTittleP.Name = "lbPathTittleP";
+            lbPathTittleP.Size = new Size(46, 21);
+            lbPathTittleP.TabIndex = 22;
+            lbPathTittleP.Text = "libro";
+            // 
+            // btAgregarImagen
+            // 
+            btAgregarImagen.Anchor = AnchorStyles.None;
+            btAgregarImagen.BackColor = Color.FromArgb(64, 0, 64);
+            btAgregarImagen.FlatAppearance.BorderSize = 0;
+            btAgregarImagen.FlatStyle = FlatStyle.Flat;
+            btAgregarImagen.IconChar = FontAwesome.Sharp.IconChar.FileImage;
+            btAgregarImagen.IconColor = SystemColors.Window;
+            btAgregarImagen.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btAgregarImagen.IconSize = 30;
+            btAgregarImagen.Location = new Point(632, 174);
+            btAgregarImagen.Name = "btAgregarImagen";
+            btAgregarImagen.Size = new Size(25, 39);
+            btAgregarImagen.TabIndex = 2;
+            btAgregarImagen.UseVisualStyleBackColor = false;
+            btAgregarImagen.Click += iconButton1_Click;
+            // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -369,7 +528,6 @@
             Name = "AgregarProducto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarProducto";
-            Load += AgregarProducto_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -394,17 +552,26 @@
         private Label label7;
         private Label label8;
         private TextBox txtTitulo;
-        private TextBox txtEditorial;
-        private TextBox txtAutor;
         private TextBox txtDescripcion;
         private TextBox txtPrecio;
         private TextBox txtStock;
         private PictureBox pbPortada;
         private ComboBox cbCategoria;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private Label lbErrorMenssage;
+        private Label lbErrorMenssage2;
         private Panel panel2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private FontAwesome.Sharp.IconButton btAgregarImagen;
+        private Label lbPathTittleP;
+        private Label lbErrorMenssage6;
+        private Label lbErrorMenssage5;
+        private Label lbErrorMenssage4;
+        private Label lbErrorMenssage3;
+        private Label lbErrorMenssage1;
+        private Label lbErrorMenssage8;
+        private Label lbErrorMenssage7;
+        private ComboBox cbAutor;
+        private ComboBox cbEditorial;
     }
 }

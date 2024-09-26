@@ -33,53 +33,145 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             instanciaLobi.OpenChildForm(new Administrador.VerProductos(instanciaLobi));
         }
 
-        private void msgError(string msg)
+        private void msgError(string msg, Label label)
         {
-            lbErrorMenssage.Text = "        " + msg;
-            lbErrorMenssage.Visible = true;
+            label.Text = "        " + msg;
+            label.Visible = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nombreProd = txtTitulo.Text;
-            string nombreEditorial = txtEditorial.Text;
-            string nombreAutor = txtAutor.Text;
             string precioStr = txtPrecio.Text;
             string descripcion = txtDescripcion.Text;
             string stockStr = txtStock.Text;
 
-            if (string.IsNullOrWhiteSpace(nombreProd) || string.IsNullOrWhiteSpace(nombreEditorial) || string.IsNullOrWhiteSpace(nombreAutor) || string.IsNullOrWhiteSpace(precioStr) || string.IsNullOrWhiteSpace(descripcion))
+            // Ocultar todas las etiquetas de error al iniciar la validación
+            lbErrorMenssage1.Visible = false;
+            lbErrorMenssage2.Visible = false;
+            lbErrorMenssage3.Visible = false;
+            lbErrorMenssage4.Visible = false;
+            lbErrorMenssage5.Visible = false;
+            lbErrorMenssage6.Visible = false;
+            lbErrorMenssage7.Visible = false;
+            lbErrorMenssage8.Visible = false;
+
+
+            if (string.IsNullOrWhiteSpace(nombreProd))
             {
-                msgError("Debe completar todos los campos");
+                msgError("Debe ingresar un nombre", lbErrorMenssage1);
+            }
+            else if (cbEditorial.SelectedIndex == -1 || cbEditorial.SelectedItem.ToString() == "")
+            {
+
+                msgError("Por favor, selecciona una Editorial", lbErrorMenssage2);
+
+            }
+            else if (cbAutor.SelectedIndex == -1 || cbAutor.SelectedItem.ToString() == "")
+            {
+
+                msgError("Por favor, selecciona un Autor", lbErrorMenssage3);
+
+            }
+            else if (string.IsNullOrWhiteSpace(descripcion))
+            {
+
+                msgError("Debe ingresar una Descripcion", lbErrorMenssage4);
             }
             else if (cbCategoria.SelectedIndex == -1 || cbCategoria.SelectedItem.ToString() == "")
             {
-                msgError("Por favor, selecciona una Categoria.");
+                msgError("Por favor, selecciona una Categoria.", lbErrorMenssage5);
+
             }
-            else if (!float.TryParse(precioStr, out float precio) || !int.TryParse(stockStr, out int stock))
+            else if (!float.TryParse(precioStr, out float precio))
             {
-                msgError("Ingrese valores válidos en los campos numéricos (Precio, Stock)");
+
+                msgError("Debe ingresar el Precio,Numerico", lbErrorMenssage6);
+
+            }
+            else if (!int.TryParse(stockStr, out int stock))
+            {
+
+                msgError("Debe ingresar el Stock,Numerico", lbErrorMenssage7);
+
             }
             else if (string.IsNullOrEmpty(imagenName))
             {
-                msgError("Ingrese una imagen");
+                msgError("Ingrese una imagen", lbErrorMenssage8);
+            }
+            else
+            {
+                Datos nuevoDato = new Datos()
+                {
+                    Titulo = nombreProd,
+                    Descripcion = descripcion,
+                    Editorial = cbEditorial.Text,
+                    Autor = cbAutor.Text,
+                    Precio = precioStr,
+                    Stock = stockStr,
+                    Categoria = cbCategoria.Text,
+                    Portada = pbPortada.Image
+                };
+
+                AlmacenDatos.ListaDatos.Add(nuevoDato);
+
+                MessageBox.Show("libro agregado correctamente", "libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarCampos();
             }
 
         }
 
-        private void AgregarProducto_Load(object sender, EventArgs e)
+        private void iconButton1_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.OpenFileDialog openFile = new()
+            {
+                Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                Multiselect = false,
+                Title = "Seleccione una Imagen",
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    imagenName = Guid.NewGuid().ToString() + ".png" + ".jpg" + ".jpeg";
+                    string actualName = openFile.SafeFileName;
+                    fileSavePath = Path.Combine("..", "..", "..", "Principal/lobi/imagenes", imagenName);
+                    string selectedImagePath = openFile.FileName;
+                    fileActualPath = selectedImagePath;
+
+                    // Intenta cargar la imagen desde el archivo
+                    pbPortada.Image = Image.FromFile(fileActualPath);
+
+                    // Mostrar la ruta del archivo en el TextBox
+                    lbPathTittleP.Text = actualName;
+                }
+                catch (Exception ex)
+                {
+                    // Manejar la excepción aquí, puedes mostrar un mensaje de error
+                    MessageBox.Show("No se pudo agregar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
 
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void LimpiarCampos()
         {
-
+            txtTitulo.Text = "";
+            cbEditorial.SelectedIndex = -1;
+            txtPrecio.Text = "";
+            cbAutor.SelectedIndex = -1;
+            txtStock.Text = "";
+            txtDescripcion.Text = string.Empty;
+            pbPortada.Image = null;
+            lbPathTittleP.Text = "";
+            cbCategoria.SelectedIndex = -1;
+            txtTitulo.Focus();
+            lbErrorMenssage2.Text = "";
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

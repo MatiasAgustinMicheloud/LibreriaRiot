@@ -1,6 +1,6 @@
 ﻿namespace LibreriaRiot.Principal.lobi.Administrador
 {
-    partial class VerProductos
+    partial class HistorialVentas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialVentas));
+            panel3 = new Panel();
+            label11 = new Label();
+            txtBuscadorAutor = new TextBox();
+            label10 = new Label();
+            txtBuscadorTitulo = new TextBox();
+            dataGridView1 = new DataGridView();
             panel2 = new Panel();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
@@ -57,27 +63,123 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
-            lblAgregarProducto = new Label();
-            panel3 = new Panel();
-            label11 = new Label();
-            txtBuscadorAutor = new TextBox();
-            label10 = new Label();
-            txtBuscadorTitulo = new TextBox();
-            dataGridView1 = new DataGridView();
-            pictureBox5 = new PictureBox();
+            lblHistorialVentas = new Label();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            pictureBox2 = new PictureBox();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
+            // 
+            // panel3
+            // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtBuscadorAutor);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(txtBuscadorTitulo);
+            panel3.Controls.Add(dataGridView1);
+            panel3.Location = new Point(0, 65);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(924, 517);
+            panel3.TabIndex = 24;
+            panel3.Paint += panel3_Paint;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Window;
+            label11.Location = new Point(200, 19);
+            label11.Name = "label11";
+            label11.Size = new Size(47, 16);
+            label11.TabIndex = 26;
+            label11.Text = "Autor:";
+            // 
+            // txtBuscadorAutor
+            // 
+            txtBuscadorAutor.Location = new Point(253, 16);
+            txtBuscadorAutor.Name = "txtBuscadorAutor";
+            txtBuscadorAutor.Size = new Size(114, 23);
+            txtBuscadorAutor.TabIndex = 25;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = SystemColors.Window;
+            label10.Location = new Point(6, 19);
+            label10.Name = "label10";
+            label10.Size = new Size(50, 16);
+            label10.TabIndex = 24;
+            label10.Text = "Titulo:";
+            // 
+            // txtBuscadorTitulo
+            // 
+            txtBuscadorTitulo.Location = new Point(62, 16);
+            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
+            txtBuscadorTitulo.Size = new Size(116, 23);
+            txtBuscadorTitulo.TabIndex = 23;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridView1.BackgroundColor = Color.FromArgb(64, 0, 64);
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Purple;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.Location = new Point(12, 45);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(897, 460);
+            dataGridView1.TabIndex = 22;
             // 
             // panel2
             // 
@@ -106,10 +208,10 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(545, 65);
+            panel2.Location = new Point(548, 65);
             panel2.Name = "panel2";
-            panel2.Size = new Size(373, 517);
-            panel2.TabIndex = 3;
+            panel2.Size = new Size(0, 0);
+            panel2.TabIndex = 23;
             // 
             // lbBaja
             // 
@@ -209,7 +311,6 @@
             btnGuardar.Text = "Editar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
             // 
             // cbCategoria
             // 
@@ -360,42 +461,25 @@
             label1.TabIndex = 0;
             label1.Text = "Titulo";
             // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(19, 13);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(lblAgregarProducto);
+            panel1.Controls.Add(lblHistorialVentas);
             panel1.Controls.Add(iconButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(918, 70);
-            panel1.TabIndex = 2;
+            panel1.Size = new Size(921, 70);
+            panel1.TabIndex = 22;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox1.Location = new Point(908, 0);
+            pictureBox1.Location = new Point(1251, 0);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(10, 71);
@@ -412,144 +496,59 @@
             pictureBox3.TabIndex = 21;
             pictureBox3.TabStop = false;
             // 
-            // lblAgregarProducto
+            // lblHistorialVentas
             // 
-            lblAgregarProducto.Anchor = AnchorStyles.None;
-            lblAgregarProducto.AutoSize = true;
-            lblAgregarProducto.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAgregarProducto.ForeColor = Color.FromArgb(241, 241, 241);
-            lblAgregarProducto.Location = new Point(371, 13);
-            lblAgregarProducto.Name = "lblAgregarProducto";
-            lblAgregarProducto.Size = new Size(205, 39);
-            lblAgregarProducto.TabIndex = 0;
-            lblAgregarProducto.Text = "Listado de Libros";
+            lblHistorialVentas.Anchor = AnchorStyles.None;
+            lblHistorialVentas.AutoSize = true;
+            lblHistorialVentas.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHistorialVentas.ForeColor = Color.FromArgb(241, 241, 241);
+            lblHistorialVentas.Location = new Point(345, 13);
+            lblHistorialVentas.Name = "lblHistorialVentas";
+            lblHistorialVentas.Size = new Size(230, 39);
+            lblHistorialVentas.TabIndex = 0;
+            lblHistorialVentas.Text = "Historail De Libros ";
             // 
-            // panel3
+            // iconButton1
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.FromArgb(64, 0, 64);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(txtBuscadorTitulo);
-            panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(pictureBox5);
-            panel3.Location = new Point(0, 65);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(549, 517);
-            panel3.TabIndex = 21;
+            iconButton1.BackColor = Color.Transparent;
+            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 40;
+            iconButton1.Location = new Point(19, 13);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(43, 48);
+            iconButton1.TabIndex = 20;
+            iconButton1.UseVisualStyleBackColor = false;
             // 
-            // label11
+            // pictureBox2
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = SystemColors.Window;
-            label11.Location = new Point(200, 19);
-            label11.Name = "label11";
-            label11.Size = new Size(47, 16);
-            label11.TabIndex = 26;
-            label11.Text = "Autor:";
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox2.Location = new Point(911, -1);
+            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(10, 71);
+            pictureBox2.TabIndex = 23;
+            pictureBox2.TabStop = false;
             // 
-            // txtBuscadorAutor
-            // 
-            txtBuscadorAutor.Location = new Point(253, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(114, 23);
-            txtBuscadorAutor.TabIndex = 25;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = SystemColors.Window;
-            label10.Location = new Point(6, 19);
-            label10.Name = "label10";
-            label10.Size = new Size(50, 16);
-            label10.TabIndex = 24;
-            label10.Text = "Titulo:";
-            // 
-            // txtBuscadorTitulo
-            // 
-            txtBuscadorTitulo.Location = new Point(62, 16);
-            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
-            txtBuscadorTitulo.Size = new Size(116, 23);
-            txtBuscadorTitulo.TabIndex = 23;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView1.BackgroundColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Purple;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.GridColor = Color.Gray;
-            dataGridView1.Location = new Point(6, 45);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(533, 460);
-            dataGridView1.TabIndex = 22;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox5.Location = new Point(-6, 0);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(936, 10);
-            pictureBox5.TabIndex = 21;
-            pictureBox5.TabStop = false;
-            // 
-            // VerProductos
+            // HistorialVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 582);
+            ClientSize = new Size(921, 582);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "VerProductos";
-            Opacity = 0.9D;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "VerProductos";
-            Load += VerProductos_Load;
+            Name = "HistorialVentas";
+            Text = "HistorialVentas";
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).EndInit();
@@ -557,17 +556,25 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Panel panel3;
+        private Label label11;
+        private TextBox txtBuscadorAutor;
+        private Label label10;
+        private TextBox txtBuscadorTitulo;
+        private DataGridView dataGridView1;
         private Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private Label lbBaja;
+        private CheckBox checkBoxNo;
+        private CheckBox checkBoxSi;
+        private FontAwesome.Sharp.IconButton btnLimpiar;
+        private Label lbErrorMenssage;
+        private Label label9;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private ComboBox cbCategoria;
         private PictureBox pbPortada;
@@ -586,21 +593,10 @@
         private Label label2;
         private Label label1;
         private Panel panel1;
-        private Label lblAgregarProducto;
-        private Label label9;
-        private Panel panel3;
-        private PictureBox pictureBox5;
-        private DataGridView dataGridView1;
-        private Label label10;
-        private TextBox txtBuscadorTitulo;
-        private Label lbErrorMenssage;
-        private FontAwesome.Sharp.IconButton btnLimpiar;
-        private Label lbBaja;
-        private CheckBox checkBoxNo;
-        private CheckBox checkBoxSi;
-        private Label label11;
-        private TextBox txtBuscadorAutor;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private Label lblHistorialVentas;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private PictureBox pictureBox2;
     }
 }

@@ -446,6 +446,7 @@
             iconHistorialVentas.Text = "Historial Ventas";
             iconHistorialVentas.UseVisualStyleBackColor = false;
             iconHistorialVentas.Visible = false;
+            iconHistorialVentas.Click += iconHistorialVentas_Click;
             // 
             // iconMisVentas
             // 
@@ -582,7 +583,7 @@
             Controls.Add(panel1);
             DoubleBuffered = true;
             Name = "LobiPrincipal";
-            Opacity = 0.9D;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "LobiPrincipal";
             Load += LobiPrincipal_Load;
             panel1.ResumeLayout(false);

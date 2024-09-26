@@ -180,7 +180,6 @@
             // 
             cbRol.Anchor = AnchorStyles.None;
             cbRol.FormattingEnabled = true;
-            cbRol.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
             cbRol.Location = new Point(480, 64);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(183, 23);
