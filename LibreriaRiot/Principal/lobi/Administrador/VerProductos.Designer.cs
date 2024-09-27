@@ -525,7 +525,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(533, 460);
             dataGridView1.TabIndex = 22;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // pictureBox5
             // 

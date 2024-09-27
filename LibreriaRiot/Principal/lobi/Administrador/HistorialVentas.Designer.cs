@@ -64,19 +64,19 @@
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblHistorialVentas = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
-            pictureBox2 = new PictureBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -99,15 +99,15 @@
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label11.ForeColor = SystemColors.Window;
-            label11.Location = new Point(200, 19);
+            label11.Location = new Point(217, 19);
             label11.Name = "label11";
-            label11.Size = new Size(47, 16);
+            label11.Size = new Size(66, 16);
             label11.TabIndex = 26;
-            label11.Text = "Autor:";
+            label11.Text = "Nombre:";
             // 
             // txtBuscadorAutor
             // 
-            txtBuscadorAutor.Location = new Point(253, 16);
+            txtBuscadorAutor.Location = new Point(289, 16);
             txtBuscadorAutor.Name = "txtBuscadorAutor";
             txtBuscadorAutor.Size = new Size(114, 23);
             txtBuscadorAutor.TabIndex = 25;
@@ -119,13 +119,13 @@
             label10.ForeColor = SystemColors.Window;
             label10.Location = new Point(6, 19);
             label10.Name = "label10";
-            label10.Size = new Size(50, 16);
+            label10.Size = new Size(69, 16);
             label10.TabIndex = 24;
-            label10.Text = "Titulo:";
+            label10.Text = "Apellido:";
             // 
             // txtBuscadorTitulo
             // 
-            txtBuscadorTitulo.Location = new Point(62, 16);
+            txtBuscadorTitulo.Location = new Point(81, 17);
             txtBuscadorTitulo.Name = "txtBuscadorTitulo";
             txtBuscadorTitulo.Size = new Size(116, 23);
             txtBuscadorTitulo.TabIndex = 23;
@@ -475,6 +475,17 @@
             panel1.Size = new Size(921, 70);
             panel1.TabIndex = 22;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox2.Location = new Point(911, -1);
+            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(10, 71);
+            pictureBox2.TabIndex = 23;
+            pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -504,9 +515,9 @@
             lblHistorialVentas.ForeColor = Color.FromArgb(241, 241, 241);
             lblHistorialVentas.Location = new Point(345, 13);
             lblHistorialVentas.Name = "lblHistorialVentas";
-            lblHistorialVentas.Size = new Size(230, 39);
+            lblHistorialVentas.Size = new Size(228, 39);
             lblHistorialVentas.TabIndex = 0;
-            lblHistorialVentas.Text = "Historail De Libros ";
+            lblHistorialVentas.Text = "Historail De Ventas";
             // 
             // iconButton1
             // 
@@ -524,17 +535,6 @@
             iconButton1.Size = new Size(43, 48);
             iconButton1.TabIndex = 20;
             iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox2.Location = new Point(911, -1);
-            pictureBox2.Margin = new Padding(4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(10, 71);
-            pictureBox2.TabIndex = 23;
-            pictureBox2.TabStop = false;
             // 
             // HistorialVentas
             // 
@@ -554,9 +554,9 @@
             ((System.ComponentModel.ISupportInitialize)pbPortada).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 

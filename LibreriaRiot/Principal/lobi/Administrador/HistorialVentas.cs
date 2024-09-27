@@ -15,7 +15,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
     {
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
-    
+
         public HistorialVentas(LobiPrincipal lobi)
         {
             InitializeComponent();

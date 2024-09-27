@@ -30,12 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarEmpleado));
             panel2 = new Panel();
+            lbErrorMenssage4 = new Label();
+            lbErrorMenssage9 = new Label();
+            lbErrorMenssage8 = new Label();
+            lbErrorMenssage7 = new Label();
+            lbErrorMenssage6 = new Label();
+            lbErrorMenssage5 = new Label();
+            lbErrorMenssage3 = new Label();
+            lbErrorMenssage2 = new Label();
+            lbErrorMenssage1 = new Label();
             lbContraseña = new Label();
             txtContraseña = new TextBox();
             lbUsuario = new Label();
             txtUsuario = new TextBox();
             dtFechaNac = new DateTimePicker();
-            lbErrorMenssage = new Label();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             cbRol = new ComboBox();
             txtEmail = new TextBox();
@@ -65,12 +73,20 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(lbErrorMenssage4);
+            panel2.Controls.Add(lbErrorMenssage9);
+            panel2.Controls.Add(lbErrorMenssage8);
+            panel2.Controls.Add(lbErrorMenssage7);
+            panel2.Controls.Add(lbErrorMenssage6);
+            panel2.Controls.Add(lbErrorMenssage5);
+            panel2.Controls.Add(lbErrorMenssage3);
+            panel2.Controls.Add(lbErrorMenssage2);
+            panel2.Controls.Add(lbErrorMenssage1);
             panel2.Controls.Add(lbContraseña);
             panel2.Controls.Add(txtContraseña);
             panel2.Controls.Add(lbUsuario);
             panel2.Controls.Add(txtUsuario);
             panel2.Controls.Add(dtFechaNac);
-            panel2.Controls.Add(lbErrorMenssage);
             panel2.Controls.Add(btnGuardar);
             panel2.Controls.Add(cbRol);
             panel2.Controls.Add(txtEmail);
@@ -90,13 +106,148 @@
             panel2.Size = new Size(812, 388);
             panel2.TabIndex = 3;
             // 
+            // lbErrorMenssage4
+            // 
+            lbErrorMenssage4.Anchor = AnchorStyles.None;
+            lbErrorMenssage4.AutoSize = true;
+            lbErrorMenssage4.ForeColor = Color.Brown;
+            lbErrorMenssage4.Image = (Image)resources.GetObject("lbErrorMenssage4.Image");
+            lbErrorMenssage4.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage4.Location = new Point(301, 279);
+            lbErrorMenssage4.Name = "lbErrorMenssage4";
+            lbErrorMenssage4.Size = new Size(95, 15);
+            lbErrorMenssage4.TabIndex = 34;
+            lbErrorMenssage4.Text = "Mensaje de error";
+            lbErrorMenssage4.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage4.Visible = false;
+            // 
+            // lbErrorMenssage9
+            // 
+            lbErrorMenssage9.Anchor = AnchorStyles.None;
+            lbErrorMenssage9.AutoSize = true;
+            lbErrorMenssage9.ForeColor = Color.Brown;
+            lbErrorMenssage9.Image = (Image)resources.GetObject("lbErrorMenssage9.Image");
+            lbErrorMenssage9.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage9.Location = new Point(496, 340);
+            lbErrorMenssage9.Name = "lbErrorMenssage9";
+            lbErrorMenssage9.Size = new Size(95, 15);
+            lbErrorMenssage9.TabIndex = 33;
+            lbErrorMenssage9.Text = "Mensaje de error";
+            lbErrorMenssage9.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage9.Visible = false;
+            // 
+            // lbErrorMenssage8
+            // 
+            lbErrorMenssage8.Anchor = AnchorStyles.None;
+            lbErrorMenssage8.AutoSize = true;
+            lbErrorMenssage8.ForeColor = Color.Brown;
+            lbErrorMenssage8.Image = (Image)resources.GetObject("lbErrorMenssage8.Image");
+            lbErrorMenssage8.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage8.Location = new Point(497, 218);
+            lbErrorMenssage8.Name = "lbErrorMenssage8";
+            lbErrorMenssage8.Size = new Size(95, 15);
+            lbErrorMenssage8.TabIndex = 32;
+            lbErrorMenssage8.Text = "Mensaje de error";
+            lbErrorMenssage8.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage8.Visible = false;
+            // 
+            // lbErrorMenssage7
+            // 
+            lbErrorMenssage7.Anchor = AnchorStyles.None;
+            lbErrorMenssage7.AutoSize = true;
+            lbErrorMenssage7.ForeColor = Color.Brown;
+            lbErrorMenssage7.Image = (Image)resources.GetObject("lbErrorMenssage7.Image");
+            lbErrorMenssage7.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage7.Location = new Point(496, 155);
+            lbErrorMenssage7.Name = "lbErrorMenssage7";
+            lbErrorMenssage7.Size = new Size(95, 15);
+            lbErrorMenssage7.TabIndex = 31;
+            lbErrorMenssage7.Text = "Mensaje de error";
+            lbErrorMenssage7.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage7.Visible = false;
+            // 
+            // lbErrorMenssage6
+            // 
+            lbErrorMenssage6.Anchor = AnchorStyles.None;
+            lbErrorMenssage6.AutoSize = true;
+            lbErrorMenssage6.ForeColor = Color.Brown;
+            lbErrorMenssage6.Image = (Image)resources.GetObject("lbErrorMenssage6.Image");
+            lbErrorMenssage6.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage6.Location = new Point(497, 90);
+            lbErrorMenssage6.Name = "lbErrorMenssage6";
+            lbErrorMenssage6.Size = new Size(95, 15);
+            lbErrorMenssage6.TabIndex = 30;
+            lbErrorMenssage6.Text = "Mensaje de error";
+            lbErrorMenssage6.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage6.Visible = false;
+            // 
+            // lbErrorMenssage5
+            // 
+            lbErrorMenssage5.Anchor = AnchorStyles.None;
+            lbErrorMenssage5.AutoSize = true;
+            lbErrorMenssage5.ForeColor = Color.Brown;
+            lbErrorMenssage5.Image = (Image)resources.GetObject("lbErrorMenssage5.Image");
+            lbErrorMenssage5.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage5.Location = new Point(168, 340);
+            lbErrorMenssage5.Name = "lbErrorMenssage5";
+            lbErrorMenssage5.Size = new Size(95, 15);
+            lbErrorMenssage5.TabIndex = 29;
+            lbErrorMenssage5.Text = "Mensaje de error";
+            lbErrorMenssage5.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage5.Visible = false;
+            // 
+            // lbErrorMenssage3
+            // 
+            lbErrorMenssage3.Anchor = AnchorStyles.None;
+            lbErrorMenssage3.AutoSize = true;
+            lbErrorMenssage3.ForeColor = Color.Brown;
+            lbErrorMenssage3.Image = (Image)resources.GetObject("lbErrorMenssage3.Image");
+            lbErrorMenssage3.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage3.Location = new Point(167, 218);
+            lbErrorMenssage3.Name = "lbErrorMenssage3";
+            lbErrorMenssage3.Size = new Size(95, 15);
+            lbErrorMenssage3.TabIndex = 28;
+            lbErrorMenssage3.Text = "Mensaje de error";
+            lbErrorMenssage3.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage3.Visible = false;
+            // 
+            // lbErrorMenssage2
+            // 
+            lbErrorMenssage2.Anchor = AnchorStyles.None;
+            lbErrorMenssage2.AutoSize = true;
+            lbErrorMenssage2.ForeColor = Color.Brown;
+            lbErrorMenssage2.Image = (Image)resources.GetObject("lbErrorMenssage2.Image");
+            lbErrorMenssage2.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage2.Location = new Point(168, 155);
+            lbErrorMenssage2.Name = "lbErrorMenssage2";
+            lbErrorMenssage2.Size = new Size(95, 15);
+            lbErrorMenssage2.TabIndex = 28;
+            lbErrorMenssage2.Text = "Mensaje de error";
+            lbErrorMenssage2.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage2.Visible = false;
+            // 
+            // lbErrorMenssage1
+            // 
+            lbErrorMenssage1.Anchor = AnchorStyles.None;
+            lbErrorMenssage1.AutoSize = true;
+            lbErrorMenssage1.ForeColor = Color.Brown;
+            lbErrorMenssage1.Image = (Image)resources.GetObject("lbErrorMenssage1.Image");
+            lbErrorMenssage1.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorMenssage1.Location = new Point(167, 90);
+            lbErrorMenssage1.Name = "lbErrorMenssage1";
+            lbErrorMenssage1.Size = new Size(95, 15);
+            lbErrorMenssage1.TabIndex = 27;
+            lbErrorMenssage1.Text = "Mensaje de error";
+            lbErrorMenssage1.TextAlign = ContentAlignment.TopCenter;
+            lbErrorMenssage1.Visible = false;
+            // 
             // lbContraseña
             // 
             lbContraseña.Anchor = AnchorStyles.None;
             lbContraseña.AutoSize = true;
             lbContraseña.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbContraseña.ForeColor = Color.FromArgb(241, 241, 241);
-            lbContraseña.Location = new Point(480, 267);
+            lbContraseña.Location = new Point(496, 290);
             lbContraseña.Name = "lbContraseña";
             lbContraseña.Size = new Size(96, 21);
             lbContraseña.TabIndex = 26;
@@ -105,7 +256,7 @@
             // txtContraseña
             // 
             txtContraseña.Anchor = AnchorStyles.None;
-            txtContraseña.Location = new Point(480, 291);
+            txtContraseña.Location = new Point(496, 314);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(183, 23);
             txtContraseña.TabIndex = 25;
@@ -116,7 +267,7 @@
             lbUsuario.AutoSize = true;
             lbUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbUsuario.ForeColor = Color.FromArgb(241, 241, 241);
-            lbUsuario.Location = new Point(168, 267);
+            lbUsuario.Location = new Point(168, 290);
             lbUsuario.Name = "lbUsuario";
             lbUsuario.Size = new Size(69, 21);
             lbUsuario.TabIndex = 24;
@@ -125,7 +276,7 @@
             // txtUsuario
             // 
             txtUsuario.Anchor = AnchorStyles.None;
-            txtUsuario.Location = new Point(168, 291);
+            txtUsuario.Location = new Point(168, 314);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(183, 23);
             txtUsuario.TabIndex = 23;
@@ -134,25 +285,10 @@
             // 
             dtFechaNac.Anchor = AnchorStyles.None;
             dtFechaNac.CustomFormat = "";
-            dtFechaNac.Location = new Point(301, 241);
+            dtFechaNac.Location = new Point(301, 253);
             dtFechaNac.Name = "dtFechaNac";
             dtFechaNac.Size = new Size(226, 23);
             dtFechaNac.TabIndex = 22;
-            // 
-            // lbErrorMenssage
-            // 
-            lbErrorMenssage.Anchor = AnchorStyles.None;
-            lbErrorMenssage.AutoSize = true;
-            lbErrorMenssage.ForeColor = Color.Brown;
-            lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
-            lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(320, 12);
-            lbErrorMenssage.Name = "lbErrorMenssage";
-            lbErrorMenssage.Size = new Size(95, 15);
-            lbErrorMenssage.TabIndex = 21;
-            lbErrorMenssage.Text = "Mensaje de error";
-            lbErrorMenssage.TextAlign = ContentAlignment.TopCenter;
-            lbErrorMenssage.Visible = false;
             // 
             // btnGuardar
             // 
@@ -167,7 +303,7 @@
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 40;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(355, 331);
+            btnGuardar.Location = new Point(367, 344);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(112, 41);
             btnGuardar.TabIndex = 18;
@@ -180,7 +316,7 @@
             // 
             cbRol.Anchor = AnchorStyles.None;
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(480, 64);
+            cbRol.Location = new Point(496, 64);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(183, 23);
             cbRol.TabIndex = 16;
@@ -188,7 +324,7 @@
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.None;
-            txtEmail.Location = new Point(480, 182);
+            txtEmail.Location = new Point(496, 192);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(183, 23);
             txtEmail.TabIndex = 14;
@@ -196,7 +332,7 @@
             // txtTelefono
             // 
             txtTelefono.Anchor = AnchorStyles.None;
-            txtTelefono.Location = new Point(480, 121);
+            txtTelefono.Location = new Point(497, 129);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(183, 23);
             txtTelefono.TabIndex = 13;
@@ -204,7 +340,7 @@
             // txtDNI
             // 
             txtDNI.Anchor = AnchorStyles.None;
-            txtDNI.Location = new Point(167, 182);
+            txtDNI.Location = new Point(167, 192);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(183, 23);
             txtDNI.TabIndex = 11;
@@ -212,7 +348,7 @@
             // txtApellido
             // 
             txtApellido.Anchor = AnchorStyles.None;
-            txtApellido.Location = new Point(168, 121);
+            txtApellido.Location = new Point(168, 129);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(183, 23);
             txtApellido.TabIndex = 10;
@@ -231,7 +367,7 @@
             lbDeNacimiento.AutoSize = true;
             lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
-            lbDeNacimiento.Location = new Point(334, 217);
+            lbDeNacimiento.Location = new Point(334, 229);
             lbDeNacimiento.Name = "lbDeNacimiento";
             lbDeNacimiento.Size = new Size(168, 21);
             lbDeNacimiento.TabIndex = 6;
@@ -243,7 +379,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(480, 155);
+            label6.Location = new Point(496, 165);
             label6.Name = "label6";
             label6.Size = new Size(53, 21);
             label6.TabIndex = 5;
@@ -255,7 +391,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(480, 40);
+            label5.Location = new Point(496, 40);
             label5.Name = "label5";
             label5.Size = new Size(35, 21);
             label5.TabIndex = 4;
@@ -267,7 +403,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(480, 97);
+            label4.Location = new Point(497, 105);
             label4.Name = "label4";
             label4.Size = new Size(77, 21);
             label4.TabIndex = 3;
@@ -279,7 +415,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(168, 155);
+            label3.Location = new Point(168, 165);
             label3.Name = "label3";
             label3.Size = new Size(40, 21);
             label3.TabIndex = 2;
@@ -291,7 +427,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(167, 97);
+            label2.Location = new Point(167, 105);
             label2.Name = "label2";
             label2.Size = new Size(75, 21);
             label2.TabIndex = 1;
@@ -402,7 +538,6 @@
         #endregion
 
         private Panel panel2;
-        private Label lbErrorMenssage;
         private FontAwesome.Sharp.IconButton btnVerProductos;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private ComboBox cbRol;
@@ -427,5 +562,14 @@
         private TextBox txtUsuario;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private Label lbErrorMenssage1;
+        private Label lbErrorMenssage3;
+        private Label lbErrorMenssage2;
+        private Label lbErrorMenssage8;
+        private Label lbErrorMenssage7;
+        private Label lbErrorMenssage6;
+        private Label lbErrorMenssage5;
+        private Label lbErrorMenssage9;
+        private Label lbErrorMenssage4;
     }
 }

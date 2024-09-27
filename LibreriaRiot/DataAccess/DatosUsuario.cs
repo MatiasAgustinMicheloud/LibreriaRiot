@@ -224,7 +224,7 @@ namespace DataAccess
                                 p.DNI AS PersonaDNI, p.Mail AS PersonaMail, 
                                 p.FechaNacimiento AS PersonaFechaNacimiento, 
                                 p.Telefono AS PersonaTelefono,
-                                p.Baja AS PersonaBaja,
+                                p.Baja AS PersonaBaja
                                 FROM Usuario u
                                 INNER JOIN Persona p ON u.Id_Persona = p.Id_Persona
                                 INNER JOIN TipoPerfiles tp ON u.TipoPerfil = tp.Id";
@@ -610,7 +610,7 @@ namespace DataAccess
             }
             else
             {
-                return false; // La persona no se encontró, por lo tanto, no se puede actualizar el usuario
+                return false; 
             }
         }
 

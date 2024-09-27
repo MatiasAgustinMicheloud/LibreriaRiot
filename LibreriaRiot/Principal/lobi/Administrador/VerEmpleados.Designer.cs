@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerEmpleados));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lbErrorMenssage = new Label();
             label9 = new Label();
             txtEmail = new TextBox();
@@ -39,21 +43,13 @@
             pictureBox5 = new PictureBox();
             label3 = new Label();
             panel3 = new Panel();
+            cBBuscadorPerfil = new ComboBox();
+            dataGridUsuarios = new DataGridView();
             label6 = new Label();
-            textBox1 = new TextBox();
             label11 = new Label();
-            txtBuscadorAutor = new TextBox();
+            txtBuscadorApellido = new TextBox();
             label10 = new Label();
-            txtBuscadorTitulo = new TextBox();
-            dataGridView1 = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
-            Apellido = new DataGridViewTextBoxColumn();
-            DNI = new DataGridViewTextBoxColumn();
-            Telefono = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Rol = new DataGridViewTextBoxColumn();
-            Usuario = new DataGridViewTextBoxColumn();
-            FechaDeNacimiento = new DataGridViewTextBoxColumn();
+            txtBuscadorNombre = new TextBox();
             lblAgregarProducto = new Label();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
@@ -77,7 +73,7 @@
             txtUsuario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -177,18 +173,80 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(cBBuscadorPerfil);
+            panel3.Controls.Add(dataGridUsuarios);
             panel3.Controls.Add(label6);
-            panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
+            panel3.Controls.Add(txtBuscadorApellido);
             panel3.Controls.Add(label10);
-            panel3.Controls.Add(txtBuscadorTitulo);
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(txtBuscadorNombre);
             panel3.Controls.Add(pictureBox5);
             panel3.Location = new Point(-1, 64);
             panel3.Name = "panel3";
             panel3.Size = new Size(552, 466);
             panel3.TabIndex = 24;
+            // 
+            // cBBuscadorPerfil
+            // 
+            cBBuscadorPerfil.FormattingEnabled = true;
+            cBBuscadorPerfil.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
+            cBBuscadorPerfil.Location = new Point(424, 17);
+            cBBuscadorPerfil.Name = "cBBuscadorPerfil";
+            cBBuscadorPerfil.Size = new Size(125, 23);
+            cBBuscadorPerfil.TabIndex = 39;
+            cBBuscadorPerfil.SelectedIndexChanged += cBBuscadorPerfil_SelectedIndexChanged;
+            // 
+            // dataGridUsuarios
+            // 
+            dataGridUsuarios.AllowUserToAddRows = false;
+            dataGridUsuarios.AllowUserToDeleteRows = false;
+            dataGridUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridUsuarios.BackgroundColor = Color.FromArgb(64, 0, 64);
+            dataGridUsuarios.BorderStyle = BorderStyle.None;
+            dataGridUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Purple;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridUsuarios.GridColor = Color.Gray;
+            dataGridUsuarios.Location = new Point(10, 47);
+            dataGridUsuarios.MultiSelect = false;
+            dataGridUsuarios.Name = "dataGridUsuarios";
+            dataGridUsuarios.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridUsuarios.RowTemplate.Height = 25;
+            dataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridUsuarios.Size = new Size(532, 403);
+            dataGridUsuarios.TabIndex = 33;
+            dataGridUsuarios.CellContentClick += dataGridUsuarios_CellContentClick;
             // 
             // label6
             // 
@@ -197,16 +255,9 @@
             label6.ForeColor = SystemColors.Window;
             label6.Location = new Point(382, 19);
             label6.Name = "label6";
-            label6.Size = new Size(37, 16);
+            label6.Size = new Size(35, 16);
             label6.TabIndex = 32;
-            label6.Text = "DNI:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(425, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(114, 23);
-            textBox1.TabIndex = 31;
+            label6.Text = "Rol:";
             // 
             // label11
             // 
@@ -219,12 +270,13 @@
             label11.TabIndex = 30;
             label11.Text = "Apellido:";
             // 
-            // txtBuscadorAutor
+            // txtBuscadorApellido
             // 
-            txtBuscadorAutor.Location = new Point(262, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(114, 23);
-            txtBuscadorAutor.TabIndex = 29;
+            txtBuscadorApellido.Location = new Point(262, 16);
+            txtBuscadorApellido.Name = "txtBuscadorApellido";
+            txtBuscadorApellido.Size = new Size(114, 23);
+            txtBuscadorApellido.TabIndex = 29;
+            txtBuscadorApellido.TextChanged += txtBuscadorApellido_TextChanged;
             // 
             // label10
             // 
@@ -237,64 +289,13 @@
             label10.TabIndex = 28;
             label10.Text = "Nombre:";
             // 
-            // txtBuscadorTitulo
+            // txtBuscadorNombre
             // 
-            txtBuscadorTitulo.Location = new Point(74, 17);
-            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
-            txtBuscadorTitulo.Size = new Size(114, 23);
-            txtBuscadorTitulo.TabIndex = 27;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Nombre, Apellido, DNI, Telefono, Email, Rol, Usuario, FechaDeNacimiento });
-            dataGridView1.Location = new Point(9, 45);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(530, 405);
-            dataGridView1.TabIndex = 22;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Apellido
-            // 
-            Apellido.HeaderText = "Apellido";
-            Apellido.Name = "Apellido";
-            // 
-            // DNI
-            // 
-            DNI.HeaderText = "DNI";
-            DNI.Name = "DNI";
-            // 
-            // Telefono
-            // 
-            Telefono.HeaderText = "Telefono";
-            Telefono.Name = "Telefono";
-            // 
-            // Email
-            // 
-            Email.HeaderText = "Email";
-            Email.Name = "Email";
-            // 
-            // Rol
-            // 
-            Rol.HeaderText = "Rol";
-            Rol.Name = "Rol";
-            // 
-            // Usuario
-            // 
-            Usuario.HeaderText = "Usuario";
-            Usuario.Name = "Usuario";
-            // 
-            // FechaDeNacimiento
-            // 
-            FechaDeNacimiento.HeaderText = "Fecha De Nacimiento";
-            FechaDeNacimiento.Name = "FechaDeNacimiento";
+            txtBuscadorNombre.Location = new Point(74, 17);
+            txtBuscadorNombre.Name = "txtBuscadorNombre";
+            txtBuscadorNombre.Size = new Size(114, 23);
+            txtBuscadorNombre.TabIndex = 27;
+            txtBuscadorNombre.TextChanged += txtBuscadorNombre_TextChanged;
             // 
             // lblAgregarProducto
             // 
@@ -467,6 +468,7 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // iconButton2
             // 
@@ -511,6 +513,7 @@
             checkBoxNo.TabIndex = 30;
             checkBoxNo.Text = "no";
             checkBoxNo.UseVisualStyleBackColor = true;
+            checkBoxNo.CheckedChanged += checkBoxNo_CheckedChanged;
             // 
             // checkBoxSi
             // 
@@ -523,6 +526,7 @@
             checkBoxSi.TabIndex = 29;
             checkBoxSi.Text = "si";
             checkBoxSi.UseVisualStyleBackColor = true;
+            checkBoxSi.CheckedChanged += checkBoxSi_CheckedChanged;
             // 
             // label1
             // 
@@ -576,7 +580,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -610,7 +614,6 @@
         private Panel panel2;
         private DateTimePicker dtFechaNac;
         private Label lbDeNacimiento;
-        private DataGridView dataGridView1;
         private Label label1;
         private TextBox txtUsuario;
         private Label lbBaja;
@@ -623,20 +626,13 @@
         private TextBox txtApellido;
         private TextBox txtNombre;
         private Label label11;
-        private TextBox txtBuscadorAutor;
+        private TextBox txtBuscadorApellido;
         private Label label10;
-        private TextBox txtBuscadorTitulo;
+        private TextBox txtBuscadorNombre;
         private Label label6;
-        private TextBox textBox1;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Apellido;
-        private DataGridViewTextBoxColumn DNI;
-        private DataGridViewTextBoxColumn Telefono;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Rol;
-        private DataGridViewTextBoxColumn Usuario;
-        private DataGridViewTextBoxColumn FechaDeNacimiento;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private DataGridView dataGridUsuarios;
+        private ComboBox cBBuscadorPerfil;
     }
 }

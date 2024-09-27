@@ -48,11 +48,6 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void VerProductos_Load(object sender, EventArgs e)
         {
             desactivarBotones();
