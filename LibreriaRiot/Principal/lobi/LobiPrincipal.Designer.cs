@@ -424,6 +424,7 @@
             iconEstadistica.Text = "Estadisticas";
             iconEstadistica.UseVisualStyleBackColor = false;
             iconEstadistica.Visible = false;
+            iconEstadistica.Click += iconEstadistica_Click;
             // 
             // iconHistorialVentas
             // 
