@@ -37,6 +37,12 @@
             factura = new DataGridViewLinkColumn();
             panel2 = new Panel();
             lblMisVentas = new Label();
+            txtBuscadorNombre = new TextBox();
+            label10 = new Label();
+            txtBuscadorApellido = new TextBox();
+            label11 = new Label();
+            label6 = new Label();
+            txtBuscadorDNI = new TextBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -57,7 +63,13 @@
             // panel3
             // 
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(txtBuscadorDNI);
             panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(txtBuscadorApellido);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtBuscadorNombre);
+            panel3.Controls.Add(label10);
             panel3.Location = new Point(0, 70);
             panel3.Name = "panel3";
             panel3.Size = new Size(803, 384);
@@ -67,10 +79,10 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Fecha, cliente, total, factura });
-            dataGridView1.Location = new Point(239, 42);
+            dataGridView1.Location = new Point(13, 39);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(534, 329);
+            dataGridView1.Size = new Size(775, 332);
             dataGridView1.TabIndex = 0;
             // 
             // Fecha
@@ -116,6 +128,60 @@
             lblMisVentas.Text = "Mis Ventas";
             lblMisVentas.TextAlign = ContentAlignment.TopCenter;
             // 
+            // txtBuscadorNombre
+            // 
+            txtBuscadorNombre.Location = new Point(77, 11);
+            txtBuscadorNombre.Name = "txtBuscadorNombre";
+            txtBuscadorNombre.Size = new Size(114, 23);
+            txtBuscadorNombre.TabIndex = 40;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = SystemColors.Window;
+            label10.Location = new Point(12, 17);
+            label10.Name = "label10";
+            label10.Size = new Size(66, 16);
+            label10.TabIndex = 41;
+            label10.Text = "Nombre:";
+            // 
+            // txtBuscadorApellido
+            // 
+            txtBuscadorApellido.Location = new Point(265, 10);
+            txtBuscadorApellido.Name = "txtBuscadorApellido";
+            txtBuscadorApellido.Size = new Size(114, 23);
+            txtBuscadorApellido.TabIndex = 42;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Window;
+            label11.Location = new Point(190, 18);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 16);
+            label11.TabIndex = 43;
+            label11.Text = "Apellido:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.Window;
+            label6.Location = new Point(385, 18);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 16);
+            label6.TabIndex = 44;
+            label6.Text = "DNI:";
+            // 
+            // txtBuscadorDNI
+            // 
+            txtBuscadorDNI.Location = new Point(426, 11);
+            txtBuscadorDNI.Name = "txtBuscadorDNI";
+            txtBuscadorDNI.Size = new Size(114, 23);
+            txtBuscadorDNI.TabIndex = 45;
+            // 
             // MisVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -126,6 +192,7 @@
             Text = "MisVentas";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -143,5 +210,11 @@
         private DataGridViewTextBoxColumn cliente;
         private DataGridViewTextBoxColumn total;
         private DataGridViewLinkColumn factura;
+        private TextBox txtBuscadorDNI;
+        private Label label6;
+        private TextBox txtBuscadorApellido;
+        private Label label11;
+        private TextBox txtBuscadorNombre;
+        private Label label10;
     }
 }

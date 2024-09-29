@@ -30,11 +30,6 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            /**  currentUserType = UserType.Admin;
-              Lobi menu = new Lobi(currentUserType);
-              menu.Show();
-
-              this.Hide();*/
             this.Close();
             instanciaLobi.OpenChildForm(new Administrador.AgregarEmpleado(instanciaLobi));
         }
@@ -274,7 +269,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void checkBoxSi_CheckedChanged(object sender, EventArgs e)
         {
-           
+
             if (checkBoxSi.Checked)
             {
                 checkBoxNo.Checked = false; // Desmarca el otro CheckBox
@@ -287,6 +282,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 checkBoxSi.Checked = false; // Desmarca el otro CheckBox
             }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

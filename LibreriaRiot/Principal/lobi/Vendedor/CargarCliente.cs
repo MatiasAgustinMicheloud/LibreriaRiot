@@ -123,16 +123,16 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             {
                 msgError("El correo electrónico ingresado no es válido", lbErrorMenssage7);
             }
-            else if ( fechaCarga > DateTime.Now)
+            else if (fechaCarga > DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha de carga válida", lbErrorMenssage8);
-            }           
+            }
             else
             {
 
                 DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este cliente?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                
+
                 if (confirmResult == DialogResult.Yes)
                 {
                     //Para la agregar cliente a la base de datos
