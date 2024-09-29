@@ -245,6 +245,16 @@ namespace LibreriaRiot.Principal.lobi
             OpenChildForm(new Gerente.BaseDatos(this));
         }
 
+        private void iconCargarCliente_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.CargarCliente(this));
+        }
 
+        private void iconMisVentas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.MisVentas(this));
+        }
     }
 }

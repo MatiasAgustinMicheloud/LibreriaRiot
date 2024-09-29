@@ -313,6 +313,7 @@
             iconCargarCliente.Text = "Cargar Cliente";
             iconCargarCliente.UseVisualStyleBackColor = false;
             iconCargarCliente.Visible = false;
+            iconCargarCliente.Click += iconCargarCliente_Click;
             // 
             // iconRealizarVenta
             // 
@@ -471,6 +472,7 @@
             iconMisVentas.Text = "Mis Ventas";
             iconMisVentas.UseVisualStyleBackColor = false;
             iconMisVentas.Visible = false;
+            iconMisVentas.Click += iconMisVentas_Click;
             // 
             // iconCatalogo
             // 

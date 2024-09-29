@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             panel3 = new Panel();
+            txtBuscadorDNI = new TextBox();
             dataGridUsuarios = new DataGridView();
             label6 = new Label();
             label11 = new Label();
@@ -41,11 +42,15 @@
             label10 = new Label();
             txtBuscadorNombre = new TextBox();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            label7 = new Label();
+            txtCUIT = new TextBox();
+            label5 = new Label();
             txtApellido = new TextBox();
             txtNombre = new TextBox();
             btnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -67,18 +72,13 @@
             label3 = new Label();
             label2 = new Label();
             lbNombre = new Label();
-            pictureBox2 = new PictureBox();
-            label5 = new Label();
-            txtCUIT = new TextBox();
-            label7 = new Label();
-            txtBuscadorDNI = new TextBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -96,6 +96,13 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(552, 463);
             panel3.TabIndex = 27;
+            // 
+            // txtBuscadorDNI
+            // 
+            txtBuscadorDNI.Location = new Point(425, 16);
+            txtBuscadorDNI.Name = "txtBuscadorDNI";
+            txtBuscadorDNI.Size = new Size(114, 23);
+            txtBuscadorDNI.TabIndex = 34;
             // 
             // dataGridUsuarios
             // 
@@ -209,6 +216,16 @@
             panel1.Size = new Size(918, 65);
             panel1.TabIndex = 25;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox2.Location = new Point(908, -1);
+            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(10, 71);
+            pictureBox2.TabIndex = 23;
+            pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -291,7 +308,35 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(372, 467);
             panel2.TabIndex = 26;
-            panel2.Paint += panel2_Paint;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.FromArgb(241, 241, 241);
+            label7.Location = new Point(74, 210);
+            label7.Name = "label7";
+            label7.Size = new Size(42, 16);
+            label7.TabIndex = 41;
+            label7.Text = "CUIT";
+            // 
+            // txtCUIT
+            // 
+            txtCUIT.Location = new Point(122, 203);
+            txtCUIT.Name = "txtCUIT";
+            txtCUIT.Size = new Size(232, 23);
+            txtCUIT.TabIndex = 40;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(241, 241, 241);
+            label5.Location = new Point(47, 169);
+            label5.Name = "label5";
+            label5.Size = new Size(72, 16);
+            label5.TabIndex = 39;
+            label5.Text = "Domicilio";
             // 
             // txtApellido
             // 
@@ -520,52 +565,6 @@
             lbNombre.TabIndex = 0;
             lbNombre.Text = "Nombre";
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox2.Location = new Point(908, -1);
-            pictureBox2.Margin = new Padding(4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(10, 71);
-            pictureBox2.TabIndex = 23;
-            pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(47, 169);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 16);
-            label5.TabIndex = 39;
-            label5.Text = "Domicilio";
-            // 
-            // txtCUIT
-            // 
-            txtCUIT.Location = new Point(122, 203);
-            txtCUIT.Name = "txtCUIT";
-            txtCUIT.Size = new Size(232, 23);
-            txtCUIT.TabIndex = 40;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(74, 210);
-            label7.Name = "label7";
-            label7.Size = new Size(42, 16);
-            label7.TabIndex = 41;
-            label7.Text = "CUIT";
-            // 
-            // txtBuscadorDNI
-            // 
-            txtBuscadorDNI.Location = new Point(425, 16);
-            txtBuscadorDNI.Name = "txtBuscadorDNI";
-            txtBuscadorDNI.Size = new Size(114, 23);
-            txtBuscadorDNI.TabIndex = 34;
-            // 
             // VerClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -581,11 +580,11 @@
             ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 

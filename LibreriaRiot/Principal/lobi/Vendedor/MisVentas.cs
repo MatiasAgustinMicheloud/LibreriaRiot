@@ -12,9 +12,13 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 {
     public partial class MisVentas : Form
     {
-        public MisVentas()
+        private LobiPrincipal instanciaLobi;
+        public MisVentas(LobiPrincipal lobi)
         {
             InitializeComponent();
+            this.instanciaLobi = lobi;
         }
+
+
     }
 }
