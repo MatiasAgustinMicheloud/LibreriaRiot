@@ -379,6 +379,7 @@
             iconRespaldo.Text = "Base De Datos";
             iconRespaldo.UseVisualStyleBackColor = false;
             iconRespaldo.Visible = false;
+            iconRespaldo.Click += iconRespaldo_Click;
             // 
             // iconUsuarios
             // 

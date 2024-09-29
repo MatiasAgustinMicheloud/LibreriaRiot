@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            panel3 = new Panel();
             panel2 = new Panel();
             lblBaseDatos = new Label();
-            panel3 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -46,6 +46,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(803, 457);
             panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Transparent;
+            panel3.Location = new Point(0, 70);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(803, 387);
+            panel3.TabIndex = 2;
             // 
             // panel2
             // 
@@ -69,14 +77,6 @@
             lblBaseDatos.TabIndex = 1;
             lblBaseDatos.Text = "Base de Datos";
             lblBaseDatos.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Transparent;
-            panel3.Location = new Point(0, 70);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(803, 384);
-            panel3.TabIndex = 2;
             // 
             // BaseDatos
             // 

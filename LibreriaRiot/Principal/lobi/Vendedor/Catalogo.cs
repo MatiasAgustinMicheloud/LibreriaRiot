@@ -8,16 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibreriaRiot.Principal.lobi.Gerente
+namespace LibreriaRiot.Principal.lobi.Vendedor
 {
-    public partial class BaseDatos : Form
+    public partial class Catalogo : Form
     {
-        private UserType currentUserType;
-        private LobiPrincipal instanciaLobi;
-        public BaseDatos(LobiPrincipal lobi)
+        public Catalogo()
         {
             InitializeComponent();
-            this.instanciaLobi = lobi;
         }
     }
 }

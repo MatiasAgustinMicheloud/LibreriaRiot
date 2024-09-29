@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Gerente
 {
-    public partial class BaseDatos : Form
+    public partial class Empleados : Form
     {
-        private UserType currentUserType;
-        private LobiPrincipal instanciaLobi;
-        public BaseDatos(LobiPrincipal lobi)
+        public Empleados()
         {
             InitializeComponent();
-            this.instanciaLobi = lobi;
         }
     }
 }

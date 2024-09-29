@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
+            panel3 = new Panel();
             panel2 = new Panel();
             lblEstadisticas = new Label();
-            panel3 = new Panel();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -46,6 +52,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(803, 457);
             panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(chart1);
+            panel3.Location = new Point(0, 70);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(803, 384);
+            panel3.TabIndex = 1;
             // 
             // panel2
             // 
@@ -70,13 +85,21 @@
             lblEstadisticas.Text = "Estadísticas";
             lblEstadisticas.TextAlign = ContentAlignment.TopCenter;
             // 
-            // panel3
+            // chart1
             // 
-            panel3.BackColor = Color.Transparent;
-            panel3.Location = new Point(0, 70);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(803, 384);
-            panel3.TabIndex = 1;
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(263, 67);
+            chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(263, 234);
+            chart1.TabIndex = 0;
+            chart1.Text = "chart1";
             // 
             // Estadisticas
             // 
@@ -87,8 +110,10 @@
             Name = "Estadisticas";
             Text = "Estadisticas";
             panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
         }
 
@@ -98,5 +123,6 @@
         private Panel panel2;
         private Label lblEstadisticas;
         private Panel panel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

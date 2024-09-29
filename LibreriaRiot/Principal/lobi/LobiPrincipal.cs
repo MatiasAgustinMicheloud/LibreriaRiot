@@ -238,5 +238,11 @@ namespace LibreriaRiot.Principal.lobi
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Gerente.Estadisticas(this));
         }
+
+        private void iconRespaldo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Gerente.BaseDatos(this));
+        }
     }
 }
