@@ -584,7 +584,7 @@
             DoubleBuffered = true;
             Name = "LobiPrincipal";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "LobiPrincipal";
+            Text = "89ccñ";
             Load += LobiPrincipal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

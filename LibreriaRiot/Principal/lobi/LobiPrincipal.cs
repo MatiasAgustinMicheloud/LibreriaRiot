@@ -105,7 +105,7 @@ namespace LibreriaRiot.Principal.lobi
         private void iconExit_Click(object sender, EventArgs e)
         {
             DialogResult salida = MessageBox.Show("Estas seguro que desea salir", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
-           
+
             if (salida == DialogResult.OK)
             {
                 // Cerrar el lobi actual
