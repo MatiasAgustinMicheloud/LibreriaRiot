@@ -115,9 +115,6 @@ namespace LibreriaRiot.Principal.lobi
                 Login loginForm = new Login();
                 loginForm.Show();
             }
-
-
-
         }
 
         private void iconProducto_Click(object sender, EventArgs e)
@@ -234,6 +231,18 @@ namespace LibreriaRiot.Principal.lobi
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Administrador.HistorialVentas(this));
 
+        }
+
+        private void iconEstadistica_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Gerente.Estadisticas(this));
+        }
+
+        private void iconRespaldo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Gerente.BaseDatos(this));
         }
     }
 }

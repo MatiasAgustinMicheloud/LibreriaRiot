@@ -6,30 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace LibreriaRiot.Principal.lobi.Administrador
+namespace LibreriaRiot.Principal.lobi.Gerente
 {
-    public partial class HistorialVentas : Form
+    public partial class BaseDatos : Form
     {
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
-
-        public HistorialVentas(LobiPrincipal lobi)
+        public BaseDatos(LobiPrincipal lobi)
         {
             InitializeComponent();
             this.instanciaLobi = lobi;
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void HistorialVentas_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

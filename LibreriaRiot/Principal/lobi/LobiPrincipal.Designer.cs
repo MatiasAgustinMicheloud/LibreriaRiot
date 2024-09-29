@@ -379,6 +379,7 @@
             iconRespaldo.Text = "Base De Datos";
             iconRespaldo.UseVisualStyleBackColor = false;
             iconRespaldo.Visible = false;
+            iconRespaldo.Click += iconRespaldo_Click;
             // 
             // iconUsuarios
             // 
@@ -424,6 +425,7 @@
             iconEstadistica.Text = "Estadisticas";
             iconEstadistica.UseVisualStyleBackColor = false;
             iconEstadistica.Visible = false;
+            iconEstadistica.Click += iconEstadistica_Click;
             // 
             // iconHistorialVentas
             // 

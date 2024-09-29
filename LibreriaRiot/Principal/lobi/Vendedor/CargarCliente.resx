@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbErrorMenssage2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lbErrorMenssage4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAASRJREFUOE+9
         kD1OAlEUha8UNoaKjtINyA5cCEvQRbgCCkzoLNABEgobXQcsgBVAYiwsoIHrue8d3jzePBRH40m+ZLjn
@@ -173,7 +173,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="lbErrorMenssage4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lbErrorMenssage3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAASRJREFUOE+9
         kD1OAlEUha8UNoaKjtINyA5cCEvQRbgCCkzoLNABEgobXQcsgBVAYiwsoIHrue8d3jzePBRH40m+ZLjn
@@ -184,7 +184,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="lbErrorMenssage3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lbErrorMenssage2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAASRJREFUOE+9
         kD1OAlEUha8UNoaKjtINyA5cCEvQRbgCCkzoLNABEgobXQcsgBVAYiwsoIHrue8d3jzePBRH40m+ZLjn
