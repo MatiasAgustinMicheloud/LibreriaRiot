@@ -100,7 +100,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Este campo tiene que ser numérico", lbErrorMenssage3);
             }
-            else if (fechaNacimiento == DateTime.Now || fechaNacimiento > DateTime.Now)
+            else if (fechaNacimiento == DateTime.Now || fechaNacimiento < DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha de nacimiento válida (en el pasado)", lbErrorMenssage4);
             }
