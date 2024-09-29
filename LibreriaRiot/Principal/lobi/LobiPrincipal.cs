@@ -244,5 +244,7 @@ namespace LibreriaRiot.Principal.lobi
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Gerente.BaseDatos(this));
         }
+
+
     }
 }
