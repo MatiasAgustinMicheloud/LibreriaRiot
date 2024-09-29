@@ -77,6 +77,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(txtCuit);
             panel3.Controls.Add(label5);
@@ -111,7 +112,7 @@
             // txtCuit
             // 
             txtCuit.Anchor = AnchorStyles.None;
-            txtCuit.Location = new Point(567, 55);
+            txtCuit.Location = new Point(486, 48);
             txtCuit.Name = "txtCuit";
             txtCuit.Size = new Size(183, 23);
             txtCuit.TabIndex = 64;
@@ -122,7 +123,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(567, 31);
+            label5.Location = new Point(486, 24);
             label5.Name = "label5";
             label5.Size = new Size(46, 21);
             label5.TabIndex = 63;
@@ -135,7 +136,7 @@
             lbErrorMenssage4.ForeColor = Color.Brown;
             lbErrorMenssage4.Image = (Image)resources.GetObject("lbErrorMenssage4.Image");
             lbErrorMenssage4.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage4.Location = new Point(239, 294);
+            lbErrorMenssage4.Location = new Point(158, 287);
             lbErrorMenssage4.Name = "lbErrorMenssage4";
             lbErrorMenssage4.Size = new Size(95, 15);
             lbErrorMenssage4.TabIndex = 62;
@@ -150,7 +151,7 @@
             lbErrorMenssage8.ForeColor = Color.Brown;
             lbErrorMenssage8.Image = (Image)resources.GetObject("lbErrorMenssage8.Image");
             lbErrorMenssage8.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage8.Location = new Point(566, 294);
+            lbErrorMenssage8.Location = new Point(485, 287);
             lbErrorMenssage8.Name = "lbErrorMenssage8";
             lbErrorMenssage8.Size = new Size(95, 15);
             lbErrorMenssage8.TabIndex = 60;
@@ -165,7 +166,7 @@
             lbErrorMenssage7.ForeColor = Color.Brown;
             lbErrorMenssage7.Image = (Image)resources.GetObject("lbErrorMenssage7.Image");
             lbErrorMenssage7.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage7.Location = new Point(567, 218);
+            lbErrorMenssage7.Location = new Point(486, 211);
             lbErrorMenssage7.Name = "lbErrorMenssage7";
             lbErrorMenssage7.Size = new Size(95, 15);
             lbErrorMenssage7.TabIndex = 59;
@@ -180,7 +181,7 @@
             lbErrorMenssage6.ForeColor = Color.Brown;
             lbErrorMenssage6.Image = (Image)resources.GetObject("lbErrorMenssage6.Image");
             lbErrorMenssage6.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage6.Location = new Point(568, 146);
+            lbErrorMenssage6.Location = new Point(487, 139);
             lbErrorMenssage6.Name = "lbErrorMenssage6";
             lbErrorMenssage6.Size = new Size(95, 15);
             lbErrorMenssage6.TabIndex = 58;
@@ -195,7 +196,7 @@
             lbErrorMenssage5.ForeColor = Color.Brown;
             lbErrorMenssage5.Image = (Image)resources.GetObject("lbErrorMenssage5.Image");
             lbErrorMenssage5.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage5.Location = new Point(568, 81);
+            lbErrorMenssage5.Location = new Point(487, 74);
             lbErrorMenssage5.Name = "lbErrorMenssage5";
             lbErrorMenssage5.Size = new Size(95, 15);
             lbErrorMenssage5.TabIndex = 57;
@@ -210,7 +211,7 @@
             lbErrorMenssage3.ForeColor = Color.Brown;
             lbErrorMenssage3.Image = (Image)resources.GetObject("lbErrorMenssage3.Image");
             lbErrorMenssage3.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage3.Location = new Point(238, 218);
+            lbErrorMenssage3.Location = new Point(157, 211);
             lbErrorMenssage3.Name = "lbErrorMenssage3";
             lbErrorMenssage3.Size = new Size(95, 15);
             lbErrorMenssage3.TabIndex = 56;
@@ -225,7 +226,7 @@
             lbErrorMenssage2.ForeColor = Color.Brown;
             lbErrorMenssage2.Image = (Image)resources.GetObject("lbErrorMenssage2.Image");
             lbErrorMenssage2.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage2.Location = new Point(239, 146);
+            lbErrorMenssage2.Location = new Point(158, 139);
             lbErrorMenssage2.Name = "lbErrorMenssage2";
             lbErrorMenssage2.Size = new Size(95, 15);
             lbErrorMenssage2.TabIndex = 55;
@@ -240,7 +241,7 @@
             lbErrorMenssage1.ForeColor = Color.Brown;
             lbErrorMenssage1.Image = (Image)resources.GetObject("lbErrorMenssage1.Image");
             lbErrorMenssage1.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage1.Location = new Point(238, 81);
+            lbErrorMenssage1.Location = new Point(157, 74);
             lbErrorMenssage1.Name = "lbErrorMenssage1";
             lbErrorMenssage1.Size = new Size(95, 15);
             lbErrorMenssage1.TabIndex = 54;
@@ -254,7 +255,7 @@
             lbUsuario.AutoSize = true;
             lbUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbUsuario.ForeColor = Color.FromArgb(241, 241, 241);
-            lbUsuario.Location = new Point(239, 244);
+            lbUsuario.Location = new Point(158, 237);
             lbUsuario.Name = "lbUsuario";
             lbUsuario.Size = new Size(85, 21);
             lbUsuario.TabIndex = 51;
@@ -263,7 +264,7 @@
             // txtDomicilio
             // 
             txtDomicilio.Anchor = AnchorStyles.None;
-            txtDomicilio.Location = new Point(239, 268);
+            txtDomicilio.Location = new Point(158, 261);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(183, 23);
             txtDomicilio.TabIndex = 50;
@@ -272,7 +273,7 @@
             // 
             dtFechaCarga.Anchor = AnchorStyles.None;
             dtFechaCarga.CustomFormat = "";
-            dtFechaCarga.Location = new Point(566, 268);
+            dtFechaCarga.Location = new Point(485, 261);
             dtFechaCarga.Name = "dtFechaCarga";
             dtFechaCarga.Size = new Size(226, 23);
             dtFechaCarga.TabIndex = 49;
@@ -290,7 +291,7 @@
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 40;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(438, 335);
+            btnGuardar.Location = new Point(357, 328);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(112, 41);
             btnGuardar.TabIndex = 48;
@@ -302,7 +303,7 @@
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.None;
-            txtEmail.Location = new Point(566, 192);
+            txtEmail.Location = new Point(485, 185);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(183, 23);
             txtEmail.TabIndex = 46;
@@ -310,7 +311,7 @@
             // txtTelefono
             // 
             txtTelefono.Anchor = AnchorStyles.None;
-            txtTelefono.Location = new Point(568, 120);
+            txtTelefono.Location = new Point(487, 113);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(183, 23);
             txtTelefono.TabIndex = 45;
@@ -318,7 +319,7 @@
             // txtDNI
             // 
             txtDNI.Anchor = AnchorStyles.None;
-            txtDNI.Location = new Point(238, 192);
+            txtDNI.Location = new Point(157, 185);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(183, 23);
             txtDNI.TabIndex = 44;
@@ -326,7 +327,7 @@
             // txtApellido
             // 
             txtApellido.Anchor = AnchorStyles.None;
-            txtApellido.Location = new Point(239, 120);
+            txtApellido.Location = new Point(158, 113);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(183, 23);
             txtApellido.TabIndex = 43;
@@ -334,7 +335,7 @@
             // txtNombre
             // 
             txtNombre.Anchor = AnchorStyles.None;
-            txtNombre.Location = new Point(238, 55);
+            txtNombre.Location = new Point(157, 48);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(183, 23);
             txtNombre.TabIndex = 42;
@@ -345,7 +346,7 @@
             lbDeNacimiento.AutoSize = true;
             lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
-            lbDeNacimiento.Location = new Point(566, 244);
+            lbDeNacimiento.Location = new Point(485, 237);
             lbDeNacimiento.Name = "lbDeNacimiento";
             lbDeNacimiento.Size = new Size(125, 21);
             lbDeNacimiento.TabIndex = 41;
@@ -357,7 +358,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(566, 165);
+            label6.Location = new Point(485, 158);
             label6.Name = "label6";
             label6.Size = new Size(53, 21);
             label6.TabIndex = 40;
@@ -369,7 +370,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(568, 96);
+            label4.Location = new Point(487, 89);
             label4.Name = "label4";
             label4.Size = new Size(77, 21);
             label4.TabIndex = 38;
@@ -381,7 +382,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(239, 165);
+            label3.Location = new Point(158, 158);
             label3.Name = "label3";
             label3.Size = new Size(40, 21);
             label3.TabIndex = 37;
@@ -393,7 +394,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(238, 96);
+            label2.Location = new Point(157, 89);
             label2.Name = "label2";
             label2.Size = new Size(75, 21);
             label2.TabIndex = 36;
@@ -405,7 +406,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(238, 31);
+            label1.Location = new Point(157, 24);
             label1.Name = "label1";
             label1.Size = new Size(73, 21);
             label1.TabIndex = 35;

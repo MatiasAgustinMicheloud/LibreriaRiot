@@ -336,6 +336,7 @@
             iconRealizarVenta.Text = "Realizar Venta";
             iconRealizarVenta.UseVisualStyleBackColor = false;
             iconRealizarVenta.Visible = false;
+            iconRealizarVenta.Click += iconRealizarVenta_Click;
             // 
             // iconExit
             // 
@@ -495,6 +496,7 @@
             iconCatalogo.Text = "Catalogo";
             iconCatalogo.UseVisualStyleBackColor = false;
             iconCatalogo.Visible = false;
+            iconCatalogo.Click += iconCatalogo_Click;
             // 
             // iconProducto
             // 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibreriaRiot.Principal;
 using LibreriaRiot.Principal.lobi.Administrador;
+using LibreriaRiot.Principal.lobi.Vendedor;
 
 namespace LibreriaRiot.Principal.lobi
 {
@@ -255,6 +256,18 @@ namespace LibreriaRiot.Principal.lobi
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Vendedor.MisVentas(this));
+        }
+
+        private void iconCatalogo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.Catalogo(this));
+        }
+
+        private void iconRealizarVenta_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.RealizarVenta(this));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 {
     public partial class Catalogo : Form
     {
-        public Catalogo()
+        private LobiPrincipal instanciaLobi;
+
+        public Catalogo(LobiPrincipal lobi)
         {
             InitializeComponent();
+            this.instanciaLobi = lobi;
+        }
+
+        private void btnVerCarrito_Click(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Vendedor.RealizarVenta(instanciaLobi));
+            
         }
     }
 }

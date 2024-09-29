@@ -68,9 +68,10 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
         }
 
-        private void txtCUIT_TextChanged(object sender, EventArgs e)
+        private void iconButton1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            instanciaLobi.OpenChildForm(new Vendedor.CargarCliente(instanciaLobi));
         }
     }
 }

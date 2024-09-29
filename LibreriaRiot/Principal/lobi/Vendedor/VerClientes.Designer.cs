@@ -275,6 +275,7 @@
             iconButton1.Size = new Size(43, 48);
             iconButton1.TabIndex = 20;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // panel2
             // 
