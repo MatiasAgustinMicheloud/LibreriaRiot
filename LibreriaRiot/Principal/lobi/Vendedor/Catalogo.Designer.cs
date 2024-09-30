@@ -144,6 +144,7 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { titulo, autor, editorial, genero, stock, precio, agregar });
             dataGridView1.Location = new Point(71, 68);
@@ -156,37 +157,31 @@
             // 
             titulo.HeaderText = "Titulo";
             titulo.Name = "titulo";
-            titulo.Width = 150;
             // 
             // autor
             // 
             autor.HeaderText = "Autor";
             autor.Name = "autor";
-            autor.Width = 80;
             // 
             // editorial
             // 
             editorial.HeaderText = "Editorial";
             editorial.Name = "editorial";
-            editorial.Width = 80;
             // 
             // genero
             // 
             genero.HeaderText = "Genero";
             genero.Name = "genero";
-            genero.Width = 80;
             // 
             // stock
             // 
             stock.HeaderText = "Stock";
             stock.Name = "stock";
-            stock.Width = 50;
             // 
             // precio
             // 
             precio.HeaderText = "Precio";
             precio.Name = "precio";
-            precio.Width = 80;
             // 
             // agregar
             // 

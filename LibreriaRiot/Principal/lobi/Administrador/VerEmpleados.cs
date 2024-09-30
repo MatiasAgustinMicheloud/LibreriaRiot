@@ -30,11 +30,6 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            /**  currentUserType = UserType.Admin;
-              Lobi menu = new Lobi(currentUserType);
-              menu.Show();
-
-              this.Hide();*/
             this.Close();
             instanciaLobi.OpenChildForm(new Administrador.AgregarEmpleado(instanciaLobi));
         }
@@ -90,12 +85,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             else
             {
                 MessageBox.Show("Hubo un error al actualizar el usuario");
+                CargarUsuarios();
             }
         }
 
         private void CargarUsuarios()
         {
-            var usuarios = userModel.MostrarUsers(); // Asegúrate de que esta función retorne todos los usuarios
+            var usuarios = userModel.MostrarUsers(); 
             dataGridUsuarios.DataSource = usuarios; // Asigna la lista de usuarios al DataGridView
         }
 
@@ -210,7 +206,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         }
 
 
-        private void dataGridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       private void dataGridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -221,14 +217,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 idUsuarioSeleccionado = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value); // Ajusta el nombre de la columna si es necesario
 
                 // Asignar los valores a los controles correspondientes
-                txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
+               /** txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
                 txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
                 txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
                 txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
                 txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
                 cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
                 txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
-                dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);
+                dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);*/
 
                 if (filaSeleccionada.Cells["PersonaBaja"].Value != DBNull.Value)
                 {
@@ -274,7 +270,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void checkBoxSi_CheckedChanged(object sender, EventArgs e)
         {
-           
+
             if (checkBoxSi.Checked)
             {
                 checkBoxNo.Checked = false; // Desmarca el otro CheckBox
@@ -287,6 +283,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 checkBoxSi.Checked = false; // Desmarca el otro CheckBox
             }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

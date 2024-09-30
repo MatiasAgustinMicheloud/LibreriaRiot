@@ -40,7 +40,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             {
                 MessageBox.Show("Realizar venta");
                 //Ir a formulario detalles venta
-                //instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
+                instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
             }
         }
 

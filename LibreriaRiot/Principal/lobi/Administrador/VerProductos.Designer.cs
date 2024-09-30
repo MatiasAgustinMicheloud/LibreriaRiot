@@ -62,21 +62,23 @@
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
-            panel3 = new Panel();
-            label11 = new Label();
-            txtBuscadorAutor = new TextBox();
-            label10 = new Label();
-            txtBuscadorTitulo = new TextBox();
-            dataGridView1 = new DataGridView();
             pictureBox5 = new PictureBox();
+            dataGridView1 = new DataGridView();
+            txtBuscadorTitulo = new TextBox();
+            label10 = new Label();
+            txtBuscadorAutor = new TextBox();
+            label11 = new Label();
+            panel3 = new Panel();
+            cbBuscadorCategoria = new ComboBox();
+            label12 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -424,56 +426,15 @@
             lblAgregarProducto.TabIndex = 0;
             lblAgregarProducto.Text = "Listado de Libros";
             // 
-            // panel3
+            // pictureBox5
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.FromArgb(64, 0, 64);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(txtBuscadorTitulo);
-            panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(pictureBox5);
-            panel3.Location = new Point(0, 65);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(549, 517);
-            panel3.TabIndex = 21;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = SystemColors.Window;
-            label11.Location = new Point(200, 19);
-            label11.Name = "label11";
-            label11.Size = new Size(47, 16);
-            label11.TabIndex = 26;
-            label11.Text = "Autor:";
-            // 
-            // txtBuscadorAutor
-            // 
-            txtBuscadorAutor.Location = new Point(253, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(114, 23);
-            txtBuscadorAutor.TabIndex = 25;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = SystemColors.Window;
-            label10.Location = new Point(6, 19);
-            label10.Name = "label10";
-            label10.Size = new Size(50, 16);
-            label10.TabIndex = 24;
-            label10.Text = "Titulo:";
-            // 
-            // txtBuscadorTitulo
-            // 
-            txtBuscadorTitulo.Location = new Point(62, 16);
-            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
-            txtBuscadorTitulo.Size = new Size(116, 23);
-            txtBuscadorTitulo.TabIndex = 23;
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
+            pictureBox5.Location = new Point(-6, 0);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(936, 10);
+            pictureBox5.TabIndex = 21;
+            pictureBox5.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -526,15 +487,78 @@
             dataGridView1.Size = new Size(533, 460);
             dataGridView1.TabIndex = 22;
             // 
-            // pictureBox5
+            // txtBuscadorTitulo
             // 
-            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
-            pictureBox5.Location = new Point(-6, 0);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(936, 10);
-            pictureBox5.TabIndex = 21;
-            pictureBox5.TabStop = false;
+            txtBuscadorTitulo.Location = new Point(62, 16);
+            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
+            txtBuscadorTitulo.Size = new Size(116, 23);
+            txtBuscadorTitulo.TabIndex = 23;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = SystemColors.Window;
+            label10.Location = new Point(6, 23);
+            label10.Name = "label10";
+            label10.Size = new Size(50, 16);
+            label10.TabIndex = 24;
+            label10.Text = "Titulo:";
+            // 
+            // txtBuscadorAutor
+            // 
+            txtBuscadorAutor.Location = new Point(227, 16);
+            txtBuscadorAutor.Name = "txtBuscadorAutor";
+            txtBuscadorAutor.Size = new Size(114, 23);
+            txtBuscadorAutor.TabIndex = 25;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Window;
+            label11.Location = new Point(184, 23);
+            label11.Name = "label11";
+            label11.Size = new Size(47, 16);
+            label11.TabIndex = 26;
+            label11.Text = "Autor:";
+            // 
+            // panel3
+            // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(cbBuscadorCategoria);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtBuscadorAutor);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(txtBuscadorTitulo);
+            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(pictureBox5);
+            panel3.Location = new Point(0, 65);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(549, 517);
+            panel3.TabIndex = 21;
+            // 
+            // cbBuscadorCategoria
+            // 
+            cbBuscadorCategoria.FormattingEnabled = true;
+            cbBuscadorCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
+            cbBuscadorCategoria.Location = new Point(428, 16);
+            cbBuscadorCategoria.Name = "cbBuscadorCategoria";
+            cbBuscadorCategoria.Size = new Size(118, 23);
+            cbBuscadorCategoria.TabIndex = 28;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.FromArgb(241, 241, 241);
+            label12.Location = new Point(347, 23);
+            label12.Name = "label12";
+            label12.Size = new Size(79, 16);
+            label12.TabIndex = 28;
+            label12.Text = "Categoria:";
             // 
             // VerProductos
             // 
@@ -556,10 +580,10 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -587,19 +611,21 @@
         private Panel panel1;
         private Label lblAgregarProducto;
         private Label label9;
-        private Panel panel3;
-        private PictureBox pictureBox5;
-        private DataGridView dataGridView1;
-        private Label label10;
-        private TextBox txtBuscadorTitulo;
         private Label lbErrorMenssage;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private Label lbBaja;
         private CheckBox checkBoxNo;
         private CheckBox checkBoxSi;
-        private Label label11;
-        private TextBox txtBuscadorAutor;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private PictureBox pictureBox5;
+        private DataGridView dataGridView1;
+        private TextBox txtBuscadorTitulo;
+        private Label label10;
+        private TextBox txtBuscadorAutor;
+        private Label label11;
+        private Panel panel3;
+        private Label label12;
+        private ComboBox cbBuscadorCategoria;
     }
 }

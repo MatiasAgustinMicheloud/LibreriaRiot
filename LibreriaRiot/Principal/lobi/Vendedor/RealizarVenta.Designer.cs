@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            lbProductosAñadidos = new Label();
             label1 = new Label();
             txtPrecioTotal = new TextBox();
             btnRealizarVenta = new FontAwesome.Sharp.IconButton();
@@ -66,6 +67,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(lbProductosAñadidos);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(txtPrecioTotal);
             panel3.Controls.Add(btnRealizarVenta);
@@ -75,6 +77,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(821, 528);
             panel3.TabIndex = 1;
+            // 
+            // lbProductosAñadidos
+            // 
+            lbProductosAñadidos.Anchor = AnchorStyles.None;
+            lbProductosAñadidos.AutoSize = true;
+            lbProductosAñadidos.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbProductosAñadidos.ForeColor = SystemColors.Window;
+            lbProductosAñadidos.Location = new Point(77, 9);
+            lbProductosAñadidos.Name = "lbProductosAñadidos";
+            lbProductosAñadidos.Size = new Size(151, 16);
+            lbProductosAñadidos.TabIndex = 53;
+            lbProductosAñadidos.Text = "Productos Añadidos:";
             // 
             // label1
             // 
@@ -144,49 +158,44 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { titulo, autor, editorial, genero, precio, cantidad, precioTotal });
-            dataGridView1.Location = new Point(77, 6);
+            dataGridView1.Location = new Point(77, 28);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(683, 441);
+            dataGridView1.Size = new Size(683, 419);
             dataGridView1.TabIndex = 0;
             // 
             // titulo
             // 
             titulo.HeaderText = "Titulo";
             titulo.Name = "titulo";
-            titulo.Width = 150;
             // 
             // autor
             // 
             autor.HeaderText = "Autor";
             autor.Name = "autor";
-            autor.Width = 80;
             // 
             // editorial
             // 
             editorial.HeaderText = "Editorial";
             editorial.Name = "editorial";
-            editorial.Width = 80;
             // 
             // genero
             // 
             genero.HeaderText = "Genero";
             genero.Name = "genero";
-            genero.Width = 80;
             // 
             // precio
             // 
             precio.HeaderText = "Precio";
             precio.Name = "precio";
-            precio.Width = 80;
             // 
             // cantidad
             // 
             cantidad.HeaderText = "Cantidad";
             cantidad.Name = "cantidad";
-            cantidad.Width = 70;
             // 
             // precioTotal
             // 
@@ -271,5 +280,6 @@
         private Label label1;
         private TextBox txtPrecioTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Label lbProductosAñadidos;
     }
 }

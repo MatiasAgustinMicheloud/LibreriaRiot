@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             panel3 = new Panel();
+            iconButton3 = new FontAwesome.Sharp.IconButton();
             txtBuscadorDNI = new TextBox();
             dataGridUsuarios = new DataGridView();
             label6 = new Label();
@@ -42,11 +43,11 @@
             label10 = new Label();
             txtBuscadorNombre = new TextBox();
             panel1 = new Panel();
+            btnRegistrarCliente = new FontAwesome.Sharp.IconButton();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
             label7 = new Label();
             txtCUIT = new TextBox();
@@ -85,6 +86,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(iconButton3);
             panel3.Controls.Add(txtBuscadorDNI);
             panel3.Controls.Add(dataGridUsuarios);
             panel3.Controls.Add(label6);
@@ -96,6 +98,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(552, 463);
             panel3.TabIndex = 27;
+            // 
+            // iconButton3
+            // 
+            iconButton3.BackColor = SystemColors.ControlDarkDark;
+            iconButton3.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            iconButton3.FlatAppearance.BorderSize = 2;
+            iconButton3.FlatStyle = FlatStyle.Flat;
+            iconButton3.ForeColor = SystemColors.Window;
+            iconButton3.IconChar = FontAwesome.Sharp.IconChar.User;
+            iconButton3.IconColor = Color.White;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton3.IconSize = 40;
+            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton3.Location = new Point(13, 425);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(157, 38);
+            iconButton3.TabIndex = 42;
+            iconButton3.Text = "Seleccionar Cliente";
+            iconButton3.TextAlign = ContentAlignment.MiddleRight;
+            iconButton3.UseVisualStyleBackColor = false;
+            iconButton3.Click += iconButton3_Click;
             // 
             // txtBuscadorDNI
             // 
@@ -132,7 +155,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridUsuarios.GridColor = Color.Gray;
-            dataGridUsuarios.Location = new Point(9, 47);
+            dataGridUsuarios.Location = new Point(13, 55);
             dataGridUsuarios.MultiSelect = false;
             dataGridUsuarios.Name = "dataGridUsuarios";
             dataGridUsuarios.ReadOnly = true;
@@ -152,7 +175,7 @@
             dataGridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridUsuarios.RowTemplate.Height = 25;
             dataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridUsuarios.Size = new Size(543, 402);
+            dataGridUsuarios.Size = new Size(543, 365);
             dataGridUsuarios.TabIndex = 33;
             // 
             // label6
@@ -204,20 +227,44 @@
             // 
             // panel1
             // 
+            panel1.AllowDrop = true;
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(btnRegistrarCliente);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
-            panel1.Controls.Add(iconButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(918, 65);
             panel1.TabIndex = 25;
             // 
+            // btnRegistrarCliente
+            // 
+            btnRegistrarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRegistrarCliente.BackColor = Color.FromArgb(64, 0, 64);
+            btnRegistrarCliente.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnRegistrarCliente.FlatAppearance.BorderSize = 2;
+            btnRegistrarCliente.FlatStyle = FlatStyle.Flat;
+            btnRegistrarCliente.ForeColor = SystemColors.Window;
+            btnRegistrarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            btnRegistrarCliente.IconColor = Color.White;
+            btnRegistrarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRegistrarCliente.IconSize = 40;
+            btnRegistrarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarCliente.Location = new Point(755, 15);
+            btnRegistrarCliente.Name = "btnRegistrarCliente";
+            btnRegistrarCliente.Size = new Size(145, 43);
+            btnRegistrarCliente.TabIndex = 75;
+            btnRegistrarCliente.Text = "Registrar Cliente";
+            btnRegistrarCliente.TextAlign = ContentAlignment.MiddleRight;
+            btnRegistrarCliente.UseVisualStyleBackColor = false;
+            btnRegistrarCliente.Click += btnRegistrarCliente_Click;
+            // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
             pictureBox2.Location = new Point(908, -1);
             pictureBox2.Margin = new Padding(4);
@@ -259,24 +306,6 @@
             lblAgregarProducto.TabIndex = 0;
             lblAgregarProducto.Text = "Listado de Clientes";
             // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(12, 13);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
@@ -315,7 +344,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(74, 210);
+            label7.Location = new Point(73, 221);
             label7.Name = "label7";
             label7.Size = new Size(42, 16);
             label7.TabIndex = 41;
@@ -323,7 +352,7 @@
             // 
             // txtCUIT
             // 
-            txtCUIT.Location = new Point(122, 203);
+            txtCUIT.Location = new Point(121, 214);
             txtCUIT.Name = "txtCUIT";
             txtCUIT.Size = new Size(232, 23);
             txtCUIT.TabIndex = 40;
@@ -333,7 +362,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(47, 169);
+            label5.Location = new Point(46, 180);
             label5.Name = "label5";
             label5.Size = new Size(72, 16);
             label5.TabIndex = 39;
@@ -341,14 +370,14 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(122, 85);
+            txtApellido.Location = new Point(121, 96);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(232, 23);
             txtApellido.TabIndex = 38;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(122, 47);
+            txtNombre.Location = new Point(121, 58);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(232, 23);
             txtNombre.TabIndex = 37;
@@ -365,7 +394,7 @@
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiar.IconSize = 35;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(228, 412);
+            btnLimpiar.Location = new Point(228, 426);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(87, 38);
             btnLimpiar.TabIndex = 33;
@@ -385,7 +414,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 40;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(122, 412);
+            iconButton2.Location = new Point(122, 426);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(88, 38);
             iconButton2.TabIndex = 32;
@@ -399,7 +428,7 @@
             lbBaja.AutoSize = true;
             lbBaja.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbBaja.ForeColor = SystemColors.Window;
-            lbBaja.Location = new Point(76, 371);
+            lbBaja.Location = new Point(75, 373);
             lbBaja.Name = "lbBaja";
             lbBaja.Size = new Size(39, 16);
             lbBaja.TabIndex = 31;
@@ -410,7 +439,7 @@
             checkBoxNo.AutoSize = true;
             checkBoxNo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxNo.ForeColor = SystemColors.Window;
-            checkBoxNo.Location = new Point(174, 371);
+            checkBoxNo.Location = new Point(173, 373);
             checkBoxNo.Name = "checkBoxNo";
             checkBoxNo.Size = new Size(43, 20);
             checkBoxNo.TabIndex = 30;
@@ -422,7 +451,7 @@
             checkBoxSi.AutoSize = true;
             checkBoxSi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxSi.ForeColor = SystemColors.Window;
-            checkBoxSi.Location = new Point(122, 370);
+            checkBoxSi.Location = new Point(121, 372);
             checkBoxSi.Name = "checkBoxSi";
             checkBoxSi.Size = new Size(38, 20);
             checkBoxSi.TabIndex = 29;
@@ -434,7 +463,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(54, 169);
+            label1.Location = new Point(53, 180);
             label1.Name = "label1";
             label1.Size = new Size(0, 16);
             label1.TabIndex = 27;
@@ -442,7 +471,7 @@
             // dtFechaNac
             // 
             dtFechaNac.CustomFormat = "";
-            dtFechaNac.Location = new Point(122, 325);
+            dtFechaNac.Location = new Point(121, 336);
             dtFechaNac.Name = "dtFechaNac";
             dtFechaNac.Size = new Size(232, 23);
             dtFechaNac.TabIndex = 26;
@@ -452,7 +481,7 @@
             lbDeNacimiento.AutoSize = true;
             lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
-            lbDeNacimiento.Location = new Point(8, 327);
+            lbDeNacimiento.Location = new Point(7, 338);
             lbDeNacimiento.Name = "lbDeNacimiento";
             lbDeNacimiento.Size = new Size(108, 21);
             lbDeNacimiento.TabIndex = 25;
@@ -460,7 +489,7 @@
             // 
             // txtDomicilio
             // 
-            txtDomicilio.Location = new Point(122, 162);
+            txtDomicilio.Location = new Point(121, 173);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(232, 23);
             txtDomicilio.TabIndex = 28;
@@ -471,7 +500,7 @@
             lbErrorMenssage.ForeColor = Color.Brown;
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(174, 393);
+            lbErrorMenssage.Location = new Point(121, 408);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(95, 15);
             lbErrorMenssage.TabIndex = 22;
@@ -483,7 +512,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(241, 241, 241);
-            label9.Location = new Point(109, 1);
+            label9.Location = new Point(109, 6);
             label9.Name = "label9";
             label9.Size = new Size(206, 39);
             label9.TabIndex = 19;
@@ -491,14 +520,14 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(122, 282);
+            txtEmail.Location = new Point(121, 293);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(232, 23);
             txtEmail.TabIndex = 13;
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(122, 124);
+            txtDNI.Location = new Point(121, 135);
             txtDNI.Multiline = true;
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(232, 22);
@@ -506,7 +535,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(122, 241);
+            txtTelefono.Location = new Point(121, 252);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(232, 23);
             txtTelefono.TabIndex = 11;
@@ -516,7 +545,7 @@
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbEmail.ForeColor = Color.FromArgb(241, 241, 241);
-            lbEmail.Location = new Point(69, 289);
+            lbEmail.Location = new Point(68, 300);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(46, 16);
             lbEmail.TabIndex = 6;
@@ -527,7 +556,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(83, 130);
+            label4.Location = new Point(82, 141);
             label4.Name = "label4";
             label4.Size = new Size(33, 16);
             label4.TabIndex = 3;
@@ -538,7 +567,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(47, 248);
+            label3.Location = new Point(46, 259);
             label3.Name = "label3";
             label3.Size = new Size(69, 16);
             label3.TabIndex = 2;
@@ -549,7 +578,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(241, 241, 241);
-            label2.Location = new Point(51, 92);
+            label2.Location = new Point(50, 103);
             label2.Name = "label2";
             label2.Size = new Size(65, 16);
             label2.TabIndex = 1;
@@ -560,7 +589,7 @@
             lbNombre.AutoSize = true;
             lbNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbNombre.ForeColor = Color.FromArgb(241, 241, 241);
-            lbNombre.Location = new Point(54, 54);
+            lbNombre.Location = new Point(53, 65);
             lbNombre.Name = "lbNombre";
             lbNombre.Size = new Size(62, 16);
             lbNombre.TabIndex = 0;
@@ -602,7 +631,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private Label lblAgregarProducto;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel2;
         private TextBox txtApellido;
         private TextBox txtNombre;
@@ -630,5 +658,7 @@
         private TextBox txtCUIT;
         private Label label5;
         private TextBox txtBuscadorDNI;
+        private FontAwesome.Sharp.IconButton btnRegistrarCliente;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

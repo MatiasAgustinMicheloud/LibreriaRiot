@@ -100,9 +100,9 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Este campo tiene que ser numérico", lbErrorMenssage3);
             }
-            else if (fechaNacimiento == DateTime.Now || fechaNacimiento < DateTime.Now)
+            else if (fechaNacimiento == DateTime.Now)
             {
-                msgError("Debe seleccionar una fecha de nacimiento válida (en el pasado)", lbErrorMenssage4);
+                msgError("Debe seleccionar una fecha de nacimiento válida", lbErrorMenssage4);
             }
             else if (string.IsNullOrWhiteSpace(usuario))
             {
@@ -196,5 +196,24 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             cbRol.SelectedIndex = 0;
         }
 
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.D4) // Alt + 64
+            {
+                // Evitar que se redirija a otro formulario
+                e.SuppressKeyPress = true;
+
+                // Agregar el texto @gmail.com
+                txtEmail.Text += "@gmail.com";
+                // Colocar el cursor al final del texto
+                txtEmail.SelectionStart = txtEmail.Text.Length;
+            }
+        }
     }
 }

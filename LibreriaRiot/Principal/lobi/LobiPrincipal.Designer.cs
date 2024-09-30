@@ -300,7 +300,7 @@
             iconCargarCliente.FlatAppearance.BorderSize = 2;
             iconCargarCliente.FlatStyle = FlatStyle.Flat;
             iconCargarCliente.ForeColor = SystemColors.Window;
-            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.Users;
             iconCargarCliente.IconColor = Color.White;
             iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconCargarCliente.IconSize = 40;
@@ -310,7 +310,7 @@
             iconCargarCliente.Name = "iconCargarCliente";
             iconCargarCliente.Size = new Size(210, 52);
             iconCargarCliente.TabIndex = 22;
-            iconCargarCliente.Text = "Cargar Cliente";
+            iconCargarCliente.Text = "Ver Clientes";
             iconCargarCliente.UseVisualStyleBackColor = false;
             iconCargarCliente.Visible = false;
             iconCargarCliente.Click += iconCargarCliente_Click;
@@ -590,7 +590,7 @@
             DoubleBuffered = true;
             Name = "LobiPrincipal";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "89ccñ";
+            Text = "LobiPrincipal";
             Load += LobiPrincipal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
