@@ -68,7 +68,6 @@
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblHistorialVentas = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -468,7 +467,6 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblHistorialVentas);
-            panel1.Controls.Add(iconButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -518,23 +516,6 @@
             lblHistorialVentas.Size = new Size(228, 39);
             lblHistorialVentas.TabIndex = 0;
             lblHistorialVentas.Text = "Historial De Ventas";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(19, 13);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
             // 
             // HistorialVentas
             // 
@@ -597,7 +578,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private Label lblHistorialVentas;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private PictureBox pictureBox2;
     }
 }

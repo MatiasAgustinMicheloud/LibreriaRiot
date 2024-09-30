@@ -228,7 +228,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(241, 241, 241);
-            label8.Location = new Point(424, 172);
+            label8.Location = new Point(424, 179);
             label8.Name = "label8";
             label8.Size = new Size(70, 21);
             label8.TabIndex = 7;
@@ -271,7 +271,7 @@
             // 
             pbPortada.Anchor = AnchorStyles.None;
             pbPortada.BackColor = Color.White;
-            pbPortada.Location = new Point(500, 174);
+            pbPortada.Location = new Point(500, 181);
             pbPortada.Name = "pbPortada";
             pbPortada.Size = new Size(126, 99);
             pbPortada.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -315,12 +315,13 @@
             // 
             lbErrorMenssage2.Anchor = AnchorStyles.None;
             lbErrorMenssage2.AutoSize = true;
-            lbErrorMenssage2.ForeColor = Color.Brown;
+            lbErrorMenssage2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage2.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage2.Image = (Image)resources.GetObject("lbErrorMenssage2.Image");
             lbErrorMenssage2.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage2.Location = new Point(185, 113);
+            lbErrorMenssage2.Location = new Point(185, 108);
             lbErrorMenssage2.Name = "lbErrorMenssage2";
-            lbErrorMenssage2.Size = new Size(95, 15);
+            lbErrorMenssage2.Size = new Size(128, 20);
             lbErrorMenssage2.TabIndex = 21;
             lbErrorMenssage2.Text = "Mensaje de error";
             lbErrorMenssage2.TextAlign = ContentAlignment.TopCenter;
@@ -388,12 +389,13 @@
             // 
             lbErrorMenssage8.Anchor = AnchorStyles.None;
             lbErrorMenssage8.AutoSize = true;
-            lbErrorMenssage8.ForeColor = Color.Brown;
+            lbErrorMenssage8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage8.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage8.Image = (Image)resources.GetObject("lbErrorMenssage8.Image");
             lbErrorMenssage8.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage8.Location = new Point(500, 276);
+            lbErrorMenssage8.Location = new Point(500, 283);
             lbErrorMenssage8.Name = "lbErrorMenssage8";
-            lbErrorMenssage8.Size = new Size(95, 15);
+            lbErrorMenssage8.Size = new Size(128, 20);
             lbErrorMenssage8.TabIndex = 29;
             lbErrorMenssage8.Text = "Mensaje de error";
             lbErrorMenssage8.TextAlign = ContentAlignment.TopCenter;
@@ -403,12 +405,13 @@
             // 
             lbErrorMenssage7.Anchor = AnchorStyles.None;
             lbErrorMenssage7.AutoSize = true;
-            lbErrorMenssage7.ForeColor = Color.Brown;
+            lbErrorMenssage7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage7.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage7.Image = (Image)resources.GetObject("lbErrorMenssage7.Image");
             lbErrorMenssage7.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage7.Location = new Point(500, 156);
+            lbErrorMenssage7.Location = new Point(500, 158);
             lbErrorMenssage7.Name = "lbErrorMenssage7";
-            lbErrorMenssage7.Size = new Size(95, 15);
+            lbErrorMenssage7.Size = new Size(128, 20);
             lbErrorMenssage7.TabIndex = 28;
             lbErrorMenssage7.Text = "Mensaje de error";
             lbErrorMenssage7.TextAlign = ContentAlignment.TopCenter;
@@ -418,12 +421,13 @@
             // 
             lbErrorMenssage6.Anchor = AnchorStyles.None;
             lbErrorMenssage6.AutoSize = true;
-            lbErrorMenssage6.ForeColor = Color.Brown;
+            lbErrorMenssage6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage6.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage6.Image = (Image)resources.GetObject("lbErrorMenssage6.Image");
             lbErrorMenssage6.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage6.Location = new Point(500, 113);
+            lbErrorMenssage6.Location = new Point(500, 108);
             lbErrorMenssage6.Name = "lbErrorMenssage6";
-            lbErrorMenssage6.Size = new Size(95, 15);
+            lbErrorMenssage6.Size = new Size(128, 20);
             lbErrorMenssage6.TabIndex = 27;
             lbErrorMenssage6.Text = "Mensaje de error";
             lbErrorMenssage6.TextAlign = ContentAlignment.TopCenter;
@@ -433,12 +437,13 @@
             // 
             lbErrorMenssage5.Anchor = AnchorStyles.None;
             lbErrorMenssage5.AutoSize = true;
-            lbErrorMenssage5.ForeColor = Color.Brown;
+            lbErrorMenssage5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage5.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage5.Image = (Image)resources.GetObject("lbErrorMenssage5.Image");
             lbErrorMenssage5.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage5.Location = new Point(500, 64);
+            lbErrorMenssage5.Location = new Point(500, 60);
             lbErrorMenssage5.Name = "lbErrorMenssage5";
-            lbErrorMenssage5.Size = new Size(95, 15);
+            lbErrorMenssage5.Size = new Size(128, 20);
             lbErrorMenssage5.TabIndex = 26;
             lbErrorMenssage5.Text = "Mensaje de error";
             lbErrorMenssage5.TextAlign = ContentAlignment.TopCenter;
@@ -448,12 +453,13 @@
             // 
             lbErrorMenssage4.Anchor = AnchorStyles.None;
             lbErrorMenssage4.AutoSize = true;
-            lbErrorMenssage4.ForeColor = Color.Brown;
+            lbErrorMenssage4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage4.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage4.Image = (Image)resources.GetObject("lbErrorMenssage4.Image");
             lbErrorMenssage4.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage4.Location = new Point(185, 256);
+            lbErrorMenssage4.Location = new Point(185, 253);
             lbErrorMenssage4.Name = "lbErrorMenssage4";
-            lbErrorMenssage4.Size = new Size(95, 15);
+            lbErrorMenssage4.Size = new Size(128, 20);
             lbErrorMenssage4.TabIndex = 25;
             lbErrorMenssage4.Text = "Mensaje de error";
             lbErrorMenssage4.TextAlign = ContentAlignment.TopCenter;
@@ -463,12 +469,13 @@
             // 
             lbErrorMenssage3.Anchor = AnchorStyles.None;
             lbErrorMenssage3.AutoSize = true;
-            lbErrorMenssage3.ForeColor = Color.Brown;
+            lbErrorMenssage3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage3.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage3.Image = (Image)resources.GetObject("lbErrorMenssage3.Image");
             lbErrorMenssage3.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage3.Location = new Point(185, 156);
+            lbErrorMenssage3.Location = new Point(185, 151);
             lbErrorMenssage3.Name = "lbErrorMenssage3";
-            lbErrorMenssage3.Size = new Size(95, 15);
+            lbErrorMenssage3.Size = new Size(128, 20);
             lbErrorMenssage3.TabIndex = 24;
             lbErrorMenssage3.Text = "Mensaje de error";
             lbErrorMenssage3.TextAlign = ContentAlignment.TopCenter;
@@ -478,12 +485,13 @@
             // 
             lbErrorMenssage1.Anchor = AnchorStyles.None;
             lbErrorMenssage1.AutoSize = true;
-            lbErrorMenssage1.ForeColor = Color.Brown;
+            lbErrorMenssage1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage1.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage1.Image = (Image)resources.GetObject("lbErrorMenssage1.Image");
             lbErrorMenssage1.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage1.Location = new Point(185, 65);
+            lbErrorMenssage1.Location = new Point(185, 64);
             lbErrorMenssage1.Name = "lbErrorMenssage1";
-            lbErrorMenssage1.Size = new Size(95, 15);
+            lbErrorMenssage1.Size = new Size(128, 20);
             lbErrorMenssage1.TabIndex = 23;
             lbErrorMenssage1.Text = "Mensaje de error";
             lbErrorMenssage1.TextAlign = ContentAlignment.TopCenter;
@@ -495,7 +503,7 @@
             lbPathTittleP.AutoSize = true;
             lbPathTittleP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbPathTittleP.ForeColor = Color.FromArgb(241, 241, 241);
-            lbPathTittleP.Location = new Point(663, 181);
+            lbPathTittleP.Location = new Point(664, 181);
             lbPathTittleP.Name = "lbPathTittleP";
             lbPathTittleP.Size = new Size(46, 21);
             lbPathTittleP.TabIndex = 22;
@@ -511,7 +519,7 @@
             btAgregarImagen.IconColor = SystemColors.Window;
             btAgregarImagen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btAgregarImagen.IconSize = 30;
-            btAgregarImagen.Location = new Point(632, 174);
+            btAgregarImagen.Location = new Point(633, 174);
             btAgregarImagen.Name = "btAgregarImagen";
             btAgregarImagen.Size = new Size(25, 39);
             btAgregarImagen.TabIndex = 2;

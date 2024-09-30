@@ -39,7 +39,18 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage.Text = "        " + msg;
             lbErrorMenssage.Visible = true;
         }
-
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void iconButton2_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
@@ -50,36 +61,96 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             DateTime nacimiento = dtFechaNac.Value;
             string telefono = txtTelefono.Text;
             string baja = checkBoxSi.Checked ? "SI" : "NO";
-            int tipoPerfil = cbRol.SelectedIndex;
+            int idTipoPerfil = cbRol.SelectedIndex;
 
-            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) || string.IsNullOrWhiteSpace(dni) || string.IsNullOrWhiteSpace(usuario) || (checkBoxSi.Checked == false && checkBoxNo.Checked == false))
+
+            lbErrorMenssage.Visible = false;
+
+            // Indicador de error
+            bool error = false;
+
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(nombre))
             {
-                msgError("Por favor, completa todos los campos obligatorios");
-                return;
+                msgError("Debe ingresar un nombre");
+                error = true;
+            }
+            else if (nombre.Any(char.IsDigit))
+            {
+                msgError("El nombre no puede contener números");
+                error = true;
+            }
+            else if (string.IsNullOrWhiteSpace(apellido))
+            {
+                msgError("Debe ingresar un apellido");
+                error = true;
+            }
+            else if (apellido.Any(char.IsDigit))
+            {
+                msgError("El apellido no puede contener números");
+                error = true;
+            }
+            else if (string.IsNullOrWhiteSpace(telefono))
+            {
+                msgError("Debe ingresar un teléfono.");
+                error = true;
+            }
+            else if (!int.TryParse(telefono, out int telefonoN))
+            {
+                msgError("EL telefono tiene que ser numérico");
+                error = true;
+            }
+            else if (string.IsNullOrWhiteSpace(usuario))
+            {
+                msgError("Debe ingresar un usuario");
+                error = true;
+            }
+            else if (string.IsNullOrWhiteSpace(mail))
+            {
+                msgError("Debe ingresar un correo electrónico");
+                error = true;
+            }
+            else if (!IsValidEmail(mail))
+            {
+                msgError("El correo electrónico no es válido");
+                error = true;
+            }
+            else if (string.IsNullOrWhiteSpace(dni))
+            {
+                msgError("Debe ingresar DNI");
+                error = true;
+            }
+            else if (!int.TryParse(dni, out int DNI))
+            {
+                msgError("El DNI tiene que ser numérico");
+                error = true;
+            }
+            else if (nacimiento == DateTime.Now || nacimiento > DateTime.Now)
+            {
+                msgError("Debe seleccionar una fecha válida");
+                error = true;
+            }
+            else if (idTipoPerfil == 0)
+            {
+                msgError("Por favor, selecciona un rol.");
             }
 
-            // Verificar si el correo electrónico está vacío
-            if (string.IsNullOrWhiteSpace(mail))
+
+            // Si no hay errores, mostrar el mensaje de éxito
+            if (!error)
             {
-                msgError("Por favor, ingresa una dirección de correo electrónico.");
-                return;
+                MessageBox.Show("Empleado modificado exitosamente: " + nombre + " " + apellido,
+                    "Empleado modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Validar dirección de correo electrónico
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-
-            if (!Regex.IsMatch(mail, emailPattern))
-            {
-                msgError("Por favor, ingresa una dirección de correo electrónico válida.");
-                return;
-            }
-
+            
             // Llamar a la función para actualizar el usuario
-            bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, tipoPerfil, baja);
+            /*
+            bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
 
             if (actualizado)
             {
-                MessageBox.Show("Usuario actualizado correctamente");
+                MessageBox.Show("Empleado actualizado correctamente");
                 CargarUsuarios();
             }
             else
@@ -87,6 +158,8 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 MessageBox.Show("Hubo un error al actualizar el usuario");
                 CargarUsuarios();
             }
+            */
+
         }
 
         private void CargarUsuarios()

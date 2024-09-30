@@ -19,5 +19,10 @@ namespace LibreriaRiot.Principal.lobi.Gerente
             InitializeComponent();
             this.instanciaLobi = lobi;
         }
+
+        private void iconImportar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

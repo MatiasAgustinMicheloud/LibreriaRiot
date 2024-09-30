@@ -30,6 +30,8 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            label3 = new Label();
+            txtPrecioTotal = new TextBox();
             dataGridView2 = new DataGridView();
             titulo = new DataGridViewTextBoxColumn();
             autor = new DataGridViewTextBoxColumn();
@@ -91,6 +93,8 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(txtPrecioTotal);
             panel3.Controls.Add(dataGridView2);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(dataGridView1);
@@ -98,6 +102,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1406, 741);
             panel3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Bottom;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.Window;
+            label3.Location = new Point(519, 350);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 16);
+            label3.TabIndex = 54;
+            label3.Text = "Precio Total:";
+            // 
+            // txtPrecioTotal
+            // 
+            txtPrecioTotal.Anchor = AnchorStyles.Bottom;
+            txtPrecioTotal.Location = new Point(617, 348);
+            txtPrecioTotal.Name = "txtPrecioTotal";
+            txtPrecioTotal.ReadOnly = true;
+            txtPrecioTotal.Size = new Size(155, 23);
+            txtPrecioTotal.TabIndex = 53;
             // 
             // dataGridView2
             // 
@@ -108,7 +133,7 @@
             dataGridView2.Location = new Point(34, 201);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(738, 170);
+            dataGridView2.Size = new Size(738, 141);
             dataGridView2.TabIndex = 11;
             // 
             // titulo
@@ -143,12 +168,12 @@
             // 
             // precioTotal
             // 
-            precioTotal.HeaderText = "Total";
+            precioTotal.HeaderText = "Subtotal";
             precioTotal.Name = "precioTotal";
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.None;
+            panel4.Anchor = AnchorStyles.Top;
             panel4.BackColor = Color.Gray;
             panel4.Controls.Add(lbFechaF);
             panel4.Controls.Add(label2);
@@ -310,11 +335,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(64, 0, 64);
-            label1.Location = new Point(19, 0);
+            label1.Location = new Point(25, 13);
             label1.Name = "label1";
-            label1.Size = new Size(71, 16);
+            label1.Size = new Size(52, 16);
             label1.TabIndex = 21;
-            label1.Text = "Acciones";
+            label1.Text = "Volver";
             // 
             // iconButton4
             // 
@@ -325,11 +350,11 @@
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.ReplyAll;
             iconButton4.IconColor = Color.White;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 25;
+            iconButton4.IconSize = 40;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(34, 27);
+            iconButton4.Location = new Point(25, 32);
             iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(34, 30);
+            iconButton4.Size = new Size(52, 45);
             iconButton4.TabIndex = 0;
             iconButton4.TextAlign = ContentAlignment.MiddleRight;
             iconButton4.UseVisualStyleBackColor = true;
@@ -476,6 +501,7 @@
             Text = "DetalleFactura";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
@@ -528,5 +554,7 @@
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn precioTotal;
+        private Label label3;
+        private TextBox txtPrecioTotal;
     }
 }

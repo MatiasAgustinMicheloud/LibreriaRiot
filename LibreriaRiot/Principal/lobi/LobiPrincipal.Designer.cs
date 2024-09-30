@@ -46,7 +46,6 @@
             iconButton8 = new FontAwesome.Sharp.IconButton();
             panelMenu = new Panel();
             iconCargarCliente = new FontAwesome.Sharp.IconButton();
-            iconRealizarVenta = new FontAwesome.Sharp.IconButton();
             iconExit = new FontAwesome.Sharp.IconButton();
             iconRespaldo = new FontAwesome.Sharp.IconButton();
             iconUsuarios = new FontAwesome.Sharp.IconButton();
@@ -278,7 +277,6 @@
             // 
             panelMenu.BackColor = SystemColors.ControlDarkDark;
             panelMenu.Controls.Add(iconCargarCliente);
-            panelMenu.Controls.Add(iconRealizarVenta);
             panelMenu.Controls.Add(iconExit);
             panelMenu.Controls.Add(iconRespaldo);
             panelMenu.Controls.Add(iconUsuarios);
@@ -305,7 +303,7 @@
             iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconCargarCliente.IconSize = 40;
             iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            iconCargarCliente.Location = new Point(0, 416);
+            iconCargarCliente.Location = new Point(0, 364);
             iconCargarCliente.Margin = new Padding(4);
             iconCargarCliente.Name = "iconCargarCliente";
             iconCargarCliente.Size = new Size(210, 52);
@@ -314,29 +312,6 @@
             iconCargarCliente.UseVisualStyleBackColor = false;
             iconCargarCliente.Visible = false;
             iconCargarCliente.Click += iconCargarCliente_Click;
-            // 
-            // iconRealizarVenta
-            // 
-            iconRealizarVenta.BackColor = SystemColors.ControlDarkDark;
-            iconRealizarVenta.Dock = DockStyle.Top;
-            iconRealizarVenta.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconRealizarVenta.FlatAppearance.BorderSize = 2;
-            iconRealizarVenta.FlatStyle = FlatStyle.Flat;
-            iconRealizarVenta.ForeColor = SystemColors.Window;
-            iconRealizarVenta.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
-            iconRealizarVenta.IconColor = Color.White;
-            iconRealizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconRealizarVenta.IconSize = 40;
-            iconRealizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            iconRealizarVenta.Location = new Point(0, 364);
-            iconRealizarVenta.Margin = new Padding(4);
-            iconRealizarVenta.Name = "iconRealizarVenta";
-            iconRealizarVenta.Size = new Size(210, 52);
-            iconRealizarVenta.TabIndex = 21;
-            iconRealizarVenta.Text = "Realizar Venta";
-            iconRealizarVenta.UseVisualStyleBackColor = false;
-            iconRealizarVenta.Visible = false;
-            iconRealizarVenta.Click += iconRealizarVenta_Click;
             // 
             // iconExit
             // 
@@ -624,7 +599,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton iconCargarCliente;
-        private FontAwesome.Sharp.IconButton iconRealizarVenta;
         private FontAwesome.Sharp.IconButton iconExit;
         private FontAwesome.Sharp.IconButton iconRespaldo;
         private FontAwesome.Sharp.IconButton iconUsuarios;

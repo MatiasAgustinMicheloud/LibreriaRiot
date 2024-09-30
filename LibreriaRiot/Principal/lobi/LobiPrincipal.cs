@@ -63,7 +63,6 @@ namespace LibreriaRiot.Principal.lobi
                     // Mostrar solo los botones de gerente
                     iconRespaldo.Visible = true;
                     iconEstadistica.Visible = true;
-                    iconUsuarios.Visible = true;
                     lbRol.Text = "Gerente";
                     lbNApe.Text = "Matias Micheloud";
                     break;
@@ -81,7 +80,6 @@ namespace LibreriaRiot.Principal.lobi
                     // Mostrar solo los botones de vendedor
                     iconCatalogo.Visible = true;
                     iconMisVentas.Visible = true;
-                    iconRealizarVenta.Visible = true;
                     iconCargarCliente.Visible = true;
                     lbRol.Text = "Vendedor";
                     lbNApe.Text = "Dylan Fernandez";
@@ -262,12 +260,6 @@ namespace LibreriaRiot.Principal.lobi
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Vendedor.Catalogo(this));
-        }
-
-        private void iconRealizarVenta_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Vendedor.RealizarVenta(this));
         }
     }
 }

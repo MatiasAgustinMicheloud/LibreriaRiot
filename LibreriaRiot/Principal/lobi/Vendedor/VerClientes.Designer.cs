@@ -401,6 +401,7 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // iconButton2
             // 
@@ -445,6 +446,7 @@
             checkBoxNo.TabIndex = 30;
             checkBoxNo.Text = "no";
             checkBoxNo.UseVisualStyleBackColor = true;
+            checkBoxNo.CheckedChanged += checkBoxNo_CheckedChanged;
             // 
             // checkBoxSi
             // 
@@ -457,6 +459,7 @@
             checkBoxSi.TabIndex = 29;
             checkBoxSi.Text = "si";
             checkBoxSi.UseVisualStyleBackColor = true;
+            checkBoxSi.CheckedChanged += checkBoxSi_CheckedChanged;
             // 
             // label1
             // 
@@ -497,12 +500,13 @@
             // lbErrorMenssage
             // 
             lbErrorMenssage.AutoSize = true;
-            lbErrorMenssage.ForeColor = Color.Brown;
+            lbErrorMenssage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(121, 408);
+            lbErrorMenssage.Location = new Point(39, 395);
             lbErrorMenssage.Name = "lbErrorMenssage";
-            lbErrorMenssage.Size = new Size(95, 15);
+            lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
             lbErrorMenssage.Text = "Mensaje de error";
             lbErrorMenssage.Visible = false;

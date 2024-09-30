@@ -86,13 +86,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             else if (!float.TryParse(precioStr, out float precio))
             {
 
-                msgError("Debe ingresar el Precio,Numerico", lbErrorMenssage6);
+                msgError("Debe ingresar el Precio Numerico", lbErrorMenssage6);
 
             }
             else if (!int.TryParse(stockStr, out int stock))
             {
 
-                msgError("Debe ingresar el Stock,Numerico", lbErrorMenssage7);
+                msgError("Debe ingresar el Stock Numerico", lbErrorMenssage7);
 
             }
             else if (string.IsNullOrEmpty(imagenName))

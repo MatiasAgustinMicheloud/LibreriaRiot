@@ -38,7 +38,6 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
             if (confirmResult == DialogResult.Yes)
             {
-                MessageBox.Show("Realizar venta");
                 //Ir a formulario detalles venta
                 instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
             }

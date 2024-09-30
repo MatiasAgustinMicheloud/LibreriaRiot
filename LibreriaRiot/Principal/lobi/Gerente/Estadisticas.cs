@@ -66,5 +66,9 @@ namespace LibreriaRiot.Principal.lobi.Gerente
             chrFinanzas.Visible = false;
         }
 
+        private void chrFinanzas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

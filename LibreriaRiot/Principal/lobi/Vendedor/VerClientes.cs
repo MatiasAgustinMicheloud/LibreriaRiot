@@ -127,7 +127,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
                 msgError("El correo electrónico no es válido");
                 error = true;
             }
-            else if (fechaNacimiento == DateTime.Now || fechaNacimiento < DateTime.Now)
+            else if (fechaNacimiento == DateTime.Now || fechaNacimiento > DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha válida");
                 error = true;
@@ -149,6 +149,34 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
         private void iconButton3_Click(object sender, EventArgs e)
         {
             instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
+        }
+
+        private void checkBoxSi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSi.Checked)
+            {
+                checkBoxNo.Checked = false; // Desmarca el otro CheckBox
+            }
+        }
+
+        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNo.Checked)
+            {
+                checkBoxSi.Checked = false; // Desmarca el otro CheckBox
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtDNI.Clear();
+            txtDomicilio.Clear();
+            txtEmail.Clear();
+            txtCUIT.Clear();
+            txtTelefono.Clear();
+            dtFechaNac.Value = DateTime.Now;
         }
     }
 

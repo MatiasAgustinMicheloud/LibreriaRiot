@@ -55,7 +55,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Pago confirmado");
+                    MessageBox.Show("Pago confirmado", "Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     instanciaLobi.OpenChildForm(new Vendedor.DetalleFactura(instanciaLobi));
                 }
 

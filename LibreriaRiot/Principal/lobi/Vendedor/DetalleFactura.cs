@@ -25,5 +25,6 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             instanciaLobi.FormClosed += (s, args) => this.Close();
             instanciaLobi.Show();
         }
+
     }
 }

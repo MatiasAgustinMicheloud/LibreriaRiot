@@ -69,8 +69,8 @@
             txtBuscadorAutor = new TextBox();
             label11 = new Label();
             panel3 = new Panel();
-            cbBuscadorCategoria = new ComboBox();
             label12 = new Label();
+            cbBuscadorCategoria = new ComboBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
@@ -135,6 +135,7 @@
             checkBoxNo.TabIndex = 26;
             checkBoxNo.Text = "no";
             checkBoxNo.UseVisualStyleBackColor = true;
+            checkBoxNo.CheckedChanged += checkBoxNo_CheckedChanged;
             // 
             // checkBoxSi
             // 
@@ -147,6 +148,7 @@
             checkBoxSi.TabIndex = 25;
             checkBoxSi.Text = "si";
             checkBoxSi.UseVisualStyleBackColor = true;
+            checkBoxSi.CheckedChanged += checkBoxSi_CheckedChanged;
             // 
             // btnLimpiar
             // 
@@ -167,16 +169,18 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lbErrorMenssage
             // 
             lbErrorMenssage.AutoSize = true;
-            lbErrorMenssage.ForeColor = Color.Brown;
+            lbErrorMenssage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(177, 424);
+            lbErrorMenssage.Location = new Point(117, 418);
             lbErrorMenssage.Name = "lbErrorMenssage";
-            lbErrorMenssage.Size = new Size(95, 15);
+            lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
             lbErrorMenssage.Text = "Mensaje de error";
             lbErrorMenssage.Visible = false;
@@ -323,7 +327,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(12, 143);
+            label4.Location = new Point(15, 148);
             label4.Name = "label4";
             label4.Size = new Size(90, 16);
             label4.TabIndex = 3;
@@ -334,7 +338,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(59, 113);
+            label3.Location = new Point(59, 120);
             label3.Name = "label3";
             label3.Size = new Size(43, 16);
             label3.TabIndex = 2;
@@ -432,7 +436,7 @@
             pictureBox5.BackColor = Color.FromArgb(64, 0, 64);
             pictureBox5.Location = new Point(-6, 0);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(936, 10);
+            pictureBox5.Size = new Size(938, 10);
             pictureBox5.TabIndex = 21;
             pictureBox5.TabStop = false;
             // 
@@ -484,7 +488,7 @@
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(533, 460);
+            dataGridView1.Size = new Size(535, 460);
             dataGridView1.TabIndex = 22;
             // 
             // txtBuscadorTitulo
@@ -507,9 +511,9 @@
             // 
             // txtBuscadorAutor
             // 
-            txtBuscadorAutor.Location = new Point(227, 16);
+            txtBuscadorAutor.Location = new Point(237, 16);
             txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(114, 23);
+            txtBuscadorAutor.Size = new Size(104, 23);
             txtBuscadorAutor.TabIndex = 25;
             // 
             // label11
@@ -537,28 +541,28 @@
             panel3.Controls.Add(pictureBox5);
             panel3.Location = new Point(0, 65);
             panel3.Name = "panel3";
-            panel3.Size = new Size(549, 517);
+            panel3.Size = new Size(551, 517);
             panel3.TabIndex = 21;
-            // 
-            // cbBuscadorCategoria
-            // 
-            cbBuscadorCategoria.FormattingEnabled = true;
-            cbBuscadorCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
-            cbBuscadorCategoria.Location = new Point(428, 16);
-            cbBuscadorCategoria.Name = "cbBuscadorCategoria";
-            cbBuscadorCategoria.Size = new Size(118, 23);
-            cbBuscadorCategoria.TabIndex = 28;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label12.ForeColor = Color.FromArgb(241, 241, 241);
-            label12.Location = new Point(347, 23);
+            label12.Location = new Point(349, 23);
             label12.Name = "label12";
             label12.Size = new Size(79, 16);
             label12.TabIndex = 28;
             label12.Text = "Categoria:";
+            // 
+            // cbBuscadorCategoria
+            // 
+            cbBuscadorCategoria.FormattingEnabled = true;
+            cbBuscadorCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
+            cbBuscadorCategoria.Location = new Point(430, 16);
+            cbBuscadorCategoria.Name = "cbBuscadorCategoria";
+            cbBuscadorCategoria.Size = new Size(118, 23);
+            cbBuscadorCategoria.TabIndex = 28;
             // 
             // VerProductos
             // 
