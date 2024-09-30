@@ -328,6 +328,9 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(183, 23);
             txtEmail.TabIndex = 14;
+            txtEmail.Text = "@";
+            txtEmail.TextChanged += txtEmail_TextChanged;
+            txtEmail.KeyDown += txtEmail_KeyDown;
             // 
             // txtTelefono
             // 

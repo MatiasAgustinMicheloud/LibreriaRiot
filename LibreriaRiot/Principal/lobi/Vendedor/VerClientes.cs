@@ -46,7 +46,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             string dni = txtDNI.Text;
-            DateTime fechaCarga = dtFechaNac.Value; // Se obtiene el valor de la fecha seleccionada
+            DateTime fechaNacimiento = dtFechaNac.Value; // Se obtiene el valor de la fecha seleccionada
             string mail = txtEmail.Text;
             string domicilio = txtDomicilio.Text;
             string cuit = txtCUIT.Text;
@@ -127,7 +127,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
                 msgError("El correo electrónico no es válido");
                 error = true;
             }
-            else if (fechaCarga.Date < DateTime.Now.Date)
+            else if (fechaNacimiento == DateTime.Now || fechaNacimiento < DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha válida");
                 error = true;
@@ -139,8 +139,17 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
                 MessageBox.Show("Usuario modificado exitosamente: " + nombre + " " + apellido,
                     "Cliente modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
+        private void btnRegistrarCliente_Click(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Vendedor.CargarCliente(instanciaLobi));
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
+        }
     }
+
 }

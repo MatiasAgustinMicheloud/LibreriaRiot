@@ -1,6 +1,6 @@
 ﻿namespace LibreriaRiot.Principal.lobi.Vendedor
 {
-    partial class DatalleVenta
+    partial class DetalleVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatalleVenta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleVenta));
             panel1 = new Panel();
             label2 = new Label();
             pictureBox2 = new PictureBox();
@@ -36,6 +36,7 @@
             pictureBox3 = new PictureBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
             cbMetodoPago = new ComboBox();
             btnConfirmar = new Button();
             lbFormaPago = new Label();
@@ -45,8 +46,6 @@
             lbDNI = new Label();
             lbNombreApellido = new Label();
             cbTipoFactura = new ComboBox();
-            ibAgregarCliente = new FontAwesome.Sharp.IconButton();
-            btnRegistrarCliente = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -58,7 +57,6 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlDarkDark;
-            panel1.Controls.Add(btnRegistrarCliente);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
@@ -84,6 +82,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.BackColor = Color.FromArgb(64, 0, 64);
             pictureBox2.Location = new Point(571, -1);
             pictureBox2.Margin = new Padding(4);
@@ -135,6 +134,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(cbMetodoPago);
             panel2.Controls.Add(btnConfirmar);
             panel2.Controls.Add(lbFormaPago);
@@ -144,17 +144,40 @@
             panel2.Controls.Add(lbDNI);
             panel2.Controls.Add(lbNombreApellido);
             panel2.Controls.Add(cbTipoFactura);
-            panel2.Controls.Add(ibAgregarCliente);
             panel2.Location = new Point(-1, 67);
             panel2.Name = "panel2";
             panel2.Size = new Size(582, 419);
             panel2.TabIndex = 24;
             // 
+            // iconButton2
+            // 
+            iconButton2.BackColor = Color.Gray;
+            iconButton2.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            iconButton2.FlatAppearance.BorderSize = 2;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton2.ForeColor = SystemColors.Window;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 40;
+            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton2.Location = new Point(13, 21);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(116, 43);
+            iconButton2.TabIndex = 75;
+            iconButton2.Text = "Cliente";
+            iconButton2.TextAlign = ContentAlignment.MiddleRight;
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
+            // 
             // cbMetodoPago
             // 
+            cbMetodoPago.Anchor = AnchorStyles.None;
             cbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMetodoPago.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbMetodoPago.FormattingEnabled = true;
+            cbMetodoPago.Items.AddRange(new object[] { "Mercado Pago", "Efectivo", "Tarjeta " });
             cbMetodoPago.Location = new Point(311, 156);
             cbMetodoPago.Name = "cbMetodoPago";
             cbMetodoPago.Size = new Size(161, 23);
@@ -162,14 +185,14 @@
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Anchor = AnchorStyles.Right;
+            btnConfirmar.Anchor = AnchorStyles.None;
             btnConfirmar.BackColor = SystemColors.ControlDarkDark;
             btnConfirmar.Cursor = Cursors.Hand;
             btnConfirmar.FlatAppearance.BorderSize = 0;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
             btnConfirmar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnConfirmar.ForeColor = SystemColors.ButtonFace;
-            btnConfirmar.Location = new Point(198, 304);
+            btnConfirmar.Location = new Point(225, 307);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(171, 35);
             btnConfirmar.TabIndex = 72;
@@ -179,6 +202,7 @@
             // 
             // lbFormaPago
             // 
+            lbFormaPago.Anchor = AnchorStyles.None;
             lbFormaPago.AutoSize = true;
             lbFormaPago.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbFormaPago.ForeColor = Color.Gainsboro;
@@ -190,7 +214,7 @@
             // 
             // lbErrorMenssage1
             // 
-            lbErrorMenssage1.Anchor = AnchorStyles.Top;
+            lbErrorMenssage1.Anchor = AnchorStyles.None;
             lbErrorMenssage1.AutoSize = true;
             lbErrorMenssage1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
             lbErrorMenssage1.ForeColor = Color.FromArgb(235, 133, 154);
@@ -207,7 +231,7 @@
             // 
             // lbErrorMenssage2
             // 
-            lbErrorMenssage2.Anchor = AnchorStyles.Top;
+            lbErrorMenssage2.Anchor = AnchorStyles.None;
             lbErrorMenssage2.AutoSize = true;
             lbErrorMenssage2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
             lbErrorMenssage2.ForeColor = Color.FromArgb(235, 133, 154);
@@ -224,6 +248,7 @@
             // 
             // lbTipoFactura
             // 
+            lbTipoFactura.Anchor = AnchorStyles.None;
             lbTipoFactura.AutoSize = true;
             lbTipoFactura.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbTipoFactura.ForeColor = Color.Gainsboro;
@@ -257,65 +282,24 @@
             // 
             // cbTipoFactura
             // 
+            cbTipoFactura.Anchor = AnchorStyles.None;
             cbTipoFactura.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoFactura.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbTipoFactura.FormattingEnabled = true;
+            cbTipoFactura.Items.AddRange(new object[] { "A", "B", "C" });
             cbTipoFactura.Location = new Point(311, 230);
             cbTipoFactura.Name = "cbTipoFactura";
             cbTipoFactura.Size = new Size(161, 23);
             cbTipoFactura.TabIndex = 68;
             // 
-            // ibAgregarCliente
-            // 
-            ibAgregarCliente.BackColor = Color.Transparent;
-            ibAgregarCliente.Cursor = Cursors.Hand;
-            ibAgregarCliente.FlatAppearance.BorderSize = 0;
-            ibAgregarCliente.FlatStyle = FlatStyle.Flat;
-            ibAgregarCliente.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ibAgregarCliente.ForeColor = Color.White;
-            ibAgregarCliente.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            ibAgregarCliente.IconColor = Color.Gainsboro;
-            ibAgregarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            ibAgregarCliente.IconSize = 40;
-            ibAgregarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            ibAgregarCliente.Location = new Point(10, 31);
-            ibAgregarCliente.Name = "ibAgregarCliente";
-            ibAgregarCliente.Size = new Size(121, 33);
-            ibAgregarCliente.TabIndex = 64;
-            ibAgregarCliente.Text = " Cliente ";
-            ibAgregarCliente.TextAlign = ContentAlignment.MiddleRight;
-            ibAgregarCliente.UseVisualStyleBackColor = false;
-            // 
-            // btnRegistrarCliente
-            // 
-            btnRegistrarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRegistrarCliente.BackColor = Color.FromArgb(64, 0, 64);
-            btnRegistrarCliente.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnRegistrarCliente.FlatAppearance.BorderSize = 2;
-            btnRegistrarCliente.FlatStyle = FlatStyle.Flat;
-            btnRegistrarCliente.ForeColor = SystemColors.Window;
-            btnRegistrarCliente.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            btnRegistrarCliente.IconColor = Color.White;
-            btnRegistrarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegistrarCliente.IconSize = 40;
-            btnRegistrarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegistrarCliente.Location = new Point(426, 15);
-            btnRegistrarCliente.Name = "btnRegistrarCliente";
-            btnRegistrarCliente.Size = new Size(138, 43);
-            btnRegistrarCliente.TabIndex = 74;
-            btnRegistrarCliente.Text = "Registrar Cliente";
-            btnRegistrarCliente.TextAlign = ContentAlignment.MiddleRight;
-            btnRegistrarCliente.UseVisualStyleBackColor = false;
-            btnRegistrarCliente.Click += btnRegistrarCliente_Click;
-            // 
-            // DatalleVenta
+            // DetalleVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(581, 482);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "DatalleVenta";
+            Name = "DetalleVenta";
             Text = "DatalleVenta";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -345,7 +329,6 @@
         private Label lbDNI;
         private Label lbNombreApellido;
         private ComboBox cbTipoFactura;
-        private FontAwesome.Sharp.IconButton ibAgregarCliente;
-        private FontAwesome.Sharp.IconButton btnRegistrarCliente;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

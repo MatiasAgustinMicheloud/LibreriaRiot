@@ -1,5 +1,4 @@
-﻿using FontAwesome.Sharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,20 +10,20 @@ using System.Windows.Forms;
 
 namespace LibreriaRiot.Principal.lobi.Vendedor
 {
-    public partial class Catalogo : Form
+    public partial class DetalleFactura : Form
     {
         private LobiPrincipal instanciaLobi;
-
-        public Catalogo(LobiPrincipal lobi)
+        public DetalleFactura(LobiPrincipal lobi)
         {
             InitializeComponent();
             this.instanciaLobi = lobi;
         }
 
-        private void btnVerCarrito_Click(object sender, EventArgs e)
+        private void iconButton4_Click(object sender, EventArgs e)
         {
-            instanciaLobi.OpenChildForm(new Vendedor.RealizarVenta(instanciaLobi));
-
+            this.Close();
+            instanciaLobi.FormClosed += (s, args) => this.Close();
+            instanciaLobi.Show();
         }
     }
 }

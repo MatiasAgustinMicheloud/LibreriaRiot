@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             panel3 = new Panel();
+            iconButton3 = new FontAwesome.Sharp.IconButton();
             txtBuscadorDNI = new TextBox();
             dataGridUsuarios = new DataGridView();
             label6 = new Label();
@@ -42,11 +43,11 @@
             label10 = new Label();
             txtBuscadorNombre = new TextBox();
             panel1 = new Panel();
+            btnRegistrarCliente = new FontAwesome.Sharp.IconButton();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
             label7 = new Label();
             txtCUIT = new TextBox();
@@ -85,6 +86,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(iconButton3);
             panel3.Controls.Add(txtBuscadorDNI);
             panel3.Controls.Add(dataGridUsuarios);
             panel3.Controls.Add(label6);
@@ -96,6 +98,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(552, 463);
             panel3.TabIndex = 27;
+            // 
+            // iconButton3
+            // 
+            iconButton3.BackColor = SystemColors.ControlDarkDark;
+            iconButton3.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            iconButton3.FlatAppearance.BorderSize = 2;
+            iconButton3.FlatStyle = FlatStyle.Flat;
+            iconButton3.ForeColor = SystemColors.Window;
+            iconButton3.IconChar = FontAwesome.Sharp.IconChar.User;
+            iconButton3.IconColor = Color.White;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton3.IconSize = 40;
+            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton3.Location = new Point(13, 425);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(157, 38);
+            iconButton3.TabIndex = 42;
+            iconButton3.Text = "Seleccionar Cliente";
+            iconButton3.TextAlign = ContentAlignment.MiddleRight;
+            iconButton3.UseVisualStyleBackColor = false;
+            iconButton3.Click += iconButton3_Click;
             // 
             // txtBuscadorDNI
             // 
@@ -132,7 +155,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridUsuarios.GridColor = Color.Gray;
-            dataGridUsuarios.Location = new Point(9, 47);
+            dataGridUsuarios.Location = new Point(13, 55);
             dataGridUsuarios.MultiSelect = false;
             dataGridUsuarios.Name = "dataGridUsuarios";
             dataGridUsuarios.ReadOnly = true;
@@ -152,7 +175,7 @@
             dataGridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridUsuarios.RowTemplate.Height = 25;
             dataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridUsuarios.Size = new Size(543, 402);
+            dataGridUsuarios.Size = new Size(543, 365);
             dataGridUsuarios.TabIndex = 33;
             // 
             // label6
@@ -206,16 +229,38 @@
             // 
             panel1.AllowDrop = true;
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(btnRegistrarCliente);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
-            panel1.Controls.Add(iconButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(918, 65);
             panel1.TabIndex = 25;
+            // 
+            // btnRegistrarCliente
+            // 
+            btnRegistrarCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRegistrarCliente.BackColor = Color.FromArgb(64, 0, 64);
+            btnRegistrarCliente.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnRegistrarCliente.FlatAppearance.BorderSize = 2;
+            btnRegistrarCliente.FlatStyle = FlatStyle.Flat;
+            btnRegistrarCliente.ForeColor = SystemColors.Window;
+            btnRegistrarCliente.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            btnRegistrarCliente.IconColor = Color.White;
+            btnRegistrarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRegistrarCliente.IconSize = 40;
+            btnRegistrarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarCliente.Location = new Point(755, 15);
+            btnRegistrarCliente.Name = "btnRegistrarCliente";
+            btnRegistrarCliente.Size = new Size(145, 43);
+            btnRegistrarCliente.TabIndex = 75;
+            btnRegistrarCliente.Text = "Registrar Cliente";
+            btnRegistrarCliente.TextAlign = ContentAlignment.MiddleRight;
+            btnRegistrarCliente.UseVisualStyleBackColor = false;
+            btnRegistrarCliente.Click += btnRegistrarCliente_Click;
             // 
             // pictureBox2
             // 
@@ -260,23 +305,6 @@
             lblAgregarProducto.Size = new Size(223, 39);
             lblAgregarProducto.TabIndex = 0;
             lblAgregarProducto.Text = "Listado de Clientes";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(12, 13);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -603,7 +631,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private Label lblAgregarProducto;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel2;
         private TextBox txtApellido;
         private TextBox txtNombre;
@@ -631,5 +658,7 @@
         private TextBox txtCUIT;
         private Label label5;
         private TextBox txtBuscadorDNI;
+        private FontAwesome.Sharp.IconButton btnRegistrarCliente;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibreriaRiot.Principal;
 using LibreriaRiot.Principal.lobi.Administrador;
+using LibreriaRiot.Principal.lobi.Vendedor;
 
 namespace LibreriaRiot.Principal.lobi
 {
@@ -129,7 +130,7 @@ namespace LibreriaRiot.Principal.lobi
             OpenChildForm(new Administrador.AgregarEmpleado(this));
         }
 
-        internal void OpenChildForm(Form childForm) //internal puede manejar los formularios (hijos de)
+        internal void OpenChildForm(Form childForm) 
         {
             if (currentChildForm != null)
             {
@@ -248,13 +249,25 @@ namespace LibreriaRiot.Principal.lobi
         private void iconCargarCliente_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Vendedor.CargarCliente(this));
+            OpenChildForm(new Vendedor.VerClientes(this));
         }
 
         private void iconMisVentas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Vendedor.MisVentas(this));
+        }
+
+        private void iconCatalogo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.Catalogo(this));
+        }
+
+        private void iconRealizarVenta_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Vendedor.RealizarVenta(this));
         }
     }
 }
