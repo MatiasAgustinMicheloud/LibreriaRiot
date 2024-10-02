@@ -146,7 +146,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
             else if (usuarioModel.IsValidEdad(fechaNacimiento) == false)
             {
-                msgError("No cumple con los requisitos de Edad", lbErrorMenssage4);
+                msgError("El usuario debe ser mayor de 17", lbErrorMenssage4);
             }
             else
             {

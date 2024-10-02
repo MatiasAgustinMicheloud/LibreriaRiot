@@ -87,7 +87,7 @@
             lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(122, 389);
+            lbErrorMenssage.Location = new Point(76, 389);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;

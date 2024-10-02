@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel2 = new Panel();
+            btAgregarImagen = new FontAwesome.Sharp.IconButton();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
             checkBoxSi = new CheckBox();
@@ -85,6 +86,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(btAgregarImagen);
             panel2.Controls.Add(lbBaja);
             panel2.Controls.Add(checkBoxNo);
             panel2.Controls.Add(checkBoxSi);
@@ -113,12 +115,29 @@
             panel2.Size = new Size(373, 517);
             panel2.TabIndex = 3;
             // 
+            // btAgregarImagen
+            // 
+            btAgregarImagen.Anchor = AnchorStyles.None;
+            btAgregarImagen.BackColor = Color.FromArgb(64, 0, 64);
+            btAgregarImagen.FlatAppearance.BorderSize = 0;
+            btAgregarImagen.FlatStyle = FlatStyle.Flat;
+            btAgregarImagen.IconChar = FontAwesome.Sharp.IconChar.FileImage;
+            btAgregarImagen.IconColor = SystemColors.Window;
+            btAgregarImagen.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btAgregarImagen.IconSize = 30;
+            btAgregarImagen.Location = new Point(244, 325);
+            btAgregarImagen.Name = "btAgregarImagen";
+            btAgregarImagen.Size = new Size(25, 39);
+            btAgregarImagen.TabIndex = 28;
+            btAgregarImagen.UseVisualStyleBackColor = false;
+            btAgregarImagen.Click += btAgregarImagen_Click;
+            // 
             // lbBaja
             // 
             lbBaja.AutoSize = true;
             lbBaja.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbBaja.ForeColor = SystemColors.Window;
-            lbBaja.Location = new Point(279, 343);
+            lbBaja.Location = new Point(279, 367);
             lbBaja.Name = "lbBaja";
             lbBaja.Size = new Size(39, 16);
             lbBaja.TabIndex = 27;
@@ -129,7 +148,7 @@
             checkBoxNo.AutoSize = true;
             checkBoxNo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxNo.ForeColor = SystemColors.Window;
-            checkBoxNo.Location = new Point(306, 369);
+            checkBoxNo.Location = new Point(306, 393);
             checkBoxNo.Name = "checkBoxNo";
             checkBoxNo.Size = new Size(43, 20);
             checkBoxNo.TabIndex = 26;
@@ -142,7 +161,7 @@
             checkBoxSi.AutoSize = true;
             checkBoxSi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxSi.ForeColor = SystemColors.Window;
-            checkBoxSi.Location = new Point(256, 369);
+            checkBoxSi.Location = new Point(256, 393);
             checkBoxSi.Name = "checkBoxSi";
             checkBoxSi.Size = new Size(38, 20);
             checkBoxSi.TabIndex = 25;
@@ -178,7 +197,7 @@
             lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(117, 418);
+            lbErrorMenssage.Location = new Point(84, 418);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
@@ -232,6 +251,7 @@
             pbPortada.Location = new Point(117, 325);
             pbPortada.Name = "pbPortada";
             pbPortada.Size = new Size(121, 90);
+            pbPortada.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPortada.TabIndex = 15;
             pbPortada.TabStop = false;
             // 
@@ -450,42 +470,42 @@
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Purple;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Purple;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.GridColor = Color.Gray;
             dataGridView1.Location = new Point(6, 45);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(535, 460);
@@ -631,5 +651,6 @@
         private Panel panel3;
         private Label label12;
         private ComboBox cbBuscadorCategoria;
+        private FontAwesome.Sharp.IconButton btAgregarImagen;
     }
 }

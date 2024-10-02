@@ -115,6 +115,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("El correo electrónico no es válido");
                 error = true;
             }
+            else if (idTipoPerfil == -1)
+            {
+                msgError("Por favor, selecciona un rol.");
+                error = true;
+            }
             else if (string.IsNullOrWhiteSpace(dni))
             {
                 msgError("Debe ingresar DNI");
@@ -130,10 +135,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("Debe seleccionar una fecha válida");
                 error = true;
             }
-            else if (idTipoPerfil == 0)
-            {
-                msgError("Por favor, selecciona un rol.");
-            }
+           
 
 
             // Si no hay errores, mostrar el mensaje de éxito
@@ -143,7 +145,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                     "Empleado modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            
+
             // Llamar a la función para actualizar el usuario
             /*
             bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
@@ -164,7 +166,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void CargarUsuarios()
         {
-            var usuarios = userModel.MostrarUsers(); 
+            var usuarios = userModel.MostrarUsers();
             dataGridUsuarios.DataSource = usuarios; // Asigna la lista de usuarios al DataGridView
         }
 
@@ -279,7 +281,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         }
 
 
-       private void dataGridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -290,14 +292,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 idUsuarioSeleccionado = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value); // Ajusta el nombre de la columna si es necesario
 
                 // Asignar los valores a los controles correspondientes
-               /** txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
-                txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
-                txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
-                txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
-                txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
-                cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
-                txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
-                dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);*/
+                /** txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
+                 txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
+                 txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
+                 txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
+                 txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
+                 cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
+                 txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
+                 dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);*/
 
                 if (filaSeleccionada.Cells["PersonaBaja"].Value != DBNull.Value)
                 {
