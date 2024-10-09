@@ -135,32 +135,26 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("Debe seleccionar una fecha válida");
                 error = true;
             }
-           
-
-
-            // Si no hay errores, mostrar el mensaje de éxito
-            if (!error)
-            {
-                MessageBox.Show("Empleado modificado exitosamente: " + nombre + " " + apellido,
-                    "Empleado modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-
-            // Llamar a la función para actualizar el usuario
-            /*
-            bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
-
-            if (actualizado)
-            {
-                MessageBox.Show("Empleado actualizado correctamente");
-                CargarUsuarios();
-            }
             else
             {
-                MessageBox.Show("Hubo un error al actualizar el usuario");
-                CargarUsuarios();
+
+                // Llamar a la función para actualizar el usuario
+
+                bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
+
+                if (actualizado)
+                {
+                    MessageBox.Show("Empleado actualizado correctamente");
+                    CargarUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error al actualizar el usuario");
+                    CargarUsuarios();
+                }
+
             }
-            */
+            
 
         }
 
@@ -292,14 +286,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 idUsuarioSeleccionado = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value); // Ajusta el nombre de la columna si es necesario
 
                 // Asignar los valores a los controles correspondientes
-                /** txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
+                 txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
                  txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
                  txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
                  txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
                  txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
                  cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
                  txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
-                 dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);*/
+                 dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);
 
                 if (filaSeleccionada.Cells["PersonaBaja"].Value != DBNull.Value)
                 {
