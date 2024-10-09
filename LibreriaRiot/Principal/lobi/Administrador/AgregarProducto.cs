@@ -59,7 +59,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
             if (string.IsNullOrWhiteSpace(nombreProd))
             {
-                msgError("Debe ingresar un nombre", lbErrorMenssage1);
+                msgError("Debe ingresar un Titulo", lbErrorMenssage1);
             }
             else if (cbEditorial.SelectedIndex == -1 || cbEditorial.SelectedItem.ToString() == "")
             {

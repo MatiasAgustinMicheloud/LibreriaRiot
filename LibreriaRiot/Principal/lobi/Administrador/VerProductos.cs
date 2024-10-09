@@ -17,6 +17,9 @@ namespace LibreriaRiot.Principal.lobi.Administrador
     {
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
+        private string? fileSavePath;
+        private string? fileActualPath;
+        private string? imagenName;
         public VerProductos(LobiPrincipal lobi)
         {
             InitializeComponent();
@@ -119,6 +122,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("EL Stock tiene que ser numérico");
                 error = true;
             }
+            else if (string.IsNullOrEmpty(imagenName))
+            {
+                msgError("Ingrese una imagen");
+                error = true;
+            }
 
             // Si no hay errores, mostrar el mensaje de éxito
             if (!error)
@@ -126,7 +134,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 MessageBox.Show("Libro modificado exitosamente: " + nuevoTitulo,
                     "Modificar libro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-       
+
         }
 
         private void VerProductos_Load(object sender, EventArgs e)
@@ -165,10 +173,43 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             txtDescripcion.Clear();
             txtEditorial.Clear();
             txtPrecio.Clear();
-            txtStock.Clear();         
-            pbPortada.Image = null;        
+            txtStock.Clear();
+            pbPortada.Image = null;
             cbCategoria.SelectedIndex = -1;
             txtTitulo.Focus();
+        }
+
+        private void btAgregarImagen_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFile = new()
+            {
+                Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                Multiselect = false,
+                Title = "Seleccione una Imagen",
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    imagenName = Guid.NewGuid().ToString() + ".png" + ".jpg" + ".jpeg";
+                    string actualName = openFile.SafeFileName;
+                    fileSavePath = Path.Combine("..", "..", "..", "Principal/lobi/imagenes", imagenName);
+                    string selectedImagePath = openFile.FileName;
+                    fileActualPath = selectedImagePath;
+
+                    // Intenta cargar la imagen desde el archivo
+                    pbPortada.Image = Image.FromFile(fileActualPath);
+
+
+                }
+                catch (Exception ex)
+                {
+                    // Manejar la excepción aquí, puedes mostrar un mensaje de error
+                    MessageBox.Show("No se pudo agregar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
