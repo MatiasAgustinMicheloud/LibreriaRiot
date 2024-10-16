@@ -58,7 +58,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnVerProductos = new FontAwesome.Sharp.IconButton();
+            btnVerEmpleados = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -329,6 +329,7 @@
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(183, 23);
             cbRol.TabIndex = 16;
+            cbRol.SelectedIndexChanged += cbRol_SelectedIndexChanged;
             // 
             // txtEmail
             // 
@@ -456,27 +457,27 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
-            // btnVerProductos
+            // btnVerEmpleados
             // 
-            btnVerProductos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnVerProductos.BackColor = Color.FromArgb(64, 0, 64);
-            btnVerProductos.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnVerProductos.FlatAppearance.BorderSize = 2;
-            btnVerProductos.FlatStyle = FlatStyle.Flat;
-            btnVerProductos.ForeColor = SystemColors.Window;
-            btnVerProductos.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
-            btnVerProductos.IconColor = Color.White;
-            btnVerProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVerProductos.IconSize = 40;
-            btnVerProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVerProductos.Location = new Point(660, 17);
-            btnVerProductos.Name = "btnVerProductos";
-            btnVerProductos.Size = new Size(129, 40);
-            btnVerProductos.TabIndex = 19;
-            btnVerProductos.Text = "Ver Empleados";
-            btnVerProductos.TextAlign = ContentAlignment.MiddleRight;
-            btnVerProductos.UseVisualStyleBackColor = false;
-            btnVerProductos.Click += btnVerProductos_Click;
+            btnVerEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnVerEmpleados.BackColor = Color.FromArgb(64, 0, 64);
+            btnVerEmpleados.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnVerEmpleados.FlatAppearance.BorderSize = 2;
+            btnVerEmpleados.FlatStyle = FlatStyle.Flat;
+            btnVerEmpleados.ForeColor = SystemColors.Window;
+            btnVerEmpleados.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            btnVerEmpleados.IconColor = Color.White;
+            btnVerEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVerEmpleados.IconSize = 40;
+            btnVerEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerEmpleados.Location = new Point(660, 17);
+            btnVerEmpleados.Name = "btnVerEmpleados";
+            btnVerEmpleados.Size = new Size(129, 40);
+            btnVerEmpleados.TabIndex = 19;
+            btnVerEmpleados.Text = "Ver Empleados";
+            btnVerEmpleados.TextAlign = ContentAlignment.MiddleRight;
+            btnVerEmpleados.UseVisualStyleBackColor = false;
+            btnVerEmpleados.Click += btnVerEmpleados_Click;
             // 
             // panel1
             // 
@@ -485,7 +486,7 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblAgregarProducto);
-            panel1.Controls.Add(btnVerProductos);
+            panel1.Controls.Add(btnVerEmpleados);
             panel1.Location = new Point(-6, -1);
             panel1.Name = "panel1";
             panel1.Size = new Size(806, 137);
@@ -549,7 +550,7 @@
         #endregion
 
         private Panel panel2;
-        private FontAwesome.Sharp.IconButton btnVerProductos;
+        private FontAwesome.Sharp.IconButton btnVerEmpleados;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private ComboBox cbRol;
         private TextBox txtEmail;

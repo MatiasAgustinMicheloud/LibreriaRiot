@@ -41,8 +41,8 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nuevoTitulo = txtTitulo.Text;
-            string nuevaEditorial = txtEditorial.Text;
-            string nuevoAutor = txtAutor.Text;
+            int idEditorial = cbEditorial.SelectedIndex;
+            int idAutor = cbAutor.SelectedIndex;
             string nuevaDescripcion = txtDescripcion.Text;
             int idCategoria = cbCategoria.SelectedIndex;
             string precio = txtPrecio.Text;
@@ -67,24 +67,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("El Titulo no puede contener números");
                 error = true;
             }
-            else if (string.IsNullOrWhiteSpace(nuevaEditorial))
+            else if (cbEditorial.SelectedIndex == -1 || cbEditorial.SelectedItem.ToString() == "")
             {
-                msgError("Debe ingresar un Editorial");
+                msgError("Por favor, selecciona una Editorial.");
                 error = true;
             }
-            else if (nuevaEditorial.Any(char.IsDigit))
+            else if (cbAutor.SelectedIndex == -1 || cbAutor.SelectedItem.ToString() == "")
             {
-                msgError("El campo editorial no puede contener números");
-                error = true;
-            }
-            else if (string.IsNullOrWhiteSpace(nuevoAutor))
-            {
-                msgError("Debe ingresar un autor");
-                error = true;
-            }
-            else if (nuevoAutor.Any(char.IsDigit))
-            {
-                msgError("El autor no puede contener números");
+                msgError("Por favor, selecciona un Autor.");
                 error = true;
             }
             else if (string.IsNullOrWhiteSpace(nuevaDescripcion))
@@ -169,9 +159,9 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtTitulo.Clear();
-            txtAutor.Clear();
+            cbEditorial.SelectedIndex = -1;
             txtDescripcion.Clear();
-            txtEditorial.Clear();
+            cbAutor.SelectedIndex = -1;
             txtPrecio.Clear();
             txtStock.Clear();
             pbPortada.Image = null;

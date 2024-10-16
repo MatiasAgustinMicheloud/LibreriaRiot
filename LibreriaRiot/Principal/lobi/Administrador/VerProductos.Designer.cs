@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel2 = new Panel();
+            cbEditorial = new ComboBox();
+            cbAutor = new ComboBox();
             btAgregarImagen = new FontAwesome.Sharp.IconButton();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
@@ -47,8 +49,6 @@
             txtStock = new TextBox();
             txtPrecio = new TextBox();
             txtDescripcion = new TextBox();
-            txtAutor = new TextBox();
-            txtEditorial = new TextBox();
             txtTitulo = new TextBox();
             label8 = new Label();
             label7 = new Label();
@@ -86,6 +86,8 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(cbEditorial);
+            panel2.Controls.Add(cbAutor);
             panel2.Controls.Add(btAgregarImagen);
             panel2.Controls.Add(lbBaja);
             panel2.Controls.Add(checkBoxNo);
@@ -99,8 +101,6 @@
             panel2.Controls.Add(txtStock);
             panel2.Controls.Add(txtPrecio);
             panel2.Controls.Add(txtDescripcion);
-            panel2.Controls.Add(txtAutor);
-            panel2.Controls.Add(txtEditorial);
             panel2.Controls.Add(txtTitulo);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
@@ -114,6 +114,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(373, 517);
             panel2.TabIndex = 3;
+            // 
+            // cbEditorial
+            // 
+            cbEditorial.FormattingEnabled = true;
+            cbEditorial.Location = new Point(117, 89);
+            cbEditorial.Name = "cbEditorial";
+            cbEditorial.Size = new Size(232, 23);
+            cbEditorial.TabIndex = 30;
+            // 
+            // cbAutor
+            // 
+            cbAutor.FormattingEnabled = true;
+            cbAutor.Location = new Point(117, 117);
+            cbAutor.Name = "cbAutor";
+            cbAutor.Size = new Size(232, 23);
+            cbAutor.TabIndex = 29;
             // 
             // btAgregarImagen
             // 
@@ -239,7 +255,6 @@
             // cbCategoria
             // 
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbCategoria.Location = new Point(117, 238);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(232, 23);
@@ -276,20 +291,6 @@
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(232, 86);
             txtDescripcion.TabIndex = 12;
-            // 
-            // txtAutor
-            // 
-            txtAutor.Location = new Point(117, 118);
-            txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(232, 23);
-            txtAutor.TabIndex = 11;
-            // 
-            // txtEditorial
-            // 
-            txtEditorial.Location = new Point(117, 89);
-            txtEditorial.Name = "txtEditorial";
-            txtEditorial.Size = new Size(232, 23);
-            txtEditorial.TabIndex = 10;
             // 
             // txtTitulo
             // 
@@ -470,42 +471,42 @@
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Purple;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Purple;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = Color.Gray;
             dataGridView1.Location = new Point(6, 45);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(535, 460);
@@ -621,8 +622,6 @@
         private TextBox txtStock;
         private TextBox txtPrecio;
         private TextBox txtDescripcion;
-        private TextBox txtAutor;
-        private TextBox txtEditorial;
         private TextBox txtTitulo;
         private Label label8;
         private Label label7;
@@ -652,5 +651,7 @@
         private Label label12;
         private ComboBox cbBuscadorCategoria;
         private FontAwesome.Sharp.IconButton btAgregarImagen;
+        private ComboBox cbEditorial;
+        private ComboBox cbAutor;
     }
 }
