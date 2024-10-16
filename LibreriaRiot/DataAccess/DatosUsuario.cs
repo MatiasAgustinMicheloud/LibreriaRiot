@@ -579,6 +579,7 @@ namespace DataAccess
                 {
                     return false;
                 }
+                
 
                 // Continúa con la actualización del usuario utilizando el ID de la persona
                 if (EsTipoPerfilValido(tipoPerfil))
@@ -596,6 +597,8 @@ namespace DataAccess
                             command.Parameters.AddWithValue("@UserNombre", user);
                             command.Parameters.AddWithValue("@TipoPerfil", tipoPerfil);
                             command.Parameters.AddWithValue("@Id_Persona", personaId);
+
+                            MessageBox.Show("tipo de perfil: " +tipoPerfil);
 
                             int rowsAffected = command.ExecuteNonQuery();
 

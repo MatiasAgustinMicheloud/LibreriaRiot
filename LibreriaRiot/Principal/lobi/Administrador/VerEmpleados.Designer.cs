@@ -433,7 +433,7 @@
             // cbRol
             // 
             cbRol.FormattingEnabled = true;
-            cbRol.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
+            cbRol.Items.AddRange(new object[] { "", "Gerente", "Administrador", "Vendedor" });
             cbRol.Location = new Point(122, 244);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(232, 23);
