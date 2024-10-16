@@ -128,7 +128,7 @@ namespace LibreriaRiot.Principal.lobi
             OpenChildForm(new Administrador.AgregarEmpleado(this));
         }
 
-        internal void OpenChildForm(Form childForm) 
+        internal void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleVenta));
             panel1 = new Panel();
             label2 = new Label();
@@ -36,6 +37,9 @@
             pictureBox3 = new PictureBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            label1 = new Label();
+            Lfecha = new Label();
+            Lhora = new Label();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             cbMetodoPago = new ComboBox();
             btnConfirmar = new Button();
@@ -46,6 +50,7 @@
             lbDNI = new Label();
             lbNombreApellido = new Label();
             cbTipoFactura = new ComboBox();
+            horaFecha = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -134,6 +139,9 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(Lfecha);
+            panel2.Controls.Add(Lhora);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(cbMetodoPago);
             panel2.Controls.Add(btnConfirmar);
@@ -148,6 +156,46 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(582, 419);
             panel2.TabIndex = 24;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Gainsboro;
+            label1.Location = new Point(234, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 24);
+            label1.TabIndex = 78;
+            label1.Text = "Hora: ";
+            // 
+            // Lfecha
+            // 
+            Lfecha.Anchor = AnchorStyles.None;
+            Lfecha.AutoSize = true;
+            Lfecha.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Lfecha.ForeColor = SystemColors.Window;
+            Lfecha.Location = new Point(158, 7);
+            Lfecha.Margin = new Padding(4, 0, 4, 0);
+            Lfecha.Name = "Lfecha";
+            Lfecha.Size = new Size(69, 30);
+            Lfecha.TabIndex = 77;
+            Lfecha.Text = "Fecha";
+            Lfecha.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Lhora
+            // 
+            Lhora.Anchor = AnchorStyles.None;
+            Lhora.AutoSize = true;
+            Lhora.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Lhora.ForeColor = SystemColors.Window;
+            Lhora.Location = new Point(301, 34);
+            Lhora.Margin = new Padding(4, 0, 4, 0);
+            Lhora.Name = "Lhora";
+            Lhora.Size = new Size(61, 30);
+            Lhora.TabIndex = 76;
+            Lhora.Text = "Hora";
+            Lhora.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // iconButton2
             // 
@@ -292,6 +340,11 @@
             cbTipoFactura.Size = new Size(161, 23);
             cbTipoFactura.TabIndex = 68;
             // 
+            // horaFecha
+            // 
+            horaFecha.Enabled = true;
+            horaFecha.Tick += horaFecha_Tick_1;
+            // 
             // DetalleVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -330,5 +383,9 @@
         private Label lbNombreApellido;
         private ComboBox cbTipoFactura;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private Label Lfecha;
+        private Label Lhora;
+        private System.Windows.Forms.Timer horaFecha;
+        private Label label1;
     }
 }

@@ -598,8 +598,6 @@ namespace DataAccess
                             command.Parameters.AddWithValue("@TipoPerfil", tipoPerfil);
                             command.Parameters.AddWithValue("@Id_Persona", personaId);
 
-                            MessageBox.Show("tipo de perfil: " +tipoPerfil);
-
                             int rowsAffected = command.ExecuteNonQuery();
 
                             return rowsAffected > 0;
