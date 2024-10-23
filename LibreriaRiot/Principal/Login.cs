@@ -1,4 +1,5 @@
-﻿using LibreriaRiot.Principal.lobi;
+﻿using Common.Models;
+using LibreriaRiot.Principal.lobi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +11,19 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain;
 
 namespace LibreriaRiot.Principal
 {
     public partial class Login : Form
     {
         private UserType currentUserType;
-        public Login()
+        private LobiPrincipal? _lobi;
+
+        public Login(LobiPrincipal lobi)
         {
             InitializeComponent();
+            _lobi = lobi;
         }
 
         /*private bool ValidacionDatos()
@@ -74,19 +79,7 @@ namespace LibreriaRiot.Principal
             }
             else
             {
-
-                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
-                if (!Regex.IsMatch(txtUsuario.Text, emailPattern))
-                {
-                    msgError("El formato del email es inválido.");
-                    txtUsuario.Clear();
-                    txtUsuario.Focus();
-
-
-                }
-                else
-                {
+                    
                     if (string.IsNullOrWhiteSpace(txtPassword.Text))
                     {
                         msgError("El campo 'Contraseña' es obligatorio.");
@@ -95,29 +88,16 @@ namespace LibreriaRiot.Principal
                     }
                     else
                     {
-                        if (txtUsuario.Text == "admin@gmail.com" && txtPassword.Text == "Admin1")
+                        UsuarioModel user = new UsuarioModel();
+                        var validLogin = user.LoginUser(txtUsuario.Text, txtPassword.Text);
+                        if (validLogin == true)
                         {
-                            currentUserType = UserType.Admin;
-                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
-                            menu.Show();
-
-                            this.Hide();
-                        }
-                        else if (txtUsuario.Text == "vendedor@gmail.com" && txtPassword.Text == "Vendedor1")
-                        {
-                            currentUserType = UserType.Vendedor;
-                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
-                            menu.Show();
-
-                            this.Hide();
-                        }
-                        else if (txtUsuario.Text == "gerente@gmail.com" && txtPassword.Text == "Gerente1")
-                        {
-                            currentUserType = UserType.Gerente;
-                            LobiPrincipal menu = new LobiPrincipal(currentUserType);
-                            menu.Show();
-
-                            this.Hide();
+                            this.Close();
+                            _lobi!.Show();
+                            _lobi.FormClosed += (s, args) =>
+                            {
+                                Logout(s, args);
+                            };
                         }
                         else
                         {
@@ -125,8 +105,8 @@ namespace LibreriaRiot.Principal
                             txtPassword.Clear();
                             txtPassword.Focus();
                         }
-                    }
-                }
+                    
+                     }
 
             }
         }
@@ -137,6 +117,17 @@ namespace LibreriaRiot.Principal
             lbErrorMenssage.Visible = true;
         }
 
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms.OfType<LobiPrincipal>().Any())
+            {
+                Application.OpenForms.OfType<LobiPrincipal>().First().Close();
+            }
+            LobiPrincipal lobi = new();
+            Login login = new(lobi);
+            login.Show();
+            txtUsuario.Focus();
+        }
 
     }
 }

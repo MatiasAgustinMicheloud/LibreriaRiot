@@ -68,7 +68,7 @@ namespace DataAccess
                             }
                         }
                     }
-                    // Si llegamos aquí, no se encontró una coincidencia de usuario y contraseña
+                    
                     return false;
                 }
             }

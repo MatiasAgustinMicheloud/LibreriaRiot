@@ -11,17 +11,19 @@ using System.Windows.Forms;
 using LibreriaRiot.Principal;
 using LibreriaRiot.Principal.lobi.Administrador;
 using LibreriaRiot.Principal.lobi.Vendedor;
+using Common.Cache;
+using Domain;
 
 namespace LibreriaRiot.Principal.lobi
 {
     public partial class LobiPrincipal : Form
     {
-        private UserType userType;
+
         private Form currentChildForm;
         private IconButton currentBtn;
         private Panel leftBoderBtn;
 
-        public LobiPrincipal(UserType userType)
+        public LobiPrincipal()
         {
             InitializeComponent();
             leftBoderBtn = new Panel();
@@ -29,8 +31,6 @@ namespace LibreriaRiot.Principal.lobi
             panelMenu.Controls.Add(leftBoderBtn);
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.MinimumSize = new Size(1200, 700);
-            this.userType = userType;
-            ConfigureUI();
         }
 
         private void btnlobiSalir_Click(object sender, EventArgs e)
@@ -55,38 +55,6 @@ namespace LibreriaRiot.Principal.lobi
             WindowState = FormWindowState.Minimized;
         }
 
-        private void ConfigureUI()
-        {
-            switch (userType)
-            {
-                case UserType.Gerente:
-                    // Mostrar solo los botones de gerente
-                    iconRespaldo.Visible = true;
-                    iconEstadistica.Visible = true;
-                    lbRol.Text = "Gerente";
-                    lbNApe.Text = "Matias Micheloud";
-                    break;
-
-                case UserType.Admin:
-                    // Mostrar solo los botones de administrador
-                    iconProducto.Visible = true;
-                    iconUsuarios.Visible = true;
-                    iconHistorialVentas.Visible = true;
-                    lbRol.Text = "administrador";
-                    lbNApe.Text = "Lautaro Belucci";
-                    break;
-
-                case UserType.Vendedor:
-                    // Mostrar solo los botones de vendedor
-                    iconCatalogo.Visible = true;
-                    iconMisVentas.Visible = true;
-                    iconCargarCliente.Visible = true;
-                    lbRol.Text = "Vendedor";
-                    lbNApe.Text = "Dylan Fernandez";
-                    break;
-            }
-        }
-
         private void horaFecha_Tick(object sender, EventArgs e)
         {
             Lhora.Text = DateTime.Now.ToLongTimeString();
@@ -99,6 +67,24 @@ namespace LibreriaRiot.Principal.lobi
             carpetaDestino = Path.GetFullPath(carpetaDestino);
             pictureBox2.Image = Image.FromFile(carpetaDestino + "lobi.gif");
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            if (UserLoginCache.TipoPerfil == 1)
+            {
+                iconEstadistica.Visible = true;
+                iconRespaldo.Visible = true;
+            }
+            else if (UserLoginCache.TipoPerfil == 2)
+            {
+                iconProducto.Visible = true;
+                iconUsuarios.Visible = true;
+                iconHistorialVentas.Visible = true;
+            }
+            else
+            {
+                iconCatalogo.Visible = true;
+                iconMisVentas.Visible = true;
+                iconCargarCliente.Visible = true;
+            }
         }
 
         private void iconExit_Click(object sender, EventArgs e)
@@ -111,7 +97,7 @@ namespace LibreriaRiot.Principal.lobi
                 this.Close();
 
                 // Abrir el formulario de login
-                Login loginForm = new Login();
+                Login loginForm = new Login(this);
                 loginForm.Show();
             }
         }
@@ -260,6 +246,23 @@ namespace LibreriaRiot.Principal.lobi
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Vendedor.Catalogo(this));
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            // Crear una instancia de UserModel
+           UsuarioModel userModel = new UsuarioModel();
+
+            // Obtén el nombre del rol desde la capa de dominio
+            int tipoPerfil = UserLoginCache.TipoPerfil; // Quita los paréntesis
+
+            string? roleName = userModel.GetRolName(tipoPerfil); // Llama al método en la instancia de UserModel
+
+            // Asigna el nombre del rol al lbRol.Text
+            lbRol.Text = roleName;
+
+            // Resto del código para mostrar otros datos de usuario
+            lbNApe.Text = UserLoginCache.Nombre + " " + UserLoginCache.Apellido;
         }
     }
 }
