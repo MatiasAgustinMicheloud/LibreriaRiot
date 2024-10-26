@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Common.Models;
+using Domain;
+using System.Net;
+using LibreriaRiot.Domain;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
@@ -41,10 +45,16 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nombreProd = txtTitulo.Text;
-            string precioStr = txtPrecio.Text;
+            string titulo = txtTitulo.Text;
+            string editorial = cbEditorial.Text;
+            string autor = cbAutor.Text;
             string descripcion = txtDescripcion.Text;
-            string stockStr = txtStock.Text;
+            string categoria = cbCategoria.Text;
+            string precio = txtPrecio.Text;
+            string stock = txtStock.Text;
+            string imagen = pbPortada.Text;
+
+            ProductoModel productoModel = new ProductoModel();
 
             // Ocultar todas las etiquetas de error al iniciar la validación
             lbErrorMenssage1.Visible = false;
@@ -57,7 +67,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage8.Visible = false;
 
 
-            if (string.IsNullOrWhiteSpace(nombreProd))
+            if (string.IsNullOrWhiteSpace(titulo))
             {
                 msgError("Debe ingresar un Titulo", lbErrorMenssage1);
             }
@@ -83,13 +93,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 msgError("Por favor, selecciona una Categoria.", lbErrorMenssage5);
 
             }
-            else if (!float.TryParse(precioStr, out float precio))
+            else if (!float.TryParse(precio, out float precioN))
             {
 
                 msgError("Debe ingresar el Precio Numerico", lbErrorMenssage6);
 
             }
-            else if (!int.TryParse(stockStr, out int stock))
+            else if (!int.TryParse(stock, out int stockN))
             {
 
                 msgError("Debe ingresar el Stock Numerico", lbErrorMenssage7);
@@ -101,22 +111,31 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
             else
             {
-                Datos nuevoDato = new Datos()
+
+                DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este producto?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmResult == DialogResult.Yes)
                 {
-                    Titulo = nombreProd,
-                    Descripcion = descripcion,
-                    Editorial = cbEditorial.Text,
-                    Autor = cbAutor.Text,
-                    Precio = precioStr,
-                    Stock = stockStr,
-                    Categoria = cbCategoria.Text,
-                    Portada = pbPortada.Image
-                };
+                    bool productoAgregado = productoModel.AgregarNuevoProducto(titulo, editorial, autor, descripcion, categoria, precio, stock, imagen);
+                    MessageBox.Show("El Libro " + titulo + " fue agregado exitosamente", "Libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                }
+                //Datos nuevoDato = new Datos()
+                //{
+                //    Titulo = nombreProd,
+                //    Descripcion = descripcion,
+                //    Editorial = cbEditorial.Text,
+                //    Autor = cbAutor.Text,
+                //    Precio = precioStr,
+                //    Stock = stockStr,
+                //    Categoria = cbCategoria.Text,
+                //    Portada = pbPortada.Image
+                //};
 
-                AlmacenDatos.ListaDatos.Add(nuevoDato);
+                //AlmacenDatos.ListaDatos.Add(nuevoDato);
 
-                MessageBox.Show("libro agregado correctamente", "libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarCampos();
+                //MessageBox.Show("libro agregado correctamente", "libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //LimpiarCampos();
             }
 
         }
