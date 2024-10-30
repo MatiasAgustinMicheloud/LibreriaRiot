@@ -65,7 +65,7 @@ namespace DataAccess
                                 UserLoginCache.Baja = reader["BajaPersona"] as string;
 
                                 return true;
-                            }
+                           }
                         }
                     }
                     

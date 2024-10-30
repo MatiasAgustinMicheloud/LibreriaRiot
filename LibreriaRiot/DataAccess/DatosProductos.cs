@@ -23,10 +23,9 @@ namespace DataAccess
     internal class DatosProductos : ConnectionToSql
     {
 
-        public bool AgregarProducto(string NombreProducto, string Descripcion, float PrecioUnitario, string Imagen, int Stock)
+       /** public bool AgregarProducto(string NombreProducto, string Descripcion, float PrecioUnitario, string Imagen, int Stock)
         {
 
-        }
-
+        }*/
     }
 }

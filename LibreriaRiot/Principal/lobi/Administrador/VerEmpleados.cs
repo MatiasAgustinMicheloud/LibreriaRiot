@@ -357,10 +357,5 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

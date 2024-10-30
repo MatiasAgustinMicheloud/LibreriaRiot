@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             panel3 = new Panel();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
+            btnElegir = new FontAwesome.Sharp.IconButton();
             txtBuscadorDNI = new TextBox();
-            dataGridUsuarios = new DataGridView();
+            dataGridCliente = new DataGridView();
             label6 = new Label();
             label11 = new Label();
             txtBuscadorApellido = new TextBox();
@@ -49,13 +49,11 @@
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
             panel2 = new Panel();
-            label7 = new Label();
-            txtCUIT = new TextBox();
             label5 = new Label();
             txtApellido = new TextBox();
             txtNombre = new TextBox();
             btnLimpiar = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
+            btnEditar = new FontAwesome.Sharp.IconButton();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
             checkBoxSi = new CheckBox();
@@ -74,7 +72,7 @@
             label2 = new Label();
             lbNombre = new Label();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridCliente).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -86,9 +84,9 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
-            panel3.Controls.Add(iconButton3);
+            panel3.Controls.Add(btnElegir);
             panel3.Controls.Add(txtBuscadorDNI);
-            panel3.Controls.Add(dataGridUsuarios);
+            panel3.Controls.Add(dataGridCliente);
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(txtBuscadorApellido);
@@ -99,26 +97,27 @@
             panel3.Size = new Size(552, 463);
             panel3.TabIndex = 27;
             // 
-            // iconButton3
+            // btnElegir
             // 
-            iconButton3.BackColor = SystemColors.ControlDarkDark;
-            iconButton3.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            iconButton3.FlatAppearance.BorderSize = 2;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.ForeColor = SystemColors.Window;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.User;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 40;
-            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(13, 425);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(157, 38);
-            iconButton3.TabIndex = 42;
-            iconButton3.Text = "Seleccionar Cliente";
-            iconButton3.TextAlign = ContentAlignment.MiddleRight;
-            iconButton3.UseVisualStyleBackColor = false;
-            iconButton3.Click += iconButton3_Click;
+            btnElegir.Anchor = AnchorStyles.None;
+            btnElegir.BackColor = SystemColors.ControlDarkDark;
+            btnElegir.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnElegir.FlatAppearance.BorderSize = 2;
+            btnElegir.FlatStyle = FlatStyle.Flat;
+            btnElegir.ForeColor = SystemColors.Window;
+            btnElegir.IconChar = FontAwesome.Sharp.IconChar.User;
+            btnElegir.IconColor = Color.White;
+            btnElegir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnElegir.IconSize = 40;
+            btnElegir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnElegir.Location = new Point(13, 425);
+            btnElegir.Name = "btnElegir";
+            btnElegir.Size = new Size(157, 38);
+            btnElegir.TabIndex = 42;
+            btnElegir.Text = "Seleccionar Cliente";
+            btnElegir.TextAlign = ContentAlignment.MiddleRight;
+            btnElegir.UseVisualStyleBackColor = false;
+            btnElegir.Click += iconButton3_Click;
             // 
             // txtBuscadorDNI
             // 
@@ -126,57 +125,59 @@
             txtBuscadorDNI.Name = "txtBuscadorDNI";
             txtBuscadorDNI.Size = new Size(114, 23);
             txtBuscadorDNI.TabIndex = 34;
+            txtBuscadorDNI.TextChanged += txtBuscadorDNI_TextChanged;
             // 
-            // dataGridUsuarios
+            // dataGridCliente
             // 
-            dataGridUsuarios.AllowUserToAddRows = false;
-            dataGridUsuarios.AllowUserToDeleteRows = false;
-            dataGridUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridUsuarios.BackgroundColor = Color.FromArgb(64, 0, 64);
-            dataGridUsuarios.BorderStyle = BorderStyle.None;
-            dataGridUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Purple;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridUsuarios.GridColor = Color.Gray;
-            dataGridUsuarios.Location = new Point(13, 55);
-            dataGridUsuarios.MultiSelect = false;
-            dataGridUsuarios.Name = "dataGridUsuarios";
-            dataGridUsuarios.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridUsuarios.RowTemplate.Height = 25;
-            dataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridUsuarios.Size = new Size(543, 365);
-            dataGridUsuarios.TabIndex = 33;
+            dataGridCliente.AllowUserToAddRows = false;
+            dataGridCliente.AllowUserToDeleteRows = false;
+            dataGridCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridCliente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridCliente.BackgroundColor = Color.FromArgb(64, 0, 64);
+            dataGridCliente.BorderStyle = BorderStyle.None;
+            dataGridCliente.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridCliente.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Purple;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridCliente.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridCliente.GridColor = Color.Gray;
+            dataGridCliente.Location = new Point(13, 55);
+            dataGridCliente.MultiSelect = false;
+            dataGridCliente.Name = "dataGridCliente";
+            dataGridCliente.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridCliente.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridCliente.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridCliente.RowTemplate.Height = 25;
+            dataGridCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridCliente.Size = new Size(543, 365);
+            dataGridCliente.TabIndex = 33;
+            dataGridCliente.CellContentClick += dataGridUsuarios_CellContentClick;
             // 
             // label6
             // 
@@ -206,6 +207,7 @@
             txtBuscadorApellido.Name = "txtBuscadorApellido";
             txtBuscadorApellido.Size = new Size(114, 23);
             txtBuscadorApellido.TabIndex = 29;
+            txtBuscadorApellido.TextChanged += txtBuscadorApellido_TextChanged;
             // 
             // label10
             // 
@@ -224,6 +226,7 @@
             txtBuscadorNombre.Name = "txtBuscadorNombre";
             txtBuscadorNombre.Size = new Size(114, 23);
             txtBuscadorNombre.TabIndex = 27;
+            txtBuscadorNombre.TextChanged += txtBuscadorNombre_TextChanged;
             // 
             // panel1
             // 
@@ -310,13 +313,11 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(txtCUIT);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(txtApellido);
             panel2.Controls.Add(txtNombre);
             panel2.Controls.Add(btnLimpiar);
-            panel2.Controls.Add(iconButton2);
+            panel2.Controls.Add(btnEditar);
             panel2.Controls.Add(lbBaja);
             panel2.Controls.Add(checkBoxNo);
             panel2.Controls.Add(checkBoxSi);
@@ -339,24 +340,6 @@
             panel2.Size = new Size(372, 467);
             panel2.TabIndex = 26;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(241, 241, 241);
-            label7.Location = new Point(73, 221);
-            label7.Name = "label7";
-            label7.Size = new Size(42, 16);
-            label7.TabIndex = 41;
-            label7.Text = "CUIT";
-            // 
-            // txtCUIT
-            // 
-            txtCUIT.Location = new Point(121, 214);
-            txtCUIT.Name = "txtCUIT";
-            txtCUIT.Size = new Size(232, 23);
-            txtCUIT.TabIndex = 40;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -374,6 +357,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(232, 23);
             txtApellido.TabIndex = 38;
+            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
             // txtNombre
             // 
@@ -381,6 +365,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(232, 23);
             txtNombre.TabIndex = 37;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // btnLimpiar
             // 
@@ -394,7 +379,7 @@
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiar.IconSize = 35;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(228, 426);
+            btnLimpiar.Location = new Point(227, 395);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(87, 38);
             btnLimpiar.TabIndex = 33;
@@ -403,33 +388,33 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // iconButton2
+            // btnEditar
             // 
-            iconButton2.BackColor = SystemColors.ControlDarkDark;
-            iconButton2.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            iconButton2.FlatAppearance.BorderSize = 2;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.ForeColor = SystemColors.Window;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.FilePen;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 40;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(122, 426);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(88, 38);
-            iconButton2.TabIndex = 32;
-            iconButton2.Text = "Editar";
-            iconButton2.TextAlign = ContentAlignment.MiddleRight;
-            iconButton2.UseVisualStyleBackColor = false;
-            iconButton2.Click += iconButton2_Click;
+            btnEditar.BackColor = SystemColors.ControlDarkDark;
+            btnEditar.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnEditar.FlatAppearance.BorderSize = 2;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.ForeColor = SystemColors.Window;
+            btnEditar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            btnEditar.IconColor = Color.White;
+            btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditar.IconSize = 40;
+            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditar.Location = new Point(121, 395);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(88, 38);
+            btnEditar.TabIndex = 32;
+            btnEditar.Text = "Editar";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += iconButton2_Click;
             // 
             // lbBaja
             // 
             lbBaja.AutoSize = true;
             lbBaja.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbBaja.ForeColor = SystemColors.Window;
-            lbBaja.Location = new Point(75, 373);
+            lbBaja.Location = new Point(75, 333);
             lbBaja.Name = "lbBaja";
             lbBaja.Size = new Size(39, 16);
             lbBaja.TabIndex = 31;
@@ -440,7 +425,7 @@
             checkBoxNo.AutoSize = true;
             checkBoxNo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxNo.ForeColor = SystemColors.Window;
-            checkBoxNo.Location = new Point(173, 373);
+            checkBoxNo.Location = new Point(173, 333);
             checkBoxNo.Name = "checkBoxNo";
             checkBoxNo.Size = new Size(43, 20);
             checkBoxNo.TabIndex = 30;
@@ -453,7 +438,7 @@
             checkBoxSi.AutoSize = true;
             checkBoxSi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             checkBoxSi.ForeColor = SystemColors.Window;
-            checkBoxSi.Location = new Point(121, 372);
+            checkBoxSi.Location = new Point(121, 332);
             checkBoxSi.Name = "checkBoxSi";
             checkBoxSi.Size = new Size(38, 20);
             checkBoxSi.TabIndex = 29;
@@ -474,7 +459,7 @@
             // dtFechaNac
             // 
             dtFechaNac.CustomFormat = "";
-            dtFechaNac.Location = new Point(121, 336);
+            dtFechaNac.Location = new Point(121, 296);
             dtFechaNac.Name = "dtFechaNac";
             dtFechaNac.Size = new Size(232, 23);
             dtFechaNac.TabIndex = 26;
@@ -484,7 +469,7 @@
             lbDeNacimiento.AutoSize = true;
             lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
-            lbDeNacimiento.Location = new Point(7, 338);
+            lbDeNacimiento.Location = new Point(7, 298);
             lbDeNacimiento.Name = "lbDeNacimiento";
             lbDeNacimiento.Size = new Size(108, 21);
             lbDeNacimiento.TabIndex = 25;
@@ -504,7 +489,7 @@
             lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(39, 395);
+            lbErrorMenssage.Location = new Point(38, 364);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
@@ -524,7 +509,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(121, 293);
+            txtEmail.Location = new Point(121, 253);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(232, 23);
             txtEmail.TabIndex = 13;
@@ -539,7 +524,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(121, 252);
+            txtTelefono.Location = new Point(121, 212);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(232, 23);
             txtTelefono.TabIndex = 11;
@@ -549,7 +534,7 @@
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbEmail.ForeColor = Color.FromArgb(241, 241, 241);
-            lbEmail.Location = new Point(68, 300);
+            lbEmail.Location = new Point(68, 260);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(46, 16);
             lbEmail.TabIndex = 6;
@@ -571,7 +556,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(241, 241, 241);
-            label3.Location = new Point(46, 259);
+            label3.Location = new Point(46, 219);
             label3.Name = "label3";
             label3.Size = new Size(69, 16);
             label3.TabIndex = 2;
@@ -609,9 +594,10 @@
             Controls.Add(panel2);
             Name = "VerClientes";
             Text = "VerClientes";
+            Load += VerClientes_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridCliente).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -625,7 +611,7 @@
         #endregion
 
         private Panel panel3;
-        private DataGridView dataGridUsuarios;
+        private DataGridView dataGridCliente;
         private Label label6;
         private Label label11;
         private TextBox txtBuscadorApellido;
@@ -639,7 +625,7 @@
         private TextBox txtApellido;
         private TextBox txtNombre;
         private FontAwesome.Sharp.IconButton btnLimpiar;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnEditar;
         private Label lbBaja;
         private CheckBox checkBoxNo;
         private CheckBox checkBoxSi;
@@ -658,11 +644,9 @@
         private Label label2;
         private Label lbNombre;
         private PictureBox pictureBox2;
-        private Label label7;
-        private TextBox txtCUIT;
         private Label label5;
         private TextBox txtBuscadorDNI;
         private FontAwesome.Sharp.IconButton btnRegistrarCliente;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton btnElegir;
     }
 }

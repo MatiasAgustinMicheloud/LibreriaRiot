@@ -16,6 +16,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
     {
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
+        ClienteModel ClienteModel = new ClienteModel();
         public CargarCliente(LobiPrincipal lobi)
         {
             InitializeComponent();
@@ -54,8 +55,8 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             DateTime fechaCarga = dtFechaCarga.Value; // Se obtiene el valor de la fecha seleccionada
             string mail = txtEmail.Text;
             string domicilio = txtDomicilio.Text;
-            string cuit = txtCuit.Text;
             string telefonoN = txtTelefono.Text;
+            DateTime fechaRegistro = DateTime.Now;
             //Para agregar a la base de datos
             UsuarioModel usuarioModel = new UsuarioModel();
 
@@ -64,7 +65,6 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             lbErrorMenssage2.Visible = false;
             lbErrorMenssage3.Visible = false;
             lbErrorMenssage4.Visible = false;
-            lbErrorMenssage5.Visible = false;
             lbErrorMenssage6.Visible = false;
             lbErrorMenssage7.Visible = false;
             lbErrorMenssage8.Visible = false;
@@ -99,14 +99,6 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             {
                 msgError("Debe ingresar un domicilio", lbErrorMenssage4);
             }
-            else if (string.IsNullOrWhiteSpace(cuit))
-            {
-                msgError("Debe ingresar un CUIT.", lbErrorMenssage5);
-            }
-            else if (!int.TryParse(cuit, out int CUIT))
-            {
-                msgError("Este campo tiene que ser numérico", lbErrorMenssage5);
-            }
             else if (string.IsNullOrWhiteSpace(telefonoN))
             {
                 msgError("Debe ingresar un teléfono.", lbErrorMenssage6);
@@ -127,17 +119,27 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             {
                 msgError("Debe seleccionar una fecha de carga válida", lbErrorMenssage8);
             }
+            else if (ClienteModel.IsValidDni(dni))
+            {
+                msgError("El DNI ya está registrado...", lbErrorMenssage3);
+            }
+            else if (ClienteModel.IsValidCorreo(mail))
+            {
+                msgError("El Correo ya esta registrado...", lbErrorMenssage7);
+            }
+            else if (ClienteModel.IsValidEdad(fechaCarga) == false)
+            {
+                msgError("No cumple con los requisitos de Edad", lbErrorMenssage8);
+            }
             else
             {
 
-                DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este cliente?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+                DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este usuario?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    //Para la agregar cliente a la base de datos
-                    //bool usuarioAgregado = usuarioModel.AgregarNuevoUsuario(nombre, apellido, dni, domicilio, cuit, telefonoN, mail, fechaCarga);
-                    MessageBox.Show("Cliente agregado exitosamente: " + nombre + " " + apellido, "Cliente Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool clienteAgregado = ClienteModel.AgregarNuevoCliente(telefonoN, domicilio, fechaRegistro, nombre, apellido, dni, mail, fechaCarga);
+                    MessageBox.Show("Usuario agregado exitosamente: " + nombre + " " + apellido, "Empleado Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
 
@@ -153,9 +155,14 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             dtFechaCarga.Value = DateTime.Now;
             txtEmail.Text = "";
             txtDomicilio.Text = "";
-            txtCuit.Text = "";
             txtTelefono.Text = "";
             txtNombre.Focus();
+        }
+
+        private void CargarCliente_Load(object sender, EventArgs e)
+        {
+            dtFechaCarga.CustomFormat = "dd/MM/yyyy";
+            dtFechaCarga.Format = DateTimePickerFormat.Custom;
         }
     }
 }
