@@ -10,8 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Common.Models;
-using Domain;
+
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {

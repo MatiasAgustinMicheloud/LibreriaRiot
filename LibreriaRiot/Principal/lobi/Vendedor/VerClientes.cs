@@ -179,7 +179,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
                 if (exitoCliente)
                 {
-                    MessageBox.Show("El cliente" + apellido + " " + nombre + " " + "se ha actualizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El cliente  " + apellido + " " + nombre + " " + "se ha actualizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCamposModificar();
                     VerClientes_Load(sender, e);
 
@@ -229,7 +229,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             if (limpiar == DialogResult.OK)
             {
                 LimpiarCamposModificar();
-
+                edicionRealizada = false;
             }
         }
 

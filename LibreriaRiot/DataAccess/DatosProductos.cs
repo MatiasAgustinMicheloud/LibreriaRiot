@@ -13,7 +13,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net;
-using Common.Models;
+
 
 
 
@@ -32,10 +32,22 @@ namespace DataAccess
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "INSERT INTO Editorial (NombreEditorial) VALUES (@NombreEditorial);";
 
+                    // Verifica si la editorial ya existe
+                    command.CommandText = "SELECT COUNT(*) FROM Editorial WHERE NombreEditorial = @NombreEditorial";
                     command.Parameters.AddWithValue("@NombreEditorial", nombreEditorial);
 
+                    int existingCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Si ya existe, no se agrega de nuevo
+                    if (existingCount > 0)
+                    {
+                        Console.WriteLine("La editorial ya existe en la base de datos.");
+                        return false;
+                    }
+
+                    // Si no existe, se agrega
+                    command.CommandText = "INSERT INTO Editorial (NombreEditorial) VALUES (@NombreEditorial)";
                     try
                     {
                         int rowsAffected = command.ExecuteNonQuery();
@@ -46,7 +58,6 @@ namespace DataAccess
                         Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
                         return false;
                     }
-
                 }
             }
         }
@@ -60,10 +71,22 @@ namespace DataAccess
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "INSERT INTO Editorial (Nombre) VALUES (@Nombre);";
 
+                    // Verifica si el autor ya existe
+                    command.CommandText = "SELECT COUNT(*) FROM Autor WHERE Nombre = @Nombre";
                     command.Parameters.AddWithValue("@Nombre", nombreAutor);
 
+                    int existingCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Si ya existe, no se agrega de nuevo
+                    if (existingCount > 0)
+                    {
+                        Console.WriteLine("El autor ya existe en la base de datos.");
+                        return false;
+                    }
+
+                    // Si no existe, se agrega
+                    command.CommandText = "INSERT INTO Autor (Nombre) VALUES (@Nombre)";
                     try
                     {
                         int rowsAffected = command.ExecuteNonQuery();
@@ -74,7 +97,6 @@ namespace DataAccess
                         Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
                         return false;
                     }
-
                 }
             }
         }
@@ -88,10 +110,21 @@ namespace DataAccess
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "INSERT INTO Editorial (Nombre) VALUES (@NombreCategoria);";
 
-                    command.Parameters.AddWithValue("@NombreCategoria", nombreCategoria);
+                    // Verifica si la editorial ya existe
+                    command.CommandText = "SELECT COUNT(*) FROM Categoria WHERE Nombre = @Nombre";
+                    command.Parameters.AddWithValue("@Nombre", nombreCategoria);
 
+                    int existingCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Si ya existe, no se agrega de nuevo
+                    if (existingCount > 0)
+                    {
+                        Console.WriteLine("La categoria ya existe en la base de datos.");
+                        return false;
+                    }
+
+                    command.CommandText = "INSERT INTO Categoria (Nombre) VALUES (@Nombre);";
                     try
                     {
                         int rowsAffected = command.ExecuteNonQuery();
@@ -109,105 +142,92 @@ namespace DataAccess
 
 
         //Obtener ID de la Categoria
-        public int ObtenerIdCategoria(string categoria)
+        public int ObtenerIdCategoria(string nameCategoria)
         {
-            int Idcategoria = 0;
+            int categoria = 0;
 
             using (var connection = GetConnection())
             {
                 connection.Open();
+
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT Id_Categoria" + "FROM Categoria" + "WHERE Nombre = @Categoria;";
-
-                    command.Parameters.AddWithValue("@Categoria", categoria);
+                    command.CommandText = "SELECT Id_Categoria FROM Categoria WHERE Nombre = @Nombre";
+                    command.Parameters.AddWithValue("@Nombre", nameCategoria);
 
                     object result = command.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
                     {
-                        Idcategoria = Convert.ToInt32(result);
+                        categoria = Convert.ToInt32(result);
                     }
                 }
             }
-
-            return Idcategoria;
+            return categoria;
         }
 
 
         //Obtener el ID del Autor
-        public int ObtenerIdAutor(string autor)
+        public int ObtenerIdAutor(string nameAutor)
         {
-            int IdAutor = 0;
+            int autor = 0;
+            string nombreAutor = nameAutor != null ? nameAutor : "";
 
             using (var connection = GetConnection())
             {
                 connection.Open();
+
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT Id_Autor" + "FROM Autor" + "WHERE Nombre = @Autor;";
-
-                    command.Parameters.AddWithValue("@Autor", autor);
+                    command.CommandText = "SELECT Id_Autor FROM Autor WHERE Nombre = @Nombre";
+                    command.Parameters.AddWithValue("@Nombre", nombreAutor);
 
                     object result = command.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
                     {
-                        IdAutor = Convert.ToInt32(result);
+                        autor = Convert.ToInt32(result);
                     }
                 }
             }
-
-            return IdAutor;
+            return autor;
         }
 
 
         //Obtener ID de la Editorial
-        public int ObtenerIdEditorial(string editorial)
+        public int ObtenerIdEditorial(string nameEditorial)
         {
-            int IdEditorial = 0;
+                int editorialId = 0;
 
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new SqlCommand())
+                using (var connection = GetConnection())
                 {
-                    command.Connection = connection;
-                    command.CommandText = "SELECT Id_Editorial" + "FROM Editorial" + "WHERE NombreEditorial = @Editorial;";
+                    connection.Open();
 
-                    command.Parameters.AddWithValue("@Editorial", editorial);
-
-                    object result = command.ExecuteScalar();
-
-                    if (result != null && result != DBNull.Value)
+                    using (var command = new SqlCommand())
                     {
-                        IdEditorial = Convert.ToInt32(result);
+                        command.Connection = connection;
+                        command.CommandText = "SELECT Id_Editorial FROM Editorial WHERE NombreEditorial = @NombreEditorial";
+                        command.Parameters.AddWithValue("@NombreEditorial", nameEditorial);
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            editorialId = Convert.ToInt32(result);
+                        }
                     }
                 }
-            }
-
-            return IdEditorial;
+            return editorialId;
         }
 
 
         //Agregar un libro a la tabla Libro
-       /** public bool AgregarProducto(string titulo, string editorial, string autor, string descripcion, string categoria, string PrecioUnitario, string Stock, string Imagen)
+                      
+        public bool AgregarProducto(string titulo, string descripcion, string precio, string Stock, string Imagen, int idCategoria, int idEditorial, int idAutor)
         {
-            bool editorialAgregada = AgregarEditorial(editorial);
-            bool AutorAgregado = AgregarAutor(autor);
-            bool categoriaAgregado = AgregarCategoria(categoria);
-
-            if (!editorialAgregada && !AutorAgregado && !categoriaAgregado)
-            {
-                return false;
-            }
-
-            int idCategoria = ObtenerIdCategoria(categoria);
-            int idEditorial = ObtenerIdEditorial(editorial);
-            int idAutor = ObtenerIdAutor(autor);
-
+          
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -218,18 +238,150 @@ namespace DataAccess
 
                     command.Parameters.AddWithValue("@Nombre", titulo);
                     command.Parameters.AddWithValue("@Descripcion", descripcion);
-                    command.Parameters.AddWithValue("@Precio", PrecioUnitario);
+                    command.Parameters.AddWithValue("@Precio", precio);
                     command.Parameters.AddWithValue("@Imagen", Imagen);
                     command.Parameters.AddWithValue("@Stock", Stock);
-                    command.Parameters.AddWithValue("@IdCategoria", 1);
-                    command.Parameters.AddWithValue("@IdEditorial", 1);
-                    command.Parameters.AddWithValue("@IdAutor", 1);
+                    command.Parameters.AddWithValue("@IdCategoria", idCategoria);
+                    command.Parameters.AddWithValue("@IdEditorial", idEditorial);
+                    command.Parameters.AddWithValue("@IdAutor", idAutor);
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                        return false;
+                    }
 
                 }
 
             }
 
-        }*/
+        }
+
+        public List<string> ObtenerCategorias()
+        {
+            using (var connection = GetConnection())
+            {
+                List<string> categorias = new List<string>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT Nombre FROM Categoria";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            categorias.Add(reader["Nombre"].ToString());
+                        }
+                    }
+                }
+
+                return categorias;
+            }
+        }
+
+        public List<string> ObtenerAutores()
+        {
+            using (var connection = GetConnection())
+            {
+                List<string> autores = new List<string>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT Nombre FROM Autor";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            autores.Add(reader["Nombre"].ToString());
+                        }
+                    }
+                }
+
+                return autores;
+            }
+        }
+
+        public List<string> ObtenerEditoriales()
+        {
+            using (var connection = GetConnection())
+            {
+                List<string> editoriales = new List<string>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT NombreEditorial FROM Editorial";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            editoriales.Add(reader["NombreEditorial"].ToString());
+                        }
+                    }
+                }
+
+                return editoriales;
+            }
+        }
+
+        public List<Libro> ObtenerProductos()
+        {
+            List<Libro> productos = new List<Libro>();
+
+            using (var conexion = GetConnection())
+            {
+                conexion.Open();
+                using (var comando = new SqlCommand())
+                {
+                    comando.Connection = conexion;
+                    comando.CommandText = "SELECT L.*, A.Nombre AS Autor, E.NombreEditorial AS Editorial, C.Nombre AS Categoria " +
+                                          "FROM Libro L " +
+                                          "INNER JOIN Autor A ON L.Id_Autor = A.Id_Autor " +
+                                          "INNER JOIN Editorial E ON L.Id_Editorial = E.Id_Editorial " +
+                                          "INNER JOIN Categoria C ON L.Id_Categoria = C.Id_Categoria";
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Libro libro = new Libro();
+                            libro.Id_Libro = reader.GetInt32(0);
+                            libro.Titulo = reader.GetString(1);
+                            libro.Descripcion = reader.GetString(2);
+                            libro.Precio = reader.GetDouble(3);
+                            libro.Imagen = reader.GetString(4);
+                            libro.Stock = reader.GetInt32(5);
+                            libro.Baja = reader.GetString(6);
+                            libro.Id_Categoria = reader.GetInt32(7);
+                            libro.Categoria = reader.GetString(12);
+                            libro.Id_Editorial = reader.GetInt32(8);
+                            libro.Editorial = reader.GetString(11);
+                            libro.Id_Autor = reader.GetInt32(9);
+                            libro.Autor = reader.GetString(10);
+                            productos.Add(libro);
+                        }
+                    }
+                }
+            }
+
+            return productos;
+        }
+
+
+
     }
 
 }

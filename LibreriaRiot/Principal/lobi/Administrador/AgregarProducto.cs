@@ -12,6 +12,7 @@ using Common.Models;
 using Domain;
 using System.Net;
 using LibreriaRiot.Domain;
+using LibreriaRiot.Common.Models;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
@@ -71,13 +72,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Debe ingresar un Titulo", lbErrorMenssage1);
             }
-            else if (cbEditorial.SelectedIndex == -1 || cbEditorial.SelectedItem.ToString() == "")
+            else if (cbEditorial.SelectedIndex == 0 || cbEditorial.SelectedItem.ToString() == "")
             {
 
                 msgError("Por favor, selecciona una Editorial", lbErrorMenssage2);
 
             }
-            else if (cbAutor.SelectedIndex == -1 || cbAutor.SelectedItem.ToString() == "")
+            else if (cbAutor.SelectedIndex == 0 || cbAutor.SelectedItem.ToString() == "")
             {
 
                 msgError("Por favor, selecciona un Autor", lbErrorMenssage3);
@@ -88,7 +89,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
                 msgError("Debe ingresar una Descripcion", lbErrorMenssage4);
             }
-            else if (cbCategoria.SelectedIndex == -1 || cbCategoria.SelectedItem.ToString() == "")
+            else if (cbCategoria.SelectedIndex == 0 || cbCategoria.SelectedItem.ToString() == "")
             {
                 msgError("Por favor, selecciona una Categoria.", lbErrorMenssage5);
 
@@ -111,31 +112,32 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
             else
             {
-
+                // Mostrar mensaje de confirmación
                 DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este producto?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                   // bool productoAgregado = productoModel.AgregarNuevoProducto(titulo, editorial, autor, descripcion, categoria, precio, stock, imagen);
-                    MessageBox.Show("El Libro " + titulo + " fue agregado exitosamente", "Libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
+                    // Llama al método AgregarNuevoProducto con los valores convertidos
+                    int idEditorial = productoModel.ObtenerIdEditorial(editorial);
+                    int idAutor = productoModel.ObtenerIdAutor(autor);
+                    int idCategoria = productoModel.ObtenerIdCategoria(categoria);
+
+                    bool productoAgregado = productoModel.AgregarNuevoProducto(titulo, descripcion, precio, stock, imagenName!, idCategoria, idEditorial, idAutor);
+
+                    if (productoAgregado)
+                    {
+                        // Copia la imagen a la carpeta de destino
+                        File.Copy(fileActualPath!, fileSavePath!);
+
+                        MessageBox.Show("Libro agregado exitosamente: " + titulo, "Libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un problema al agregar el libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                //Datos nuevoDato = new Datos()
-                //{
-                //    Titulo = nombreProd,
-                //    Descripcion = descripcion,
-                //    Editorial = cbEditorial.Text,
-                //    Autor = cbAutor.Text,
-                //    Precio = precioStr,
-                //    Stock = stockStr,
-                //    Categoria = cbCategoria.Text,
-                //    Portada = pbPortada.Image
-                //};
 
-                //AlmacenDatos.ListaDatos.Add(nuevoDato);
-
-                //MessageBox.Show("libro agregado correctamente", "libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //LimpiarCampos();
             }
 
         }
@@ -177,6 +179,45 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         }
 
+        private void opcionesCategoria()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var categorias = productoModel.ObtenerCategorias();
+
+            // Agrega el mensaje predeterminado al comienzo de la lista
+            categorias.Insert(0, "Seleccione Categoría");
+
+            // Asigna la lista de categorías como DataSource del ComboBox
+            cbCategoria.DataSource = categorias;
+
+            // Establece el índice seleccionado por defecto en 0 para mostrar el mensaje predeterminado
+            cbCategoria.SelectedIndex = 0;
+        }
+
+        private void opcionesEditorial()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var editorial = productoModel.ObtenerEditoriales();
+
+            editorial.Insert(0, "Seleccione Editorial");
+
+            cbEditorial.DataSource = editorial;
+
+            cbEditorial.SelectedIndex = 0;
+        }
+
+        private void opcionesAutores()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var autor = productoModel.ObtenerAutores();
+
+            autor.Insert(0, "Seleccione Autor");
+
+            cbAutor.DataSource = autor;
+
+            cbAutor.SelectedIndex = 0;
+        }
+
         private void LimpiarCampos()
         {
             txtTitulo.Text = "";
@@ -192,5 +233,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage2.Text = "";
         }
 
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+            opcionesCategoria();
+            opcionesEditorial();
+            opcionesAutores();
+        }
     }
 }

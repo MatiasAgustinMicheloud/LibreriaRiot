@@ -1,4 +1,5 @@
 ﻿using Common.Models;
+using LibreriaRiot.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,17 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 {
     public partial class VerProductos : Form
     {
-        private UserType currentUserType;
+       
         private LobiPrincipal instanciaLobi;
+        private ProductoModel productModel = new ProductoModel();
+        private List<Libro> libros = new List<Libro>();
+        private Libro? libroSeleccionado;
+        private int idLibroSeleccionado = -1;
         private string? fileSavePath;
         private string? fileActualPath;
         private string? imagenName;
+        private bool edicionRealizada = false;
+
         public VerProductos(LobiPrincipal lobi)
         {
             InitializeComponent();
@@ -129,13 +136,30 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void VerProductos_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = AlmacenDatos.ListaDatos;
-            dataGridView1.Columns["Portada"].Width = 100;
+            libros = productModel.MostrarProducts();
 
-            if (dataGridView1.Columns["Portada"] is DataGridViewImageColumn)
+            foreach (Libro libro in libros)
             {
-                ((DataGridViewImageColumn)dataGridView1.Columns["Portada"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                productModel.CargarImagen(libro);
+            }
+
+            dataGridProductos.DataSource = libros;
+
+            dataGridProductos.Columns["Id_Categoria"].Visible = false;
+            dataGridProductos.Columns["Id_Editorial"].Visible = false;
+            dataGridProductos.Columns["Id_Autor"].Visible = false;
+            dataGridProductos.Columns["Imagen"].Visible = false;
+            dataGridProductos.Columns["Titulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridProductos.Columns["Baja"].DisplayIndex = dataGridProductos.Columns.Count - 1;
+
+            dataGridProductos.Columns["ImagenPortada"].DisplayIndex = dataGridProductos.Columns.Count - 2;
+            dataGridProductos.Columns["ImagenPortada"].Visible = true;
+            dataGridProductos.Columns["ImagenPortada"].HeaderText = "Portada";
+            dataGridProductos.Columns["ImagenPortada"].Width = 100;
+            dataGridProductos.RowTemplate.Height = 70;
+            if (dataGridProductos.Columns["ImagenPortada"] is DataGridViewImageColumn)
+            {
+                ((DataGridViewImageColumn)dataGridProductos.Columns["ImagenPortada"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             }
 
         }
@@ -159,7 +183,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtTitulo.Clear();
-            cbEditorial.SelectedIndex = -1;
+            cbEditorial.Text = "";
             txtDescripcion.Clear();
             cbAutor.SelectedIndex = -1;
             txtPrecio.Clear();
@@ -200,6 +224,62 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                     MessageBox.Show("No se pudo agregar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!edicionRealizada && e.RowIndex >= 0)
+            {
+                edicionRealizada = true;
+
+                DialogResult confirmResult = MessageBox.Show("¿Desea Realizar una Modificacion al Libro?", "Informe de edición", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (confirmResult == DialogResult.OK)
+                {
+                    txtTitulo.Enabled = true;
+                    txtDescripcion.Enabled = true;
+                    checkBoxSi.Enabled = true;
+                    checkBoxNo.Enabled = true;
+                    cbCategoria.Enabled = true;
+                    cbAutor.Enabled = true;
+                    cbEditorial.Enabled = true;
+                    txtPrecio.Enabled = true;
+                    txtStock.Enabled = true;
+                    btAgregarImagen.Enabled = true;
+                    btnGuardar.Enabled = true;
+                    btnLimpiar.Enabled = true;
+
+                    DataGridViewRow row = dataGridProductos.Rows[e.RowIndex];
+
+                    libroSeleccionado = (Libro)row.DataBoundItem;
+                    idLibroSeleccionado = libroSeleccionado.Id_Libro;
+                    txtTitulo.Text = libroSeleccionado.Titulo;
+                    cbEditorial.Text = libroSeleccionado.Editorial;
+                    cbAutor.Text = libroSeleccionado.Autor;
+                    cbCategoria.Text = libroSeleccionado.Categoria;
+                    txtPrecio.Text = libroSeleccionado.Precio.ToString();
+                    txtStock.Text = libroSeleccionado.Stock.ToString();
+                    txtDescripcion.Text = libroSeleccionado.Descripcion;
+                    pbPortada.Image = libroSeleccionado.ImagenPortada;
+
+                    if (libroSeleccionado.Baja == "SI")
+                    {
+                        checkBoxSi.Checked = true;
+                        checkBoxNo.Checked = false;
+                    }
+                    else
+                    {
+                        checkBoxSi.Checked = false;
+                        checkBoxNo.Checked = true;
+                    }
+                    
+                }
+                else
+                {
+                    edicionRealizada = false;
+                }
+            }
+
         }
     }
 }

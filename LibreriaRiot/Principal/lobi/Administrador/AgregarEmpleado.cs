@@ -18,7 +18,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 {
     public partial class AgregarEmpleado : Form
     {
-        private UserType currentUserType;
+  
         private LobiPrincipal instanciaLobi;
         public AgregarEmpleado(LobiPrincipal lobi)
         {
