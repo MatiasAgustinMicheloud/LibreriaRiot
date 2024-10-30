@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             panel3 = new Panel();
             btnElegir = new FontAwesome.Sharp.IconButton();
@@ -94,12 +94,12 @@
             panel3.Controls.Add(txtBuscadorNombre);
             panel3.Location = new Point(-1, 65);
             panel3.Name = "panel3";
-            panel3.Size = new Size(552, 463);
+            panel3.Size = new Size(552, 472);
             panel3.TabIndex = 27;
             // 
             // btnElegir
             // 
-            btnElegir.Anchor = AnchorStyles.None;
+            btnElegir.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnElegir.BackColor = SystemColors.ControlDarkDark;
             btnElegir.FlatAppearance.BorderColor = SystemColors.ControlDark;
             btnElegir.FlatAppearance.BorderSize = 2;
@@ -110,7 +110,7 @@
             btnElegir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnElegir.IconSize = 40;
             btnElegir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnElegir.Location = new Point(13, 425);
+            btnElegir.Location = new Point(13, 431);
             btnElegir.Name = "btnElegir";
             btnElegir.Size = new Size(157, 38);
             btnElegir.TabIndex = 42;
@@ -137,45 +137,45 @@
             dataGridCliente.BorderStyle = BorderStyle.None;
             dataGridCliente.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridCliente.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Purple;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridCliente.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Purple;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridCliente.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridCliente.GridColor = Color.Gray;
             dataGridCliente.Location = new Point(13, 55);
             dataGridCliente.MultiSelect = false;
             dataGridCliente.Name = "dataGridCliente";
             dataGridCliente.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridCliente.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridCliente.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridCliente.RowTemplate.Height = 25;
             dataGridCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridCliente.Size = new Size(543, 365);
+            dataGridCliente.Size = new Size(543, 373);
             dataGridCliente.TabIndex = 33;
             dataGridCliente.CellContentClick += dataGridUsuarios_CellContentClick;
             // 
@@ -337,7 +337,7 @@
             panel2.Controls.Add(lbNombre);
             panel2.Location = new Point(547, 62);
             panel2.Name = "panel2";
-            panel2.Size = new Size(372, 467);
+            panel2.Size = new Size(372, 476);
             panel2.TabIndex = 26;
             // 
             // label5
@@ -588,7 +588,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 526);
+            ClientSize = new Size(918, 535);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panel2);
