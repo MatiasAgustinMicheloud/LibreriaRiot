@@ -36,6 +36,8 @@
             label10 = new Label();
             txtBuscadorNombre = new TextBox();
             dataGridView1 = new DataGridView();
+            panel2 = new Panel();
+            lblCatalogo = new Label();
             titulo = new DataGridViewTextBoxColumn();
             autor = new DataGridViewTextBoxColumn();
             editorial = new DataGridViewTextBoxColumn();
@@ -43,8 +45,6 @@
             stock = new DataGridViewTextBoxColumn();
             precio = new DataGridViewTextBoxColumn();
             agregar = new DataGridViewButtonColumn();
-            panel2 = new Panel();
-            lblCatalogo = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -153,6 +153,29 @@
             dataGridView1.Size = new Size(663, 303);
             dataGridView1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = SystemColors.ControlDarkDark;
+            panel2.Controls.Add(lblCatalogo);
+            panel2.Location = new Point(12, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(777, 70);
+            panel2.TabIndex = 0;
+            // 
+            // lblCatalogo
+            // 
+            lblCatalogo.Anchor = AnchorStyles.Top;
+            lblCatalogo.AutoSize = true;
+            lblCatalogo.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCatalogo.ForeColor = Color.FromArgb(241, 241, 241);
+            lblCatalogo.Location = new Point(321, 12);
+            lblCatalogo.Name = "lblCatalogo";
+            lblCatalogo.Size = new Size(111, 39);
+            lblCatalogo.TabIndex = 1;
+            lblCatalogo.Text = "Catalogo";
+            lblCatalogo.TextAlign = ContentAlignment.TopCenter;
+            // 
             // titulo
             // 
             titulo.HeaderText = "Titulo";
@@ -190,29 +213,6 @@
             agregar.Name = "agregar";
             agregar.Text = "Agregar";
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = SystemColors.ControlDarkDark;
-            panel2.Controls.Add(lblCatalogo);
-            panel2.Location = new Point(12, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(777, 70);
-            panel2.TabIndex = 0;
-            // 
-            // lblCatalogo
-            // 
-            lblCatalogo.Anchor = AnchorStyles.Top;
-            lblCatalogo.AutoSize = true;
-            lblCatalogo.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCatalogo.ForeColor = Color.FromArgb(241, 241, 241);
-            lblCatalogo.Location = new Point(321, 12);
-            lblCatalogo.Name = "lblCatalogo";
-            lblCatalogo.Size = new Size(111, 39);
-            lblCatalogo.TabIndex = 1;
-            lblCatalogo.Text = "Catalogo";
-            lblCatalogo.TextAlign = ContentAlignment.TopCenter;
-            // 
             // Catalogo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -241,6 +241,7 @@
         private DataGridView dataGridView1;
         private Panel panel2;
         private Label lblCatalogo;
+        private FontAwesome.Sharp.IconButton btnVerCarrito;
         private DataGridViewTextBoxColumn titulo;
         private DataGridViewTextBoxColumn autor;
         private DataGridViewTextBoxColumn editorial;
@@ -248,6 +249,5 @@
         private DataGridViewTextBoxColumn stock;
         private DataGridViewTextBoxColumn precio;
         private DataGridViewButtonColumn agregar;
-        private FontAwesome.Sharp.IconButton btnVerCarrito;
     }
 }

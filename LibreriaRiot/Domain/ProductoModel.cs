@@ -64,5 +64,10 @@ namespace LibreriaRiot.Domain
             libro.ImagenPortada = Image.FromFile(libroPath);
 
         }
+
+        public bool ActualizarLibro(int idLibro, string titulo, string descripcion, double precio, string imagen, int stock, string baja, int idCategoria, int idAuotor, int idEditorial)
+        {
+            return productoDatos.ActualizarLibro(idLibro, titulo, descripcion, precio, imagen, stock, baja, idCategoria, idAuotor, idEditorial);
+        }
     }
 }

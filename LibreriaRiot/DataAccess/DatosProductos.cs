@@ -381,7 +381,88 @@ namespace DataAccess
         }
 
 
+        public Libro ObtenerProductoId(int idLibro)
+        {
+            Libro producto = new();
 
+            using (var conexion = GetConnection())
+            {
+                conexion.Open();
+                using (var comando = new SqlCommand())
+                {
+                    comando.Connection = conexion;
+                    comando.CommandText = "SELECT L.*, A.Nombre AS Autor, E.NombreEditorial AS Editorial, C.Nombre AS Categoria " +
+                                          "FROM Libro L " +
+                                          "INNER JOIN Autor A ON L.Id_Autor = A.Id_Autor " +
+                                          "INNER JOIN Editorial E ON L.Id_Editorial = E.Id_Editorial " +
+                                          "INNER JOIN Categoria C ON L.Id_Categoria = C.Id_Categoria " +
+                                          "WHERE L.Id_Libro = @ProductId";
+
+                    comando.Parameters.AddWithValue("@ProductId", idLibro);
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read()) // Verificar si hay datos para leer
+                        {
+                            producto.Id_Libro = reader.GetInt32(0);
+                            producto.Titulo = reader.GetString(1);
+                            producto.Descripcion = reader.GetString(2);
+                            producto.Precio = reader.GetDouble(3);
+                            producto.Imagen = reader.GetString(4);
+                            producto.Stock = reader.GetInt32(5);
+                            producto.Baja = reader.GetString(6);
+                            producto.Id_Categoria = reader.GetInt32(7);
+                            producto.Categoria = reader.GetString(12);
+                            producto.Id_Editorial = reader.GetInt32(8);
+                            producto.Editorial = reader.GetString(11);
+                            producto.Id_Autor = reader.GetInt32(9);
+                            producto.Autor = reader.GetString(10);
+                        }
+                    }
+                }
+            }
+
+            return producto;
+        }
+
+
+        public bool ActualizarLibro(int idLibro, string titulo, string descripcion, double precio, string imagen, int stock, string baja, int idCategoria, int idAutor, int idEditorial)
+        {
+            Libro libroEditar = ObtenerProductoId(idLibro);
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Libro SET NombreProducto = @NombreProducto, Descripcion = @Descripcion, PrecioUnitario = @PrecioUnitario, Imagen = @Imagen, Stock = @Stock, Baja = @Baja, Id_Categoria = @Id_Categoria, Id_Editorial = @Id_Editorial, Id_Autor = @Id_Autor WHERE Id_Libro = @Id_Libro";
+
+                    command.Parameters.AddWithValue("@NombreProducto", titulo);
+                    command.Parameters.AddWithValue("@Descripcion", descripcion);
+                    command.Parameters.AddWithValue("@PrecioUnitario", precio);
+                    command.Parameters.AddWithValue("@Imagen", imagen);
+                    command.Parameters.AddWithValue("@Stock", stock);
+                    command.Parameters.AddWithValue("@Baja", baja);
+                    command.Parameters.AddWithValue("@Id_Categoria", idCategoria);
+                    command.Parameters.AddWithValue("@Id_Libro", idLibro);
+                    command.Parameters.AddWithValue("@Id_Autor", idAutor);
+                    command.Parameters.AddWithValue("@Id_Editorial", idEditorial);
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
     }
 
 }

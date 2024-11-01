@@ -83,7 +83,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             // Ocultar todas las etiquetas de error al iniciar la validación
             lbErrorMenssage.Visible = false;
 
-
+            
 
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombre))

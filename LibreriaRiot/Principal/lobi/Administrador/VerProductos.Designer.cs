@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel2 = new Panel();
             cbEditorial = new ComboBox();
             cbAutor = new ComboBox();
@@ -67,9 +67,9 @@
             dataGridProductos = new DataGridView();
             txtBuscadorTitulo = new TextBox();
             label10 = new Label();
-            txtBuscadorAutor = new TextBox();
             label11 = new Label();
             panel3 = new Panel();
+            cbBuscadorAutor = new ComboBox();
             label12 = new Label();
             cbBuscadorCategoria = new ComboBox();
             panel2.SuspendLayout();
@@ -117,6 +117,7 @@
             // 
             // cbEditorial
             // 
+            cbEditorial.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEditorial.FormattingEnabled = true;
             cbEditorial.Location = new Point(117, 89);
             cbEditorial.Name = "cbEditorial";
@@ -125,6 +126,7 @@
             // 
             // cbAutor
             // 
+            cbAutor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAutor.FormattingEnabled = true;
             cbAutor.Location = new Point(117, 117);
             cbAutor.Name = "cbAutor";
@@ -213,7 +215,7 @@
             lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(84, 418);
+            lbErrorMenssage.Location = new Point(27, 419);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
@@ -254,6 +256,7 @@
             // 
             // cbCategoria
             // 
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Location = new Point(117, 238);
             cbCategoria.Name = "cbCategoria";
@@ -471,42 +474,42 @@
             dataGridProductos.BorderStyle = BorderStyle.None;
             dataGridProductos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Purple;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridProductos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Purple;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridProductos.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridProductos.GridColor = Color.Gray;
             dataGridProductos.Location = new Point(6, 45);
             dataGridProductos.MultiSelect = false;
             dataGridProductos.Name = "dataGridProductos";
             dataGridProductos.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridProductos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridProductos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridProductos.RowTemplate.Height = 25;
             dataGridProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridProductos.Size = new Size(535, 460);
@@ -531,13 +534,6 @@
             label10.TabIndex = 24;
             label10.Text = "Titulo:";
             // 
-            // txtBuscadorAutor
-            // 
-            txtBuscadorAutor.Location = new Point(237, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(104, 23);
-            txtBuscadorAutor.TabIndex = 25;
-            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -553,10 +549,10 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(cbBuscadorAutor);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(cbBuscadorCategoria);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(txtBuscadorTitulo);
             panel3.Controls.Add(dataGridProductos);
@@ -565,6 +561,15 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(551, 517);
             panel3.TabIndex = 21;
+            // 
+            // cbBuscadorAutor
+            // 
+            cbBuscadorAutor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBuscadorAutor.FormattingEnabled = true;
+            cbBuscadorAutor.Location = new Point(232, 16);
+            cbBuscadorAutor.Name = "cbBuscadorAutor";
+            cbBuscadorAutor.Size = new Size(118, 23);
+            cbBuscadorAutor.TabIndex = 30;
             // 
             // label12
             // 
@@ -579,6 +584,7 @@
             // 
             // cbBuscadorCategoria
             // 
+            cbBuscadorCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBuscadorCategoria.FormattingEnabled = true;
             cbBuscadorCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbBuscadorCategoria.Location = new Point(430, 16);
@@ -646,7 +652,6 @@
         private DataGridView dataGridProductos;
         private TextBox txtBuscadorTitulo;
         private Label label10;
-        private TextBox txtBuscadorAutor;
         private Label label11;
         private Panel panel3;
         private Label label12;
@@ -654,5 +659,6 @@
         private FontAwesome.Sharp.IconButton btAgregarImagen;
         private ComboBox cbEditorial;
         private ComboBox cbAutor;
+        private ComboBox cbBuscadorAutor;
     }
 }
