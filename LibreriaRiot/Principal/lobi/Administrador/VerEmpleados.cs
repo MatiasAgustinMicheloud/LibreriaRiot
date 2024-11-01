@@ -10,8 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Common.Models;
-using Domain;
+
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
@@ -27,6 +26,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             InitializeComponent();
             this.instanciaLobi = lobi;
         }
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -61,106 +61,87 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             DateTime nacimiento = dtFechaNac.Value;
             string telefono = txtTelefono.Text;
             string baja = checkBoxSi.Checked ? "SI" : "NO";
-            int idTipoPerfil = cbRol.SelectedIndex;
+            //int idTipoPerfil = cbRol.SelectedIndex;
+            String tipoPerfil = cbRol.Text;
+            UsuarioModel usuarioModel = new UsuarioModel();
+            int idTipoPerfil = usuarioModel.ObtenerIdTipoPerfil(tipoPerfil);
 
 
             lbErrorMenssage.Visible = false;
-
-            // Indicador de error
-            bool error = false;
 
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombre))
             {
                 msgError("Debe ingresar un nombre");
-                error = true;
             }
             else if (nombre.Any(char.IsDigit))
             {
                 msgError("El nombre no puede contener números");
-                error = true;
             }
             else if (string.IsNullOrWhiteSpace(apellido))
             {
                 msgError("Debe ingresar un apellido");
-                error = true;
             }
             else if (apellido.Any(char.IsDigit))
             {
                 msgError("El apellido no puede contener números");
-                error = true;
             }
             else if (string.IsNullOrWhiteSpace(telefono))
             {
                 msgError("Debe ingresar un teléfono.");
-                error = true;
             }
             else if (!int.TryParse(telefono, out int telefonoN))
             {
                 msgError("EL telefono tiene que ser numérico");
-                error = true;
             }
             else if (string.IsNullOrWhiteSpace(usuario))
             {
                 msgError("Debe ingresar un usuario");
-                error = true;
             }
             else if (string.IsNullOrWhiteSpace(mail))
             {
                 msgError("Debe ingresar un correo electrónico");
-                error = true;
             }
             else if (!IsValidEmail(mail))
             {
                 msgError("El correo electrónico no es válido");
-                error = true;
             }
-            else if (idTipoPerfil == -1)
+            else if (idTipoPerfil == 0)
             {
                 msgError("Por favor, selecciona un rol.");
-                error = true;
             }
             else if (string.IsNullOrWhiteSpace(dni))
             {
                 msgError("Debe ingresar DNI");
-                error = true;
             }
             else if (!int.TryParse(dni, out int DNI))
             {
                 msgError("El DNI tiene que ser numérico");
-                error = true;
             }
             else if (nacimiento == DateTime.Now || nacimiento > DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha válida");
-                error = true;
-            }
-           
-
-
-            // Si no hay errores, mostrar el mensaje de éxito
-            if (!error)
-            {
-                MessageBox.Show("Empleado modificado exitosamente: " + nombre + " " + apellido,
-                    "Empleado modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-
-            // Llamar a la función para actualizar el usuario
-            /*
-            bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
-
-            if (actualizado)
-            {
-                MessageBox.Show("Empleado actualizado correctamente");
-                CargarUsuarios();
             }
             else
             {
-                MessageBox.Show("Hubo un error al actualizar el usuario");
-                CargarUsuarios();
+
+                // Llamar a la función para actualizar el usuario
+
+                bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
+
+                if (actualizado)
+                {
+                    MessageBox.Show("Empleado actualizado correctamente");
+                    CargarUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error al actualizar el usuario");
+                    CargarUsuarios();
+                }
+
             }
-            */
+
 
         }
 
@@ -192,7 +173,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
         }
 
-        private void opcionesPerfiles()
+        private void opcionesPerfilesBuscador()
         {
             UsuarioModel userModel = new();
             var roles = userModel.ObtenerPerfiles();
@@ -205,6 +186,18 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
             // Establece el índice seleccionado por defecto en 0 para mostrar el mensaje predeterminado
             cBBuscadorPerfil.SelectedIndex = 0;
+        }
+
+        private void opcionesPerfiles()
+        {
+            UsuarioModel userModel = new();
+            var roles = userModel.ObtenerPerfiles();
+
+            roles.Insert(0, "Seleccione Perfil");
+
+            cbRol.DataSource = roles;
+
+            cbRol.SelectedIndex = 0;
         }
 
         private void FiltrarUsuarios()
@@ -225,6 +218,9 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void VerEmpleados_Load(object sender, EventArgs e)
         {
+            opcionesPerfilesBuscador();
+            opcionesPerfiles();
+
             List<UsuarioConInformacion> usuarios = userModel.MostrarUsers();
             dataGridUsuarios.DataSource = usuarios;
 
@@ -242,7 +238,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             // Otras configuraciones que puedas necesitar
             dataGridUsuarios.Columns["TipoPerfil"].Visible = false;
             dataGridUsuarios.Columns["Id_Persona"].Visible = false;
-            opcionesPerfiles();
+            
             CargarUsuarios();
             this.dataGridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsuarios_CellContentClick);
 
@@ -292,14 +288,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 idUsuarioSeleccionado = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value); // Ajusta el nombre de la columna si es necesario
 
                 // Asignar los valores a los controles correspondientes
-                /** txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
-                 txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
-                 txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
-                 txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
-                 txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
-                 cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
-                 txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
-                 dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);*/
+                txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
+                txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
+                txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
+                txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
+                txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
+                cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
+                txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
+                dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);
 
                 if (filaSeleccionada.Cells["PersonaBaja"].Value != DBNull.Value)
                 {
@@ -337,7 +333,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             checkBoxNo.Checked = false;
 
             // Restablecer el ComboBox
-            cbRol.SelectedIndex = -1; // Ningún elemento seleccionado
+            cbRol.SelectedIndex = 0; // Ningún elemento seleccionado
 
             // Ocultar los mensajes de error si es necesario
 
@@ -360,9 +356,5 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

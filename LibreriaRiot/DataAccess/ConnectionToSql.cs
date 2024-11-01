@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 namespace DataAccess
 {
 
-    public abstract class ConnectionToSql
+    public abstract class ConnectionToSql 
     {
         //Atributos de la Conexion
         private readonly string connectionString;

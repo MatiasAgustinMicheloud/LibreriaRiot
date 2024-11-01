@@ -1,4 +1,5 @@
 using LibreriaRiot.Principal;
+using LibreriaRiot.Principal.lobi;
 
 namespace LibreriaRiot
 {
@@ -13,7 +14,10 @@ namespace LibreriaRiot
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            LobiPrincipal fLobi = new LobiPrincipal();
+            Login login = new Login(fLobi);
+            login.Show();
+            Application.Run();
         }
     }
 }

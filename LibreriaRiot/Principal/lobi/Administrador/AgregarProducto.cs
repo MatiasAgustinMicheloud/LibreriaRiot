@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Common.Models;
+using Domain;
+using System.Net;
+using LibreriaRiot.Domain;
+using LibreriaRiot.Common.Models;
 
 namespace LibreriaRiot.Principal.lobi.Administrador
 {
@@ -41,10 +46,16 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nombreProd = txtTitulo.Text;
-            string precioStr = txtPrecio.Text;
+            string titulo = txtTitulo.Text;
+            string editorial = cbEditorial.Text;
+            string autor = cbAutor.Text;
             string descripcion = txtDescripcion.Text;
-            string stockStr = txtStock.Text;
+            string categoria = cbCategoria.Text;
+            string precio = txtPrecio.Text;
+            string stock = txtStock.Text;
+            string imagen = pbPortada.Text;
+
+            ProductoModel productoModel = new ProductoModel();
 
             // Ocultar todas las etiquetas de error al iniciar la validación
             lbErrorMenssage1.Visible = false;
@@ -57,17 +68,17 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage8.Visible = false;
 
 
-            if (string.IsNullOrWhiteSpace(nombreProd))
+            if (string.IsNullOrWhiteSpace(titulo))
             {
                 msgError("Debe ingresar un Titulo", lbErrorMenssage1);
             }
-            else if (cbEditorial.SelectedIndex == -1 || cbEditorial.SelectedItem.ToString() == "")
+            else if (cbEditorial.SelectedIndex == 0 || cbEditorial.SelectedItem.ToString() == "")
             {
 
                 msgError("Por favor, selecciona una Editorial", lbErrorMenssage2);
 
             }
-            else if (cbAutor.SelectedIndex == -1 || cbAutor.SelectedItem.ToString() == "")
+            else if (cbAutor.SelectedIndex == 0 || cbAutor.SelectedItem.ToString() == "")
             {
 
                 msgError("Por favor, selecciona un Autor", lbErrorMenssage3);
@@ -78,18 +89,18 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
                 msgError("Debe ingresar una Descripcion", lbErrorMenssage4);
             }
-            else if (cbCategoria.SelectedIndex == -1 || cbCategoria.SelectedItem.ToString() == "")
+            else if (cbCategoria.SelectedIndex == 0 || cbCategoria.SelectedItem.ToString() == "")
             {
                 msgError("Por favor, selecciona una Categoria.", lbErrorMenssage5);
 
             }
-            else if (!float.TryParse(precioStr, out float precio))
+            else if (!float.TryParse(precio, out float precioN))
             {
 
                 msgError("Debe ingresar el Precio Numerico", lbErrorMenssage6);
 
             }
-            else if (!int.TryParse(stockStr, out int stock))
+            else if (!int.TryParse(stock, out int stockN))
             {
 
                 msgError("Debe ingresar el Stock Numerico", lbErrorMenssage7);
@@ -101,22 +112,32 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             }
             else
             {
-                Datos nuevoDato = new Datos()
+                // Mostrar mensaje de confirmación
+                DialogResult confirmResult = MessageBox.Show("¿Está seguro que desea registrar este producto?", "Confirmar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmResult == DialogResult.Yes)
                 {
-                    Titulo = nombreProd,
-                    Descripcion = descripcion,
-                    Editorial = cbEditorial.Text,
-                    Autor = cbAutor.Text,
-                    Precio = precioStr,
-                    Stock = stockStr,
-                    Categoria = cbCategoria.Text,
-                    Portada = pbPortada.Image
-                };
+                    // Llama al método AgregarNuevoProducto con los valores convertidos
+                    int idEditorial = productoModel.ObtenerIdEditorial(editorial);
+                    int idAutor = productoModel.ObtenerIdAutor(autor);
+                    int idCategoria = productoModel.ObtenerIdCategoria(categoria);
 
-                AlmacenDatos.ListaDatos.Add(nuevoDato);
+                    bool productoAgregado = productoModel.AgregarNuevoProducto(titulo, descripcion, precio, stock, imagenName!, idCategoria, idEditorial, idAutor);
 
-                MessageBox.Show("libro agregado correctamente", "libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarCampos();
+                    if (productoAgregado)
+                    {
+                        // Copia la imagen a la carpeta de destino
+                        File.Copy(fileActualPath!, fileSavePath!);
+
+                        MessageBox.Show("Libro agregado exitosamente: " + titulo, "Libro Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un problema al agregar el libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
 
         }
@@ -158,6 +179,45 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         }
 
+        private void opcionesCategoria()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var categorias = productoModel.ObtenerCategorias();
+
+            // Agrega el mensaje predeterminado al comienzo de la lista
+            categorias.Insert(0, "Seleccione Categoría");
+
+            // Asigna la lista de categorías como DataSource del ComboBox
+            cbCategoria.DataSource = categorias;
+
+            // Establece el índice seleccionado por defecto en 0 para mostrar el mensaje predeterminado
+            cbCategoria.SelectedIndex = 0;
+        }
+
+        private void opcionesEditorial()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var editorial = productoModel.ObtenerEditoriales();
+
+            editorial.Insert(0, "Seleccione Editorial");
+
+            cbEditorial.DataSource = editorial;
+
+            cbEditorial.SelectedIndex = 0;
+        }
+
+        private void opcionesAutores()
+        {
+            ProductoModel productoModel = new ProductoModel();
+            var autor = productoModel.ObtenerAutores();
+
+            autor.Insert(0, "Seleccione Autor");
+
+            cbAutor.DataSource = autor;
+
+            cbAutor.SelectedIndex = 0;
+        }
+
         private void LimpiarCampos()
         {
             txtTitulo.Text = "";
@@ -173,5 +233,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             lbErrorMenssage2.Text = "";
         }
 
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+            opcionesCategoria();
+            opcionesEditorial();
+            opcionesAutores();
+        }
     }
 }

@@ -40,14 +40,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel3 = new Panel();
             chrFinanzas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chrLibros = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chrSalarios = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label1 = new Label();
             cbEstadisticas = new ComboBox();
             chrMejoresEmpleados = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -57,7 +53,6 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chrFinanzas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chrLibros).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chrSalarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chrMejoresEmpleados).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -79,7 +74,6 @@
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(chrFinanzas);
             panel3.Controls.Add(chrLibros);
-            panel3.Controls.Add(chrSalarios);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(cbEstadisticas);
             panel3.Controls.Add(chrMejoresEmpleados);
@@ -141,25 +135,6 @@
             chrLibros.Titles.Add(title1);
             chrLibros.Visible = false;
             // 
-            // chrSalarios
-            // 
-            chrSalarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            chartArea3.Name = "ChartArea1";
-            chrSalarios.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chrSalarios.Legends.Add(legend3);
-            chrSalarios.Location = new Point(82, 66);
-            chrSalarios.Name = "chrSalarios";
-            chrSalarios.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Salario";
-            chrSalarios.Series.Add(series5);
-            chrSalarios.Size = new Size(655, 270);
-            chrSalarios.TabIndex = 1;
-            chrSalarios.Text = "Salario Empleados";
-            chrSalarios.Visible = false;
-            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top;
@@ -177,7 +152,7 @@
             cbEstadisticas.Anchor = AnchorStyles.Top;
             cbEstadisticas.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstadisticas.FormattingEnabled = true;
-            cbEstadisticas.Items.AddRange(new object[] { "Mejores Vendedores", "Salario Empleados", "Libros mas vendidos", "Finanzas" });
+            cbEstadisticas.Items.AddRange(new object[] { "Mejores Vendedores", "Libros mas vendidos", "Finanzas" });
             cbEstadisticas.Location = new Point(186, 18);
             cbEstadisticas.Name = "cbEstadisticas";
             cbEstadisticas.Size = new Size(183, 23);
@@ -188,16 +163,16 @@
             // chrMejoresEmpleados
             // 
             chrMejoresEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            chartArea4.Name = "ChartArea1";
-            chrMejoresEmpleados.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chrMejoresEmpleados.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            chrMejoresEmpleados.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chrMejoresEmpleados.Legends.Add(legend3);
             chrMejoresEmpleados.Location = new Point(82, 66);
             chrMejoresEmpleados.Name = "chrMejoresEmpleados";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Cantidad de Ventas";
-            chrMejoresEmpleados.Series.Add(series6);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Cantidad de Ventas";
+            chrMejoresEmpleados.Series.Add(series5);
             chrMejoresEmpleados.Size = new Size(655, 270);
             chrMejoresEmpleados.TabIndex = 0;
             chrMejoresEmpleados.Text = "Empleados que mas vendieron";
@@ -239,7 +214,6 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chrFinanzas).EndInit();
             ((System.ComponentModel.ISupportInitialize)chrLibros).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chrSalarios).EndInit();
             ((System.ComponentModel.ISupportInitialize)chrMejoresEmpleados).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -255,7 +229,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chrMejoresEmpleados;
         private ComboBox cbEstadisticas;
         private Label label1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chrSalarios;
         private System.Windows.Forms.DataVisualization.Charting.Chart chrLibros;
         private System.Windows.Forms.DataVisualization.Charting.Chart chrFinanzas;
     }

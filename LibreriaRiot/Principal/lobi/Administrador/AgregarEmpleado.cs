@@ -18,7 +18,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 {
     public partial class AgregarEmpleado : Form
     {
-        private UserType currentUserType;
+  
         private LobiPrincipal instanciaLobi;
         public AgregarEmpleado(LobiPrincipal lobi)
         {
@@ -26,7 +26,8 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             this.instanciaLobi = lobi;
         }
 
-        private void btnVerProductos_Click(object sender, EventArgs e)
+        //Boton ver empleados
+        private void btnVerEmpleados_Click(object sender, EventArgs e)
         {
             instanciaLobi.OpenChildForm(new Administrador.VerEmpleados(instanciaLobi));
         }
@@ -214,6 +215,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 // Colocar el cursor al final del texto
                 txtEmail.SelectionStart = txtEmail.Text.Length;
             }
+        }
+
+        private void cbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

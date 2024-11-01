@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerProductos));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel2 = new Panel();
+            cbEditorial = new ComboBox();
+            cbAutor = new ComboBox();
             btAgregarImagen = new FontAwesome.Sharp.IconButton();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
@@ -47,8 +49,6 @@
             txtStock = new TextBox();
             txtPrecio = new TextBox();
             txtDescripcion = new TextBox();
-            txtAutor = new TextBox();
-            txtEditorial = new TextBox();
             txtTitulo = new TextBox();
             label8 = new Label();
             label7 = new Label();
@@ -64,12 +64,12 @@
             pictureBox3 = new PictureBox();
             lblAgregarProducto = new Label();
             pictureBox5 = new PictureBox();
-            dataGridView1 = new DataGridView();
+            dataGridProductos = new DataGridView();
             txtBuscadorTitulo = new TextBox();
             label10 = new Label();
-            txtBuscadorAutor = new TextBox();
             label11 = new Label();
             panel3 = new Panel();
+            cbBuscadorAutor = new ComboBox();
             label12 = new Label();
             cbBuscadorCategoria = new ComboBox();
             panel2.SuspendLayout();
@@ -78,7 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProductos).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,6 +86,8 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(cbEditorial);
+            panel2.Controls.Add(cbAutor);
             panel2.Controls.Add(btAgregarImagen);
             panel2.Controls.Add(lbBaja);
             panel2.Controls.Add(checkBoxNo);
@@ -99,8 +101,6 @@
             panel2.Controls.Add(txtStock);
             panel2.Controls.Add(txtPrecio);
             panel2.Controls.Add(txtDescripcion);
-            panel2.Controls.Add(txtAutor);
-            panel2.Controls.Add(txtEditorial);
             panel2.Controls.Add(txtTitulo);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
@@ -114,6 +114,24 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(373, 517);
             panel2.TabIndex = 3;
+            // 
+            // cbEditorial
+            // 
+            cbEditorial.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEditorial.FormattingEnabled = true;
+            cbEditorial.Location = new Point(117, 89);
+            cbEditorial.Name = "cbEditorial";
+            cbEditorial.Size = new Size(232, 23);
+            cbEditorial.TabIndex = 30;
+            // 
+            // cbAutor
+            // 
+            cbAutor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbAutor.FormattingEnabled = true;
+            cbAutor.Location = new Point(117, 117);
+            cbAutor.Name = "cbAutor";
+            cbAutor.Size = new Size(232, 23);
+            cbAutor.TabIndex = 29;
             // 
             // btAgregarImagen
             // 
@@ -197,7 +215,7 @@
             lbErrorMenssage.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage.Image = (Image)resources.GetObject("lbErrorMenssage.Image");
             lbErrorMenssage.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage.Location = new Point(84, 418);
+            lbErrorMenssage.Location = new Point(27, 419);
             lbErrorMenssage.Name = "lbErrorMenssage";
             lbErrorMenssage.Size = new Size(128, 20);
             lbErrorMenssage.TabIndex = 22;
@@ -238,8 +256,8 @@
             // 
             // cbCategoria
             // 
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbCategoria.Location = new Point(117, 238);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(232, 23);
@@ -276,20 +294,6 @@
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(232, 86);
             txtDescripcion.TabIndex = 12;
-            // 
-            // txtAutor
-            // 
-            txtAutor.Location = new Point(117, 118);
-            txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(232, 23);
-            txtAutor.TabIndex = 11;
-            // 
-            // txtEditorial
-            // 
-            txtEditorial.Location = new Point(117, 89);
-            txtEditorial.Name = "txtEditorial";
-            txtEditorial.Size = new Size(232, 23);
-            txtEditorial.TabIndex = 10;
             // 
             // txtTitulo
             // 
@@ -460,56 +464,57 @@
             pictureBox5.TabIndex = 21;
             pictureBox5.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridProductos
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView1.BackgroundColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Purple;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            dataGridView1.GridColor = Color.Gray;
-            dataGridView1.Location = new Point(6, 45);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(535, 460);
-            dataGridView1.TabIndex = 22;
+            dataGridProductos.AllowUserToAddRows = false;
+            dataGridProductos.AllowUserToDeleteRows = false;
+            dataGridProductos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridProductos.BackgroundColor = Color.FromArgb(64, 0, 64);
+            dataGridProductos.BorderStyle = BorderStyle.None;
+            dataGridProductos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Purple;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridProductos.GridColor = Color.Gray;
+            dataGridProductos.Location = new Point(6, 45);
+            dataGridProductos.MultiSelect = false;
+            dataGridProductos.Name = "dataGridProductos";
+            dataGridProductos.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridProductos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridProductos.RowTemplate.Height = 25;
+            dataGridProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridProductos.Size = new Size(535, 460);
+            dataGridProductos.TabIndex = 22;
+            dataGridProductos.CellContentClick += dataGridView1_CellContentClick;
             // 
             // txtBuscadorTitulo
             // 
@@ -529,13 +534,6 @@
             label10.TabIndex = 24;
             label10.Text = "Titulo:";
             // 
-            // txtBuscadorAutor
-            // 
-            txtBuscadorAutor.Location = new Point(237, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(104, 23);
-            txtBuscadorAutor.TabIndex = 25;
-            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -551,18 +549,27 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(cbBuscadorAutor);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(cbBuscadorCategoria);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(txtBuscadorTitulo);
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(dataGridProductos);
             panel3.Controls.Add(pictureBox5);
             panel3.Location = new Point(0, 65);
             panel3.Name = "panel3";
             panel3.Size = new Size(551, 517);
             panel3.TabIndex = 21;
+            // 
+            // cbBuscadorAutor
+            // 
+            cbBuscadorAutor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBuscadorAutor.FormattingEnabled = true;
+            cbBuscadorAutor.Location = new Point(232, 16);
+            cbBuscadorAutor.Name = "cbBuscadorAutor";
+            cbBuscadorAutor.Size = new Size(118, 23);
+            cbBuscadorAutor.TabIndex = 30;
             // 
             // label12
             // 
@@ -577,6 +584,7 @@
             // 
             // cbBuscadorCategoria
             // 
+            cbBuscadorCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBuscadorCategoria.FormattingEnabled = true;
             cbBuscadorCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbBuscadorCategoria.Location = new Point(430, 16);
@@ -605,7 +613,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProductos).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -621,8 +629,6 @@
         private TextBox txtStock;
         private TextBox txtPrecio;
         private TextBox txtDescripcion;
-        private TextBox txtAutor;
-        private TextBox txtEditorial;
         private TextBox txtTitulo;
         private Label label8;
         private Label label7;
@@ -643,14 +649,16 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridProductos;
         private TextBox txtBuscadorTitulo;
         private Label label10;
-        private TextBox txtBuscadorAutor;
         private Label label11;
         private Panel panel3;
         private Label label12;
         private ComboBox cbBuscadorCategoria;
         private FontAwesome.Sharp.IconButton btAgregarImagen;
+        private ComboBox cbEditorial;
+        private ComboBox cbAutor;
+        private ComboBox cbBuscadorAutor;
     }
 }

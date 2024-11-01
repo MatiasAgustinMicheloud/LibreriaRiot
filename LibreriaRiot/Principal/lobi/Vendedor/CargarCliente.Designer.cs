@@ -31,13 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargarCliente));
             panel1 = new Panel();
             panel3 = new Panel();
-            txtCuit = new TextBox();
-            label5 = new Label();
             lbErrorMenssage4 = new Label();
             lbErrorMenssage8 = new Label();
             lbErrorMenssage7 = new Label();
             lbErrorMenssage6 = new Label();
-            lbErrorMenssage5 = new Label();
             lbErrorMenssage3 = new Label();
             lbErrorMenssage2 = new Label();
             lbErrorMenssage1 = new Label();
@@ -79,13 +76,10 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
-            panel3.Controls.Add(txtCuit);
-            panel3.Controls.Add(label5);
             panel3.Controls.Add(lbErrorMenssage4);
             panel3.Controls.Add(lbErrorMenssage8);
             panel3.Controls.Add(lbErrorMenssage7);
             panel3.Controls.Add(lbErrorMenssage6);
-            panel3.Controls.Add(lbErrorMenssage5);
             panel3.Controls.Add(lbErrorMenssage3);
             panel3.Controls.Add(lbErrorMenssage2);
             panel3.Controls.Add(lbErrorMenssage1);
@@ -109,26 +103,6 @@
             panel3.Size = new Size(803, 384);
             panel3.TabIndex = 1;
             // 
-            // txtCuit
-            // 
-            txtCuit.Anchor = AnchorStyles.None;
-            txtCuit.Location = new Point(489, 61);
-            txtCuit.Name = "txtCuit";
-            txtCuit.Size = new Size(183, 23);
-            txtCuit.TabIndex = 64;
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.None;
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.FromArgb(241, 241, 241);
-            label5.Location = new Point(489, 37);
-            label5.Name = "label5";
-            label5.Size = new Size(46, 21);
-            label5.TabIndex = 63;
-            label5.Text = "CUIT";
-            // 
             // lbErrorMenssage4
             // 
             lbErrorMenssage4.Anchor = AnchorStyles.None;
@@ -137,7 +111,7 @@
             lbErrorMenssage4.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage4.Image = (Image)resources.GetObject("lbErrorMenssage4.Image");
             lbErrorMenssage4.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage4.Location = new Point(160, 300);
+            lbErrorMenssage4.Location = new Point(485, 87);
             lbErrorMenssage4.Name = "lbErrorMenssage4";
             lbErrorMenssage4.Size = new Size(128, 20);
             lbErrorMenssage4.TabIndex = 62;
@@ -153,7 +127,7 @@
             lbErrorMenssage8.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage8.Image = (Image)resources.GetObject("lbErrorMenssage8.Image");
             lbErrorMenssage8.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage8.Location = new Point(487, 300);
+            lbErrorMenssage8.Location = new Point(308, 300);
             lbErrorMenssage8.Name = "lbErrorMenssage8";
             lbErrorMenssage8.Size = new Size(128, 20);
             lbErrorMenssage8.TabIndex = 60;
@@ -169,7 +143,7 @@
             lbErrorMenssage7.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage7.Image = (Image)resources.GetObject("lbErrorMenssage7.Image");
             lbErrorMenssage7.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage7.Location = new Point(488, 224);
+            lbErrorMenssage7.Location = new Point(485, 217);
             lbErrorMenssage7.Name = "lbErrorMenssage7";
             lbErrorMenssage7.Size = new Size(128, 20);
             lbErrorMenssage7.TabIndex = 59;
@@ -185,29 +159,13 @@
             lbErrorMenssage6.ForeColor = Color.FromArgb(235, 133, 154);
             lbErrorMenssage6.Image = (Image)resources.GetObject("lbErrorMenssage6.Image");
             lbErrorMenssage6.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage6.Location = new Point(489, 152);
+            lbErrorMenssage6.Location = new Point(485, 152);
             lbErrorMenssage6.Name = "lbErrorMenssage6";
             lbErrorMenssage6.Size = new Size(128, 20);
             lbErrorMenssage6.TabIndex = 58;
             lbErrorMenssage6.Text = "Mensaje de error";
             lbErrorMenssage6.TextAlign = ContentAlignment.TopCenter;
             lbErrorMenssage6.Visible = false;
-            // 
-            // lbErrorMenssage5
-            // 
-            lbErrorMenssage5.Anchor = AnchorStyles.None;
-            lbErrorMenssage5.AutoSize = true;
-            lbErrorMenssage5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
-            lbErrorMenssage5.ForeColor = Color.FromArgb(235, 133, 154);
-            lbErrorMenssage5.Image = (Image)resources.GetObject("lbErrorMenssage5.Image");
-            lbErrorMenssage5.ImageAlign = ContentAlignment.TopLeft;
-            lbErrorMenssage5.Location = new Point(489, 87);
-            lbErrorMenssage5.Name = "lbErrorMenssage5";
-            lbErrorMenssage5.Size = new Size(128, 20);
-            lbErrorMenssage5.TabIndex = 57;
-            lbErrorMenssage5.Text = "Mensaje de error";
-            lbErrorMenssage5.TextAlign = ContentAlignment.TopCenter;
-            lbErrorMenssage5.Visible = false;
             // 
             // lbErrorMenssage3
             // 
@@ -263,7 +221,7 @@
             lbUsuario.AutoSize = true;
             lbUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbUsuario.ForeColor = Color.FromArgb(241, 241, 241);
-            lbUsuario.Location = new Point(160, 250);
+            lbUsuario.Location = new Point(485, 37);
             lbUsuario.Name = "lbUsuario";
             lbUsuario.Size = new Size(85, 21);
             lbUsuario.TabIndex = 51;
@@ -272,7 +230,7 @@
             // txtDomicilio
             // 
             txtDomicilio.Anchor = AnchorStyles.None;
-            txtDomicilio.Location = new Point(160, 274);
+            txtDomicilio.Location = new Point(485, 61);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(183, 23);
             txtDomicilio.TabIndex = 50;
@@ -281,7 +239,7 @@
             // 
             dtFechaCarga.Anchor = AnchorStyles.None;
             dtFechaCarga.CustomFormat = "";
-            dtFechaCarga.Location = new Point(487, 274);
+            dtFechaCarga.Location = new Point(308, 274);
             dtFechaCarga.Name = "dtFechaCarga";
             dtFechaCarga.Size = new Size(226, 23);
             dtFechaCarga.TabIndex = 49;
@@ -311,7 +269,7 @@
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.None;
-            txtEmail.Location = new Point(487, 198);
+            txtEmail.Location = new Point(485, 191);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(183, 23);
             txtEmail.TabIndex = 46;
@@ -319,7 +277,7 @@
             // txtTelefono
             // 
             txtTelefono.Anchor = AnchorStyles.None;
-            txtTelefono.Location = new Point(489, 126);
+            txtTelefono.Location = new Point(485, 126);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(183, 23);
             txtTelefono.TabIndex = 45;
@@ -354,7 +312,7 @@
             lbDeNacimiento.AutoSize = true;
             lbDeNacimiento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
-            lbDeNacimiento.Location = new Point(487, 250);
+            lbDeNacimiento.Location = new Point(311, 248);
             lbDeNacimiento.Name = "lbDeNacimiento";
             lbDeNacimiento.Size = new Size(125, 21);
             lbDeNacimiento.TabIndex = 41;
@@ -366,7 +324,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(241, 241, 241);
-            label6.Location = new Point(487, 171);
+            label6.Location = new Point(486, 167);
             label6.Name = "label6";
             label6.Size = new Size(53, 21);
             label6.TabIndex = 40;
@@ -378,7 +336,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(241, 241, 241);
-            label4.Location = new Point(489, 102);
+            label4.Location = new Point(485, 102);
             label4.Name = "label4";
             label4.Size = new Size(77, 21);
             label4.TabIndex = 38;
@@ -475,6 +433,7 @@
             Name = "CargarCliente";
             StartPosition = FormStartPosition.CenterParent;
             Text = "CargarCliente";
+            Load += CargarCliente_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -493,7 +452,6 @@
         private Label lbErrorMenssage8;
         private Label lbErrorMenssage7;
         private Label lbErrorMenssage6;
-        private Label lbErrorMenssage5;
         private Label lbErrorMenssage3;
         private Label lbErrorMenssage2;
         private Label lbErrorMenssage1;
@@ -512,8 +470,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox txtCuit;
-        private Label label5;
         private FontAwesome.Sharp.IconButton btnVerClientes;
     }
 }

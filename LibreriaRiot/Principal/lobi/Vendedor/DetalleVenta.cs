@@ -88,6 +88,10 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             instanciaLobi.OpenChildForm(new Vendedor.VerClientes(instanciaLobi));
         }
 
-
+        private void horaFecha_Tick_1(object sender, EventArgs e)
+        {
+            Lhora.Text = DateTime.Now.ToLongTimeString();
+            Lfecha.Text = DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy").ToUpper();
+        }
     }
 }

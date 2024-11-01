@@ -34,20 +34,13 @@ namespace LibreriaRiot.Principal.lobi.Gerente
                     //Mejores vendedores. Grafico de barras
                     esconderGraficos();
                     chrMejoresEmpleados.Visible = true;
-
                     break;
                 case 1:
-                    //Ver salarios. Grafico de barras
-                    esconderGraficos();
-                    chrSalarios.Visible = true;
-                    break;
-                case 2:
                     //Libros mas vendidos(top 10). Grafico de pie
                     esconderGraficos();
                     chrLibros.Visible = true;
-
                     break;
-                case 3:
+                case 2:
                     //Ver finanzas(gastos, ganancias y profit. Grafico de area)
                     esconderGraficos();
                     chrFinanzas.Visible = true;
@@ -61,7 +54,6 @@ namespace LibreriaRiot.Principal.lobi.Gerente
         private void esconderGraficos()
         {
             chrMejoresEmpleados.Visible = false;
-            chrSalarios.Visible = false;
             chrLibros.Visible = false;
             chrFinanzas.Visible = false;
         }
