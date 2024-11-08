@@ -19,8 +19,10 @@ namespace LibreriaRiot.Principal.lobi.Administrador
     {
         private UsuarioModel userModel = new UsuarioModel();
         private UserType currentUserType;
+        private bool edicionRealizada = false;
         private LobiPrincipal instanciaLobi;
-        private int idUsuarioSeleccionado;
+        private int idUsuarioSeleccionado = -1;
+        private UsuarioConInformacion? usuarioSeleccionado;
         public VerEmpleados(LobiPrincipal lobi)
         {
             InitializeComponent();
@@ -53,6 +55,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         }
         private void iconButton2_Click(object sender, EventArgs e)
         {
+
+            edicionRealizada = false;
+            if (idUsuarioSeleccionado == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             string dni = txtDNI.Text;
@@ -122,28 +132,74 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Debe seleccionar una fecha válida");
             }
-            else
-            {
 
+
+            bool cambiosRealizados = !string.Equals(nombre, usuarioSeleccionado?.PersonaNombre, StringComparison.OrdinalIgnoreCase) ||
+                                   !string.Equals(apellido, usuarioSeleccionado?.PersonaApellido, StringComparison.OrdinalIgnoreCase) ||
+                                   !string.Equals(usuario, usuarioSeleccionado?.UserNombre, StringComparison.OrdinalIgnoreCase) ||
+                                   !string.Equals(dni, usuarioSeleccionado?.PersonaDNI, StringComparison.OrdinalIgnoreCase) ||
+                                   !string.Equals(mail, usuarioSeleccionado?.PersonaMail) ||
+                                   !string.Equals(telefono, usuarioSeleccionado?.PersonaTelefono, StringComparison.OrdinalIgnoreCase) ||
+                                   !string.Equals(baja, usuarioSeleccionado?.PersonaBaja, StringComparison.OrdinalIgnoreCase) ||
+                                   !DateTime.Equals(nacimiento, usuarioSeleccionado?.PersonaFechaNacimiento);
+
+            //bool cambiosRealizados = !string.Equals(nombre, usuarioSeleccionado?.PersonaNombre, StringComparison.OrdinalIgnoreCase);
+
+            MessageBox.Show(usuarioSeleccionado?.PersonaNombre);
+
+                
+             if (!cambiosRealizados)
+             {
+                    LimpiarCamposModificar();
+                    MessageBox.Show("Usted no realizó cambios.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+             }
+             
+             DialogResult confirmacion = MessageBox.Show("¿Está seguro de realizar estas modificaciones?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+             if (confirmacion == DialogResult.Yes)
+             {
                 // Llamar a la función para actualizar el usuario
-
                 bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
 
                 if (actualizado)
                 {
-                    MessageBox.Show("Empleado actualizado correctamente");
-                    CargarUsuarios();
+                    MessageBox.Show("El empleado  " + apellido + " " + nombre + " " + "se ha actualizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCamposModificar();
+                    VerEmpleados_Load(sender, e);
+
                 }
                 else
                 {
-                    MessageBox.Show("Hubo un error al actualizar el usuario");
-                    CargarUsuarios();
+
+                    msgError("Ha ocurrido un error.");
+                }
+             }
+                else
+                {
+                    msgError("No se realizaron cambios al Cliente.");
                 }
 
-            }
+         }
+        
 
-
+        private void LimpiarCamposModificar()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtDNI.Clear();
+            txtEmail.Clear();
+            txtUsuario.Clear();
+            txtTelefono.Clear();
+            cbRol.SelectedIndex = 0;
+            dtFechaNac.Value = DateTime.Now;
+            checkBoxSi.Checked = false;
+            checkBoxNo.Checked = false;
+            lbErrorMenssage.Text = "";
+            idUsuarioSeleccionado = -1;
         }
+
+
 
         private void CargarUsuarios()
         {
@@ -324,6 +380,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             txtEmail.Text = "";
             txtUsuario.Text = "";
             txtTelefono.Text = "";
+            idUsuarioSeleccionado = -1;
 
             // Restablecer el valor de DateTimePicker a la fecha actual (o alguna otra fecha predeterminada)
             dtFechaNac.Value = DateTime.Now;

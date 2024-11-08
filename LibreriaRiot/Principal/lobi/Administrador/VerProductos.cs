@@ -85,12 +85,6 @@ namespace LibreriaRiot.Principal.lobi.Administrador
                 return;
             }
 
-            if (nuevoTitulo.Any(char.IsDigit))
-            {
-                msgError("El Titulo no puede contener números");
-                return;
-            }
-
             if (cbEditorial.SelectedIndex == 0 || string.IsNullOrWhiteSpace(cbEditorial.SelectedItem?.ToString()))
             {
                 msgError("Por favor, selecciona una Editorial.");
