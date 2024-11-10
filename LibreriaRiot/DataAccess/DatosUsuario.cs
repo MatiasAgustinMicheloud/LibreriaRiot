@@ -551,7 +551,7 @@ namespace DataAccess
                                     DNI = reader.GetString(reader.GetOrdinal("DNI")),
                                     Mail = reader.GetString(reader.GetOrdinal("Mail")),
                                     FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                    Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
+                                    Telefono = reader.GetString(reader.GetOrdinal("Telefono"))
                                 };
                             }
                         }

@@ -35,7 +35,6 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
             label1 = new Label();
             Lfecha = new Label();
@@ -51,6 +50,7 @@
             lbNombreApellido = new Label();
             cbTipoFactura = new ComboBox();
             horaFecha = new System.Windows.Forms.Timer(components);
+            lbErrorMenssage3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -66,7 +66,6 @@
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(iconButton1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(581, 71);
@@ -82,7 +81,7 @@
             label2.Name = "label2";
             label2.Size = new Size(162, 39);
             label2.TabIndex = 73;
-            label2.Text = "Venta Datalle";
+            label2.Text = "Venta Detalle";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // pictureBox2
@@ -117,28 +116,11 @@
             pictureBox3.TabIndex = 21;
             pictureBox3.TabStop = false;
             // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(12, 13);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(43, 48);
-            iconButton1.TabIndex = 20;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(lbErrorMenssage3);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(Lfecha);
             panel2.Controls.Add(Lhora);
@@ -345,6 +327,23 @@
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick_1;
             // 
+            // lbErrorMenssage3
+            // 
+            lbErrorMenssage3.Anchor = AnchorStyles.None;
+            lbErrorMenssage3.AutoSize = true;
+            lbErrorMenssage3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lbErrorMenssage3.ForeColor = Color.FromArgb(235, 133, 154);
+            lbErrorMenssage3.Image = (Image)resources.GetObject("lbErrorMenssage3.Image");
+            lbErrorMenssage3.ImageAlign = ContentAlignment.MiddleLeft;
+            lbErrorMenssage3.Location = new Point(225, 345);
+            lbErrorMenssage3.Name = "lbErrorMenssage3";
+            lbErrorMenssage3.Size = new Size(42, 24);
+            lbErrorMenssage3.TabIndex = 79;
+            lbErrorMenssage3.Text = "Error";
+            lbErrorMenssage3.TextAlign = ContentAlignment.MiddleCenter;
+            lbErrorMenssage3.UseCompatibleTextRendering = true;
+            lbErrorMenssage3.Visible = false;
+            // 
             // DetalleVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -353,7 +352,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "DetalleVenta";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DatalleVenta";
+            Load += DetalleVenta_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -370,7 +371,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel2;
         private Label label2;
         private ComboBox cbMetodoPago;
@@ -387,5 +387,6 @@
         private Label Lhora;
         private System.Windows.Forms.Timer horaFecha;
         private Label label1;
+        private Label lbErrorMenssage3;
     }
 }

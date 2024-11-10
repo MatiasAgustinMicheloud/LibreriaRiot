@@ -1,5 +1,7 @@
 ﻿using Common.Models;
 using Domain;
+using LibreriaRiot.Common.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,11 +22,15 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         private UsuarioModel userModel = new UsuarioModel();
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
-        private int idUsuarioSeleccionado;
+        private int idUsuarioSeleccionado = -1;
+        UsuarioConInformacion? usuarioSeleccionado;
+        bool edicionRealizada = false;
+
         public VerEmpleados(LobiPrincipal lobi)
         {
             InitializeComponent();
             this.instanciaLobi = lobi;
+           
         }
 
 
@@ -53,6 +59,14 @@ namespace LibreriaRiot.Principal.lobi.Administrador
         }
         private void iconButton2_Click(object sender, EventArgs e)
         {
+
+            edicionRealizada = false;
+            if (idUsuarioSeleccionado == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un Cliente para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             string dni = txtDNI.Text;
@@ -122,33 +136,62 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Debe seleccionar una fecha válida");
             }
-            else
+
+
+            bool cambiosRealizados = !string.Equals(nombre, usuarioSeleccionado?.PersonaNombre, StringComparison.OrdinalIgnoreCase) ||
+                                    !string.Equals(apellido, usuarioSeleccionado?.PersonaApellido, StringComparison.OrdinalIgnoreCase) ||
+                                    !string.Equals(dni, usuarioSeleccionado?.PersonaDNI, StringComparison.OrdinalIgnoreCase) ||
+                                    !string.Equals(mail, usuarioSeleccionado?.PersonaMail) ||
+                                    !string.Equals(telefono, usuarioSeleccionado?.PersonaTelefono, StringComparison.OrdinalIgnoreCase) ||
+                                    !string.Equals(usuario, usuarioSeleccionado?.UserNombre, StringComparison.OrdinalIgnoreCase) ||
+                                    !string.Equals(baja, usuarioSeleccionado?.PersonaBaja, StringComparison.OrdinalIgnoreCase) ||
+                                    !DateTime.Equals(nacimiento, usuarioSeleccionado?.PersonaFechaNacimiento);
+            if (!cambiosRealizados)
+            {
+                LimpiarCamposModificar();
+                MessageBox.Show("Usted no realizó cambios.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DialogResult confirmacion = MessageBox.Show("¿Está seguro de realizar estas modificaciones?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
             {
 
-                // Llamar a la función para actualizar el usuario
-
-                bool actualizado = userModel.ActualizacionEmpleado(idUsuarioSeleccionado, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
+                bool actualizado = userModel.ActualizacionEmpleado(usuarioSeleccionado!.Id, nombre, apellido, dni, mail, usuario, nacimiento, telefono, idTipoPerfil, baja);
 
                 if (actualizado)
                 {
-                    MessageBox.Show("Empleado actualizado correctamente");
-                    CargarUsuarios();
+                    MessageBox.Show("El cliente  " + apellido + " " + nombre + " " + "se ha actualizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCamposModificar();
+                    VerEmpleados_Load(sender, e);
+
                 }
                 else
                 {
-                    MessageBox.Show("Hubo un error al actualizar el usuario");
-                    CargarUsuarios();
+
+                    msgError("Ha ocurrido un error.");
                 }
-
             }
-
+            else
+            {
+                msgError("No se realizaron cambios al Cliente.");
+            }
 
         }
 
-        private void CargarUsuarios()
+
+        private void LimpiarCamposModificar()
         {
-            var usuarios = userModel.MostrarUsers();
-            dataGridUsuarios.DataSource = usuarios; // Asigna la lista de usuarios al DataGridView
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDNI.Text = "";
+            txtEmail.Text = "";
+            txtUsuario.Text = "";
+            txtTelefono.Text = "";
+            dtFechaNac.Value = DateTime.Now;
+            checkBoxSi.Checked = false;
+            checkBoxNo.Checked = false;
+            cbRol.SelectedIndex = 0;
         }
 
         private void DataGridUsuarios_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
@@ -230,6 +273,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             dataGridUsuarios.Columns["PerfilNombre"].HeaderText = "Perfil";
             dataGridUsuarios.Columns["PersonaNombre"].HeaderText = "Nombre";
             dataGridUsuarios.Columns["PersonaApellido"].HeaderText = "Apellido";
+            dataGridUsuarios.Columns["PersonaTelefono"].HeaderText = "Telefono";
             dataGridUsuarios.Columns["PersonaDNI"].HeaderText = "Documento";
             dataGridUsuarios.Columns["PersonaMail"].HeaderText = "Correo Electronico";
             dataGridUsuarios.Columns["PersonaFechaNacimiento"].HeaderText = "Fecha de Nacimiento";
@@ -239,9 +283,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             dataGridUsuarios.Columns["TipoPerfil"].Visible = false;
             dataGridUsuarios.Columns["Id_Persona"].Visible = false;
             
-            CargarUsuarios();
-            this.dataGridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsuarios_CellContentClick);
-
+            dataGridUsuarios.RowPrePaint += DataGridUsuarios_RowPrePaint!;
 
         }
 
@@ -279,35 +321,45 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void dataGridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (!edicionRealizada && e.RowIndex >= 0)
             {
-                // Obtener la fila seleccionada
-                DataGridViewRow filaSeleccionada = dataGridUsuarios.Rows[e.RowIndex];
+                edicionRealizada = true;
+                DialogResult confirmResult = MessageBox.Show("Usted esta por realizar una Edición.En caso de que no lo desee vacie Los campos", "Informe de edición", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Guardar el ID del usuario seleccionado
-                idUsuarioSeleccionado = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value); // Ajusta el nombre de la columna si es necesario
-
-                // Asignar los valores a los controles correspondientes
-                txtNombre.Text = filaSeleccionada.Cells["PersonaNombre"].Value.ToString();
-                txtApellido.Text = filaSeleccionada.Cells["PersonaApellido"].Value.ToString();
-                txtTelefono.Text = filaSeleccionada.Cells["PersonaTelefono"].Value.ToString();
-                txtUsuario.Text = filaSeleccionada.Cells["UserNombre"].Value.ToString();
-                txtEmail.Text = filaSeleccionada.Cells["PersonaMail"].Value.ToString();
-                cbRol.Text = filaSeleccionada.Cells["PerfilNombre"].Value.ToString();
-                txtDNI.Text = filaSeleccionada.Cells["PersonaDNI"].Value.ToString();
-                dtFechaNac.Value = Convert.ToDateTime(filaSeleccionada.Cells["PersonaFechaNacimiento"].Value);
-
-                if (filaSeleccionada.Cells["PersonaBaja"].Value != DBNull.Value)
+                if (confirmResult == DialogResult.OK)
                 {
-                    string baja = filaSeleccionada.Cells["PersonaBaja"].Value.ToString();
+                    txtNombre.Enabled = true;
+                    txtApellido.Enabled = true;
+                    checkBoxSi.Enabled = true;
+                    checkBoxNo.Enabled = true;
+                    txtDNI.Enabled = true;
+                    txtEmail.Enabled = true;
+                    txtTelefono.Enabled = true;
+                    dtFechaNac.Enabled = true;
+                    btnLimpiar.Enabled = true;
+                    cbRol.Enabled = true;
 
-                    // Convertir "SI" o "NO" a booleano
-                    if (baja.Equals("SI", StringComparison.OrdinalIgnoreCase))
+                    DataGridViewRow row = dataGridUsuarios.Rows[e.RowIndex];
+
+                    usuarioSeleccionado = (UsuarioConInformacion)row.DataBoundItem;
+
+                    idUsuarioSeleccionado = usuarioSeleccionado.Id;
+                    txtNombre.Text = usuarioSeleccionado.PersonaNombre;
+                    txtApellido.Text = usuarioSeleccionado.PersonaApellido;
+                    txtDNI.Text = usuarioSeleccionado.PersonaDNI;
+                    txtEmail.Text = usuarioSeleccionado.PersonaMail;
+                    txtUsuario.Text = usuarioSeleccionado.UserNombre;
+                    txtTelefono.Text = usuarioSeleccionado.PersonaTelefono;
+                    dtFechaNac.Value = usuarioSeleccionado.PersonaFechaNacimiento;
+                    cbRol.Text = usuarioSeleccionado.PerfilNombre;
+
+
+                    if (usuarioSeleccionado.PersonaBaja == "SI")
                     {
                         checkBoxSi.Checked = true;
                         checkBoxNo.Checked = false;
                     }
-                    else if (baja.Equals("NO", StringComparison.OrdinalIgnoreCase))
+                    else
                     {
                         checkBoxSi.Checked = false;
                         checkBoxNo.Checked = true;
@@ -318,24 +370,13 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtDNI.Text = "";
-            txtEmail.Text = "";
-            txtUsuario.Text = "";
-            txtTelefono.Text = "";
+            DialogResult limpiar = MessageBox.Show("Esta por realizar la limpieza de los campos. ¿Seguro?.", "Limpieza", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            // Restablecer el valor de DateTimePicker a la fecha actual (o alguna otra fecha predeterminada)
-            dtFechaNac.Value = DateTime.Now;
-
-            // Restablecer los CheckBox
-            checkBoxSi.Checked = false;
-            checkBoxNo.Checked = false;
-
-            // Restablecer el ComboBox
-            cbRol.SelectedIndex = 0; // Ningún elemento seleccionado
-
-            // Ocultar los mensajes de error si es necesario
+            if (limpiar == DialogResult.OK)
+            {
+                LimpiarCamposModificar();
+                edicionRealizada = false;
+            }
 
         }
 

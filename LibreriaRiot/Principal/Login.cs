@@ -26,26 +26,6 @@ namespace LibreriaRiot.Principal
             _lobi = lobi;
         }
 
-        /*private bool ValidacionDatos()
-        {
-           
-            else
-            {
-                if (txtPassword.Text.Length < 3)
-                {
-                    MessageBox.Show("La contraseña debe tener al menos 3 caracteres.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                // Verificar que contenga al menos una letra mayúscula, una minúscula y un número
-                if (!txtPassword.Text.Any(char.IsUpper) || !txtPassword.Text.Any(char.IsLower) || !txtPassword.Text.Any(char.IsDigit))
-                {
-                    MessageBox.Show("La contraseña debe contener al menos una letra mayúscula, una minúscula y un número.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-            }
-            return true;
-         }**/
-
         private void btncerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();

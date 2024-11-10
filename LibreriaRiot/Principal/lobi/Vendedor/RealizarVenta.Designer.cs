@@ -30,25 +30,18 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
-            lbProductosAñadidos = new Label();
-            label1 = new Label();
-            txtPrecioTotal = new TextBox();
-            btnRealizarVenta = new FontAwesome.Sharp.IconButton();
-            btnVaciarCarrito = new FontAwesome.Sharp.IconButton();
-            dataGridView1 = new DataGridView();
-            titulo = new DataGridViewTextBoxColumn();
-            autor = new DataGridViewTextBoxColumn();
-            editorial = new DataGridViewTextBoxColumn();
-            genero = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            precioTotal = new DataGridViewTextBoxColumn();
+            lbMensaje = new Label();
+            lbProductos = new Label();
+            lblPrecioTotal = new Label();
+            btnConfirmarCompra = new FontAwesome.Sharp.IconButton();
+            btVaciarCarrito = new FontAwesome.Sharp.IconButton();
+            dataGridDetalleCat = new DataGridView();
             panel2 = new Panel();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             lblCarrito = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridDetalleCat).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,140 +60,111 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
-            panel3.Controls.Add(lbProductosAñadidos);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(txtPrecioTotal);
-            panel3.Controls.Add(btnRealizarVenta);
-            panel3.Controls.Add(btnVaciarCarrito);
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(lbMensaje);
+            panel3.Controls.Add(lbProductos);
+            panel3.Controls.Add(lblPrecioTotal);
+            panel3.Controls.Add(btnConfirmarCompra);
+            panel3.Controls.Add(btVaciarCarrito);
+            panel3.Controls.Add(dataGridDetalleCat);
             panel3.Location = new Point(0, 70);
             panel3.Name = "panel3";
             panel3.Size = new Size(821, 528);
             panel3.TabIndex = 1;
             // 
-            // lbProductosAñadidos
+            // lbMensaje
             // 
-            lbProductosAñadidos.Anchor = AnchorStyles.None;
-            lbProductosAñadidos.AutoSize = true;
-            lbProductosAñadidos.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbProductosAñadidos.ForeColor = SystemColors.Window;
-            lbProductosAñadidos.Location = new Point(77, 9);
-            lbProductosAñadidos.Name = "lbProductosAñadidos";
-            lbProductosAñadidos.Size = new Size(151, 16);
-            lbProductosAñadidos.TabIndex = 53;
-            lbProductosAñadidos.Text = "Productos Añadidos:";
+            lbMensaje.Anchor = AnchorStyles.Top;
+            lbMensaje.AutoSize = true;
+            lbMensaje.BackColor = Color.FromArgb(64, 0, 64);
+            lbMensaje.FlatStyle = FlatStyle.Flat;
+            lbMensaje.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lbMensaje.ForeColor = Color.White;
+            lbMensaje.Location = new Point(334, 217);
+            lbMensaje.Name = "lbMensaje";
+            lbMensaje.Size = new Size(184, 31);
+            lbMensaje.TabIndex = 54;
+            lbMensaje.Text = "Carrito Vacio";
+            lbMensaje.Visible = false;
             // 
-            // label1
+            // lbProductos
             // 
-            label1.Anchor = AnchorStyles.Bottom;
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.Window;
-            label1.Location = new Point(173, 474);
-            label1.Name = "label1";
-            label1.Size = new Size(96, 16);
-            label1.TabIndex = 52;
-            label1.Text = "Precio Total:";
+            lbProductos.Anchor = AnchorStyles.None;
+            lbProductos.AutoSize = true;
+            lbProductos.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbProductos.ForeColor = SystemColors.Window;
+            lbProductos.Location = new Point(77, 9);
+            lbProductos.Name = "lbProductos";
+            lbProductos.Size = new Size(151, 16);
+            lbProductos.TabIndex = 53;
+            lbProductos.Text = "Productos Añadidos:";
             // 
-            // txtPrecioTotal
+            // lblPrecioTotal
             // 
-            txtPrecioTotal.Anchor = AnchorStyles.Bottom;
-            txtPrecioTotal.Location = new Point(271, 472);
-            txtPrecioTotal.Name = "txtPrecioTotal";
-            txtPrecioTotal.ReadOnly = true;
-            txtPrecioTotal.Size = new Size(155, 23);
-            txtPrecioTotal.TabIndex = 51;
+            lblPrecioTotal.Anchor = AnchorStyles.Bottom;
+            lblPrecioTotal.AutoSize = true;
+            lblPrecioTotal.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPrecioTotal.ForeColor = SystemColors.Window;
+            lblPrecioTotal.Location = new Point(77, 474);
+            lblPrecioTotal.Name = "lblPrecioTotal";
+            lblPrecioTotal.Size = new Size(96, 16);
+            lblPrecioTotal.TabIndex = 52;
+            lblPrecioTotal.Text = "Precio Total:";
             // 
-            // btnRealizarVenta
+            // btnConfirmarCompra
             // 
-            btnRealizarVenta.Anchor = AnchorStyles.Bottom;
-            btnRealizarVenta.BackColor = SystemColors.ControlDarkDark;
-            btnRealizarVenta.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnRealizarVenta.FlatAppearance.BorderSize = 2;
-            btnRealizarVenta.FlatStyle = FlatStyle.Flat;
-            btnRealizarVenta.ForeColor = SystemColors.Window;
-            btnRealizarVenta.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
-            btnRealizarVenta.IconColor = Color.White;
-            btnRealizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRealizarVenta.IconSize = 40;
-            btnRealizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRealizarVenta.Location = new Point(628, 462);
-            btnRealizarVenta.Name = "btnRealizarVenta";
-            btnRealizarVenta.Size = new Size(132, 41);
-            btnRealizarVenta.TabIndex = 50;
-            btnRealizarVenta.Text = "Realizar Venta";
-            btnRealizarVenta.TextAlign = ContentAlignment.MiddleRight;
-            btnRealizarVenta.UseVisualStyleBackColor = false;
-            btnRealizarVenta.Click += btnRealizarVenta_Click;
+            btnConfirmarCompra.Anchor = AnchorStyles.Bottom;
+            btnConfirmarCompra.BackColor = SystemColors.ControlDarkDark;
+            btnConfirmarCompra.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btnConfirmarCompra.FlatAppearance.BorderSize = 2;
+            btnConfirmarCompra.FlatStyle = FlatStyle.Flat;
+            btnConfirmarCompra.ForeColor = SystemColors.Window;
+            btnConfirmarCompra.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
+            btnConfirmarCompra.IconColor = Color.White;
+            btnConfirmarCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnConfirmarCompra.IconSize = 40;
+            btnConfirmarCompra.ImageAlign = ContentAlignment.MiddleLeft;
+            btnConfirmarCompra.Location = new Point(628, 462);
+            btnConfirmarCompra.Name = "btnConfirmarCompra";
+            btnConfirmarCompra.Size = new Size(132, 41);
+            btnConfirmarCompra.TabIndex = 50;
+            btnConfirmarCompra.Text = "Realizar Venta";
+            btnConfirmarCompra.TextAlign = ContentAlignment.MiddleRight;
+            btnConfirmarCompra.UseVisualStyleBackColor = false;
+            btnConfirmarCompra.Click += btnConfirmarCompra_Click;
             // 
-            // btnVaciarCarrito
+            // btVaciarCarrito
             // 
-            btnVaciarCarrito.Anchor = AnchorStyles.Bottom;
-            btnVaciarCarrito.BackColor = SystemColors.ControlDarkDark;
-            btnVaciarCarrito.FlatAppearance.BorderColor = SystemColors.ControlDark;
-            btnVaciarCarrito.FlatAppearance.BorderSize = 2;
-            btnVaciarCarrito.FlatStyle = FlatStyle.Flat;
-            btnVaciarCarrito.ForeColor = SystemColors.Window;
-            btnVaciarCarrito.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btnVaciarCarrito.IconColor = Color.White;
-            btnVaciarCarrito.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVaciarCarrito.IconSize = 40;
-            btnVaciarCarrito.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVaciarCarrito.Location = new Point(462, 462);
-            btnVaciarCarrito.Name = "btnVaciarCarrito";
-            btnVaciarCarrito.Size = new Size(132, 41);
-            btnVaciarCarrito.TabIndex = 49;
-            btnVaciarCarrito.Text = "Vaciar Carrito";
-            btnVaciarCarrito.TextAlign = ContentAlignment.MiddleRight;
-            btnVaciarCarrito.UseVisualStyleBackColor = false;
-            btnVaciarCarrito.Click += btnVaciarCarrito_Click;
+            btVaciarCarrito.Anchor = AnchorStyles.Bottom;
+            btVaciarCarrito.BackColor = SystemColors.ControlDarkDark;
+            btVaciarCarrito.FlatAppearance.BorderColor = SystemColors.ControlDark;
+            btVaciarCarrito.FlatAppearance.BorderSize = 2;
+            btVaciarCarrito.FlatStyle = FlatStyle.Flat;
+            btVaciarCarrito.ForeColor = SystemColors.Window;
+            btVaciarCarrito.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btVaciarCarrito.IconColor = Color.White;
+            btVaciarCarrito.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btVaciarCarrito.IconSize = 40;
+            btVaciarCarrito.ImageAlign = ContentAlignment.MiddleLeft;
+            btVaciarCarrito.Location = new Point(462, 462);
+            btVaciarCarrito.Name = "btVaciarCarrito";
+            btVaciarCarrito.Size = new Size(132, 41);
+            btVaciarCarrito.TabIndex = 49;
+            btVaciarCarrito.Text = "Vaciar Carrito";
+            btVaciarCarrito.TextAlign = ContentAlignment.MiddleRight;
+            btVaciarCarrito.UseVisualStyleBackColor = false;
+            btVaciarCarrito.Click += btVaciarCarrito_Click;
             // 
-            // dataGridView1
+            // dataGridDetalleCat
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { titulo, autor, editorial, genero, precio, cantidad, precioTotal });
-            dataGridView1.Location = new Point(77, 28);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(683, 419);
-            dataGridView1.TabIndex = 0;
-            // 
-            // titulo
-            // 
-            titulo.HeaderText = "Titulo";
-            titulo.Name = "titulo";
-            // 
-            // autor
-            // 
-            autor.HeaderText = "Autor";
-            autor.Name = "autor";
-            // 
-            // editorial
-            // 
-            editorial.HeaderText = "Editorial";
-            editorial.Name = "editorial";
-            // 
-            // genero
-            // 
-            genero.HeaderText = "Genero";
-            genero.Name = "genero";
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.Name = "precio";
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.Name = "cantidad";
-            // 
-            // precioTotal
-            // 
-            precioTotal.HeaderText = "Total";
-            precioTotal.Name = "precioTotal";
+            dataGridDetalleCat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridDetalleCat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridDetalleCat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridDetalleCat.Location = new Point(77, 28);
+            dataGridDetalleCat.Name = "dataGridDetalleCat";
+            dataGridDetalleCat.RowTemplate.Height = 25;
+            dataGridDetalleCat.Size = new Size(683, 419);
+            dataGridDetalleCat.TabIndex = 0;
+            dataGridDetalleCat.CellContentClick += dataGridDetalleCat_CellContentClick;
             // 
             // panel2
             // 
@@ -252,10 +216,11 @@
             Controls.Add(panel1);
             Name = "RealizarVenta";
             Text = "RealizarVenta";
+            Load += RealizarVenta_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridDetalleCat).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -265,21 +230,14 @@
 
         private Panel panel1;
         private Panel panel3;
-        private FontAwesome.Sharp.IconButton btnVaciarCarrito;
-        private DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton btVaciarCarrito;
+        private DataGridView dataGridDetalleCat;
         private Panel panel2;
         private Label lblCarrito;
-        private FontAwesome.Sharp.IconButton btnRealizarVenta;
-        private DataGridViewTextBoxColumn titulo;
-        private DataGridViewTextBoxColumn autor;
-        private DataGridViewTextBoxColumn editorial;
-        private DataGridViewTextBoxColumn genero;
-        private DataGridViewTextBoxColumn precio;
-        private DataGridViewTextBoxColumn cantidad;
-        private DataGridViewTextBoxColumn precioTotal;
-        private Label label1;
-        private TextBox txtPrecioTotal;
+        private FontAwesome.Sharp.IconButton btnConfirmarCompra;
+        private Label lblPrecioTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private Label lbProductosAñadidos;
+        private Label lbProductos;
+        private Label lbMensaje;
     }
 }

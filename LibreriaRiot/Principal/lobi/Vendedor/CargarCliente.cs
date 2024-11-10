@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,15 +18,29 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
         private UserType currentUserType;
         private LobiPrincipal instanciaLobi;
         ClienteModel ClienteModel = new ClienteModel();
-        public CargarCliente(LobiPrincipal lobi)
+        private DetalleVenta? _clienteFactura;
+        public CargarCliente(LobiPrincipal lobi,DetalleVenta? clienteFactura)
         {
             InitializeComponent();
-            this.instanciaLobi = lobi;
+            _clienteFactura = clienteFactura;
+            instanciaLobi = lobi;
         }
 
         private void btnVerClientes_Click(object sender, EventArgs e)
         {
-            instanciaLobi.OpenChildForm(new Vendedor.VerClientes(instanciaLobi));
+            this.Close();
+
+           VerClientes? formularioTablaCli = Application.OpenForms.OfType<VerClientes>().FirstOrDefault();
+            if (formularioTablaCli != null)
+            {
+                formularioTablaCli.Show();
+            }
+            else
+            {
+                formularioTablaCli = new VerClientes(instanciaLobi ,_clienteFactura!);
+                formularioTablaCli.Show();
+            }
+
         }
 
         private void msgError(string msg, Label label)

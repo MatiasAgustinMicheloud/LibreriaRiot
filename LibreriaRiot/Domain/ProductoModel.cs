@@ -1,6 +1,7 @@
 ﻿using Common.Models;
 using DataAccess;
 using LibreriaRiot.Common.Models;
+using LibreriaRiot.Principal.lobi.Vendedor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,16 @@ namespace LibreriaRiot.Domain
         public bool ActualizarLibro(int idLibro, string titulo, string descripcion, double precio, string imagen, int stock, string baja, int idCategoria, int idAuotor, int idEditorial)
         {
             return productoDatos.ActualizarLibro(idLibro, titulo, descripcion, precio, imagen, stock, baja, idCategoria, idAuotor, idEditorial);
+        }
+
+        public void LlenarCatalogo(FlowLayoutPanel Contenedor, Catalogo catalog)
+        {
+            productoDatos.LlenarBotones(Contenedor, catalog);
+        }
+
+        public Libro ObtenerLibroId(int idLibro)
+        {
+            return productoDatos.ObtenerProductoId(idLibro);
         }
     }
 }
