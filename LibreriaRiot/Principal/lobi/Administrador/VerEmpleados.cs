@@ -21,10 +21,11 @@ namespace LibreriaRiot.Principal.lobi.Administrador
     {
         private UsuarioModel userModel = new UsuarioModel();
         private UserType currentUserType;
+        private bool edicionRealizada = false;
         private LobiPrincipal instanciaLobi;
         private int idUsuarioSeleccionado = -1;
         UsuarioConInformacion? usuarioSeleccionado;
-        bool edicionRealizada = false;
+
 
         public VerEmpleados(LobiPrincipal lobi)
         {
