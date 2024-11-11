@@ -294,7 +294,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             // Otras configuraciones que puedas necesitar
             dataGridUsuarios.Columns["TipoPerfil"].Visible = false;
             dataGridUsuarios.Columns["Id_Persona"].Visible = false;
-            
+
             CargarUsuarios();
             this.dataGridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsuarios_CellContentClick);
 

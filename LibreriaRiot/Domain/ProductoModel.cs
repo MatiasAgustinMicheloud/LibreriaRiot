@@ -25,6 +25,21 @@ namespace LibreriaRiot.Domain
             return IdEditorial;
         }
 
+        public bool AgregarEditorial(string nombre)
+        {
+            return productoDatos.AgregarEditorial(nombre);
+        }
+
+        public bool AgregarAutor(string nombre)
+        {
+            return productoDatos.AgregarAutor(nombre);
+        }
+
+        public bool AgregarCategoria(string nombre)
+        {
+            return productoDatos.AgregarCategoria(nombre);
+        }
+
         public int ObtenerIdAutor(string autor)
         {
             int IdAutor = productoDatos.ObtenerIdAutor(autor);
@@ -52,6 +67,21 @@ namespace LibreriaRiot.Domain
             return productoDatos.ObtenerEditoriales();
         }
 
+        public List<Editorial> ObtenerTipoEditorial()
+        {
+            return productoDatos.ObtenerTipoEditorial();
+        }
+
+        public List<Autor> ObtenerTipoAutor()
+        {
+            return productoDatos.ObtenerTipoAutor();
+        }
+
+        public List<Categoria> ObtenerTipoCategoria()
+        {
+            return productoDatos.ObtenerTipoCategoria();
+        }
+
         public List<Libro> MostrarProducts()
         {
             return productoDatos.ObtenerProductos();
@@ -68,6 +98,21 @@ namespace LibreriaRiot.Domain
         public bool ActualizarLibro(int idLibro, string titulo, string descripcion, double precio, string imagen, int stock, string baja, int idCategoria, int idAuotor, int idEditorial)
         {
             return productoDatos.ActualizarLibro(idLibro, titulo, descripcion, precio, imagen, stock, baja, idCategoria, idAuotor, idEditorial);
+        }
+
+        public bool ActualizarEditorial(int idEditorial, string nombreNuevo)
+        {
+            return productoDatos.ActualizarEditorial(idEditorial, nombreNuevo);
+        }
+
+        public bool ActualizarAutor(int idEditorial, string nombreNuevo)
+        {
+            return productoDatos.ActualizarAutor(idEditorial, nombreNuevo);
+        }
+
+        public bool ActualizarCategoria(int idEditorial, string nombreNuevo)
+        {
+            return productoDatos.ActualizarCategoria(idEditorial, nombreNuevo);
         }
     }
 }

@@ -51,6 +51,9 @@
             btnGuardar = new FontAwesome.Sharp.IconButton();
             lbErrorMenssage2 = new Label();
             panel2 = new Panel();
+            btnAgregarCategoria = new FontAwesome.Sharp.IconButton();
+            btnAgregarAutor = new FontAwesome.Sharp.IconButton();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             cbAutor = new ComboBox();
             cbEditorial = new ComboBox();
             lbErrorMenssage8 = new Label();
@@ -282,8 +285,8 @@
             // 
             cbCategoria.Anchor = AnchorStyles.None;
             cbCategoria.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Items.AddRange(new object[] { "Romance", "Drama", "Terror", "Fantasia" });
             cbCategoria.Location = new Point(500, 38);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(183, 23);
@@ -331,6 +334,9 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(64, 0, 64);
+            panel2.Controls.Add(btnAgregarCategoria);
+            panel2.Controls.Add(btnAgregarAutor);
+            panel2.Controls.Add(iconButton1);
             panel2.Controls.Add(cbAutor);
             panel2.Controls.Add(cbEditorial);
             panel2.Controls.Add(lbErrorMenssage8);
@@ -363,12 +369,63 @@
             panel2.Size = new Size(800, 381);
             panel2.TabIndex = 1;
             // 
+            // btnAgregarCategoria
+            // 
+            btnAgregarCategoria.Anchor = AnchorStyles.None;
+            btnAgregarCategoria.BackColor = Color.FromArgb(64, 0, 64);
+            btnAgregarCategoria.FlatAppearance.BorderSize = 0;
+            btnAgregarCategoria.FlatStyle = FlatStyle.Flat;
+            btnAgregarCategoria.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            btnAgregarCategoria.IconColor = SystemColors.Window;
+            btnAgregarCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAgregarCategoria.IconSize = 30;
+            btnAgregarCategoria.Location = new Point(689, 35);
+            btnAgregarCategoria.Name = "btnAgregarCategoria";
+            btnAgregarCategoria.Size = new Size(35, 27);
+            btnAgregarCategoria.TabIndex = 34;
+            btnAgregarCategoria.UseVisualStyleBackColor = false;
+            btnAgregarCategoria.Click += btnAgregarCategoria_Click;
+            // 
+            // btnAgregarAutor
+            // 
+            btnAgregarAutor.Anchor = AnchorStyles.None;
+            btnAgregarAutor.BackColor = Color.FromArgb(64, 0, 64);
+            btnAgregarAutor.FlatAppearance.BorderSize = 0;
+            btnAgregarAutor.FlatStyle = FlatStyle.Flat;
+            btnAgregarAutor.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            btnAgregarAutor.IconColor = SystemColors.Window;
+            btnAgregarAutor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAgregarAutor.IconSize = 30;
+            btnAgregarAutor.Location = new Point(374, 128);
+            btnAgregarAutor.Name = "btnAgregarAutor";
+            btnAgregarAutor.Size = new Size(35, 27);
+            btnAgregarAutor.TabIndex = 33;
+            btnAgregarAutor.UseVisualStyleBackColor = false;
+            btnAgregarAutor.Click += btnAgregarAutor_Click;
+            // 
+            // iconButton1
+            // 
+            iconButton1.Anchor = AnchorStyles.None;
+            iconButton1.BackColor = Color.FromArgb(64, 0, 64);
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            iconButton1.IconColor = SystemColors.Window;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(374, 85);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(35, 27);
+            iconButton1.TabIndex = 32;
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click_1;
+            // 
             // cbAutor
             // 
             cbAutor.Anchor = AnchorStyles.None;
             cbAutor.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
+            cbAutor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAutor.FormattingEnabled = true;
-            cbAutor.Items.AddRange(new object[] { "Gabriel García Márquez", "Isabel Allende", "Jorge Luis Borges", "Julio Cortázar", "Mario Vargas Llosa" });
             cbAutor.Location = new Point(185, 131);
             cbAutor.Name = "cbAutor";
             cbAutor.Size = new Size(183, 23);
@@ -378,8 +435,8 @@
             // 
             cbEditorial.Anchor = AnchorStyles.None;
             cbEditorial.AutoCompleteCustomSource.AddRange(new string[] { "Terror", "Romance", "Drama", "Ficcion", "Ciencia Ficcion" });
+            cbEditorial.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEditorial.FormattingEnabled = true;
-            cbEditorial.Items.AddRange(new object[] { "Penguin Random House", "HarperCollins", "Hachette Book Group", "Macmillan Publishers" });
             cbEditorial.Location = new Point(185, 87);
             cbEditorial.Name = "cbEditorial";
             cbEditorial.Size = new Size(183, 23);
@@ -582,5 +639,8 @@
         private Label lbErrorMenssage7;
         private ComboBox cbAutor;
         private ComboBox cbEditorial;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnAgregarCategoria;
+        private FontAwesome.Sharp.IconButton btnAgregarAutor;
     }
 }

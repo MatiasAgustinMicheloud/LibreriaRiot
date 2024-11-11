@@ -13,6 +13,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net;
+using LibreriaRiot.Common.Models;
 
 
 
@@ -337,6 +338,90 @@ namespace DataAccess
             }
         }
 
+        public List<Editorial> ObtenerTipoEditorial()
+        {
+            using (var connection = GetConnection())
+            {
+                List<Editorial> editoriales = new List<Editorial>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT * FROM Editorial";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Editorial ed = new Editorial();
+                            ed.Id_Editorial = reader.GetInt32(0);
+                            ed.NombreEditorial = reader.GetString(1);
+                            editoriales.Add((ed));
+                        }
+                    }
+                }
+
+                return editoriales;
+            }
+        }
+
+        public List<Autor> ObtenerTipoAutor()
+        {
+            using (var connection = GetConnection())
+            {
+                List<Autor> autores = new List<Autor>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT * FROM Autor";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Autor au = new Autor();
+                            au.Id_Autor = reader.GetInt32(0);
+                            au.Nombre = reader.GetString(1);
+                            autores.Add((au));
+                        }
+                    }
+                }
+
+                return autores;
+            }
+        }
+
+        public List<Categoria> ObtenerTipoCategoria()
+        {
+            using (var connection = GetConnection())
+            {
+                List<Categoria> categorias = new List<Categoria>();
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string query = "SELECT * FROM Categoria";
+                    command.CommandText = query;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Categoria ca = new Categoria();
+                            ca.Id_Categoria = reader.GetInt32(0);
+                            ca.Nombre = reader.GetString(1);
+                            categorias.Add((ca));
+                        }
+                    }
+                }
+
+                return categorias;
+            }
+        }
+
         public List<Libro> ObtenerProductos()
         {
             List<Libro> productos = new List<Libro>();
@@ -463,6 +548,94 @@ namespace DataAccess
                 }
             }
         }
-    }
 
+        public bool ActualizarEditorial(int idEditorial, string nombreNuevo)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Editorial SET NombreEditorial = @NombreEditorial WHERE Id_Editorial = @Id_Editorial";
+
+                    command.Parameters.AddWithValue("@NombreEditorial", nombreNuevo);
+                    command.Parameters.AddWithValue("@Id_Editorial", idEditorial);
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
+
+        public bool ActualizarAutor(int id, string nombreNuevo)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Autor SET Nombre = @Nombre WHERE Id_Autor = @Id";
+
+                    command.Parameters.AddWithValue("@Nombre", nombreNuevo);
+                    command.Parameters.AddWithValue("@Id", id);
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        public bool ActualizarCategoria(int id, string nombreNuevo)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Categoria SET Nombre = @Nombre WHERE Id_Categoria = @Id";
+
+                    command.Parameters.AddWithValue("@Nombre", nombreNuevo);
+                    command.Parameters.AddWithValue("@Id", id);
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
+
+
+
+    }
 }

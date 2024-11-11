@@ -239,5 +239,21 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             opcionesEditorial();
             opcionesAutores();
         }
+
+        //Ir al formulario AgregarEditorial
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Administrador.AgregarEditorial(instanciaLobi));
+        }
+
+        private void btnAgregarAutor_Click(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Administrador.AgregarAutor(instanciaLobi));
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            instanciaLobi.OpenChildForm(new Administrador.AgregarCategoria(instanciaLobi));
+        }
     }
 }
