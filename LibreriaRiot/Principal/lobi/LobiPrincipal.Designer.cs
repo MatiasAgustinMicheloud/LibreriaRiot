@@ -45,7 +45,6 @@
             iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             iconButton8 = new FontAwesome.Sharp.IconButton();
             panelMenu = new Panel();
-            iconCargarCliente = new FontAwesome.Sharp.IconButton();
             iconExit = new FontAwesome.Sharp.IconButton();
             iconRespaldo = new FontAwesome.Sharp.IconButton();
             iconUsuarios = new FontAwesome.Sharp.IconButton();
@@ -277,7 +276,6 @@
             // panelMenu
             // 
             panelMenu.BackColor = SystemColors.ControlDarkDark;
-            panelMenu.Controls.Add(iconCargarCliente);
             panelMenu.Controls.Add(iconExit);
             panelMenu.Controls.Add(iconRespaldo);
             panelMenu.Controls.Add(iconUsuarios);
@@ -291,28 +289,6 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(210, 510);
             panelMenu.TabIndex = 1;
-            // 
-            // iconCargarCliente
-            // 
-            iconCargarCliente.Dock = DockStyle.Top;
-            iconCargarCliente.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
-            iconCargarCliente.FlatAppearance.BorderSize = 2;
-            iconCargarCliente.FlatStyle = FlatStyle.Flat;
-            iconCargarCliente.ForeColor = SystemColors.Window;
-            iconCargarCliente.IconChar = FontAwesome.Sharp.IconChar.Users;
-            iconCargarCliente.IconColor = Color.White;
-            iconCargarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconCargarCliente.IconSize = 40;
-            iconCargarCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            iconCargarCliente.Location = new Point(0, 364);
-            iconCargarCliente.Margin = new Padding(4);
-            iconCargarCliente.Name = "iconCargarCliente";
-            iconCargarCliente.Size = new Size(210, 52);
-            iconCargarCliente.TabIndex = 22;
-            iconCargarCliente.Text = "Ver Clientes";
-            iconCargarCliente.UseVisualStyleBackColor = false;
-            iconCargarCliente.Visible = false;
-            iconCargarCliente.Click += iconCargarCliente_Click;
             // 
             // iconExit
             // 
@@ -599,7 +575,6 @@
         private Label lbRol;
         private Label label2;
         private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconCargarCliente;
         private FontAwesome.Sharp.IconButton iconExit;
         private FontAwesome.Sharp.IconButton iconRespaldo;
         private FontAwesome.Sharp.IconButton iconUsuarios;

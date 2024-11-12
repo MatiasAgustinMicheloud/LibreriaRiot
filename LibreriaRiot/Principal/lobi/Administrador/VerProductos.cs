@@ -258,7 +258,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
 
             if (valorBaja == "SI")
             {
-                row.DefaultCellStyle.BackColor = Color.FromArgb(243, 106, 106);
+                row.DefaultCellStyle.BackColor = Color.FromArgb(210, 180, 222);
                 row.DefaultCellStyle.ForeColor = Color.White;
             }
             else

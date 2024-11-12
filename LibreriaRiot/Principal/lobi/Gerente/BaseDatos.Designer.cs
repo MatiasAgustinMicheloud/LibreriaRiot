@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseDatos));
             panel1 = new Panel();
             panel3 = new Panel();
+            lbErrorModificar = new Label();
             iconImportar = new FontAwesome.Sharp.IconButton();
             lbNameDataBase = new Label();
             iconBackup = new FontAwesome.Sharp.IconButton();
@@ -59,6 +61,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(lbErrorModificar);
             panel3.Controls.Add(iconImportar);
             panel3.Controls.Add(lbNameDataBase);
             panel3.Controls.Add(iconBackup);
@@ -70,6 +73,19 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(803, 378);
             panel3.TabIndex = 2;
+            // 
+            // lbErrorModificar
+            // 
+            lbErrorModificar.AutoSize = true;
+            lbErrorModificar.ForeColor = Color.Brown;
+            lbErrorModificar.Image = (Image)resources.GetObject("lbErrorModificar.Image");
+            lbErrorModificar.ImageAlign = ContentAlignment.TopLeft;
+            lbErrorModificar.Location = new Point(280, 315);
+            lbErrorModificar.Name = "lbErrorModificar";
+            lbErrorModificar.Size = new Size(95, 15);
+            lbErrorModificar.TabIndex = 57;
+            lbErrorModificar.Text = "Mensaje de error";
+            lbErrorModificar.Visible = false;
             // 
             // iconImportar
             // 
@@ -126,6 +142,7 @@
             iconBackup.TabIndex = 53;
             iconBackup.Text = "      Realizar BackUp";
             iconBackup.UseVisualStyleBackColor = false;
+            iconBackup.Click += iconBackup_Click;
             // 
             // iconSeleccionar
             // 
@@ -147,6 +164,7 @@
             iconSeleccionar.Text = "Seccione Carpeta";
             iconSeleccionar.TextAlign = ContentAlignment.MiddleRight;
             iconSeleccionar.UseVisualStyleBackColor = false;
+            iconSeleccionar.Click += iconSeleccionar_Click;
             // 
             // textBoxRuta
             // 
@@ -234,5 +252,6 @@
         private TextBox textBoxRuta;
         private Label label2;
         private Label label1;
+        private Label lbErrorModificar;
     }
 }

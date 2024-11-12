@@ -83,7 +83,6 @@ namespace LibreriaRiot.Principal.lobi
             {
                 iconCatalogo.Visible = true;
                 iconMisVentas.Visible = true;
-                iconCargarCliente.Visible = true;
             }
         }
 
@@ -97,8 +96,6 @@ namespace LibreriaRiot.Principal.lobi
                 this.Close();
 
                 // Abrir el formulario de login
-                Login loginForm = new Login(this);
-                loginForm.Show();
             }
         }
 
@@ -232,8 +229,8 @@ namespace LibreriaRiot.Principal.lobi
 
         private void iconCargarCliente_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Vendedor.VerClientes(this));
+            //ActivateButton(sender, RGBColors.color2);
+            //OpenChildForm(new Vendedor.VerClientes(this));
         }
 
         private void iconMisVentas_Click(object sender, EventArgs e)
@@ -251,7 +248,7 @@ namespace LibreriaRiot.Principal.lobi
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             // Crear una instancia de UserModel
-           UsuarioModel userModel = new UsuarioModel();
+            UsuarioModel userModel = new UsuarioModel();
 
             // Obtén el nombre del rol desde la capa de dominio
             int tipoPerfil = UserLoginCache.TipoPerfil; // Quita los paréntesis

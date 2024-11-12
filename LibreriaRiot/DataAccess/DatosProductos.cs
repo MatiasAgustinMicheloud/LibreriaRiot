@@ -13,6 +13,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net;
+using LibreriaRiot.Principal.lobi.Vendedor;
 using LibreriaRiot.Common.Models;
 
 
@@ -629,6 +630,49 @@ namespace DataAccess
                     {
                         Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
                         return false;
+                    }
+                }
+            }
+        }
+
+        public void LlenarBotones(FlowLayoutPanel Contenedor, Catalogo catalog)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Libro WHERE baja = 'NO' AND stock > 0";
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int Id_Libro = Convert.ToInt32(reader[0]);
+                            Libro libro = ObtenerProductoId(Id_Libro);
+
+                            BotonesLibros btn = new BotonesLibros();
+                            btn.idLibro = libro.Id_Libro;
+                            btn.tituloLibro = libro.Titulo!;
+                            btn.descripcionLibro = libro.Descripcion!;
+                            btn.precioLibro = "$" + libro.Precio.ToString("N2");
+                            btn.stockLibro = "Stock " + libro.Stock.ToString();
+                            btn.Autor = libro.Autor!;
+                            btn.Editoriales = libro.Editorial!;
+                            btn.Categorias = libro.Categoria!;
+
+                            // Cargar la imagen desde el archivo y establecerla en el botón
+                            string libroPath = Path.Combine("..", "..", "..", "Principal/lobi/imagenes", libro.Imagen!);
+                            if (File.Exists(libroPath))
+                            {
+                                btn.imagenLibro = Image.FromFile(libroPath);
+                            }
+
+                            Contenedor.Controls.Add(btn);
+                            catalog.listaDeBotones.Add(btn);
+                        }
                     }
                 }
             }

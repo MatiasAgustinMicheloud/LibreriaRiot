@@ -46,7 +46,8 @@ namespace DataAccess
                             string contrasenaCifrada = reader.GetString(reader.GetOrdinal("ContraseñaUsuario"));
 
                             // Verificar si la contraseña ingresada coincide con la contraseña cifrada
-                            if (BCrypt.Net.BCrypt.Verify(pass, contrasenaCifrada)){
+                            if (BCrypt.Net.BCrypt.Verify(pass, contrasenaCifrada))
+                            {
                                 // Las contraseñas coinciden, puedes continuar con el inicio de sesión
                                 UserLoginCache.Id = reader.GetInt32(0);
                                 UserLoginCache.User = reader.GetString(1);
@@ -64,7 +65,7 @@ namespace DataAccess
                                 UserLoginCache.Baja = reader["BajaPersona"] as string;
 
                                 return true;
-                           }
+                            }
                         }
                     }
                     
@@ -551,7 +552,7 @@ namespace DataAccess
                                     DNI = reader.GetString(reader.GetOrdinal("DNI")),
                                     Mail = reader.GetString(reader.GetOrdinal("Mail")),
                                     FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                                    Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
+                                    Telefono = reader.GetString(reader.GetOrdinal("Telefono"))
                                 };
                             }
                         }

@@ -21,10 +21,12 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
         private bool edicionRealizada = false;
         private ClienteConInformacion? clienteSeleccionado;
         private int idClienteSeleccionado = -1;
-        public VerClientes(LobiPrincipal lobi)
+        private DetalleVenta? detalleventa;
+        public VerClientes(LobiPrincipal lobi, DetalleVenta _detalleVenta)
         {
             InitializeComponent();
             this.instanciaLobi = lobi;
+            detalleventa = _detalleVenta;
         }
 
 
@@ -84,68 +86,68 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             // Ocultar todas las etiquetas de error al iniciar la validación
             lbErrorMenssage.Visible = false;
 
-            
+
 
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombre))
             {
                 msgError("Debe ingresar un nombre");
-
+                return;
             }
             else if (nombre.Any(char.IsDigit))
             {
                 msgError("El nombre no puede contener números");
-
+                return;
             }
             else if (string.IsNullOrWhiteSpace(apellido))
             {
                 msgError("Debe ingresar un apellido");
-
+                return;
             }
             else if (apellido.Any(char.IsDigit))
             {
                 msgError("El apellido no puede contener números");
-
+                return;
             }
             else if (string.IsNullOrWhiteSpace(dni))
             {
                 msgError("Debe ingresar DNI");
-
+                return;
             }
             else if (!int.TryParse(dni, out int DNI))
             {
                 msgError("El DNI tiene que ser numérico");
-
+                return;
             }
             else if (string.IsNullOrWhiteSpace(domicilio))
             {
                 msgError("Debe ingresar un domicilio");
-
+                return;
             }
             else if (string.IsNullOrWhiteSpace(telefonoN))
             {
                 msgError("Debe ingresar un teléfono.");
-
+                return;
             }
             else if (!int.TryParse(telefonoN, out int telefono))
             {
                 msgError("EL telefono tiene que ser numérico");
-
+                return;
             }
             else if (string.IsNullOrWhiteSpace(mail))
             {
                 msgError("Debe ingresar un correo electrónico");
-
+                return;
             }
             else if (!IsValidEmail(mail))
             {
                 msgError("El correo electrónico no es válido");
-
+                return;
             }
             else if (fechaNacimiento == DateTime.Now || fechaNacimiento > DateTime.Now)
             {
                 msgError("Debe seleccionar una fecha válida");
-
+                return;
             }
 
             bool cambiosRealizados = !string.Equals(nombre, clienteSeleccionado?.PersonaNombre, StringComparison.OrdinalIgnoreCase) ||
@@ -199,12 +201,34 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
         private void btnRegistrarCliente_Click(object sender, EventArgs e)
         {
-            instanciaLobi.OpenChildForm(new Vendedor.CargarCliente(instanciaLobi));
+            this.Close();
+            CargarCliente cargarCliente = new CargarCliente(instanciaLobi, detalleventa);
+            cargarCliente.Show();
+            cargarCliente.BringToFront();
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            instanciaLobi.OpenChildForm(new Vendedor.DetalleVenta(instanciaLobi));
+            if (clienteSeleccionado != null)
+            {
+                if (clienteSeleccionado.PersonaBaja == "NO")
+                {
+                    int idClienteSeleccionado = clienteSeleccionado.IdCliente;
+
+                    detalleventa!.ActualizarDetallesCliente(idClienteSeleccionado);
+
+                    this.Close();
+                    detalleventa.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Cliente no disponible, seleccione otro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un cliente antes de enviar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void checkBoxSi_CheckedChanged(object sender, EventArgs e)

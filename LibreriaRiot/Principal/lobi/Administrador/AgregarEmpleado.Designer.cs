@@ -324,6 +324,7 @@
             // cbRol
             // 
             cbRol.Anchor = AnchorStyles.None;
+            cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.FormattingEnabled = true;
             cbRol.Location = new Point(499, 90);
             cbRol.Name = "cbRol";

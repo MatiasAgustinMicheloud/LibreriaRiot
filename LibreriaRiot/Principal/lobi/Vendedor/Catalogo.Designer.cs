@@ -30,24 +30,17 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            flowLayoutPanel = new FlowLayoutPanel();
+            lbContador = new Label();
             btnVerCarrito = new FontAwesome.Sharp.IconButton();
-            cBBuscadorPerfil = new ComboBox();
+            cBBuscadorGenero = new ComboBox();
             label6 = new Label();
             label10 = new Label();
             txtBuscadorNombre = new TextBox();
-            dataGridView1 = new DataGridView();
             panel2 = new Panel();
             lblCatalogo = new Label();
-            titulo = new DataGridViewTextBoxColumn();
-            autor = new DataGridViewTextBoxColumn();
-            editorial = new DataGridViewTextBoxColumn();
-            genero = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            agregar = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,27 +52,54 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(-1, -3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(803, 457);
+            panel1.Size = new Size(803, 510);
             panel1.TabIndex = 2;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(flowLayoutPanel);
+            panel3.Controls.Add(lbContador);
             panel3.Controls.Add(btnVerCarrito);
-            panel3.Controls.Add(cBBuscadorPerfil);
+            panel3.Controls.Add(cBBuscadorGenero);
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(txtBuscadorNombre);
-            panel3.Controls.Add(dataGridView1);
             panel3.Location = new Point(0, 70);
             panel3.Name = "panel3";
-            panel3.Size = new Size(803, 384);
+            panel3.Size = new Size(803, 437);
             panel3.TabIndex = 1;
+            // 
+            // flowLayoutPanel
+            // 
+            flowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel.AutoScroll = true;
+            flowLayoutPanel.BackColor = SystemColors.ControlDarkDark;
+            flowLayoutPanel.Location = new Point(12, 66);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(777, 358);
+            flowLayoutPanel.TabIndex = 77;
+            // 
+            // lbContador
+            // 
+            lbContador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbContador.AutoSize = true;
+            lbContador.BackColor = SystemColors.ControlDarkDark;
+            lbContador.FlatStyle = FlatStyle.Flat;
+            lbContador.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbContador.ForeColor = Color.White;
+            lbContador.Location = new Point(696, 19);
+            lbContador.Margin = new Padding(0);
+            lbContador.Name = "lbContador";
+            lbContador.Size = new Size(21, 24);
+            lbContador.TabIndex = 76;
+            lbContador.Text = "0";
+            lbContador.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnVerCarrito
             // 
-            btnVerCarrito.Anchor = AnchorStyles.Top;
+            btnVerCarrito.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVerCarrito.BackColor = SystemColors.ControlDarkDark;
             btnVerCarrito.FlatAppearance.BorderColor = SystemColors.ControlDark;
             btnVerCarrito.FlatAppearance.BorderSize = 2;
@@ -90,32 +110,31 @@
             btnVerCarrito.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVerCarrito.IconSize = 40;
             btnVerCarrito.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVerCarrito.Location = new Point(611, 13);
+            btnVerCarrito.Location = new Point(647, 13);
             btnVerCarrito.Name = "btnVerCarrito";
-            btnVerCarrito.Size = new Size(112, 41);
+            btnVerCarrito.Size = new Size(142, 41);
             btnVerCarrito.TabIndex = 49;
             btnVerCarrito.Text = "Ver Carrito";
             btnVerCarrito.TextAlign = ContentAlignment.MiddleRight;
             btnVerCarrito.UseVisualStyleBackColor = false;
             btnVerCarrito.Click += btnVerCarrito_Click;
             // 
-            // cBBuscadorPerfil
+            // cBBuscadorGenero
             // 
-            cBBuscadorPerfil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            cBBuscadorPerfil.FormattingEnabled = true;
-            cBBuscadorPerfil.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
-            cBBuscadorPerfil.Location = new Point(333, 23);
-            cBBuscadorPerfil.Name = "cBBuscadorPerfil";
-            cBBuscadorPerfil.Size = new Size(125, 23);
-            cBBuscadorPerfil.TabIndex = 45;
+            cBBuscadorGenero.FormattingEnabled = true;
+            cBBuscadorGenero.Items.AddRange(new object[] { "Administrador", "Gerente", "Vendedor" });
+            cBBuscadorGenero.Location = new Point(263, 23);
+            cBBuscadorGenero.Name = "cBBuscadorGenero";
+            cBBuscadorGenero.Size = new Size(125, 23);
+            cBBuscadorGenero.TabIndex = 45;
+            cBBuscadorGenero.SelectedIndexChanged += cBBuscadorPerfil_SelectedIndexChanged;
             // 
             // label6
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.Window;
-            label6.Location = new Point(265, 25);
+            label6.Location = new Point(195, 25);
             label6.Name = "label6";
             label6.Size = new Size(62, 16);
             label6.TabIndex = 44;
@@ -123,11 +142,10 @@
             // 
             // label10
             // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = SystemColors.Window;
-            label10.Location = new Point(85, 25);
+            label10.Location = new Point(15, 25);
             label10.Name = "label10";
             label10.Size = new Size(50, 16);
             label10.TabIndex = 41;
@@ -135,23 +153,11 @@
             // 
             // txtBuscadorNombre
             // 
-            txtBuscadorNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            txtBuscadorNombre.Location = new Point(141, 23);
+            txtBuscadorNombre.Location = new Point(71, 23);
             txtBuscadorNombre.Name = "txtBuscadorNombre";
             txtBuscadorNombre.Size = new Size(114, 23);
             txtBuscadorNombre.TabIndex = 40;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { titulo, autor, editorial, genero, stock, precio, agregar });
-            dataGridView1.Location = new Point(71, 68);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(663, 303);
-            dataGridView1.TabIndex = 0;
+            txtBuscadorNombre.TextChanged += txtBuscadorNombre_TextChanged;
             // 
             // panel2
             // 
@@ -176,55 +182,18 @@
             lblCatalogo.Text = "Catalogo";
             lblCatalogo.TextAlign = ContentAlignment.TopCenter;
             // 
-            // titulo
-            // 
-            titulo.HeaderText = "Titulo";
-            titulo.Name = "titulo";
-            // 
-            // autor
-            // 
-            autor.HeaderText = "Autor";
-            autor.Name = "autor";
-            // 
-            // editorial
-            // 
-            editorial.HeaderText = "Editorial";
-            editorial.Name = "editorial";
-            // 
-            // genero
-            // 
-            genero.HeaderText = "Genero";
-            genero.Name = "genero";
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.Name = "stock";
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.Name = "precio";
-            // 
-            // agregar
-            // 
-            agregar.FlatStyle = FlatStyle.System;
-            agregar.HeaderText = "Agregar al carrito";
-            agregar.Name = "agregar";
-            agregar.Text = "Agregar";
-            // 
             // Catalogo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 503);
             Controls.Add(panel1);
             Name = "Catalogo";
             Text = "Catalogo";
+            Load += Catalogo_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -234,20 +203,14 @@
 
         private Panel panel1;
         private Panel panel3;
-        private ComboBox cBBuscadorPerfil;
+        private ComboBox cBBuscadorGenero;
         private Label label6;
         private Label label10;
         private TextBox txtBuscadorNombre;
-        private DataGridView dataGridView1;
         private Panel panel2;
         private Label lblCatalogo;
         private FontAwesome.Sharp.IconButton btnVerCarrito;
-        private DataGridViewTextBoxColumn titulo;
-        private DataGridViewTextBoxColumn autor;
-        private DataGridViewTextBoxColumn editorial;
-        private DataGridViewTextBoxColumn genero;
-        private DataGridViewTextBoxColumn stock;
-        private DataGridViewTextBoxColumn precio;
-        private DataGridViewButtonColumn agregar;
+        private Label lbContador;
+        private FlowLayoutPanel flowLayoutPanel;
     }
 }

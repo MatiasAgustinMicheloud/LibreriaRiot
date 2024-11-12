@@ -593,6 +593,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "VerClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "VerClientes";
             Load += VerClientes_Load;
             panel3.ResumeLayout(false);

@@ -1,59 +1,34 @@
-﻿using Common.Cache;
-using Common.Models;
+﻿using Common.Models;
 using LibreriaRiot.Domain;
-using Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibreriaRiot.Principal.lobi.Vendedor
 {
-    public partial class DetalleFactura : Form
+    public partial class FacturaReImpresion : Form
     {
-        private LobiPrincipal instanciaLobi;
-        private Ventas factura = new Ventas();
         private SaleModel sale = new SaleModel();
-        public DetalleFactura(LobiPrincipal lobi, Ventas _venta)
+        private List<Ventas> _detallesVenta;
+        Ventas _cabeceraVentas;
+
+        public FacturaReImpresion(List<Ventas> detallesVenta, Ventas cabeceraVentas)
         {
             InitializeComponent();
-            this.instanciaLobi = lobi;
-            factura = _venta;
+            _detallesVenta = detallesVenta;
+            _cabeceraVentas = cabeceraVentas;
         }
 
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            instanciaLobi.FormClosed += (s, args) => this.Close();
-            instanciaLobi.Show();
-        }
-
-        private void datosCabecera()
-        {
-            lbNumeroFactura.Text = "Factura N°:" + sale.ObtenerUltimoIdVentaCabecera().ToString();
-            lbNombreCliente.Text = "Cliente: " + factura.NombreCliente!.ToString() + "  " + factura.ApellidoCliente!;
-            lbDNICliente.Text = "DNI: " + factura.DNICliente!.ToString();
-            lbTelefono.Text = "Telefono: " + factura.Telefono!.ToString();
-            lbDireccion.Text = "Direccion: " + factura.Domicilio!.ToString();
-            lbPago.Text = "Metodo De Pago: " + factura.TipoPago;
-            lbFactura.Text = "Tipo De Factura: " + factura.TipoFactura;
-            lbFechaFactura.Text = "Fecha " + factura.FechaFactura.ToString();
-            lbNombreVendedor.Text = "Vendedor: " + factura.NombreVendedor!.ToString() + " " + factura.ApellidoVendedor;
-            lbDNIVendedor.Text = "DNI: " + factura.DNIVendedor!.ToString();
-            lbTotal.Text = "Total: $" + factura.MontoTotal.ToString();
-        }
-
-        private void DetalleFactura_Load(object sender, EventArgs e)
+        private void FacturaReImpresion_Load(object sender, EventArgs e)
         {
             datosCabecera();
-            dataGridFactura.DataSource = sale.ObtenerDetalleFacturaUltimaCabecera()!;
+            dataGridFactura.DataSource = _detallesVenta;
             DatosOcultos();
         }
 
@@ -86,5 +61,19 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             dataGridFactura.Columns["SubTotalProducto"].DisplayIndex = dataGridFactura.Columns.Count - 1;
         }
 
+        private void datosCabecera()
+        {
+            lbNumeroFactura.Text = "Factura NÂ°:" + _cabeceraVentas.Id_VentaCabecera.ToString();
+            lbNombreCliente.Text = "Cliente: " + _cabeceraVentas.NombreCliente!.ToString() + " " + _cabeceraVentas.ApellidoCliente!;
+            lbDNICliente.Text = "DNI: " + _cabeceraVentas.DNICliente!.ToString();
+            lbTelefono.Text = "Telefono: " + _cabeceraVentas.Telefono?.ToString();
+            lbDireccion.Text = "Direccion: " + _cabeceraVentas.Domicilio?.ToString();
+            lbPago.Text = "Metodo De Pago: " + _cabeceraVentas.TipoPago;
+            lbFactura.Text = "Tipo De Factura: " + _cabeceraVentas.TipoFactura;
+            lbFechaFactura.Text = "Fecha " + _cabeceraVentas.FechaFactura.ToString();
+            lbNombreVendedor.Text = "Vendedor: " + _cabeceraVentas.NombreVendedor!.ToString() + " " + _cabeceraVentas.ApellidoVendedor;
+            lbDNIVendedor.Text = "DNI: " + _cabeceraVentas.DNIVendedor?.ToString();
+            lbTotal.Text = "Total: $" + _cabeceraVentas.MontoTotal.ToString();
+        }
     }
 }

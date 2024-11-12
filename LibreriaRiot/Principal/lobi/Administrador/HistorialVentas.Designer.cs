@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialVentas));
             panel3 = new Panel();
+            label12 = new Label();
+            label13 = new Label();
+            dateTimePickerHasta = new DateTimePicker();
+            dateTimePickerDesde = new DateTimePicker();
             label11 = new Label();
-            txtBuscadorAutor = new TextBox();
+            txtBuscadorNombre = new TextBox();
             label10 = new Label();
-            txtBuscadorTitulo = new TextBox();
-            dataGridView1 = new DataGridView();
+            txtBuscadorApellido = new TextBox();
+            dataGridVentas = new DataGridView();
             panel2 = new Panel();
             lbBaja = new Label();
             checkBoxNo = new CheckBox();
@@ -68,8 +72,10 @@
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             lblHistorialVentas = new Label();
+            txBuscadorDni = new TextBox();
+            label14 = new Label();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVentas).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).BeginInit();
             panel1.SuspendLayout();
@@ -82,34 +88,96 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(64, 0, 64);
+            panel3.Controls.Add(label14);
+            panel3.Controls.Add(txBuscadorDni);
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(label13);
+            panel3.Controls.Add(dateTimePickerHasta);
+            panel3.Controls.Add(dateTimePickerDesde);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtBuscadorAutor);
+            panel3.Controls.Add(txtBuscadorNombre);
             panel3.Controls.Add(label10);
-            panel3.Controls.Add(txtBuscadorTitulo);
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(txtBuscadorApellido);
+            panel3.Controls.Add(dataGridVentas);
             panel3.Location = new Point(0, 65);
             panel3.Name = "panel3";
             panel3.Size = new Size(924, 517);
             panel3.TabIndex = 24;
             panel3.Paint += panel3_Paint;
             // 
+            // label12
+            // 
+            label12.Anchor = AnchorStyles.Top;
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.FlatStyle = FlatStyle.Flat;
+            label12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(752, 19);
+            label12.Name = "label12";
+            label12.Size = new Size(48, 16);
+            label12.TabIndex = 59;
+            label12.Text = "Hasta";
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Top;
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.FlatStyle = FlatStyle.Flat;
+            label13.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(574, 20);
+            label13.Name = "label13";
+            label13.Size = new Size(53, 16);
+            label13.TabIndex = 56;
+            label13.Text = "Desde";
+            // 
+            // dateTimePickerHasta
+            // 
+            dateTimePickerHasta.Anchor = AnchorStyles.Top;
+            dateTimePickerHasta.CalendarFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerHasta.CalendarForeColor = Color.IndianRed;
+            dateTimePickerHasta.CalendarMonthBackground = SystemColors.MenuHighlight;
+            dateTimePickerHasta.CalendarTitleBackColor = Color.DarkSlateGray;
+            dateTimePickerHasta.CalendarTitleForeColor = SystemColors.ActiveCaption;
+            dateTimePickerHasta.CalendarTrailingForeColor = Color.CadetBlue;
+            dateTimePickerHasta.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerHasta.Location = new Point(802, 17);
+            dateTimePickerHasta.Name = "dateTimePickerHasta";
+            dateTimePickerHasta.Size = new Size(109, 21);
+            dateTimePickerHasta.TabIndex = 58;
+            dateTimePickerHasta.ValueChanged += dateTimePickerHasta_ValueChanged;
+            // 
+            // dateTimePickerDesde
+            // 
+            dateTimePickerDesde.Anchor = AnchorStyles.Top;
+            dateTimePickerDesde.CalendarFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerDesde.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerDesde.Location = new Point(633, 18);
+            dateTimePickerDesde.Name = "dateTimePickerDesde";
+            dateTimePickerDesde.Size = new Size(109, 21);
+            dateTimePickerDesde.TabIndex = 57;
+            dateTimePickerDesde.ValueChanged += dateTimePickerDesde_ValueChanged;
+            // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label11.ForeColor = SystemColors.Window;
-            label11.Location = new Point(217, 19);
+            label11.Location = new Point(203, 19);
             label11.Name = "label11";
             label11.Size = new Size(66, 16);
             label11.TabIndex = 26;
             label11.Text = "Nombre:";
             // 
-            // txtBuscadorAutor
+            // txtBuscadorNombre
             // 
-            txtBuscadorAutor.Location = new Point(289, 16);
-            txtBuscadorAutor.Name = "txtBuscadorAutor";
-            txtBuscadorAutor.Size = new Size(114, 23);
-            txtBuscadorAutor.TabIndex = 25;
+            txtBuscadorNombre.Location = new Point(275, 16);
+            txtBuscadorNombre.Name = "txtBuscadorNombre";
+            txtBuscadorNombre.Size = new Size(114, 23);
+            txtBuscadorNombre.TabIndex = 25;
+            txtBuscadorNombre.TextChanged += txtBuscadorAutor_TextChanged;
             // 
             // label10
             // 
@@ -122,63 +190,65 @@
             label10.TabIndex = 24;
             label10.Text = "Apellido:";
             // 
-            // txtBuscadorTitulo
+            // txtBuscadorApellido
             // 
-            txtBuscadorTitulo.Location = new Point(81, 17);
-            txtBuscadorTitulo.Name = "txtBuscadorTitulo";
-            txtBuscadorTitulo.Size = new Size(116, 23);
-            txtBuscadorTitulo.TabIndex = 23;
+            txtBuscadorApellido.Location = new Point(81, 17);
+            txtBuscadorApellido.Name = "txtBuscadorApellido";
+            txtBuscadorApellido.Size = new Size(116, 23);
+            txtBuscadorApellido.TabIndex = 23;
+            txtBuscadorApellido.TextChanged += txtBuscadorTitulo_TextChanged;
             // 
-            // dataGridView1
+            // dataGridVentas
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView1.BackgroundColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Purple;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 0, 64);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.GridColor = Color.Gray;
-            dataGridView1.Location = new Point(12, 45);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Purple;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(897, 460);
-            dataGridView1.TabIndex = 22;
+            dataGridVentas.AllowUserToAddRows = false;
+            dataGridVentas.AllowUserToDeleteRows = false;
+            dataGridVentas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridVentas.BackgroundColor = Color.FromArgb(64, 0, 64);
+            dataGridVentas.BorderStyle = BorderStyle.None;
+            dataGridVentas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridVentas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.Purple;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(64, 0, 64);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dataGridVentas.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridVentas.GridColor = Color.Gray;
+            dataGridVentas.Location = new Point(12, 45);
+            dataGridVentas.MultiSelect = false;
+            dataGridVentas.Name = "dataGridVentas";
+            dataGridVentas.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dataGridVentas.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridVentas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = Color.Purple;
+            dataGridViewCellStyle12.SelectionForeColor = Color.White;
+            dataGridVentas.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridVentas.RowTemplate.Height = 25;
+            dataGridVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridVentas.Size = new Size(897, 460);
+            dataGridVentas.TabIndex = 22;
+            dataGridVentas.CellContentClick += dataGridVentas_CellContentClick;
             // 
             // panel2
             // 
@@ -517,6 +587,25 @@
             lblHistorialVentas.TabIndex = 0;
             lblHistorialVentas.Text = "Historial De Ventas";
             // 
+            // txBuscadorDni
+            // 
+            txBuscadorDni.Location = new Point(454, 16);
+            txBuscadorDni.Name = "txBuscadorDni";
+            txBuscadorDni.Size = new Size(114, 23);
+            txBuscadorDni.TabIndex = 60;
+            txBuscadorDni.TextChanged += txBuscadorDni_TextChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.ForeColor = SystemColors.Window;
+            label14.Location = new Point(411, 20);
+            label14.Name = "label14";
+            label14.Size = new Size(37, 16);
+            label14.TabIndex = 61;
+            label14.Text = "DNI:";
+            // 
             // HistorialVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -530,7 +619,7 @@
             Load += HistorialVentas_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVentas).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbPortada).EndInit();
@@ -546,10 +635,10 @@
 
         private Panel panel3;
         private Label label11;
-        private TextBox txtBuscadorAutor;
+        private TextBox txtBuscadorNombre;
         private Label label10;
-        private TextBox txtBuscadorTitulo;
-        private DataGridView dataGridView1;
+        private TextBox txtBuscadorApellido;
+        private DataGridView dataGridVentas;
         private Panel panel2;
         private Label lbBaja;
         private CheckBox checkBoxNo;
@@ -579,5 +668,11 @@
         private PictureBox pictureBox3;
         private Label lblHistorialVentas;
         private PictureBox pictureBox2;
+        private Label label12;
+        private Label label13;
+        private DateTimePicker dateTimePickerHasta;
+        private DateTimePicker dateTimePickerDesde;
+        private Label label14;
+        private TextBox txBuscadorDni;
     }
 }

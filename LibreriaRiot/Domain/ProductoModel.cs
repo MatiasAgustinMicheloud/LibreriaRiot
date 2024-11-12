@@ -1,6 +1,7 @@
 ﻿using Common.Models;
 using DataAccess;
 using LibreriaRiot.Common.Models;
+using LibreriaRiot.Principal.lobi.Vendedor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -114,5 +115,16 @@ namespace LibreriaRiot.Domain
         {
             return productoDatos.ActualizarCategoria(idEditorial, nombreNuevo);
         }
+
+        public void LlenarCatalogo(FlowLayoutPanel Contenedor, Catalogo catalog)
+        {
+            productoDatos.LlenarBotones(Contenedor, catalog);
+        }
+
+        public Libro ObtenerLibroId(int idLibro)
+        {
+            return productoDatos.ObtenerProductoId(idLibro);
+        }
+
     }
 }
