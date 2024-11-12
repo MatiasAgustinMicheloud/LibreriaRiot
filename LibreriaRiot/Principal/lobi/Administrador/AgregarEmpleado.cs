@@ -117,7 +117,7 @@ namespace LibreriaRiot.Principal.lobi.Administrador
             {
                 msgError("Debe ingresar un teléfono.", lbErrorMenssage7);
             }
-            else if (!int.TryParse(telefonoN, out int telefono))
+            else if (!long.TryParse(telefonoN, out long telefono))
             {
                 msgError("Este campo tiene que ser numérico", lbErrorMenssage7);
             }

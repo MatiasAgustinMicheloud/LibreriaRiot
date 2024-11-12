@@ -89,7 +89,7 @@
             lbContador.FlatStyle = FlatStyle.Flat;
             lbContador.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbContador.ForeColor = Color.White;
-            lbContador.Location = new Point(696, 19);
+            lbContador.Location = new Point(649, 23);
             lbContador.Margin = new Padding(0);
             lbContador.Name = "lbContador";
             lbContador.Size = new Size(21, 24);
@@ -110,9 +110,9 @@
             btnVerCarrito.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVerCarrito.IconSize = 40;
             btnVerCarrito.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVerCarrito.Location = new Point(647, 13);
+            btnVerCarrito.Location = new Point(673, 13);
             btnVerCarrito.Name = "btnVerCarrito";
-            btnVerCarrito.Size = new Size(142, 41);
+            btnVerCarrito.Size = new Size(116, 41);
             btnVerCarrito.TabIndex = 49;
             btnVerCarrito.Text = "Ver Carrito";
             btnVerCarrito.TextAlign = ContentAlignment.MiddleRight;
