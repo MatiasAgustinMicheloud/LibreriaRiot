@@ -85,22 +85,25 @@
             // chart2
             // 
             chart2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            chart2.BorderlineColor = Color.Transparent;
             chartArea1.Name = "ChartArea1";
             chart2.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chart2.Legends.Add(legend1);
             chart2.Location = new Point(82, 66);
             chart2.Name = "chart2";
+            series1.BackSecondaryColor = Color.White;
+            series1.BorderColor = Color.Black;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.Color = Color.Red;
+            series1.LabelForeColor = Color.LightGray;
             series1.Legend = "Legend1";
-            series1.Name = "Gastos";
+            series1.Name = " ";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             series2.Legend = "Legend1";
             series2.Name = "Ingresos";
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Legend = "Legend1";
             series3.Name = "Ganancias";
             chart2.Series.Add(series1);
@@ -110,7 +113,6 @@
             chart2.TabIndex = 51;
             chart2.Text = "Finanzas";
             chart2.Visible = false;
-            chart2.Click += chrFinanzas_Click;
             // 
             // chart1
             // 
