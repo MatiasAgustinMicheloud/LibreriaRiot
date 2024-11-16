@@ -314,9 +314,9 @@
             lbDeNacimiento.ForeColor = Color.FromArgb(241, 241, 241);
             lbDeNacimiento.Location = new Point(311, 248);
             lbDeNacimiento.Name = "lbDeNacimiento";
-            lbDeNacimiento.Size = new Size(125, 21);
+            lbDeNacimiento.Size = new Size(171, 21);
             lbDeNacimiento.TabIndex = 41;
-            lbDeNacimiento.Text = "Fecha de Carga";
+            lbDeNacimiento.Text = "Fecha de Nacimiento";
             // 
             // label6
             // 

@@ -436,7 +436,7 @@ namespace DataAccess
         public bool CumpleCondicionesFechaNacimiento(DateTime fechaNacimiento)
         {
             int edad = CalcularEdad(fechaNacimiento);
-            if (edad >= 18 && edad <= 99)
+            if (edad >= 10 && edad <= 99)
             {
                 return true;
             }

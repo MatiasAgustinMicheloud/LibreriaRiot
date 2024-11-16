@@ -189,6 +189,7 @@
             // 
             // cBBuscadorPerfil
             // 
+            cBBuscadorPerfil.DropDownStyle = ComboBoxStyle.DropDownList;
             cBBuscadorPerfil.FormattingEnabled = true;
             cBBuscadorPerfil.Location = new Point(424, 18);
             cBBuscadorPerfil.Name = "cBBuscadorPerfil";

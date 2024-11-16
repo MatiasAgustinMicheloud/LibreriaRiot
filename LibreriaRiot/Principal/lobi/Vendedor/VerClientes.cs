@@ -263,50 +263,44 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             if (!edicionRealizada && e.RowIndex >= 0)
             {
                 edicionRealizada = true;
-                DialogResult confirmResult = MessageBox.Show("Usted esta por realizar una Edición.En caso de que no lo desee vacie Los campos", "Informe de edición", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (confirmResult == DialogResult.OK)
+                txtNombre.Enabled = true;
+                txtApellido.Enabled = true;
+                checkBoxSi.Enabled = true;
+                checkBoxNo.Enabled = true;
+                txtDNI.Enabled = true;
+                txtEmail.Enabled = true;
+                txtTelefono.Enabled = true;
+                txtDomicilio.Enabled = true;
+                dtFechaNac.Enabled = true;
+                btnLimpiar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnElegir.Enabled = true;
+
+                DataGridViewRow row = dataGridCliente.Rows[e.RowIndex];
+
+                clienteSeleccionado = (ClienteConInformacion)row.DataBoundItem;
+                idClienteSeleccionado = clienteSeleccionado.IdCliente;
+
+                txtNombre.Text = clienteSeleccionado.PersonaNombre;
+                txtApellido.Text = clienteSeleccionado.PersonaApellido;
+                txtDNI.Text = clienteSeleccionado.PersonaDNI;
+                txtEmail.Text = clienteSeleccionado.PersonaMail;
+                txtTelefono.Text = clienteSeleccionado.PersonaTelefono;
+                txtDomicilio.Text = clienteSeleccionado.Domicilio;
+                dtFechaNac.Value = clienteSeleccionado.PersonaFechaNacimiento;
+
+                if (clienteSeleccionado.PersonaBaja == "SI")
                 {
-                    txtNombre.Enabled = true;
-                    txtApellido.Enabled = true;
-                    checkBoxSi.Enabled = true;
-                    checkBoxNo.Enabled = true;
-                    txtDNI.Enabled = true;
-                    txtEmail.Enabled = true;
-                    txtTelefono.Enabled = true;
-                    txtDomicilio.Enabled = true;
-                    dtFechaNac.Enabled = true;
-                    btnLimpiar.Enabled = true;
-                    btnEditar.Enabled = true;
-                    btnElegir.Enabled = true;
-
-                    DataGridViewRow row = dataGridCliente.Rows[e.RowIndex];
-
-                    clienteSeleccionado = (ClienteConInformacion)row.DataBoundItem;
-                    idClienteSeleccionado = clienteSeleccionado.IdCliente;
-
-                    txtNombre.Text = clienteSeleccionado.PersonaNombre;
-                    txtApellido.Text = clienteSeleccionado.PersonaApellido;
-                    txtDNI.Text = clienteSeleccionado.PersonaDNI;
-                    txtEmail.Text = clienteSeleccionado.PersonaMail;
-                    txtTelefono.Text = clienteSeleccionado.PersonaTelefono;
-                    txtDomicilio.Text = clienteSeleccionado.Domicilio;
-                    dtFechaNac.Value = clienteSeleccionado.PersonaFechaNacimiento;
-
-                    if (clienteSeleccionado.PersonaBaja == "SI")
-                    {
-                        checkBoxSi.Checked = true;
-                        checkBoxNo.Checked = false;
-                    }
-                    else
-                    {
-                        checkBoxSi.Checked = false;
-                        checkBoxNo.Checked = true;
-                    }
+                    checkBoxSi.Checked = true;
+                    checkBoxNo.Checked = false;
+                }
+                else
+                {
+                    checkBoxSi.Checked = false;
+                    checkBoxNo.Checked = true;
                 }
             }
-
-
         }
 
         private void VerClientes_Load(object sender, EventArgs e)
