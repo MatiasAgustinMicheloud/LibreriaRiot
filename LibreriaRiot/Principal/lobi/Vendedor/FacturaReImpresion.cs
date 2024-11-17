@@ -91,7 +91,8 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
                 printDocument.DefaultPageSettings.Landscape = false;
                 printDocument.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
 
-                string numeroFactura = sale.ObtenerUltimoIdVentaCabecera().ToString();
+
+                string numeroFactura = _cabeceraVentas.Id_VentaCabecera.ToString();
                 string fechaHora = DateTime.Now.ToString("yyyyMMddHHmmss");
                 string nombreArchivo = $"Factura_{numeroFactura}.pdf";
 

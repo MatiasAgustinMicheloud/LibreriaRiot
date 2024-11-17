@@ -109,7 +109,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
                 string numeroFactura = sale.ObtenerUltimoIdVentaCabecera().ToString();
                 string fechaHora = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string nombreArchivo = $"Factura_" + numeroFactura + ".pdf";
+                string nombreArchivo = "Factura_" + numeroFactura + ".pdf";
 
                 // Configurar el diálogo de guardado de archivo
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
