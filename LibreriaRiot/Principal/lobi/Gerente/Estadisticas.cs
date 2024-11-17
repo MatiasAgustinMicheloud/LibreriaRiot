@@ -69,30 +69,64 @@ namespace LibreriaRiot.Principal.lobi.Gerente
 
         private void estadisticasClientes()
         {
-            List<Tuple<string, float>> clientesDestacados = statistics.ClientesDestacados();
+            // Obtener los datos de los clientes destacados
+            List<Tuple<int, string, float>> clientesDestacados = statistics.ClientesDestacados();
             chart1.Series.Clear();
 
-            Series series = new Series();
-            series.ChartType = SeriesChartType.Pie;  // Cambiado a gráfico de puntos (redondos)
-            series.Name = "Destacados";
-
-            foreach (var cliente in clientesDestacados)
+            // Verifica si hay datos para mostrar
+            if (clientesDestacados.Count == 0)
             {
-                DataPoint dataPoint = new DataPoint();
-                dataPoint.YValues = new double[] { cliente.Item2 };
-                dataPoint.AxisLabel = cliente.Item1;
-                dataPoint.LegendText = cliente.Item1;
-                series.Points.Add(dataPoint);
-                dataPoint.LabelAngle = -90;
+                MessageBox.Show("No hay datos disponibles para mostrar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
+            // Crear una nueva serie para el gráfico
+            Series series = new Series
+            {
+                ChartType = SeriesChartType.Column,
+                Name = "Clientes Destacados",
+                IsValueShownAsLabel = true, // Mostrar los valores sobre las barras
+                BorderWidth = 2 // Aumentar el grosor de los bordes de las barras
+            };
+
+            // Asignar colores a las barras
+            Color[] colores = { Color.Blue, Color.Red, Color.Green, Color.Orange, Color.Purple };
+
+            // Añadir los puntos al gráfico
+            int colorIndex = 0;
+            foreach (var cliente in clientesDestacados)
+            {
+                string nombreCompleto = cliente.Item2; // Nombre del cliente
+                float totalVentas = cliente.Item3;     // Total de ventas
+
+                // Crear un nuevo punto de datos
+                int puntoIndex = series.Points.AddY(totalVentas);
+                series.Points[puntoIndex].AxisLabel = nombreCompleto; // Asignar etiqueta al eje X
+                series.Points[puntoIndex].Label = $"${totalVentas:N2}"; // Mostrar valor en la barra
+                series.Points[puntoIndex].Color = colores[colorIndex % colores.Length]; // Asignar color
+
+                colorIndex++; // Avanzar al siguiente color
+            }
+
+            // Añadir la serie al gráfico
             chart1.Series.Add(series);
 
-            chart1.Titles.Add("Clientes Destacados").Font = new Font("Century Gothic", 11, FontStyle.Regular);
-            chart1.ChartAreas[0].AxisX.TitleFont = new Font("Century Gothic", 8, FontStyle.Regular);
-            chart1.ChartAreas[0].AxisY.TitleFont = new Font("Century Gothic", 8, FontStyle.Regular);
+            // Configurar el área del gráfico
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.IsLabelAutoFit = false;
+            chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Rotar etiquetas para mejor lectura
+            chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Century Gothic", 8, FontStyle.Regular);
+            chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Century Gothic", 8, FontStyle.Regular);
             chart1.ChartAreas[0].AxisX.Title = "Clientes";
-            chart1.ChartAreas[0].AxisY.Title = "Total-Ventas";
+            chart1.ChartAreas[0].AxisY.Title = "Total Ventas ($)";
+            chart1.ChartAreas[0].AxisY.TitleFont = new Font("Century Gothic", 10, FontStyle.Bold);
+
+            // Configurar el título del gráfico
+            chart1.Titles.Clear();
+            chart1.Titles.Add("Clientes Destacados");
+            chart1.Titles[0].Font = new Font("Century Gothic", 12, FontStyle.Bold);
+
+            // Refrescar para mostrar cambios
             chart1.Invalidate();
         }
 

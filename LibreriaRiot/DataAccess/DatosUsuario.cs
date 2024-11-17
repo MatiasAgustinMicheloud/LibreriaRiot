@@ -15,8 +15,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net;
 
 
-
-
 //Clase para los datos del usuario
 namespace DataAccess
 {
@@ -68,7 +66,7 @@ namespace DataAccess
                             }
                         }
                     }
-                    
+
                     return false;
                 }
             }

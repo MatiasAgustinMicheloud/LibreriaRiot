@@ -13,19 +13,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Drawing.Printing;
+using FontAwesome.Sharp;
 
 namespace LibreriaRiot.Principal.lobi.Vendedor
 {
     public partial class DetalleFactura : Form
     {
+
         private LobiPrincipal instanciaLobi;
         private Ventas factura = new Ventas();
         private SaleModel sale = new SaleModel();
+        int pagina = 0;
         public DetalleFactura(LobiPrincipal lobi, Ventas _venta)
         {
             InitializeComponent();
             this.instanciaLobi = lobi;
             factura = _venta;
+            printReporte.Text = "Factura";
+            printReporte.WindowState = FormWindowState.Maximized;
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
@@ -52,6 +58,8 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
         private void DetalleFactura_Load(object sender, EventArgs e)
         {
+            string carpetaDestino = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Principal/lobi/imagenes");
+            carpetaDestino = Path.GetFullPath(carpetaDestino);
             datosCabecera();
             dataGridFactura.DataSource = sale.ObtenerDetalleFacturaUltimaCabecera()!;
             DatosOcultos();
@@ -86,5 +94,232 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             dataGridFactura.Columns["SubTotalProducto"].DisplayIndex = dataGridFactura.Columns.Count - 1;
         }
 
+        private void iconImprimir_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += new PrintPageEventHandler(PrintPage);
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+                printDocument.DefaultPageSettings.Landscape = false;
+                printDocument.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
+
+                string numeroFactura = sale.ObtenerUltimoIdVentaCabecera().ToString();
+                string fechaHora = DateTime.Now.ToString("yyyyMMddHHmmss");
+                string nombreArchivo = $"Factura_{numeroFactura}.pdf";
+
+                // Configurar el diálogo de guardado de archivo
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = nombreArchivo;
+                saveFileDialog.Filter = "Archivos PDF (.pdf)|.pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaArchivoPDF = saveFileDialog.FileName;
+
+                    // Crear el archivo PDF con la ruta especificada
+                    printDocument.PrinterSettings.PrintToFile = true;
+                    printDocument.PrinterSettings.PrintFileName = rutaArchivoPDF;
+
+                    printDocument.Print();
+
+                    MessageBox.Show("Factura guardada como PDF.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics!;
+            Font fuente = new Font("Century Gothic", 10);
+            Font fuenteTitulo = new Font("Britannic Bold", 20);
+            Font fuenteSubtitulo = new Font("Century Gothic", 12, FontStyle.Bold); // Para los subtítulos
+            string carpetaDestino = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Principal/lobi/imagenes/");
+            carpetaDestino = Path.GetFullPath(carpetaDestino);
+            Image encabezado = Image.FromFile(carpetaDestino + "encabezado.png");
+            Image pie = Image.FromFile(carpetaDestino + "pie.png");
+            float x = 100;
+            float y = 100;
+            float anchoPagina = e.PageBounds.Width;
+            float altoImagenEncabezado = (encabezado.Height * anchoPagina) / encabezado.Width;
+            float altoImagenPie = (pie.Height * anchoPagina) / pie.Width;
+
+            if (encabezado != null)
+            {
+                graphics.DrawImage(encabezado, new RectangleF(0, 0, anchoPagina, altoImagenEncabezado));
+                y = 85;
+            }
+
+            // TITULO
+            string titulo = "Libreria Riot";
+            SizeF sizeTitulo = graphics.MeasureString(titulo, fuenteTitulo);
+            float xTitulo = anchoPagina - sizeTitulo.Width - 185;
+            float yTitulo = y;
+            graphics.DrawString(titulo, fuenteTitulo, Brushes.Black, xTitulo, yTitulo);
+            yTitulo += sizeTitulo.Height + 5;
+            y = yTitulo + 100;
+
+            // NUMERO Y TIPO DE FACTURA
+            graphics.DrawString("Factura N°: " + sale.ObtenerUltimoIdVentaCabecera().ToString(), new Font(fuente, FontStyle.Bold), Brushes.Black, x, y);
+            string tipoFactura = "Tipo de Factura: " + factura.TipoFactura;
+            SizeF sizeTipoFactura = graphics.MeasureString(tipoFactura, fuente);
+            float xTipoFactura = x + sizeTipoFactura.Width + 10;
+            graphics.DrawString(tipoFactura, new Font(fuente, FontStyle.Bold), Brushes.Black, xTipoFactura, y);
+            y += Math.Max(sizeTipoFactura.Height, fuente.GetHeight()) + 20;
+
+            // DATOS DEL CLIENTE
+            graphics.DrawString("Datos Cliente", fuenteSubtitulo, Brushes.Black, x, y); // Título en negrita
+            y += fuenteSubtitulo.GetHeight() + 10;
+
+            string cliente = "Cliente: " + factura.NombreCliente!.ToString() + " " + factura.ApellidoCliente;
+            string dni = "DNI: " + factura.DNICliente!.ToString();
+            SizeF sizeCliente = graphics.MeasureString(cliente, fuente);
+            SizeF sizeDNI = graphics.MeasureString(dni, fuente);
+            float xDNI = x + sizeCliente.Width + 25;
+            graphics.DrawString(cliente, fuente, Brushes.Black, x, y);
+            graphics.DrawString(dni, fuente, Brushes.Black, xDNI, y);
+            y += Math.Max(sizeCliente.Height, sizeDNI.Height) + 10;
+
+            string telefono = "Telefono: " + factura.Telefono?.ToString();
+            string direccion = "Direccion: " + factura.Domicilio?.ToString();
+            SizeF sizeTelefono = graphics.MeasureString(telefono, fuente);
+            SizeF sizeDireccion = graphics.MeasureString(direccion, fuente);
+            float xDireccion = x + sizeTelefono.Width + 25;
+            graphics.DrawString(telefono, fuente, Brushes.Black, x, y);
+            graphics.DrawString(direccion, fuente, Brushes.Black, xDireccion, y);
+            y += Math.Max(sizeTelefono.Height, sizeDireccion.Height) + 20;
+
+            // METODO DE PAGO Y FECHA
+            graphics.DrawString("Metodo De Pago: " + factura.TipoPago, fuente, Brushes.Black, x, y);
+            y += fuente.GetHeight() + 20;
+
+            graphics.DrawString("Fecha: " + factura.FechaFactura.ToString(), new Font(fuente, FontStyle.Bold), Brushes.Black, x, y);
+            y += fuente.GetHeight() + 20;
+
+            // DATAGRID FACTURA
+            string[] columnasDeseadas = { "Cantidad", "Titulo", "Editorial", "Autor", "Sub-Total" };
+            int margenIzquierdo = 30;
+
+            // Definir colores y fuentes para el encabezado y el contenido
+            Color encabezadoColor = Color.FromArgb(27, 107, 147);
+            Color contenidoColor = Color.FromArgb(221, 230, 237);
+            Font encabezadoFont = new Font("Century Gothic", 10, FontStyle.Bold);
+            Font contenidoFont = new Font("Century Gothic", 8, FontStyle.Regular);
+
+            if (dataGridFactura.Rows.Count > 0)
+            {
+                y += 2;
+
+                int headerHeight = dataGridFactura.ColumnHeadersHeight;
+                int xStart = (int)(x + margenIzquierdo);
+
+                // Dibuja el encabezado de la tabla
+                foreach (string colName in columnasDeseadas)
+                {
+                    DataGridViewColumn? col = dataGridFactura.Columns.Cast<DataGridViewColumn>().FirstOrDefault(c => c.Visible && c.HeaderText == colName);
+                    if (col != null)
+                    {
+                        e.Graphics.FillRectangle(new SolidBrush(encabezadoColor), xStart, y, col.Width, headerHeight);
+                        float xText = xStart + (col.Width - e.Graphics.MeasureString(col.HeaderText, encabezadoFont).Width) / 2;
+                        e.Graphics.DrawString(col.HeaderText, encabezadoFont, Brushes.White, xText, y + 6);
+                        xStart += col.Width;
+                    }
+                }
+
+                y += headerHeight;
+
+                int rowHeight = dataGridFactura.RowTemplate.Height;
+
+                // Dibuja las filas de la tabla
+                foreach (DataGridViewRow row in dataGridFactura.Rows)
+                {
+                    xStart = (int)(x + margenIzquierdo);
+                    foreach (string colName in columnasDeseadas)
+                    {
+                        DataGridViewColumn? col = dataGridFactura.Columns.Cast<DataGridViewColumn>().FirstOrDefault(c => c.Visible && c.HeaderText == colName);
+                        if (col != null)
+                        {
+                            e.Graphics.FillRectangle(new SolidBrush(contenidoColor), xStart, y, col.Width, rowHeight);
+
+                            string? cellValue = row.Cells[col.Index].Value != null ? row.Cells[col.Index].Value.ToString() : string.Empty;
+                            float xText = xStart + (col.Width - e.Graphics.MeasureString(cellValue, contenidoFont).Width) / 2;
+                            e.Graphics.DrawString(cellValue, contenidoFont, Brushes.Black, xText, y + 6);
+
+                            xStart += col.Width;
+                        }
+                    }
+                    y += rowHeight;
+                }
+            }
+
+            // Total de la factura
+            string totalText = "Total: $" + factura.MontoTotal.ToString();
+            Font totalFont = new Font(dataGridFactura.Font.FontFamily, 11, FontStyle.Bold);
+            int totalXStart = (int)(x + margenIzquierdo + 525);
+            int totalYStart = (int)y + 10;
+            e.Graphics.DrawString(totalText, totalFont, Brushes.Black, totalXStart, totalYStart);
+            y = totalYStart + (int)e.Graphics.MeasureString(totalText, dataGridFactura.Font).Height + 250;
+
+            // DATOS DEL VENDEDOR
+            graphics.DrawString("Datos Vendedor", fuenteSubtitulo, Brushes.Black, x, y); // Título en negrita
+            int button1X = (int)(x + graphics.MeasureString("Datos Vendedor", fuenteSubtitulo).Width + 350); // Ajusta el espacio entre el texto y el botón
+            Point button1Location = new Point(button1X, (int)y);
+            Size button1Size = new Size(23, 23);
+            DrawIconButton(graphics, IconChar.Shop, button1Location, button1Size);
+            int textoX = button1X + button1Size.Width + 10; // Ajusta el espacio entre el botón y el texto
+            graphics.DrawString("Empresa: Libreria Riot", fuente, Brushes.Black, textoX, y);
+
+            y += Math.Max(new Font(fuente.FontFamily, 12, FontStyle.Bold).GetHeight(), button1Size.Height) + 10;
+
+            // Vendedor
+            string vendedor = "Vendedor: " + factura.NombreVendedor!.ToString() + "  " + factura.ApellidoVendedor;
+            graphics.DrawString(vendedor, fuente, Brushes.Black, x, y);
+
+            y += fuente.GetHeight() + 5;
+
+            // Dibuja el segundo botón al lado derecho del texto "Vendedor"
+            Size button2Size = new Size(23, 23);
+            Point button2Location = new Point((int)(x + graphics.MeasureString(vendedor, fuente).Width + 300), (int)(y - button2Size.Height)); // Ajusta el espacio entre el texto y el botón
+
+            int textoX2 = button2Location.X + button2Size.Width + 10;
+            y += fuente.GetHeight() + 15;
+            string dniVendedor = "DNI: " + factura.DNIVendedor!.ToString();
+            graphics.DrawString(dniVendedor, fuente, Brushes.Black, x, y - 20);
+
+            if (pie != null)
+            {
+                graphics.DrawImage(pie, new RectangleF(0, e.PageBounds.Height - altoImagenPie, anchoPagina, altoImagenPie));
+            }
+
+            e.HasMorePages = false;
+        }
+
+        private void DrawIconButton(Graphics graphics, IconChar iconChar, Point location, Size size)
+        {
+            using (IconButton iconButton = new IconButton())
+            {
+                iconButton.BackColor = Color.Transparent;
+                iconButton.FlatAppearance.BorderSize = 0;
+                iconButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                iconButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                iconButton.FlatStyle = FlatStyle.Flat;
+                iconButton.IconChar = iconChar;
+                iconButton.IconColor = Color.Black;
+                iconButton.IconFont = IconFont.Auto;
+                iconButton.IconSize = Math.Min(size.Width, size.Height);
+                iconButton.ImageAlign = ContentAlignment.MiddleCenter;
+                iconButton.Location = location;
+                iconButton.Size = size;
+                iconButton.Text = string.Empty;
+                iconButton.UseVisualStyleBackColor = true;
+
+                Bitmap buttonBitmap = new Bitmap(iconButton.Width, iconButton.Height);
+                iconButton.DrawToBitmap(buttonBitmap, new Rectangle(0, 0, buttonBitmap.Width, buttonBitmap.Height));
+                graphics.DrawImage(buttonBitmap, location);
+            }
+        }
     }
 }

@@ -52,8 +52,9 @@
             cliente = new DataGridViewTextBoxColumn();
             total = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
-            lblMisVentas = new Label();
             label1 = new Label();
+            lblMisVentas = new Label();
+            iconImprimir = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridFactura).BeginInit();
@@ -165,6 +166,7 @@
             // 
             // panel7
             // 
+            panel7.Controls.Add(iconImprimir);
             panel7.Controls.Add(lbDNIVendedor);
             panel7.Controls.Add(lbNombreVendedor);
             panel7.Controls.Add(label4);
@@ -321,6 +323,19 @@
             panel2.Size = new Size(776, 71);
             panel2.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(241, 241, 241);
+            label1.Location = new Point(339, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 39);
+            label1.TabIndex = 2;
+            label1.Text = "Factura";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
             // lblMisVentas
             // 
             lblMisVentas.Anchor = AnchorStyles.Top;
@@ -334,18 +349,24 @@
             lblMisVentas.Text = "Factura";
             lblMisVentas.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label1
+            // iconImprimir
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(241, 241, 241);
-            label1.Location = new Point(339, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 39);
-            label1.TabIndex = 2;
-            label1.Text = "Factura";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            iconImprimir.Cursor = Cursors.Hand;
+            iconImprimir.FlatAppearance.BorderSize = 0;
+            iconImprimir.FlatStyle = FlatStyle.Flat;
+            iconImprimir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            iconImprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
+            iconImprimir.IconColor = Color.White;
+            iconImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconImprimir.IconSize = 40;
+            iconImprimir.ImageAlign = ContentAlignment.MiddleLeft;
+            iconImprimir.Location = new Point(18, 123);
+            iconImprimir.Name = "iconImprimir";
+            iconImprimir.Size = new Size(52, 45);
+            iconImprimir.TabIndex = 4;
+            iconImprimir.TextAlign = ContentAlignment.MiddleRight;
+            iconImprimir.UseVisualStyleBackColor = true;
+            iconImprimir.Click += iconImprimir_Click;
             // 
             // FacturaReImpresion
             // 
@@ -398,5 +419,6 @@
         private Panel panel2;
         private Label lblMisVentas;
         private Label label1;
+        private FontAwesome.Sharp.IconButton iconImprimir;
     }
 }

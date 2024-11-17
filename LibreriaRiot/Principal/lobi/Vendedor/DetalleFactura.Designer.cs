@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleFactura));
             panel1 = new Panel();
             panel3 = new Panel();
             lbTotal = new Label();
@@ -55,6 +56,8 @@
             total = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             lblMisVentas = new Label();
+            printReporte = new PrintPreviewDialog();
+            iconImprimir = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridFactura).BeginInit();
@@ -166,6 +169,7 @@
             // 
             // panel7
             // 
+            panel7.Controls.Add(iconImprimir);
             panel7.Controls.Add(lbDNIVendedor);
             panel7.Controls.Add(lbNombreVendedor);
             panel7.Controls.Add(label4);
@@ -232,7 +236,7 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 40;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(112, 32);
+            iconButton4.Location = new Point(80, 32);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(52, 45);
             iconButton4.TabIndex = 0;
@@ -366,6 +370,35 @@
             lblMisVentas.Text = "Factura";
             lblMisVentas.TextAlign = ContentAlignment.TopCenter;
             // 
+            // printReporte
+            // 
+            printReporte.AutoScrollMargin = new Size(0, 0);
+            printReporte.AutoScrollMinSize = new Size(0, 0);
+            printReporte.ClientSize = new Size(400, 300);
+            printReporte.Enabled = true;
+            printReporte.Icon = (Icon)resources.GetObject("printReporte.Icon");
+            printReporte.Name = "printReporte";
+            printReporte.Visible = false;
+            // 
+            // iconImprimir
+            // 
+            iconImprimir.Cursor = Cursors.Hand;
+            iconImprimir.FlatAppearance.BorderSize = 0;
+            iconImprimir.FlatStyle = FlatStyle.Flat;
+            iconImprimir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            iconImprimir.IconChar = FontAwesome.Sharp.IconChar.Print;
+            iconImprimir.IconColor = Color.White;
+            iconImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconImprimir.IconSize = 40;
+            iconImprimir.ImageAlign = ContentAlignment.MiddleLeft;
+            iconImprimir.Location = new Point(148, 32);
+            iconImprimir.Name = "iconImprimir";
+            iconImprimir.Size = new Size(52, 45);
+            iconImprimir.TabIndex = 0;
+            iconImprimir.TextAlign = ContentAlignment.MiddleRight;
+            iconImprimir.UseVisualStyleBackColor = true;
+            iconImprimir.Click += iconImprimir_Click;
+            // 
             // DetalleFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -419,5 +452,7 @@
         private Label lbNombreVendedor;
         private Label label4;
         private Label lbTotal;
+        private PrintPreviewDialog printReporte;
+        private FontAwesome.Sharp.IconButton iconImprimir;
     }
 }

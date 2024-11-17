@@ -122,7 +122,6 @@
             chart1.Location = new Point(82, 66);
             chart1.Name = "chart1";
             series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series4.Legend = "Legend1";
             series4.Name = "Series3";
             chart1.Series.Add(series4);

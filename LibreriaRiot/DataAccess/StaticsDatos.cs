@@ -12,9 +12,9 @@ namespace LibreriaRiot.DataAccess
 {
     internal class StaticsDatos : ConnectionToSql
     {
-        public List<Tuple<string, float>> MejoresClientes()
+        public List<Tuple<int, string, float>> MejoresClientes()
         {
-            List<Tuple<string, float>> mejoresClientes = new List<Tuple<string, float>>();
+            List<Tuple<int, string, float>> mejoresClientes = new List<Tuple<int, string, float>>();
 
             using (var connection = GetConnection())
             {
@@ -22,24 +22,27 @@ namespace LibreriaRiot.DataAccess
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT TOP 3 p.Nombre, p.Apellido, SUM(vd.SubTotalProducto) AS TotalVentas " +
-                                        "FROM Cliente c " +
-                                        "INNER JOIN Persona p ON c.Id_Persona = p.Id_Persona " +
-                                        "INNER JOIN Venta_Cabecera vc ON c.Id_Cliente = vc.Id_Cliente " +
-                                        "INNER JOIN Venta_Detalle vd ON vc.Id_VentaCabecera = vd.Id_VentaCabecera " +
-                                        "WHERE vc.Estado = 'activo' " +
-                                        "GROUP BY p.Nombre, p.Apellido " +
-                                        "ORDER BY TotalVentas DESC";
+                    command.CommandText = @"
+                SELECT TOP 3 
+                    c.Id_Cliente,
+                    (p.Nombre + ' ' + p.Apellido) AS NombreCompleto,
+                    SUM(vd.SubTotalProducto) AS TotalVentas 
+                FROM Cliente c 
+                INNER JOIN Persona p ON c.Id_Persona = p.Id_Persona 
+                INNER JOIN Venta_Cabecera vc ON c.Id_Cliente = vc.Id_Cliente 
+                INNER JOIN Venta_Detalle vd ON vc.Id_VentaCabecera = vd.Id_VentaCabecera 
+                WHERE vc.Estado = 'activo'
+                GROUP BY c.Id_Cliente, p.Nombre, p.Apellido 
+                ORDER BY TotalVentas DESC";
 
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            string nombre = reader["Nombre"].ToString()!;
-                            string apellido = reader["Apellido"].ToString()!;
+                            int idCliente = Convert.ToInt32(reader["Id_Cliente"]);
+                            string nombreCompleto = reader["NombreCompleto"].ToString()!;
                             float totalVentas = Convert.ToSingle(reader["TotalVentas"]);
-                            string nombreCompleto = $"{nombre} {apellido}";
-                            mejoresClientes.Add(new Tuple<string, float>(nombreCompleto, totalVentas));
+                            mejoresClientes.Add(new Tuple<int, string, float>(idCliente, nombreCompleto, totalVentas));
                         }
                     }
                 }
