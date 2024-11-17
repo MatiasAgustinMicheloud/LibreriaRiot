@@ -109,7 +109,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
 
                 string numeroFactura = sale.ObtenerUltimoIdVentaCabecera().ToString();
                 string fechaHora = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string nombreArchivo = $"Factura_{numeroFactura}.pdf";
+                string nombreArchivo = $"Factura_" + numeroFactura + ".pdf";
 
                 // Configurar el diálogo de guardado de archivo
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -168,7 +168,7 @@ namespace LibreriaRiot.Principal.lobi.Vendedor
             SizeF sizeTipoFactura = graphics.MeasureString(tipoFactura, fuente);
             float xTipoFactura = x + sizeTipoFactura.Width + 10;
             graphics.DrawString(tipoFactura, new Font(fuente, FontStyle.Bold), Brushes.Black, xTipoFactura, y);
-            y += Math.Max(sizeTipoFactura.Height, fuente.GetHeight()) + 20;
+            y += Math.Max(sizeTipoFactura.Height, fuente.GetHeight()) + 20; 
 
             // DATOS DEL CLIENTE
             graphics.DrawString("Datos Cliente", fuenteSubtitulo, Brushes.Black, x, y); // Título en negrita

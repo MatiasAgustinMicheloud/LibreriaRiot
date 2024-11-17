@@ -13,9 +13,8 @@ namespace Domain
     internal class StaticsModel
     {
         private StaticsDatos statisticsDatos = new();
-        public List<Tuple<int, string, float>> ClientesDestacados()
+        public List<Tuple<string, float>> ClientesDestacados()
         {
-            // Llama al método MejoresClientes y retorna el resultado directamente.
             return statisticsDatos.MejoresClientes();
         }
 
